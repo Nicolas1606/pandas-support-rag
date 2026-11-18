@@ -1,0 +1,45 @@
+{
+  "case_id": "case-047-1",
+  "family": "family-047",
+  "question": "Qual índice criar no PostgreSQL?",
+  "topic": "outside",
+  "expected_action": "handoff",
+  "reference_facts": [
+    "Fora do domínio coberto."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "637d4e854ed64a7fbca962174df226fa",
+    "action": "handoff",
+    "message": "Qual índice criar no PostgreSQL?",
+    "claims": [],
+    "sources": [],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950395.9779024,
+    "audit": null,
+    "interpretation": {
+      "scope": "outside",
+      "english_question": "What index to create in PostgreSQL?",
+      "message": "Qual índice criar no PostgreSQL?"
+    },
+    "planning_usage": {
+      "eval_count": 34,
+      "prompt_eval_count": 162,
+      "total_duration": 1983487400,
+      "load_duration": 7426400,
+      "prompt_eval_duration": 220372000,
+      "eval_duration": 1569781000
+    },
+    "total_ms": 1985.7439000043087
+  }
+}

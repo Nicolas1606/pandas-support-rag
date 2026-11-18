@@ -1,0 +1,133 @@
+{
+  "case_id": "case-042-1",
+  "family": "family-042",
+  "question": "Posso substituir todos os ausentes por zero?",
+  "topic": "types",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir significado de ausência e uso; não impor regra."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "1eaa0981f7d2485d893527ab3f8ff75e",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Sim, você pode substituir todos os valores ausentes com zero usando o método `replace()` com `np.nan` como valor a ser substituído e `0` como valor de substituição. Por exemplo: `df.replace(np.nan, 0)`.",
+        "evidence_ids": [
+          "cae4e1e202eeb89ea21a811b"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "cae4e1e202eeb89ea21a811b",
+            "quote": "Missing values propagate through arithmetic operations between pandas objects.\n\n```\nIn [70]: ser1 = pd.Series([np.nan, np.nan, 2, 3])\n\nIn [71]: ser2 = pd.Series([np.nan, 1, np.nan, 4])\n\nIn [72]: ser1\nOut[72]:\n0    NaN\n1    NaN\n2    2.0\n3    3.0\ndtype: float64\n\nIn [73]: ser2\nOut[73]:\n0    NaN\n1    1.0\n2    NaN\n3    4.0\ndtype: float64\n\nIn [74]: ser1 + ser2\nOut[74]:\n0    NaN\n1    NaN\n2    NaN\n3    7.0\ndtype: float64\n```\n\nThe descriptive statistics and computational methods discussed in the\ndata structure overview (and listed here and here) are all\naccount for missing data.\n\nWhen summing data, NA values or empty data will be treated as zero.\n\n```\nIn [75]: pd.Series([np.nan]).sum()\nOut[75]: 0.0\n\nIn [76]: pd.Series([], dtype=\"float64\").sum()\nOut[76]: 0.0\n```\n\nWhen taking the product, NA values or empty data will be treated as 1.\n\n```\nIn [77]: pd.Series([np.nan]).prod()\nOut[77]: 1.0"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "9a9e8c6be2d8edd887948bf8",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Replacing values",
+        "text": "`Series.replace()` and `DataFrame.replace()` can be used similar to\n`Series.fillna()` and `DataFrame.fillna()` to replace or insert missing values.\n\n```\nIn [151]: df = pd.DataFrame(np.eye(3))\n\nIn [152]: df\nOut[152]:\n     0    1    2\n0  1.0  0.0  0.0\n1  0.0  1.0  0.0\n2  0.0  0.0  1.0\n\nIn [153]: df_missing = df.replace(0, np.nan)\n\nIn [154]: df_missing\nOut[154]:\n     0    1    2\n0  1.0  NaN  NaN\n1  NaN  1.0  NaN\n2  NaN  NaN  1.0\n\nIn [155]: df_filled = df_missing.replace(np.nan, 2)\n\nIn [156]: df_filled\nOut[156]:\n     0    1    2\n0  1.0  2.0  2.0\n1  2.0  1.0  2.0\n2  2.0  2.0  1.0\n```\n\nReplacing more than one value is possible by passing a list.\n\n```\nIn [157]: df_filled.replace([1, 44], [2, 28])\nOut[157]:\n     0    1    2\n0  2.0  2.0  2.0\n1  2.0  2.0  2.0\n2  2.0  2.0  2.0\n```\n\nReplacing using a mapping dict.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 17,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "de2076bc70d20f74ace4ad2d101b481ff7e5fb491c153f18e0b0cc01b13b7474",
+        "score": 0.5576032632280093
+      },
+      {
+        "id": "cae4e1e202eeb89ea21a811b",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Calculations with missing data",
+        "text": "Missing values propagate through arithmetic operations between pandas objects.\n\n```\nIn [70]: ser1 = pd.Series([np.nan, np.nan, 2, 3])\n\nIn [71]: ser2 = pd.Series([np.nan, 1, np.nan, 4])\n\nIn [72]: ser1\nOut[72]:\n0    NaN\n1    NaN\n2    2.0\n3    3.0\ndtype: float64\n\nIn [73]: ser2\nOut[73]:\n0    NaN\n1    1.0\n2    NaN\n3    4.0\ndtype: float64\n\nIn [74]: ser1 + ser2\nOut[74]:\n0    NaN\n1    NaN\n2    NaN\n3    7.0\ndtype: float64\n```\n\nThe descriptive statistics and computational methods discussed in the\ndata structure overview (and listed here and here) are all\naccount for missing data.\n\nWhen summing data, NA values or empty data will be treated as zero.\n\n```\nIn [75]: pd.Series([np.nan]).sum()\nOut[75]: 0.0\n\nIn [76]: pd.Series([], dtype=\"float64\").sum()\nOut[76]: 0.0\n```\n\nWhen taking the product, NA values or empty data will be treated as 1.\n\n```\nIn [77]: pd.Series([np.nan]).prod()\nOut[77]: 1.0",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "5a981b207f4f9070966b049d3161331f1eb6621b22f15bda246e23e421c64a0b",
+        "score": 0.5055343534298438
+      },
+      {
+        "id": "bb971fb4e632c3846bc1acfd",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Filling by value",
+        "text": "NA values can be replaced with corresponding value from a `Series` or `DataFrame`\nwhere the index and column aligns between the original object and the filled object.\n\n```\nIn [96]: dff = pd.DataFrame(np.arange(30, dtype=np.float64).reshape(10, 3), columns=list(\"ABC\"))\n\nIn [97]: dff.iloc[3:5, 0] = np.nan\n\nIn [98]: dff.iloc[4:6, 1] = np.nan\n\nIn [99]: dff.iloc[5:8, 2] = np.nan\n\nIn [100]: dff\nOut[100]:\n      A     B     C\n0   0.0   1.0   2.0\n1   3.0   4.0   5.0\n2   6.0   7.0   8.0\n3   NaN  10.0  11.0\n4   NaN   NaN  14.0\n5  15.0   NaN   NaN\n6  18.0  19.0   NaN\n7  21.0  22.0   NaN\n8  24.0  25.0  26.0\n9  27.0  28.0  29.0",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 10,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "3e0b2ae3745d011fa7d8bb54e99db3cbcc01f413ab3a250a7f1f64c61a1be8fe",
+        "score": 0.4922630368204367
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951130.6836019,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na evidência fornecida, que mostra como substituir valores ausentes com zero usando `replace()`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Can I replace all missing values with zero?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 209,
+      "total_duration": 1754994800,
+      "load_duration": 6935000,
+      "prompt_eval_duration": 191761000,
+      "eval_duration": 1359789000
+    },
+    "retrieval_ms": 1924.7494000010192,
+    "context_chars": 2322,
+    "generation_ms": 6880.457599996589,
+    "usage": {
+      "eval_count": 86,
+      "prompt_eval_count": 2072,
+      "total_duration": 6878409100,
+      "load_duration": 6481800,
+      "prompt_eval_duration": 2096284999,
+      "eval_duration": 4736506000
+    },
+    "audit_usage": {
+      "eval_count": 54,
+      "prompt_eval_count": 2539,
+      "total_duration": 5830200400,
+      "load_duration": 9888400,
+      "prompt_eval_duration": 2366670000,
+      "eval_duration": 3203448000
+    },
+    "audit_ms": 5832.231100008357,
+    "total_ms": 14638.293399999384
+  }
+}

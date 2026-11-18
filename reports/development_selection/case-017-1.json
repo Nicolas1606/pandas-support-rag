@@ -1,0 +1,132 @@
+{
+  "case_id": "case-017-1",
+  "family": "family-017",
+  "question": "Como transformar datas inválidas em NaT?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "errors=coerce gera NaT."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.25
+  },
+  "output": {
+    "request_id": "04ccf3bec4164a908bf0001a1c311150",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para transformar datas inválidas em `NaT`, use o parâmetro `errors='coerce'` na função `pandas.to_datetime`, que converte as entradas inválidas em `NaT`.",
+        "evidence_ids": [
+          "ed995d8be025066a3206ff4f"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "ed995d8be025066a3206ff4f",
+            "quote": "The object to convert to a datetime. If a `DataFrame` is provided, the\nmethod expects minimally the following columns: `\"year\"`,\n`\"month\"`, `\"day\"`. The column “year”\nmust be specified in 4-digit format.\n\nerrors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If `'raise'`, then invalid parsing will raise an exception.\n\n- If `'coerce'`, then invalid parsing will be set as `NaT`.\n\n- If `'ignore'`, then invalid parsing will return the input."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "9645f10601e58ff7036aea4d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — Notes",
+        "text": "Notes\n\nMany input types are supported, and lead to different output types:\n\n- scalars can be int, float, str, datetime object (from stdlib `datetime`\nmodule or `numpy`). They are converted to `Timestamp` when\npossible, otherwise they are converted to `datetime.datetime`.\nNone/NaN/null scalars are converted to `NaT`.\n\n- array-like can contain int, float, str, datetime objects. They are\nconverted to `DatetimeIndex` when possible, otherwise they are\nconverted to `Index` with `object` dtype, containing\n`datetime.datetime`. None/NaN/null entries are converted to\n`NaT` in both cases.\n\n- Series are converted to `Series` with `datetime64`\ndtype when possible, otherwise they are converted to `Series` with\n`object` dtype, containing `datetime.datetime`. None/NaN/null\nentries are converted to `NaT` in both cases.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 12,
+        "part": 0,
+        "content_sha256": "e83cc83a3cb73bee256e242e3a9eb82705f16ac4af1b8fbd3cdcff8245b2601c",
+        "score": 0.47761864625847333
+      },
+      {
+        "id": "ed995d8be025066a3206ff4f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — The object to convert to a datetime. If a `DataFrame` is provided, the",
+        "text": "The object to convert to a datetime. If a `DataFrame` is provided, the\nmethod expects minimally the following columns: `\"year\"`,\n`\"month\"`, `\"day\"`. The column “year”\nmust be specified in 4-digit format.\n\nerrors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If `'raise'`, then invalid parsing will raise an exception.\n\n- If `'coerce'`, then invalid parsing will be set as `NaT`.\n\n- If `'ignore'`, then invalid parsing will return the input.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "7c947c8800581dbb6be72e37241c2e1d2c1a2629e6fb2268eac837bc7d753515",
+        "score": 0.46406817367101416
+      },
+      {
+        "id": "ee3f2d49433da8e804e0811d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Values considered “missing”",
+        "text": "pandas uses different sentinel values to represent a missing (also referred to as NA)\ndepending on the data type.\n\n`numpy.nan` for NumPy data types. The disadvantage of using NumPy data types\nis that the original data type will be coerced to `np.float64` or `object`.\n\n```\nIn [1]: pd.Series([1, 2], dtype=np.int64).reindex([0, 1, 2])\nOut[1]:\n0    1.0\n1    2.0\n2    NaN\ndtype: float64\n\nIn [2]: pd.Series([True, False], dtype=np.bool_).reindex([0, 1, 2])\nOut[2]:\n0     True\n1    False\n2      NaN\ndtype: object\n```\n\n`NaT` for NumPy `np.datetime64`, `np.timedelta64`, and `PeriodDtype`. For typing applications,\nuse `api.types.NaTType`.\n\n```\nIn [3]: pd.Series([1, 2], dtype=np.dtype(\"timedelta64[ns]\")).reindex([0, 1, 2])\nOut[3]:\n0   0 days 00:00:00.000000001\n1   0 days 00:00:00.000000002\n2                         NaT\ndtype: timedelta64[ns]",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "38eb398947bff281af138f03af1c4612587c56e8f3716117fcfb5ea3b8e1f047",
+        "score": 0.45668877410747494
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950317.5298147,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, indicando que o parâmetro `errors='coerce'` converte datas inválidas em `NaT`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to transform invalid dates into NaT?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 167,
+      "total_duration": 1706364200,
+      "load_duration": 7988100,
+      "prompt_eval_duration": 172874000,
+      "eval_duration": 1389130000
+    },
+    "retrieval_ms": 1882.942500000354,
+    "context_chars": 2094,
+    "generation_ms": 5810.867099964526,
+    "usage": {
+      "eval_count": 79,
+      "prompt_eval_count": 1649,
+      "total_duration": 5808476000,
+      "load_duration": 7399600,
+      "prompt_eval_duration": 1743464000,
+      "eval_duration": 4036093000
+    },
+    "audit_usage": {
+      "eval_count": 62,
+      "prompt_eval_count": 1885,
+      "total_duration": 5590041400,
+      "load_duration": 5727300,
+      "prompt_eval_duration": 1941894000,
+      "eval_duration": 3498344000
+    },
+    "audit_ms": 5591.977700009011,
+    "total_ms": 13286.030400020536
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "case_id": "case-008-2",
+  "family": "family-008",
+  "question": "Como evitar carregar todo o CSV de uma vez usando chunksize?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "chunksize retorna leitor iterável por blocos."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "9d29633370294454b848235991a7371f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para evitar carregar todo o CSV de uma vez usando `chunksize`, você pode passar o parâmetro `chunksize` com o número de linhas que deseja ler por chunk. Isso retornará um objeto `TextFileReader` para iteração, permitindo processar o arquivo em partes. Exemplo: `pd.read_csv('arquivo.csv', chunksize=1000)`.",
+        "evidence_ids": [
+          "0c34bda3ca03adedf9827a8c"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "0c34bda3ca03adedf9827a8c",
+            "quote": "chunksize int, optional\n\nNumber of lines to read from the file per chunk. Passing a value will cause the\nfunction to return a `TextFileReader` object for iteration.\nSee the IO Tools docs\nfor more information on `iterator` and `chunksize`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "0c34bda3ca03adedf9827a8c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — chunksize int, optional",
+        "text": "chunksize int, optional\n\nNumber of lines to read from the file per chunk. Passing a value will cause the\nfunction to return a `TextFileReader` object for iteration.\nSee the IO Tools docs\nfor more information on `iterator` and `chunksize`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 33,
+        "part": 0,
+        "content_sha256": "6fa8e9723fa34b1c07f540bc51c99a45ce653ea5bb28edccb94bb2b52a3d9aa0",
+        "score": 0.5919029399895931
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950626.1022103,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, menciona corretamente o uso do parâmetro `chunksize` e explica que isso retorna um objeto `TextFileReader` para iteração, permitindo processar o arquivo em partes, conforme descrito na evidência fornecida."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to avoid loading the entire CSV at once using chunksize?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 34,
+      "prompt_eval_count": 212,
+      "total_duration": 2094468300,
+      "load_duration": 6968600,
+      "prompt_eval_duration": 184986000,
+      "eval_duration": 1657954000
+    },
+    "retrieval_ms": 2318.346099986229,
+    "context_chars": 238,
+    "generation_ms": 8663.705199956894,
+    "usage": {
+      "eval_count": 115,
+      "prompt_eval_count": 529,
+      "total_duration": 8661172800,
+      "load_duration": 7002200,
+      "prompt_eval_duration": 3205630000,
+      "eval_duration": 5424138000
+    },
+    "audit_usage": {
+      "eval_count": 86,
+      "prompt_eval_count": 725,
+      "total_duration": 4868417100,
+      "load_duration": 5796800,
+      "prompt_eval_duration": 770238000,
+      "eval_duration": 4058562000
+    },
+    "audit_ms": 4870.730900031049,
+    "total_ms": 15853.005699987989
+  }
+}

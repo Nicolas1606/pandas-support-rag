@@ -1,0 +1,133 @@
+{
+  "case_id": "case-022-1",
+  "family": "family-022",
+  "question": "Como consultar os tipos de todas as colunas?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "dtypes apresenta um tipo por coluna."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "c51ca10e717f4eb1b88998e7e13b1174",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para consultar os tipos de todas as colunas de um DataFrame, use a propriedade `dtypes`, que retorna uma Series com o tipo de dados de cada coluna. Exemplo: `df.dtypes`.",
+        "evidence_ids": [
+          "ce29c96cd6a4496a1ace0512"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "ce29c96cd6a4496a1ace0512",
+            "quote": "_property_ DataFrame.dtypes [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6432-L6461)\n\nReturn the dtypes in the DataFrame.\n\nThis returns a Series with the data type of each column.\nThe result’s index is the original DataFrame’s columns. Columns\nwith mixed types are stored with the `object` dtype. See\nthe User Guide for more.\n\nReturns:pandas.Series\n\nThe data type of each column."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "ce29c96cd6a4496a1ace0512",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "title": "pandas.DataFrame.dtypes",
+        "section": "pandas.DataFrame.dtypes — _property_ DataFrame.dtypes [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6432-L6461)",
+        "text": "_property_ DataFrame.dtypes [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6432-L6461)\n\nReturn the dtypes in the DataFrame.\n\nThis returns a Series with the data type of each column.\nThe result’s index is the original DataFrame’s columns. Columns\nwith mixed types are stored with the `object` dtype. See\nthe User Guide for more.\n\nReturns:pandas.Series\n\nThe data type of each column.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "e31aa5645dc43362f63f75e615116144c6c07463b48989641d3980502c9bd079",
+        "score": 0.5218146198093673
+      },
+      {
+        "id": "9bb0fba306cbd684a8d15206",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "Selecting columns based on `dtype`",
+        "text": "To see all the child dtypes of a generic `dtype` like `numpy.number` you\ncan define a function that returns a tree of child dtypes:\n\n```\nIn [441]: def subdtypes(dtype):\n   .....:     subs = dtype.__subclasses__()\n   .....:     if not subs:\n   .....:         return dtype\n   .....:     return [dtype, [subdtypes(dt) for dt in subs]]\n   .....:\n```\n\nAll NumPy dtypes are subclasses of `numpy.generic`:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 69,
+        "unit": 0,
+        "part": 4,
+        "content_sha256": "54b6152f26675189f806281e09c2242b3fb0272e01b839e9114c3779d7933019",
+        "score": 0.47183321715973325
+      },
+      {
+        "id": "94fc44e5134bb7fbe42034f0",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Dtype specifications \\",
+        "text": "\\\nAs an alternative to converters, the type for an entire column can\\\nbe specified using the `dtype` keyword, which takes a dictionary\\\nmapping column names to types. To interpret data with\\\nno type inference, use the type `str` or `object`.\\\n\\\n```\\\npd.read_excel(\"path_to_file.xls\", dtype={\"MyInts\": \"int64\", \"MyText\": str})\\\n```\\\n\\\nCopy to clipboard\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 96,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "9ff70cc3e1ed5a0631b10b01c817fcba11b6b0b10f2c78a46a55c924182c42ce",
+        "score": 0.4631365719716313
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950819.901277,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, indicando que a propriedade `dtypes` retorna uma Series com o tipo de dados de cada coluna do DataFrame, conforme descrito no documento fornecido."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to consult the types of all columns?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 208,
+      "total_duration": 1826269800,
+      "load_duration": 6493900,
+      "prompt_eval_duration": 156966000,
+      "eval_duration": 1438221000
+    },
+    "retrieval_ms": 2024.1039000102319,
+    "context_chars": 1170,
+    "generation_ms": 5361.329699982889,
+    "usage": {
+      "eval_count": 76,
+      "prompt_eval_count": 1345,
+      "total_duration": 5357968100,
+      "load_duration": 8782100,
+      "prompt_eval_duration": 1434586000,
+      "eval_duration": 3861125000
+    },
+    "audit_usage": {
+      "eval_count": 71,
+      "prompt_eval_count": 1560,
+      "total_duration": 5451369900,
+      "load_duration": 6487300,
+      "prompt_eval_duration": 1702749000,
+      "eval_duration": 3627448000
+    },
+    "audit_ms": 5469.960199960042,
+    "total_ms": 12855.625300027896
+  }
+}

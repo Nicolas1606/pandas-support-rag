@@ -1,0 +1,56 @@
+[
+  {
+    "method": "bm25",
+    "hit_at_k": {
+      "mean": 0.5263157894736842,
+      "denominator": 38
+    },
+    "evidence_recall": {
+      "mean": 0.5263157894736842,
+      "denominator": 38
+    },
+    "mrr": {
+      "mean": 0.2890350877192982,
+      "denominator": 38
+    },
+    "errors": 0,
+    "latency_median_ms": 3.469100018264726,
+    "latency_p95_ms": 4.71771503216587
+  },
+  {
+    "method": "dense",
+    "hit_at_k": {
+      "mean": 0.7368421052631579,
+      "denominator": 38
+    },
+    "evidence_recall": {
+      "mean": 0.7368421052631579,
+      "denominator": 38
+    },
+    "mrr": {
+      "mean": 0.5271929824561404,
+      "denominator": 38
+    },
+    "errors": 0,
+    "latency_median_ms": 130.99435000913218,
+    "latency_p95_ms": 149.4032100046752
+  },
+  {
+    "method": "hybrid",
+    "hit_at_k": {
+      "mean": 0.6578947368421053,
+      "denominator": 38
+    },
+    "evidence_recall": {
+      "mean": 0.6578947368421053,
+      "denominator": 38
+    },
+    "mrr": {
+      "mean": 0.5328947368421053,
+      "denominator": 38
+    },
+    "errors": 0,
+    "latency_median_ms": 138.76060000620782,
+    "latency_p95_ms": 186.59995501511727
+  }
+]

@@ -1,0 +1,133 @@
+{
+  "case_id": "case-004-2",
+  "family": "family-004",
+  "question": "Quero ler apenas id e valor. Como limitar as colunas?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Selecionar colunas com usecols."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "6ac6eb280e394476b8465c5042d6d4b6",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para limitar as colunas ao ler um arquivo, você pode usar o parâmetro `usecols` com uma lista de nomes de colunas desejadas. Por exemplo, para ler apenas as colunas 'id' e 'value', use `usecols=['id', 'value']`.",
+        "evidence_ids": [
+          "c5b738466cc8a7c41086d193"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "c5b738466cc8a7c41086d193",
+            "quote": "The `usecols` argument allows you to select any subset of the columns in a\nfile, either using the column names, position numbers or a callable:\n\n```\nIn [61]: data = \"a,b,c,d\\n1,2,3,foo\\n4,5,6,bar\\n7,8,9,baz\"\n\nIn [62]: pd.read_csv(StringIO(data))\nOut[62]:\n   a  b  c    d\n0  1  2  3  foo\n1  4  5  6  bar\n2  7  8  9  baz\n\nIn [63]: pd.read_csv(StringIO(data), usecols=[\"b\", \"d\"])\nOut[63]:\n   b    d\n0  2  foo\n1  5  bar\n2  8  baz\n\nIn [64]: pd.read_csv(StringIO(data), usecols=[0, 2, 3])\nOut[64]:\n   a  c    d\n0  1  3  foo\n1  4  6  bar\n2  7  9  baz\n\nIn [65]: pd.read_csv(StringIO(data), usecols=lambda x: x.upper() in [\"A\", \"C\"])\nOut[65]:\n   a  c\n0  1  3\n1  4  6\n2  7  9\n```\n\nThe `usecols` argument can also be used to specify which columns not to\nuse in the final result:"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "24cb4b585f85ad0eb784b15a",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Reading tables \\ — return object-valued (str) series. Accordingly, if the query output is empty,\\",
+        "text": "return object-valued (str) series. Accordingly, if the query output is empty,\\\nthen all resulting columns will be returned as object-valued (since they are\\\nmost general). If you foresee that your query will sometimes generate an empty\\\nresult, you may want to explicitly typecast afterwards to ensure dtype\\\nintegrity.\\\n\\\nYou can also specify the name of the column as the `DataFrame` index,\\\nand specify a subset of columns to be read.\\\n\\\n```\\\nIn [651]: pd.read_sql_table(\"data\", engine, index_col=\"id\")\\\nOut[651]:\\\n    index       Date Col_1  Col_2  Col_3\\\nid\\\n26      0 2010-10-18     X  27.50   True\\\n42      1 2010-10-19     Y -12.50  False\\\n63      2 2010-10-20     Z   5.73   True\\\n\\\nIn [652]: pd.read_sql_table(\"data\", engine, columns=[\"Col_1\", \"Col_2\"])\\\nOut[652]:\\\n  Col_1  Col_2\\\n0     X  27.50\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 186,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "902163abd543125f457cca82630318d6f052c52096bfb096bbf89a62f8e666ef",
+        "score": 0.3888271478418745
+      },
+      {
+        "id": "d335c46536f9df23194ad375",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Reading tables \\",
+        "text": "return integer-valued series, while `select cast(userid as text) ...` will\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 186,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "0b0b4d03a6f5ce97d15d0300636c968154bbd1b86fa4a2f7cdebec0ab3eeeff0",
+        "score": 0.3486027269015055
+      },
+      {
+        "id": "c5b738466cc8a7c41086d193",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Filtering columns (`usecols`)",
+        "text": "The `usecols` argument allows you to select any subset of the columns in a\nfile, either using the column names, position numbers or a callable:\n\n```\nIn [61]: data = \"a,b,c,d\\n1,2,3,foo\\n4,5,6,bar\\n7,8,9,baz\"\n\nIn [62]: pd.read_csv(StringIO(data))\nOut[62]:\n   a  b  c    d\n0  1  2  3  foo\n1  4  5  6  bar\n2  7  8  9  baz\n\nIn [63]: pd.read_csv(StringIO(data), usecols=[\"b\", \"d\"])\nOut[63]:\n   b    d\n0  2  foo\n1  5  bar\n2  8  baz\n\nIn [64]: pd.read_csv(StringIO(data), usecols=[0, 2, 3])\nOut[64]:\n   a  c    d\n0  1  3  foo\n1  4  6  bar\n2  7  9  baz\n\nIn [65]: pd.read_csv(StringIO(data), usecols=lambda x: x.upper() in [\"A\", \"C\"])\nOut[65]:\n   a  c\n0  1  3\n1  4  6\n2  7  9\n```\n\nThe `usecols` argument can also be used to specify which columns not to\nuse in the final result:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 15,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "3afa8b3f2b1e3dc90ddd7e0ce4ecffe02365091ef85c5cdeff5009ab8eb5c52f",
+        "score": 0.34835909414542315
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950555.4438157,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada no uso do parâmetro `usecols` para limitar as colunas lidas, conforme documentado."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "I want to read only id and value. How to limit the columns?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 36,
+      "prompt_eval_count": 213,
+      "total_duration": 1869766000,
+      "load_duration": 6755900,
+      "prompt_eval_duration": 182750000,
+      "eval_duration": 1575062000
+    },
+    "retrieval_ms": 2023.2711999560706,
+    "context_chars": 1649,
+    "generation_ms": 5156.226000050083,
+    "usage": {
+      "eval_count": 97,
+      "prompt_eval_count": 1658,
+      "total_duration": 5153845100,
+      "load_duration": 5729900,
+      "prompt_eval_duration": 53048000,
+      "eval_duration": 5016375000
+    },
+    "audit_usage": {
+      "eval_count": 55,
+      "prompt_eval_count": 2151,
+      "total_duration": 3345366400,
+      "load_duration": 7933900,
+      "prompt_eval_duration": 63363000,
+      "eval_duration": 3120493000
+    },
+    "audit_ms": 3346.8085000058636,
+    "total_ms": 10526.504699955694
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "candidate_corpus": "d220e7ffa40c1d20",
+  "documents": 30,
+  "manifest": {
+    "corpus_id": "d220e7ffa40c1d20",
+    "chunks_sha256": "d220e7ffa40c1d203c490c705cf2cdbf0b1da435ef7c733b62a2e08bde85a5b3",
+    "sources": [
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "sha256": "8bb99275d7a13fb5c610b08cdff8f068be2a4c5902f74af5a8ddfad2cd075eb6",
+        "retrieved_at": "2026-11-17T21:09:32.529681+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "sha256": "23cc22b74ac153ce12386ecad63c8049f9abe5bb3b40684ab5b5b8ce44a20f09",
+        "retrieved_at": "2026-11-17T21:09:32.793895+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_table.html",
+        "sha256": "998c81e4decdcbf2900cd0bf3ae9dc4e6c254f8569b730b26814194e8a95c09e",
+        "retrieved_at": "2026-11-17T21:09:33.063280+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_json.html",
+        "sha256": "fa2931019c8866fdbce4b75d5d9958655667b0ccc5519d3d502b8dd52285c5e9",
+        "retrieved_at": "2026-11-17T21:09:33.318629+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.ExcelFile.html",
+        "sha256": "fff33e8ff4113c2c18d6834281de80c5c17458b8a86b282ac55a7332aa24ed75",
+        "retrieved_at": "2026-11-17T21:09:33.886752+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html",
+        "sha256": "560e400c2cb89d65cc9970a8e7449757dbf04716251e50859aa519ab943dc354",
+        "retrieved_at": "2026-11-17T21:09:34.140214+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Series.astype.html",
+        "sha256": "bd1bf81fbbe36e99227ef71b66e2085cf8ae66f1164ec66b4d29fb912a45dec5",
+        "retrieved_at": "2026-11-17T21:09:34.400182+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "sha256": "43912e2181a6c0847b9c29275672da0e05aa253f2dd987854d1de68cb60c4df7",
+        "retrieved_at": "2026-11-17T21:09:34.635183+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "sha256": "191476595405ca67456ab4916cec47b0aaaeed715ad49bcecf7e118f4f18f3ab",
+        "retrieved_at": "2026-11-17T21:09:34.922439+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.convert_dtypes.html",
+        "sha256": "246927ce15b0ba9f6c5b0fef14231ba62009938c172bbf0a3a3a8792a03cc9c6",
+        "retrieved_at": "2026-11-17T21:09:35.200876+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Series.convert_dtypes.html",
+        "sha256": "ee4ad3569d3643f947fc000e788332b3a3fc1e4949911b5ff8edbef1a16d2e39",
+        "retrieved_at": "2026-11-17T21:09:35.490155+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.infer_objects.html",
+        "sha256": "5926288b1321e626de2567155a63dc33d71311ec0b052e776dc6ff62cdc41c65",
+        "retrieved_at": "2026-11-17T21:09:35.736074+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "sha256": "c8061e373533fb9d3cb5bf54ce2418fab6691bc33cb5c5f0299bb980bfe8dec5",
+        "retrieved_at": "2026-11-17T21:09:36.033896+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Series.dtype.html",
+        "sha256": "cb784bda575b3ba9860bf3d596684c5b97b243e933fc03befede06a59e76bfe4",
+        "retrieved_at": "2026-11-17T21:09:36.289750+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.isna.html",
+        "sha256": "50d935039cd92368a6ce828f9d5e2a2742d1871e9cf19bf214393005381c02bb",
+        "retrieved_at": "2026-11-17T21:09:36.522343+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.notna.html",
+        "sha256": "d15063b725d4753cb7ed3c7722106ba72bf3cd0af2cc9b14d4735e4132f25081",
+        "retrieved_at": "2026-11-17T21:09:36.761281+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "sha256": "fa06e131499e02f4ee7cba3606faefeb5bcbf23385f68097f0c5e81fcf4f26d6",
+        "retrieved_at": "2026-11-17T21:09:36.989544+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.merge.html",
+        "sha256": "58a566b58c71264b08a344404c3e3a435d119c2273816f621a51d56311845604",
+        "retrieved_at": "2026-11-17T21:09:37.239107+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "sha256": "e0cd252753c5db9f0961bf0ec37773526435c9ed5cafad037d137f4ae10cfd5f",
+        "retrieved_at": "2026-11-17T21:09:37.524953+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "sha256": "3a8bcd1598128b0e4f717697995611024fe564acc5770bc0593a18142b07fff5",
+        "retrieved_at": "2026-11-17T21:09:37.768528+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.duplicated.html",
+        "sha256": "8ef50dfe7ce2aef28bded97e287e3feb8c9d6aa285eb6fe5f0100ac5f3931ee2",
+        "retrieved_at": "2026-11-17T21:09:38.023559+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.drop_duplicates.html",
+        "sha256": "af03fa5f849865541d8430f5fdb1ae069a9593c521bf4ae89589a5df0741485c",
+        "retrieved_at": "2026-11-17T21:09:38.243913+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Index.is_unique.html",
+        "sha256": "fd9f9905df96bbe879e70b485654c1da725814ba9e8782cfddefb326b96833fe",
+        "retrieved_at": "2026-11-17T21:09:38.511064+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.StringDtype.html",
+        "sha256": "08588778c1e83e8cbcaee95e65ae6094ef4ea7e32af6f3001821259fd2bb68b3",
+        "retrieved_at": "2026-11-17T21:09:38.746951+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Int64Dtype.html",
+        "sha256": "5635fc40252434a547eb125509b20d5810cc4ad1a873d3d972b68f99754233a0",
+        "retrieved_at": "2026-11-17T21:09:38.981577+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "sha256": "f08e0a048ec108a654ad4862e20359f70112f17b612a8c07c83323e0d50935d4",
+        "retrieved_at": "2026-11-17T21:09:39.589114+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "sha256": "24106f49299b5edbca3a9a6f4d782ccf46c18a1f2d0f92c74e1e733e95147f72",
+        "retrieved_at": "2026-11-17T21:09:39.983296+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/integer_na.html",
+        "sha256": "3e3c0941c9274485b0594ed924be5e505d748e43c1b27680a061f0c6ac042b1c",
+        "retrieved_at": "2026-11-17T21:09:40.225791+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "sha256": "eb461f75e1a45c9b7a087a13a53cd4b087dabb7dca0023fa3355e877ab82e1ce",
+        "retrieved_at": "2026-11-17T21:09:40.560014+00:00",
+        "version": "2.2.3"
+      },
+      {
+        "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "sha256": "0faa34d74158c3a7635f38e3b2981d8b9577e28ab367eec6d957d997af86d3c9",
+        "retrieved_at": "2026-11-17T21:09:41.056288+00:00",
+        "version": "2.2.3"
+      }
+    ],
+    "metadata": {
+      "kind": "official_snapshot",
+      "parser": "v2",
+      "chunk_chars": 900
+    }
+  },
+  "activated": false,
+  "note": "Ingestão HTTP real executada; candidata separada do snapshot Markdown avaliado."
+}

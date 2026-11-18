@@ -1,0 +1,126 @@
+{
+  "case_id": "case-011-2",
+  "family": "family-011",
+  "question": "Como ler todas as abas com read_excel?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "sheet_name seleciona planilha; None retorna dicionário."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.3333333333333333
+  },
+  "output": {
+    "request_id": "eec727fa996a4281a51712f5d97bb17d",
+    "action": "handoff",
+    "message": "A resposta não passou pela verificação das citações. Consulte as fontes ou encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "0bad7e59f775f5be30476f53",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Returns the 1st and 4th sheet, as a dictionary of DataFrames.\\",
+        "text": "pd.read_excel(\"path_to_file.xls\", sheet_name=[\"Sheet1\", 3])\\\n```\\\n\\\nCopy to clipboard\\\n\\\n`read_excel` can read more than one sheet, by setting `sheet_name` to either\\\na list of sheet names, a list of sheet positions, or `None` to read all sheets.\\\nSheets can be specified by sheet index or sheet name, using an integer or string,\\\nrespectively.\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 91,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "cf4a9f3e61168f8d04984899e2eb419d122bf5d2b2271e494dca46d8f7c1cf95",
+        "score": 0.6610648105544589
+      },
+      {
+        "id": "ecc4bfb5083e1af69a623f21",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "title": "pandas.read_excel",
+        "section": "pandas.read_excel — sheet_name str, int, list, or None, default 0",
+        "text": "sheet_name str, int, list, or None, default 0\n\nStrings are used for sheet names. Integers are used in zero-indexed\nsheet positions (chart sheets do not count as a sheet position).\nLists of strings/integers are used to request multiple sheets.\nSpecify `None` to get all worksheets.\n\nAvailable cases:\n\n- Defaults to `0`: 1st sheet as a DataFrame\n\n- `1`: 2nd sheet as a DataFrame\n\n- `\"Sheet1\"`: Load sheet with name “Sheet1”\n\n- `[0, 1, \"Sheet5\"]`: Load first, second and sheet named “Sheet5”\nas a dict of DataFrame\n\n- `None`: All worksheets.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 2,
+        "part": 0,
+        "content_sha256": "b8ba26f05d43702444ab8ee1dac3c0b66624254a2faa2601dff38324d1fe79ad",
+        "score": 0.6244842945307054
+      },
+      {
+        "id": "42e5b1289acc90d760150027",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "For when Sheet1's format differs from Sheet2\\",
+        "text": "with pd.ExcelFile(\"path_to_file.xls\") as xls:\\\ndata[\"Sheet1\"] = pd.read_excel(xls, \"Sheet1\", index_col=None, na_values=[\"NA\"])\\\ndata[\"Sheet2\"] = pd.read_excel(xls, \"Sheet2\", index_col=1)\\\n```\\\n\\\nCopy to clipboard\\\n\\\nNote that if the same parsing parameters are used for all sheets, a list\\\nof sheet names can simply be passed to `read_excel` with no loss in performance.\\\n\\\n```\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 83,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "0a9fb1a9e5d0e76b78b472632e46766bf38faf4e30804b8860d5aa43bf09bdf8",
+        "score": 0.5959169300738494
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949365.620221,
+    "audit": null,
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to read all sheets with read_excel?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 160,
+      "total_duration": 563792500,
+      "load_duration": 4920400,
+      "prompt_eval_duration": 35098000,
+      "eval_duration": 401174000
+    },
+    "retrieval_ms": 693.6567999655381,
+    "context_chars": 1263,
+    "generation_ms": 2479.097199975513,
+    "usage": {
+      "eval_count": 139,
+      "prompt_eval_count": 1475,
+      "total_duration": 2474346000,
+      "load_duration": 5830900,
+      "prompt_eval_duration": 520090000,
+      "eval_duration": 1921849000
+    },
+    "validation_issue": "Trecho citado obrigatório",
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "To read all sheets in an Excel file using `pd.read_excel`, set `sheet_name=None`.",
+          "evidence_ids": [
+            "ecc4bfb5083e1af69a623f21"
+          ],
+          "evidence_quotes": []
+        },
+        {
+          "text": "This option returns a dictionary of DataFrames where each key is the sheet name and the value is the corresponding DataFrame.",
+          "evidence_ids": [
+            "ecc4bfb5083e1af69a623f21"
+          ],
+          "evidence_quotes": []
+        }
+      ]
+    },
+    "total_ms": 3172.862700012047
+  }
+}

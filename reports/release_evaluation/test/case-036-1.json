@@ -1,0 +1,133 @@
+{
+  "case_id": "case-036-1",
+  "family": "family-036",
+  "question": "Como localizar chaves duplicadas antes de um merge?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "duplicated com subset inspeciona duplicidade das chaves."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "6f86012f7a9c45c48663b63ba5d48f79",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para localizar chaves duplicadas antes de um merge, você pode usar o parâmetro `validate` da função `pd.merge()`, que verifica a unicidade das chaves de merge. Se houver duplicatas no DataFrame direito e você quiser garantir que não haja duplicatas no DataFrame esquerdo, use `validate='one_to_many'`, o que não levanta exceção. Exemplo: `pd.merge(left, right, on='B', how='outer', validate='one_to_many')`.",
+        "evidence_ids": [
+          "2c6240763538dabbe6bb2741"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "2c6240763538dabbe6bb2741",
+            "quote": "The `validate` argument checks whether the uniqueness of merge keys.\nKey uniqueness is checked before merge operations and can protect against memory overflows\nand unexpected key duplication.\n\n\nExemplo com exceção; pilha interna omitida.\nMergeError: Merge keys are not unique in right dataset; not a one-to-one merge\n\nIf the user is aware of the duplicates in the right `DataFrame` but wants to\nensure there are no duplicates in the left `DataFrame`, one can use the\n`validate='one_to_many'` argument instead, which will not raise an exception.\n\n```\nIn [72]: pd.merge(left, right, on=\"B\", how=\"outer\", validate=\"one_to_many\")\nOut[72]:\n   A_x  B  A_y\n0    1  1  NaN\n1    2  2  4.0\n2    2  2  5.0\n3    2  2  6.0\n```"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "2c6240763538dabbe6bb2741",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge key uniqueness",
+        "text": "The `validate` argument checks whether the uniqueness of merge keys.\nKey uniqueness is checked before merge operations and can protect against memory overflows\nand unexpected key duplication.\n\n\nExemplo com exceção; pilha interna omitida.\nMergeError: Merge keys are not unique in right dataset; not a one-to-one merge\n\nIf the user is aware of the duplicates in the right `DataFrame` but wants to\nensure there are no duplicates in the left `DataFrame`, one can use the\n`validate='one_to_many'` argument instead, which will not raise an exception.\n\n```\nIn [72]: pd.merge(left, right, on=\"B\", how=\"outer\", validate=\"one_to_many\")\nOut[72]:\n   A_x  B  A_y\n0    1  1  NaN\n1    2  2  4.0\n2    2  2  5.0\n3    2  2  6.0\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 9,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "4391cd215b87d2fe3df3dafa77096624d5862fc19aca42090896eacd61dd78fd",
+        "score": 0.557138847444239
+      },
+      {
+        "id": "775f4a26cb305de2b7f5cfb0",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "In [68]: result\nOut[68]:\n   A_x  B  A_y\n0    1  2    4\n1    1  2    5\n2    1  2    6\n3    2  2    4\n4    2  2    5\n5    2  2    6\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key_dup.png\n\nWarning\n\nMerging on duplicate keys significantly increase the dimensions of the result\nand can cause a memory overflow.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 7,
+        "content_sha256": "dd92a7a2ab087804dcef1b69ae861b2939c91881d4cbfdc90b13288d8b630d3c",
+        "score": 0.5563629391096081
+      },
+      {
+        "id": "df8b2db683404d0ce4229c92",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Resulting `keys`",
+        "text": "The `keys` argument adds another axis level to the resulting index or column (creating\na `MultiIndex`) associate specific keys with each original `DataFrame`.\n\n```\nIn [24]: result = pd.concat(frames, keys=[\"x\", \"y\", \"z\"])\n\nIn [25]: result\nOut[25]:\n        A    B    C    D\nx 0    A0   B0   C0   D0\n  1    A1   B1   C1   D1\n  2    A2   B2   C2   D2\n  3    A3   B3   C3   D3\ny 4    A4   B4   C4   D4\n  5    A5   B5   C5   D5\n  6    A6   B6   C6   D6\n  7    A7   B7   C7   D7\nz 8    A8   B8   C8   D8\n  9    A9   B9   C9   D9\n  10  A10  B10  C10  D10\n  11  A11  B11  C11  D11\n\nIn [26]: result.loc[\"y\"]\nOut[26]:\n    A   B   C   D\n4  A4  B4  C4  D4\n5  A5  B5  C5  D5\n6  A6  B6  C6  D6\n7  A7  B7  C7  D7\n```\n\n```\n\n```\n\n!../_images/merging_concat_keys.png\n\nThe `keys` argument cane override the column names\nwhen creating a new `DataFrame` based on existing `Series`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 5,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "91b9f71237697bb6f7efaac496d876d0938747abafec1bbbf14c75ff45430695",
+        "score": 0.49184222358149987
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951044.954603,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mencionando corretamente o uso do parâmetro `validate` para verificar a unicidade das chaves de merge e o exemplo com `validate='one_to_many'` que não levanta exceção."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to locate duplicate keys before a merge?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 210,
+      "total_duration": 1673814000,
+      "load_duration": 8926100,
+      "prompt_eval_duration": 189607000,
+      "eval_duration": 1331361000
+    },
+    "retrieval_ms": 1853.8979000295512,
+    "context_chars": 1879,
+    "generation_ms": 9517.617499979679,
+    "usage": {
+      "eval_count": 146,
+      "prompt_eval_count": 1719,
+      "total_duration": 9515191900,
+      "load_duration": 6595800,
+      "prompt_eval_duration": 1636011000,
+      "eval_duration": 7838965000
+    },
+    "audit_usage": {
+      "eval_count": 79,
+      "prompt_eval_count": 2107,
+      "total_duration": 6524965300,
+      "load_duration": 9010200,
+      "prompt_eval_duration": 2043701000,
+      "eval_duration": 4349738000
+    },
+    "audit_ms": 6527.305800002068,
+    "total_ms": 17899.17610003613
+  }
+}

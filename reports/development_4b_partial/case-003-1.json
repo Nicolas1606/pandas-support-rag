@@ -1,0 +1,105 @@
+{
+  "case_id": "case-003-1",
+  "family": "family-003",
+  "question": "Como ler números com vírgula decimal em read_csv?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Definir decimal; thousands quando aplicável."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "5aa4299a75464f83a077d19a09d0424e",
+    "action": "handoff",
+    "message": "Não foi possível confirmar uma orientação segura para este caso. Confira as fontes e encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "63f0ccaddc99bc8e8e849e3c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — decimal str (length 1), default ‘.’",
+        "text": "decimal str (length 1), default ‘.’\n\nCharacter to recognize as decimal point (e.g., use ‘,’ for European data).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 36,
+        "part": 0,
+        "content_sha256": "a387f6d0dbf0fd6d6ff589052ed7af7b4364344ff82adcd58fda499d98489133",
+        "score": 0.5843014357692977
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949301.5260499,
+    "audit": {
+      "supported": false,
+      "answers_question": false,
+      "portuguese": false,
+      "reason": "O parâmetro decimal deve ser especificado como string, mas o exemplo usa ',' sem aspas, o que é inválido"
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to read numbers with decimal comma in read_csv?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 162,
+      "total_duration": 584822000,
+      "load_duration": 4892300,
+      "prompt_eval_duration": 35538000,
+      "eval_duration": 412100000
+    },
+    "retrieval_ms": 732.739600003697,
+    "context_chars": 111,
+    "generation_ms": 2011.7559999926016,
+    "usage": {
+      "eval_count": 135,
+      "prompt_eval_count": 623,
+      "total_duration": 1998717800,
+      "load_duration": 6031200,
+      "prompt_eval_duration": 234941000,
+      "eval_duration": 1738287000
+    },
+    "audit_usage": {
+      "eval_count": 56,
+      "prompt_eval_count": 608,
+      "total_duration": 1003212100,
+      "load_duration": 4767400,
+      "prompt_eval_duration": 232388000,
+      "eval_duration": 714436000
+    },
+    "audit_ms": 1018.649700039532,
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "Para ler números com vírgula decimal no read_csv, use o parâmetro decimal=','.",
+          "evidence_ids": [
+            "63f0ccaddc99bc8e8e849e3c"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "63f0ccaddc99bc8e8e849e3c",
+              "quote": "decimal str (length 1), default ‘.’\n\nCharacter to recognize as decimal point (e.g., use ‘,’ for European data)."
+            }
+          ]
+        }
+      ]
+    },
+    "total_ms": 3763.287700014189
+  }
+}

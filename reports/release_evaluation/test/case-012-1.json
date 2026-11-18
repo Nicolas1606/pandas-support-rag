@@ -1,0 +1,133 @@
+{
+  "case_id": "case-012-1",
+  "family": "family-012",
+  "question": "Como solicitar leitura de uma coluna como data em read_csv?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Configurar parse_dates; não prometer todo texto válido."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "23494ddb0923440390a4fc743db6adb9",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para solicitar a leitura de uma coluna como data no `read_csv`, você pode usar o parâmetro `parse_dates` com o nome da coluna, por exemplo: `parse_dates=['data']`. Isso instrui o pandas a tentar converter a coluna especificada em objetos `datetime`.",
+        "evidence_ids": [
+          "a5d5a0e7e9b1ae705e80e3ae"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "a5d5a0e7e9b1ae705e80e3ae",
+            "quote": "parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False\n\nThe behavior is as follows:\n\n- `bool`. If `True` -\\> try parsing the index. Note: Automatically set to\n`True` if `date_format` or `date_parser` arguments have been passed.\n\n- `list` of `int` or names. e.g. If `[1, 2, 3]` -\\> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of `list`. e.g. If `[[1, 3]]` -\\> combine columns 1 and 3 and parse\nas a single date column. Values are joined with a space before parsing.\n\n- `dict`, e.g. `{'foo' : [1, 3]}` -\\> parse columns 1, 3 as date and call\nresult ‘foo’. Values are joined with a space before parsing.\n\nIf a column or index cannot be represented as an array of `datetime`,\nsay because of an unparsable value or a mixture of timezones, the column"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "0ef1932bca552ed4fd492a5e",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying date columns",
+        "text": "To better facilitate working with datetime data, `read_csv()`\nuses the keyword arguments `parse_dates` and `date_format`\nto allow users to specify a variety of columns and date/time formats to turn the\ninput text data into `datetime` objects.\n\nThe simplest case is to just pass in `parse_dates=True`:\n\n```\nIn [104]: with open(\"foo.csv\", mode=\"w\") as f:\n   .....:     f.write(\"date,A,B,C\\n20090101,a,1,2\\n20090102,b,3,4\\n20090103,c,4,5\")\n   .....:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 22,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "b3a56e0be720a52d38093d655cb2890c6d1de6bad43091a366741de6dadd59d6",
+        "score": 0.6749594719644807
+      },
+      {
+        "id": "a5d5a0e7e9b1ae705e80e3ae",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False",
+        "text": "parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False\n\nThe behavior is as follows:\n\n- `bool`. If `True` -\\> try parsing the index. Note: Automatically set to\n`True` if `date_format` or `date_parser` arguments have been passed.\n\n- `list` of `int` or names. e.g. If `[1, 2, 3]` -\\> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of `list`. e.g. If `[[1, 3]]` -\\> combine columns 1 and 3 and parse\nas a single date column. Values are joined with a space before parsing.\n\n- `dict`, e.g. `{'foo' : [1, 3]}` -\\> parse columns 1, 3 as date and call\nresult ‘foo’. Values are joined with a space before parsing.\n\nIf a column or index cannot be represented as an array of `datetime`,\nsay because of an unparsable value or a mixture of timezones, the column",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 24,
+        "part": 0,
+        "content_sha256": "02d2e9a799bfe9c1f707b96860eb6f71586e57af60395b12ae7fe57f9034ad63",
+        "score": 0.6447890160583442
+      },
+      {
+        "id": "13954dd8da3616190948e0e8",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — date_parser Callable, optional",
+        "text": "date_parser Callable, optional\n\nFunction to use for converting a sequence of string columns to an array of\n`datetime` instances. The default uses `dateutil.parser.parser` to do the\nconversion. pandas will try to call `date_parser` in three different ways,\nadvancing to the next if an exception occurs: 1) Pass one or more arrays\n(as defined by `parse_dates`) as arguments; 2) concatenate (row-wise) the\nstring values from the columns defined by `parse_dates` into a single array\nand pass that; and 3) call `date_parser` once for each row using one or\nmore strings (corresponding to the columns defined by `parse_dates`) as\narguments.\n\nDeprecated since version 2.0.0: Use `date_format` instead, or read in as `object` and then apply\n`to_datetime()` as-needed.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 28,
+        "part": 0,
+        "content_sha256": "3924415ec2279804fa13ae0744077e1d1ebb2747158d09ccf1c9e1d9cf27d07b",
+        "score": 0.6120330028888408
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950670.5057356,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, indicando que o parâmetro `parse_dates` pode ser usado com o nome da coluna para converter a coluna em objetos `datetime`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to request reading a column as date in read_csv?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 33,
+      "prompt_eval_count": 213,
+      "total_duration": 1802505200,
+      "load_duration": 7167400,
+      "prompt_eval_duration": 177136000,
+      "eval_duration": 1449493000
+    },
+    "retrieval_ms": 1969.1065999795683,
+    "context_chars": 2010,
+    "generation_ms": 6795.612199988682,
+    "usage": {
+      "eval_count": 99,
+      "prompt_eval_count": 1582,
+      "total_duration": 6793651800,
+      "load_duration": 5933500,
+      "prompt_eval_duration": 1658482000,
+      "eval_duration": 5084398000
+    },
+    "audit_usage": {
+      "eval_count": 67,
+      "prompt_eval_count": 1964,
+      "total_duration": 5589449500,
+      "load_duration": 6792900,
+      "prompt_eval_duration": 1908283000,
+      "eval_duration": 3550897000
+    },
+    "audit_ms": 5591.424599988386,
+    "total_ms": 14356.462800002191
+  }
+}

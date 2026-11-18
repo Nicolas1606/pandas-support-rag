@@ -1,0 +1,133 @@
+{
+  "case_id": "case-006-2",
+  "family": "family-006",
+  "question": "A sigla NA é um código válido. Como preservá-la na leitura?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "keep_default_na controla lista padrão; explicar na_values."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "1172e3b42f5c41f196b9b215235c5773",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para preservar o código `NA` durante a leitura de dados, é necessário especificar os valores que devem ser interpretados como ausentes usando o parâmetro `na_values` e definir `keep_default_na=False` para substituir os valores padrão. Por exemplo: `pd.read_csv('arquivo.csv', na_values=['NA'], keep_default_na=False)`. Isso garante que o `NA` seja tratado como um valor ausente válido e preservado conforme necessário.",
+        "evidence_ids": [
+          "42766609ea51fe6066911390"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "42766609ea51fe6066911390",
+            "quote": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`).\n\nTo completely override the default values that are recognized as missing, specify `keep_default_na=False`.\n\nThe default `NaN` recognized values are `['-1.#IND', '1.#QNAN', '1.#IND', '-1.#QNAN', '#N/A N/A', '#N/A', 'N/A',\\\n'n/a', 'NA', '<NA>', '#NA', 'NULL', 'null', 'NaN', '-NaN', 'nan', '-nan', 'None', '']`.\n\nLet us consider some examples:\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[5])\n```"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "b39132fc3c0f220ec6a8dd3a",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "`NA` in a boolean context",
+        "text": "Since the actual value of an NA is unknown, it is ambiguous to convert NA\nto a boolean value.\n\n\nExemplo com exceção; pilha interna omitida.\nTypeError: boolean value of NA is ambiguous\n\nThis also means that `NA` cannot be used in a context where it is\nevaluated to a boolean, such as `if condition: ...` where `condition` can\npotentially be `NA`. In such cases, `isna()` can be used to check\nfor `NA` or `condition` being `NA` can be avoided, for example by\nfilling missing values beforehand.\n\nA similar situation occurs when using `Series` or `DataFrame` objects in `if`\nstatements, see Using if/truth statements with pandas.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 4,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "c0700ef238bd835208f0d68711aa856101d6a2a4f84e032ad65443d1a491f31c",
+        "score": 0.4829767208609863
+      },
+      {
+        "id": "0330a6f97d3d1ee93979b60f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "`NA` semantics",
+        "text": "Warning\n\nExperimental: the behaviour of ``NA``` can still change without warning.\n\nStarting from pandas 1.0, an experimental `NA` value (singleton) is\navailable to represent scalar missing values. The goal of `NA` is provide a\n“missing” indicator that can be used consistently across data types\n(instead of `np.nan`, `None` or `pd.NaT` depending on the data type).\n\nFor example, when having missing values in a `Series` with the nullable integer\ndtype, it will use `NA`:\n\n```\nIn [21]: s = pd.Series([1, 2, None], dtype=\"Int64\")\n\nIn [22]: s\nOut[22]:\n0       1\n1       2\n2    <NA>\ndtype: Int64\n\nIn [23]: s[2]\nOut[23]: <NA>\n\nIn [24]: s[2] is pd.NA\nOut[24]: True\n```\n\nCurrently, pandas does not yet use those data types using `NA` by default\na `DataFrame` or `Series`, so you need to specify\nthe dtype explicitly. An easy way to convert to those dtypes is explained in the\nconversion section.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 1,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "81f38237bef5cfc7b435b625035d26d509c77d4cac2047dee819763a5d629669",
+        "score": 0.4787851340045336
+      },
+      {
+        "id": "42766609ea51fe6066911390",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "NA values",
+        "text": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`).\n\nTo completely override the default values that are recognized as missing, specify `keep_default_na=False`.\n\nThe default `NaN` recognized values are `['-1.#IND', '1.#QNAN', '1.#IND', '-1.#QNAN', '#N/A N/A', '#N/A', 'N/A',\\\n'n/a', 'NA', '<NA>', '#NA', 'NULL', 'null', 'NaN', '-NaN', 'nan', '-nan', 'None', '']`.\n\nLet us consider some examples:\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[5])\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 32,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "46a09f46e8aa23a84730e0ffd6ae885b09d831eec7cc46f48ba43560c3987084",
+        "score": 0.465043458982575
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950584.938709,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, que menciona a necessidade de usar `na_values` e `keep_default_na=False` para controlar os valores interpretados como ausentes, incluindo `NA`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "The NA acronym is a valid code. How to preserve it during reading?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 216,
+      "total_duration": 2012164900,
+      "load_duration": 7642400,
+      "prompt_eval_duration": 172325000,
+      "eval_duration": 1576145000
+    },
+    "retrieval_ms": 2202.6025999803096,
+    "context_chars": 2327,
+    "generation_ms": 10071.701899985783,
+    "usage": {
+      "eval_count": 138,
+      "prompt_eval_count": 1661,
+      "total_duration": 10069624300,
+      "load_duration": 8212300,
+      "prompt_eval_duration": 1655180000,
+      "eval_duration": 8323584999
+    },
+    "audit_usage": {
+      "eval_count": 72,
+      "prompt_eval_count": 2078,
+      "total_duration": 7135360300,
+      "load_duration": 10016500,
+      "prompt_eval_duration": 2594596000,
+      "eval_duration": 4372951000
+    },
+    "audit_ms": 7137.847999983933,
+    "total_ms": 19412.42740000598
+  }
+}

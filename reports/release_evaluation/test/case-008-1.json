@@ -1,0 +1,138 @@
+{
+  "case_id": "case-008-1",
+  "family": "family-008",
+  "question": "Como processar um CSV em blocos de 10000 linhas?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "chunksize retorna leitor iterável por blocos."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "184d9ca160fa478ab758126ef644adbe",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para processar um CSV em blocos de 10000 linhas, use o parâmetro `chunksize=10000` na função `pandas.read_csv`. Isso permite que os dados sejam lidos em partes, reduzindo o uso de memória. O parâmetro `chunksize` é opcional e especifica o número de linhas por bloco. A leitura ocorre em chunks, permitindo processar grandes arquivos sem carregá-los completamente na memória.",
+        "evidence_ids": [
+          "4930995f0c04f0d496ed6144",
+          "0c34bda3ca03adedf9827a8c"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "4930995f0c04f0d496ed6144",
+            "quote": "\\\nSuppose you wish to iterate through a (potentially very large) file lazily\\\nrather than reading the entire file into memory, such as the following:\\\n\\\n```\\\nIn [224]: df = pd.DataFrame(np.random.randn(10, 4))\\\n\\\nIn [225]: df.to_csv(\"tmp.csv\", index=False)\\\n\\\nIn [226]: table = pd.read_csv(\"tmp.csv\")\\\n\\\nIn [227]: table\\\nOut[227]:\\\n          0         1         2         3\\\n0 -1.294524  0.413738  0.276662 -0.472035\\\n1 -0.013960 -0.362543 -0.006154 -0.923061\\\n2  0.895717  0.805244 -1.206412  2.565646\\\n3  1.431256  1.340309 -1.170299 -0.226169\\\n4  0.410835  0.813850  0.132003 -0.827317\\\n5 -0.076467 -1.187678  1.130127 -1.436737\\\n6 -1.413681  1.607920  1.024180  0.569605\\\n7  0.875906 -2.211372  0.974466 -2.006747\\\n8 -0.410001 -0.078638  0.545952 -1.219217\\\n9 -1.226825  0.769804 -1.281247 -0.727707\\\n```\\\n\\\nCopy to clipboard\\\n\\\nBy specifying a `chunksize` to `read_csv`, the return\\"
+          },
+          {
+            "source_id": "0c34bda3ca03adedf9827a8c",
+            "quote": "chunksize int, optional\n\nNumber of lines to read from the file per chunk. Passing a value will cause the\nfunction to return a `TextFileReader` object for iteration.\nSee the IO Tools docs\nfor more information on `iterator` and `chunksize`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "88ec1f9b7f3c8574ae42a428",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — low_memory bool, default True",
+        "text": "low_memory bool, default True\n\nInternally process the file in chunks, resulting in lower memory use\nwhile parsing, but possibly mixed type inference. To ensure no mixed\ntypes either set `False`, or specify the type with the `dtype` parameter.\nNote that the entire file is read into a single `DataFrame`\nregardless, use the `chunksize` or `iterator` parameter to return the data in\nchunks. (Only valid with C parser).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 46,
+        "part": 0,
+        "content_sha256": "887821081b199a23af1eab0ecaebfd14ea89a87945c24748154eb772125aa021",
+        "score": 0.4476258236293514
+      },
+      {
+        "id": "4930995f0c04f0d496ed6144",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Iterating through files chunk by chunk \\",
+        "text": "\\\nSuppose you wish to iterate through a (potentially very large) file lazily\\\nrather than reading the entire file into memory, such as the following:\\\n\\\n```\\\nIn [224]: df = pd.DataFrame(np.random.randn(10, 4))\\\n\\\nIn [225]: df.to_csv(\"tmp.csv\", index=False)\\\n\\\nIn [226]: table = pd.read_csv(\"tmp.csv\")\\\n\\\nIn [227]: table\\\nOut[227]:\\\n          0         1         2         3\\\n0 -1.294524  0.413738  0.276662 -0.472035\\\n1 -0.013960 -0.362543 -0.006154 -0.923061\\\n2  0.895717  0.805244 -1.206412  2.565646\\\n3  1.431256  1.340309 -1.170299 -0.226169\\\n4  0.410835  0.813850  0.132003 -0.827317\\\n5 -0.076467 -1.187678  1.130127 -1.436737\\\n6 -1.413681  1.607920  1.024180  0.569605\\\n7  0.875906 -2.211372  0.974466 -2.006747\\\n8 -0.410001 -0.078638  0.545952 -1.219217\\\n9 -1.226825  0.769804 -1.281247 -0.727707\\\n```\\\n\\\nCopy to clipboard\\\n\\\nBy specifying a `chunksize` to `read_csv`, the return\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 47,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "3daea724b6539fd81a5a3c4ed18bd85c418727bc488061dbd052651d9f42aeaa",
+        "score": 0.44566026473156745
+      },
+      {
+        "id": "0c34bda3ca03adedf9827a8c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — chunksize int, optional",
+        "text": "chunksize int, optional\n\nNumber of lines to read from the file per chunk. Passing a value will cause the\nfunction to return a `TextFileReader` object for iteration.\nSee the IO Tools docs\nfor more information on `iterator` and `chunksize`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 33,
+        "part": 0,
+        "content_sha256": "6fa8e9723fa34b1c07f540bc51c99a45ce653ea5bb28edccb94bb2b52a3d9aa0",
+        "score": 0.4351659360107442
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950604.357441,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mencionando corretamente o uso do parâmetro `chunksize=10000` para processar um CSV em blocos de 10000 linhas, sem omitir detalhes críticos."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to process a CSV in blocks of 10000 rows?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 37,
+      "prompt_eval_count": 216,
+      "total_duration": 2129027200,
+      "load_duration": 7809700,
+      "prompt_eval_duration": 189886000,
+      "eval_duration": 1765869000
+    },
+    "retrieval_ms": 2343.386299966369,
+    "context_chars": 1541,
+    "generation_ms": 11437.301500001922,
+    "usage": {
+      "eval_count": 171,
+      "prompt_eval_count": 1692,
+      "total_duration": 11426166300,
+      "load_duration": 7415500,
+      "prompt_eval_duration": 1792172000,
+      "eval_duration": 9586130000
+    },
+    "audit_usage": {
+      "eval_count": 84,
+      "prompt_eval_count": 2545,
+      "total_duration": 7955870900,
+      "load_duration": 8979000,
+      "prompt_eval_duration": 2738359000,
+      "eval_duration": 5053394000
+    },
+    "audit_ms": 7957.869799982291,
+    "total_ms": 21738.859899982344
+  }
+}

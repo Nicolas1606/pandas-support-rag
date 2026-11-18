@@ -1,0 +1,87 @@
+{
+  "question": "Como validar um merge muitos para um usando validate?",
+  "output": {
+    "request_id": "b8139208f3a14be380b54c4dfe0d7ffa",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para validar uma mesclagem many-to-one usando o parâmetro `validate`, você deve especificar o valor `\"many_to_one\"` ou `\"m:1\"`, o que verifica se as chaves de mesclagem são únicas no conjunto de dados direito. Isso é feito com a função `pandas.merge` e o parâmetro `validate`.",
+        "evidence_ids": [
+          "3a4cee70a1603446de850c88"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "3a4cee70a1603446de850c88",
+            "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "3a4cee70a1603446de850c88",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — validate str, optional",
+        "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 12,
+        "part": 0,
+        "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821",
+        "score": 13.035335554330022
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "bm25",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950218.0522842,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, especificando corretamente que para validar uma mesclagem many-to-one, o parâmetro `validate` deve ser definido como `\"many_to_one\"` ou `\"m:1\"`, o que verifica a unicidade das chaves no conjunto de dados direito."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to validate a many-to-one merge using validate?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 167,
+      "total_duration": 1703568200,
+      "load_duration": 6481700,
+      "prompt_eval_duration": 249736000,
+      "eval_duration": 1429308000
+    },
+    "retrieval_ms": 1743.685399997048,
+    "context_chars": 403,
+    "generation_ms": 5862.513200030662,
+    "usage": {
+      "eval_count": 113,
+      "prompt_eval_count": 593,
+      "total_duration": 5860719700,
+      "load_duration": 6367100,
+      "prompt_eval_duration": 682893000,
+      "eval_duration": 5152659000
+    },
+    "audit_usage": {
+      "eval_count": 94,
+      "prompt_eval_count": 854,
+      "total_duration": 5441922000,
+      "load_duration": 17451400,
+      "prompt_eval_duration": 960887000,
+      "eval_duration": 4415194000
+    },
+    "audit_ms": 5443.497199972626,
+    "total_ms": 13050.825199985411
+  }
+}

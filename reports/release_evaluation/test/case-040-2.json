@@ -1,0 +1,138 @@
+{
+  "case_id": "case-040-2",
+  "family": "family-040",
+  "question": "Converto meu campo para número ou texto?",
+  "topic": "types",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir significado e exemplos; identificador pode ser textual."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "4d095d98b5974210821074c8fed659ea",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para converter um campo para número ou texto, use `pandas.to_numeric()` com o parâmetro `errors='coerce'` para converter valores válidos para float e deixar os inválidos como `NaN`. Se desejar converter para um tipo específico, como inteiro ou float, use o parâmetro `downcast` com valores como 'integer', 'signed', 'unsigned' ou 'float'.",
+        "evidence_ids": [
+          "c98713a8590590ccf81f24e0",
+          "cfde624c135036dc495bfb4f"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "c98713a8590590ccf81f24e0",
+            "quote": "pandas.to_numeric( _arg_, _errors='raise'_, _downcast=None_, _dtype_backend=<no_default>_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/tools/numeric.py#L44-L329)\n\nConvert argument to a numeric type.\n\nThe default return dtype is float64 or int64\ndepending on the data supplied. Use the downcast parameter\nto obtain other dtypes.\n\nPlease note that precision loss may occur if really large numbers\nare passed in. Due to the internal limitations of ndarray, if\nnumbers smaller than -9223372036854775808 (np.iinfo(np.int64).min)\nor larger than 18446744073709551615 (np.iinfo(np.uint64).max) are\npassed in, it is very likely they will be converted to float so that\nthey can be stored in an ndarray. These warnings apply similarly to\nSeries since it internally leverages ndarray.\n\nParameters:arg scalar, list, tuple, 1-d array, or Series\n\nArgument to be converted."
+          },
+          {
+            "source_id": "cfde624c135036dc495bfb4f",
+            "quote": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "c34b44fcd96265df592a7d87",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric — downcast str, default None",
+        "text": "downcast str, default None\n\nCan be ‘integer’, ‘signed’, ‘unsigned’, or ‘float’.\nIf not None, and if the data has been successfully cast to a\nnumerical dtype (or if the data was numeric to begin with),\ndowncast that resulting data to the smallest numerical dtype\npossible according to the following rules:\n\n- ‘integer’ or ‘signed’: smallest signed int dtype (min.: np.int8)\n\n- ‘unsigned’: smallest unsigned int dtype (min.: np.uint8)\n\n- ‘float’: smallest float dtype (min.: np.float32)\n\nAs this behaviour is separate from the core conversion to\nnumeric values, any errors raised during the downcasting\nwill be surfaced regardless of the value of the ‘errors’ input.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "b0809e6cbf09b8c7a429efbab082d7222ec84b0d218803b23c9311047f9691a9",
+        "score": 0.3770388049714227
+      },
+      {
+        "id": "c98713a8590590ccf81f24e0",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric",
+        "text": "pandas.to_numeric( _arg_, _errors='raise'_, _downcast=None_, _dtype_backend=<no_default>_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/tools/numeric.py#L44-L329)\n\nConvert argument to a numeric type.\n\nThe default return dtype is float64 or int64\ndepending on the data supplied. Use the downcast parameter\nto obtain other dtypes.\n\nPlease note that precision loss may occur if really large numbers\nare passed in. Due to the internal limitations of ndarray, if\nnumbers smaller than -9223372036854775808 (np.iinfo(np.int64).min)\nor larger than 18446744073709551615 (np.iinfo(np.uint64).max) are\npassed in, it is very likely they will be converted to float so that\nthey can be stored in an ndarray. These warnings apply similarly to\nSeries since it internally leverages ndarray.\n\nParameters:arg scalar, list, tuple, 1-d array, or Series\n\nArgument to be converted.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "cbae669bb6883ef9286746754a7979eaf7e91dd52596870b2bbdf2dbd38039ab",
+        "score": 0.368814075147568
+      },
+      {
+        "id": "cfde624c135036dc495bfb4f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "324c42462b0ebf21f227483653ca69dd72a786afcd52ff626312044c7ba746e0",
+        "score": 0.35314736464599594
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951111.4586875,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta aborda corretamente a conversão de campos para número ou texto usando `pandas.to_numeric()` com `errors='coerce'` e menciona o uso do parâmetro `downcast` para especificar o tipo desejado, com base nas evidências fornecidas."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Do I convert my field to number or text?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 208,
+      "total_duration": 1780858900,
+      "load_duration": 7928400,
+      "prompt_eval_duration": 194003000,
+      "eval_duration": 1401007000
+    },
+    "retrieval_ms": 1953.3751999842934,
+    "context_chars": 2389,
+    "generation_ms": 9572.699700016528,
+    "usage": {
+      "eval_count": 147,
+      "prompt_eval_count": 1768,
+      "total_duration": 9570339700,
+      "load_duration": 6424500,
+      "prompt_eval_duration": 1670719000,
+      "eval_duration": 7854906000
+    },
+    "audit_usage": {
+      "eval_count": 86,
+      "prompt_eval_count": 2617,
+      "total_duration": 7690013700,
+      "load_duration": 8453900,
+      "prompt_eval_duration": 2535248000,
+      "eval_duration": 4997835000
+    },
+    "audit_ms": 7691.851900017355,
+    "total_ms": 19218.544800009113
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "case_id": "case-010-2",
+  "family": "family-010",
+  "question": "A primeira linha é dado. Como impedir que vire nome de coluna?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Diferenciar header=None de names."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "8b90a0a5fb684b7c8b8d61e5055b3e9f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para evitar que a primeira linha seja considerada como nome de coluna, você pode usar o parâmetro `header=None` ao ler o arquivo com `pd.read_csv`, o que faz com que pandas não utilize a primeira linha como cabeçalho. Por exemplo: `pd.read_csv(..., header=None)`.",
+        "evidence_ids": [
+          "1d82448117dfc724a08d8f25"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "1d82448117dfc724a08d8f25",
+            "quote": "A file may or may not have a header row. pandas assumes the first row should be\nused as the column names:\n\n```\nIn [51]: data = \"a,b,c\\n1,2,3\\n4,5,6\\n7,8,9\"\n\nIn [52]: print(data)\na,b,c\n1,2,3\n4,5,6\n7,8,9\n\nIn [53]: pd.read_csv(StringIO(data))\nOut[53]:\n   a  b  c\n0  1  2  3\n1  4  5  6\n2  7  8  9\n```\n\nBy specifying the `names` argument in conjunction with `header` you can\nindicate other names to use and whether or not to throw away the header row (if\nany):\n\n```\nIn [54]: print(data)\na,b,c\n1,2,3\n4,5,6\n7,8,9\n\nIn [55]: pd.read_csv(StringIO(data), names=[\"foo\", \"bar\", \"baz\"], header=0)\nOut[55]:\n   foo  bar  baz\n0    1    2    3\n1    4    5    6\n2    7    8    9"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "1d82448117dfc724a08d8f25",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Handling column names — A file may or may not have a header row. pandas assumes the first row should be",
+        "text": "A file may or may not have a header row. pandas assumes the first row should be\nused as the column names:\n\n```\nIn [51]: data = \"a,b,c\\n1,2,3\\n4,5,6\\n7,8,9\"\n\nIn [52]: print(data)\na,b,c\n1,2,3\n4,5,6\n7,8,9\n\nIn [53]: pd.read_csv(StringIO(data))\nOut[53]:\n   a  b  c\n0  1  2  3\n1  4  5  6\n2  7  8  9\n```\n\nBy specifying the `names` argument in conjunction with `header` you can\nindicate other names to use and whether or not to throw away the header row (if\nany):\n\n```\nIn [54]: print(data)\na,b,c\n1,2,3\n4,5,6\n7,8,9\n\nIn [55]: pd.read_csv(StringIO(data), names=[\"foo\", \"bar\", \"baz\"], header=0)\nOut[55]:\n   foo  bar  baz\n0    1    2    3\n1    4    5    6\n2    7    8    9",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 13,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "7de758a54ea3a5b08c642573711fd94600c62d97053b14e580e33a75a9149368",
+        "score": 0.5474816648196211
+      },
+      {
+        "id": "5ef19c60772759e85e9514ef",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Handling “bad” lines — The callable function will handle only a line with too many fields.",
+        "text": "The callable function will handle only a line with too many fields.\nBad lines caused by other errors will be silently skipped.\n\n```\nIn [167]: bad_lines_func = lambda line: print(line)\n\nIn [168]: data = 'name,type\\nname a,a is of type a\\nname b,\"b\\\" is of type b\"'\n\nIn [169]: data\nOut[169]: 'name,type\\nname a,a is of type a\\nname b,\"b\" is of type b\"'\n\nIn [170]: pd.read_csv(StringIO(data), on_bad_lines=bad_lines_func, engine=\"python\")\nOut[170]:\n     name            type\n0  name a  a is of type a\n```\n\nThe line was not processed in this case, as a “bad line” here is caused by an escape character.\n\nYou can also use the `usecols` parameter to eliminate extraneous column\ndata that appear in some lines but not others:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 35,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "4693a1e2c7082cf8c649a56bd647b20696dc7ab36f4f94583480ef5274856b42",
+        "score": 0.5338249285372503
+      },
+      {
+        "id": "e6ad33468e5f7e436f9e06f3",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Index columns and trailing delimiters",
+        "text": "If a file has one more column of data than the number of column names, the\nfirst column will be used as the `DataFrame`’s row names:\n\n```\nIn [92]: data = \"a,b,c\\n4,apple,bat,5.7\\n8,orange,cow,10\"\n\nIn [93]: pd.read_csv(StringIO(data))\nOut[93]:\n        a    b     c\n4   apple  bat   5.7\n8  orange  cow  10.0\n```\n\n```\nIn [94]: data = \"index,a,b,c\\n4,apple,bat,5.7\\n8,orange,cow,10\"\n\nIn [95]: pd.read_csv(StringIO(data), index_col=0)\nOut[95]:\n            a    b     c\nindex\n4       apple  bat   5.7\n8      orange  cow  10.0\n```\n\nOrdinarily, you can achieve this behavior using the `index_col` option.\n\nThere are some exception cases when a file has been prepared with delimiters at\nthe end of each data line, confusing the parser. To explicitly disable the\nindex column inference and discard the last column, pass `index_col=False`:\n\n```\nIn [96]: data = \"a,b,c\\n4,apple,bat,\\n8,orange,cow,\"",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 21,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "085148182b93882ac197b16f0018bae495a2875db5619d6505dfd659c04fbe3d",
+        "score": 0.5159572730043661
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950654.6878295,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na evidência fornecida, que explica como usar o parâmetro `header=None` para evitar que a primeira linha seja considerada como nome de coluna."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "The first line is given. How to prevent it from becoming a column name?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 37,
+      "prompt_eval_count": 215,
+      "total_duration": 1969091600,
+      "load_duration": 7505300,
+      "prompt_eval_duration": 177479000,
+      "eval_duration": 1688329000
+    },
+    "retrieval_ms": 2147.3549000220373,
+    "context_chars": 2263,
+    "generation_ms": 7319.547799997963,
+    "usage": {
+      "eval_count": 101,
+      "prompt_eval_count": 1862,
+      "total_duration": 7323441800,
+      "load_duration": 11924600,
+      "prompt_eval_duration": 1885648000,
+      "eval_duration": 5389210000
+    },
+    "audit_usage": {
+      "eval_count": 67,
+      "prompt_eval_count": 2298,
+      "total_duration": 6343762800,
+      "load_duration": 7383300,
+      "prompt_eval_duration": 2358912000,
+      "eval_duration": 3757390000
+    },
+    "audit_ms": 6345.409300003666,
+    "total_ms": 15812.577600008808
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "case_id": "case-011-1",
+  "family": "family-011",
+  "question": "Como ler uma aba específica de um Excel?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "sheet_name seleciona planilha; None retorna dicionário."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "288eb02cd20c47aebd151faa8ce67227",
+    "action": "handoff",
+    "message": "A resposta não passou pela verificação das citações. Consulte as fontes ou encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "0bad7e59f775f5be30476f53",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Returns the 1st and 4th sheet, as a dictionary of DataFrames.\\",
+        "text": "pd.read_excel(\"path_to_file.xls\", sheet_name=[\"Sheet1\", 3])\\\n```\\\n\\\nCopy to clipboard\\\n\\\n`read_excel` can read more than one sheet, by setting `sheet_name` to either\\\na list of sheet names, a list of sheet positions, or `None` to read all sheets.\\\nSheets can be specified by sheet index or sheet name, using an integer or string,\\\nrespectively.\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 91,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "cf4a9f3e61168f8d04984899e2eb419d122bf5d2b2271e494dca46d8f7c1cf95",
+        "score": 0.5988850700552831
+      },
+      {
+        "id": "c41d822dbe9d0bb3edb513a6",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "equivalent using the read_excel function\\",
+        "text": "data = pd.read_excel(\\\n\"path_to_file.xls\", [\"Sheet1\", \"Sheet2\"], index_col=None, na_values=[\"NA\"]\\\n)\\\n```\\\n\\\nCopy to clipboard\\\n\\\n`ExcelFile` can also be called with a `xlrd.book.Book` object\\\nas a parameter. This allows the user to control how the excel file is read.\\\nFor example, sheets can be loaded on demand by calling `xlrd.open_workbook()`\\\nwith `on_demand=True`.\\\n\\\n```\\\nimport xlrd\\\n\\\nxlrd_book = xlrd.open_workbook(\"path_to_file.xls\", on_demand=True)\\\nwith pd.ExcelFile(xlrd_book) as xls:\\\ndf1 = pd.read_excel(xls, \"Sheet1\")\\\ndf2 = pd.read_excel(xls, \"Sheet2\")\\\n```\\\n\\\nCopy to clipboard\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 85,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "c2b67ce2f9f39229f9483ab5a2bace450b02236cadb4ff3758e40fc9234d1701",
+        "score": 0.5715588679154131
+      },
+      {
+        "id": "42e5b1289acc90d760150027",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "For when Sheet1's format differs from Sheet2\\",
+        "text": "with pd.ExcelFile(\"path_to_file.xls\") as xls:\\\ndata[\"Sheet1\"] = pd.read_excel(xls, \"Sheet1\", index_col=None, na_values=[\"NA\"])\\\ndata[\"Sheet2\"] = pd.read_excel(xls, \"Sheet2\", index_col=1)\\\n```\\\n\\\nCopy to clipboard\\\n\\\nNote that if the same parsing parameters are used for all sheets, a list\\\nof sheet names can simply be passed to `read_excel` with no loss in performance.\\\n\\\n```\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 83,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "0a9fb1a9e5d0e76b78b472632e46766bf38faf4e30804b8860d5aa43bf09bdf8",
+        "score": 0.5708885080276218
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949359.1382399,
+    "audit": null,
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to read a specific sheet from an Excel file?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 159,
+      "total_duration": 655292300,
+      "load_duration": 5367500,
+      "prompt_eval_duration": 38448000,
+      "eval_duration": 428311000
+    },
+    "retrieval_ms": 790.8292000065558,
+    "context_chars": 1325,
+    "generation_ms": 5519.514099985827,
+    "usage": {
+      "eval_count": 375,
+      "prompt_eval_count": 1512,
+      "total_duration": 5506218900,
+      "load_duration": 6381800,
+      "prompt_eval_duration": 542931000,
+      "eval_duration": 4924314000
+    },
+    "validation_issue": "Trecho não pertence à fonte",
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "To read a specific sheet from an Excel file using pandas 2.2.3, specify the sheet name or index in the `sheet_name` parameter of `pd.read_excel()`.",
+          "evidence_ids": [
+            "0bad7e59f775f5be30476f53"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "0bad7e59f775f5be30476f53",
+              "quote": "pd.read_excel(\"path_to_file.xls\", sheet_name=[\"Sheet1\", 3])\\n\\n`read_excel` can read more than one sheet, by setting `sheet_name` to either\\na list of sheet names, a list of sheet positions, or `None` to read all sheets.\\nSheets can be specified by sheet index or sheet name, using an integer or string, respectively."
+            }
+          ]
+        },
+        {
+          "text": "For multiple sheets, pass a list of sheet names or indices to `sheet_name` to read specific sheets.",
+          "evidence_ids": [
+            "c41d822dbe9d0bb3edb513a6"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "c41d822dbe9d0bb3edb513a6",
+              "quote": "data = pd.read_excel(\\\"path_to_file.xls\", [\"Sheet1\", \"Sheet2\"], index_col=None, na_values=[\"NA\"]\\)"
+            }
+          ]
+        }
+      ]
+    },
+    "total_ms": 6310.491100011859
+  }
+}

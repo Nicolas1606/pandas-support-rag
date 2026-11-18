@@ -1,0 +1,2 @@
+# O núcleo usa apenas a biblioteca padrão do Python 3.11+.
+# Adaptador FastAPI opcional: pip install -r requirements-api.lock.txt

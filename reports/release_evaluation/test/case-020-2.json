@@ -1,0 +1,138 @@
+{
+  "case_id": "case-020-2",
+  "family": "family-020",
+  "question": "Como usar um dicionário de tipos no DataFrame.astype?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Mapping coluna->tipo permite conversão seletiva."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "a843551377004c0ba0966df7dca4c38f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para usar um dicionário de tipos em `DataFrame.astype`, passe um mapeamento de nome da coluna para o tipo desejado, como `df.astype({'col1': 'int32'})`, o que converterá apenas a coluna `col1` para o tipo `int32`, mantendo as outras colunas inalteradas.",
+        "evidence_ids": [
+          "b452f2dabf6b57172ce6e42f",
+          "06db0000b434b1f8321690ae"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "b452f2dabf6b57172ce6e42f",
+            "quote": "DataFrame.astype( _dtype_, _copy=None_, _errors='raise'_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6463-L6660)\n\nCast a pandas object to a specified dtype `dtype`.\n\nParameters:dtype str, data type, Series or Mapping of column name -> data type\n\nUse a str, numpy.dtype, pandas.ExtensionDtype or Python type to\ncast entire pandas object to the same type. Alternatively, use a\nmapping, e.g. {col: dtype, …}, where col is a column label and dtype is\na numpy.dtype or Python type to cast one or more of the DataFrame’s\ncolumns to column-specific types."
+          },
+          {
+            "source_id": "06db0000b434b1f8321690ae",
+            "quote": "In [369]: df3.astype(\"float32\").dtypes\nOut[369]:\nA    float32\nB    float32\nC    float32\ndtype: object\n```\n\nCopy to clipboard\n\nConvert a subset of columns to a specified type using [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\").\n\n```\nIn [370]: dft = pd.DataFrame({\"a\": [1, 2, 3], \"b\": [4, 5, 6], \"c\": [7, 8, 9]})\n\nIn [371]: dft[[\"a\", \"b\"]] = dft[[\"a\", \"b\"]].astype(np.uint8)\n\nIn [372]: dft\nOut[372]:\na  b  c\n0  1  4  7\n1  2  5  8\n2  3  6  9\n\nIn [373]: dft.dtypes\nOut[373]:\na    uint8\nb    uint8\nc    int64\ndtype: object\n```\n\nCopy to clipboard\n\nConvert certain columns to a specific dtype by passing a dict to [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\")."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "9c34300d92d28cb6c7d967e8",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html",
+        "title": "pandas.DataFrame.astype",
+        "section": "pandas.DataFrame.astype — Examples",
+        "text": "Examples\n\nCreate a DataFrame:\n\n```\n>>> d = {'col1': [1, 2], 'col2': [3, 4]}\n>>> df = pd.DataFrame(data=d)\n>>> df.dtypes\ncol1    int64\ncol2    int64\ndtype: object\n```\n\nCast all columns to int32:\n\n```\n>>> df.astype('int32').dtypes\ncol1    int32\ncol2    int32\ndtype: object\n```\n\nCast col1 to int32 using a dictionary:\n\n```\n>>> df.astype({'col1': 'int32'}).dtypes\ncol1    int32\ncol2    int64\ndtype: object\n```\n\nCreate a series:\n\n```\n>>> ser = pd.Series([1, 2], dtype='int32')\n>>> ser\n0    1\n1    2\ndtype: int32\n>>> ser.astype('int64')\n0    1\n1    2\ndtype: int64\n```\n\nConvert to categorical type:\n\n```\n>>> ser.astype('category')\n0    1\n1    2\ndtype: category\nCategories (2, int32): [1, 2]\n```\n\nConvert to ordered categorical type with custom ordering:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 4,
+        "part": 0,
+        "content_sha256": "e6dbe1d38d0f4656b8ffccc4d4de299b9a4e848d9ac360f00b33099dad1b11fc",
+        "score": 0.6689884553306056
+      },
+      {
+        "id": "b452f2dabf6b57172ce6e42f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html",
+        "title": "pandas.DataFrame.astype",
+        "section": "pandas.DataFrame.astype",
+        "text": "DataFrame.astype( _dtype_, _copy=None_, _errors='raise'_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6463-L6660)\n\nCast a pandas object to a specified dtype `dtype`.\n\nParameters:dtype str, data type, Series or Mapping of column name -> data type\n\nUse a str, numpy.dtype, pandas.ExtensionDtype or Python type to\ncast entire pandas object to the same type. Alternatively, use a\nmapping, e.g. {col: dtype, …}, where col is a column label and dtype is\na numpy.dtype or Python type to cast one or more of the DataFrame’s\ncolumns to column-specific types.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "7361aac2f1ae39309aa9a3bdf77b0bde1c9600d4c0a5d09a57687a617c00251f",
+        "score": 0.6506312155670001
+      },
+      {
+        "id": "06db0000b434b1f8321690ae",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "conversion of dtypes",
+        "text": "In [369]: df3.astype(\"float32\").dtypes\nOut[369]:\nA    float32\nB    float32\nC    float32\ndtype: object\n```\n\nCopy to clipboard\n\nConvert a subset of columns to a specified type using [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\").\n\n```\nIn [370]: dft = pd.DataFrame({\"a\": [1, 2, 3], \"b\": [4, 5, 6], \"c\": [7, 8, 9]})\n\nIn [371]: dft[[\"a\", \"b\"]] = dft[[\"a\", \"b\"]].astype(np.uint8)\n\nIn [372]: dft\nOut[372]:\na  b  c\n0  1  4  7\n1  2  5  8\n2  3  6  9\n\nIn [373]: dft.dtypes\nOut[373]:\na    uint8\nb    uint8\nc    int64\ndtype: object\n```\n\nCopy to clipboard\n\nConvert certain columns to a specific dtype by passing a dict to [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\").",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 66,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "45b38848058eed9d466bbff6231c1d60d887c974e9bdd1942a671a68b4004e4d",
+        "score": 0.6332491156466188
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950801.6871035,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mostrando como usar um dicionário para converter tipos específicos de colunas em um DataFrame, mantendo as outras colunas inalteradas, conforme descrito nos exemplos e parâmetros da função `astype`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to use a type dictionary in DataFrame.astype?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 210,
+      "total_duration": 1796566900,
+      "load_duration": 7832900,
+      "prompt_eval_duration": 203845000,
+      "eval_duration": 1391236000
+    },
+    "retrieval_ms": 1962.8854999900796,
+    "context_chars": 2214,
+    "generation_ms": 9018.158400023822,
+    "usage": {
+      "eval_count": 135,
+      "prompt_eval_count": 1793,
+      "total_duration": 9015709800,
+      "load_duration": 7953400,
+      "prompt_eval_duration": 1834452000,
+      "eval_duration": 7137096000
+    },
+    "audit_usage": {
+      "eval_count": 81,
+      "prompt_eval_count": 2507,
+      "total_duration": 7225336400,
+      "load_duration": 5300900,
+      "prompt_eval_duration": 2494408000,
+      "eval_duration": 4589354000
+    },
+    "audit_ms": 7227.3402999853715,
+    "total_ms": 18208.91990000382
+  }
+}

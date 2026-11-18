@@ -1,0 +1,138 @@
+{
+  "case_id": "case-028-1",
+  "family": "family-028",
+  "question": "Como juntar tabelas cujas chaves têm nomes diferentes?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "left_on e right_on indicam chaves com nomes distintos."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "ad33f86ab98a4019bee65883fcd75d95",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para juntar tabelas cujas chaves têm nomes diferentes, você pode usar o parâmetro `on` no método `join`. Por exemplo, `df.join(other.set_index('key'), on='key')` unirá as tabelas com base na coluna 'key' de cada DataFrame, preservando o índice original do DataFrame `df`.",
+        "evidence_ids": [
+          "68888723b50acb313e9fb1f9",
+          "135911cc534e5c520ccf5af9"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "68888723b50acb313e9fb1f9",
+            "quote": "the index in both df and other. The joined DataFrame will have\nkey as its index.\n\n```\n>>> df.set_index('key').join(other.set_index('key'))\n      A    B\nkey\nK0   A0   B0\nK1   A1   B1\nK2   A2   B2\nK3   A3  NaN\nK4   A4  NaN\nK5   A5  NaN\n```\n\nAnother option to join using the key columns is to use the on\nparameter. DataFrame.join always uses other’s index but we can use\nany column in df. This method preserves the original DataFrame’s\nindex in the result.\n\n```\n>>> df.join(other.set_index('key'), on='key')\n  key   A    B\n0  K0  A0   B0\n1  K1  A1   B1\n2  K2  A2   B2\n3  K3  A3  NaN\n4  K4  A4  NaN\n5  K5  A5  NaN\n```\n\nUsing non-unique key values shows how they are matched.\n\n```\n>>> df = pd.DataFrame({'key': ['K0', 'K1', 'K1', 'K3', 'K0', 'K1'],\n...                    'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})\n```"
+          },
+          {
+            "source_id": "135911cc534e5c520ccf5af9",
+            "quote": "Examples\n\n```\n>>> df = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],\n...                    'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})\n```\n\n```\n>>> df\n  key   A\n0  K0  A0\n1  K1  A1\n2  K2  A2\n3  K3  A3\n4  K4  A4\n5  K5  A5\n```\n\n```\n>>> other = pd.DataFrame({'key': ['K0', 'K1', 'K2'],\n...                       'B': ['B0', 'B1', 'B2']})\n```\n\n```\n>>> other\n  key   B\n0  K0  B0\n1  K1  B1\n2  K2  B2\n```\n\nJoin DataFrames using their indexes.\n\n```\n>>> df.join(other, lsuffix='_caller', rsuffix='_other')\n  key_caller   A key_other    B\n0         K0  A0        K0   B0\n1         K1  A1        K1   B1\n2         K2  A2        K2   B2\n3         K3  A3       NaN  NaN\n4         K4  A4       NaN  NaN\n5         K5  A5       NaN  NaN\n```\n\nIf we want to join using the key columns, we need to set key to be"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "68888723b50acb313e9fb1f9",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "title": "pandas.DataFrame.join",
+        "section": "pandas.DataFrame.join — the index in both df and other. The joined DataFrame will have",
+        "text": "the index in both df and other. The joined DataFrame will have\nkey as its index.\n\n```\n>>> df.set_index('key').join(other.set_index('key'))\n      A    B\nkey\nK0   A0   B0\nK1   A1   B1\nK2   A2   B2\nK3   A3  NaN\nK4   A4  NaN\nK5   A5  NaN\n```\n\nAnother option to join using the key columns is to use the on\nparameter. DataFrame.join always uses other’s index but we can use\nany column in df. This method preserves the original DataFrame’s\nindex in the result.\n\n```\n>>> df.join(other.set_index('key'), on='key')\n  key   A    B\n0  K0  A0   B0\n1  K1  A1   B1\n2  K2  A2   B2\n3  K3  A3  NaN\n4  K4  A4  NaN\n5  K5  A5  NaN\n```\n\nUsing non-unique key values shows how they are matched.\n\n```\n>>> df = pd.DataFrame({'key': ['K0', 'K1', 'K1', 'K3', 'K0', 'K1'],\n...                    'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 10,
+        "part": 0,
+        "content_sha256": "102ea1f24f88c08272425c43a372e76cfe7b0a706a643e0a8ce0634341020744",
+        "score": 0.575734998368359
+      },
+      {
+        "id": "135911cc534e5c520ccf5af9",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "title": "pandas.DataFrame.join",
+        "section": "pandas.DataFrame.join — Examples",
+        "text": "Examples\n\n```\n>>> df = pd.DataFrame({'key': ['K0', 'K1', 'K2', 'K3', 'K4', 'K5'],\n...                    'A': ['A0', 'A1', 'A2', 'A3', 'A4', 'A5']})\n```\n\n```\n>>> df\n  key   A\n0  K0  A0\n1  K1  A1\n2  K2  A2\n3  K3  A3\n4  K4  A4\n5  K5  A5\n```\n\n```\n>>> other = pd.DataFrame({'key': ['K0', 'K1', 'K2'],\n...                       'B': ['B0', 'B1', 'B2']})\n```\n\n```\n>>> other\n  key   B\n0  K0  B0\n1  K1  B1\n2  K2  B2\n```\n\nJoin DataFrames using their indexes.\n\n```\n>>> df.join(other, lsuffix='_caller', rsuffix='_other')\n  key_caller   A key_other    B\n0         K0  A0        K0   B0\n1         K1  A1        K1   B1\n2         K2  A2        K2   B2\n3         K3  A3       NaN  NaN\n4         K4  A4       NaN  NaN\n5         K5  A5       NaN  NaN\n```\n\nIf we want to join using the key columns, we need to set key to be",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 9,
+        "part": 0,
+        "content_sha256": "d81219f0865d962d3f2c17590d47853f16e8529ee0dfe70cc665d699a85e4f5a",
+        "score": 0.5690268238449645
+      },
+      {
+        "id": "df8b2db683404d0ce4229c92",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Resulting `keys`",
+        "text": "The `keys` argument adds another axis level to the resulting index or column (creating\na `MultiIndex`) associate specific keys with each original `DataFrame`.\n\n```\nIn [24]: result = pd.concat(frames, keys=[\"x\", \"y\", \"z\"])\n\nIn [25]: result\nOut[25]:\n        A    B    C    D\nx 0    A0   B0   C0   D0\n  1    A1   B1   C1   D1\n  2    A2   B2   C2   D2\n  3    A3   B3   C3   D3\ny 4    A4   B4   C4   D4\n  5    A5   B5   C5   D5\n  6    A6   B6   C6   D6\n  7    A7   B7   C7   D7\nz 8    A8   B8   C8   D8\n  9    A9   B9   C9   D9\n  10  A10  B10  C10  D10\n  11  A11  B11  C11  D11\n\nIn [26]: result.loc[\"y\"]\nOut[26]:\n    A   B   C   D\n4  A4  B4  C4  D4\n5  A5  B5  C5  D5\n6  A6  B6  C6  D6\n7  A7  B7  C7  D7\n```\n\n```\n\n```\n\n!../_images/merging_concat_keys.png\n\nThe `keys` argument cane override the column names\nwhen creating a new `DataFrame` based on existing `Series`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 5,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "91b9f71237697bb6f7efaac496d876d0938747abafec1bbbf14c75ff45430695",
+        "score": 0.5568268360692863
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950898.0022447,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mostrando como usar o parâmetro `on` no método `join` para unir tabelas com chaves de nomes diferentes, preservando o índice original do DataFrame `df`. A evidência fornecida apoia diretamente a afirmação feita."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to join tables whose keys have different names?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 213,
+      "total_duration": 1558948400,
+      "load_duration": 7404000,
+      "prompt_eval_duration": 177919000,
+      "eval_duration": 1367484000
+    },
+    "retrieval_ms": 1715.5564000131562,
+    "context_chars": 2480,
+    "generation_ms": 10019.835200044326,
+    "usage": {
+      "eval_count": 135,
+      "prompt_eval_count": 2085,
+      "total_duration": 10017902800,
+      "load_duration": 5716000,
+      "prompt_eval_duration": 2253048000,
+      "eval_duration": 7722116000
+    },
+    "audit_usage": {
+      "eval_count": 92,
+      "prompt_eval_count": 2965,
+      "total_duration": 9276863900,
+      "load_duration": 8934200,
+      "prompt_eval_duration": 3154650000,
+      "eval_duration": 5932135000
+    },
+    "audit_ms": 9279.2736000265,
+    "total_ms": 21015.11770003708
+  }
+}

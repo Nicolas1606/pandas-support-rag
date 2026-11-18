@@ -1,0 +1,133 @@
+{
+  "case_id": "case-026-1",
+  "family": "family-026",
+  "question": "Como identificar registros que existem só à esquerda?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "indicator gera origem; left/outer preserva exclusivos à esquerda."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "433fd3a173e54c888115f6c7c9dad986",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para identificar registros que existem apenas no lado esquerdo, use o parâmetro `indicator=True` na função `pandas.merge`. Isso adiciona uma coluna chamada `_merge` ao DataFrame resultante, que indica a origem de cada linha. O valor `left_only` nessa coluna indica que o registro existe apenas no DataFrame esquerdo.",
+        "evidence_ids": [
+          "8392900648318f3fcfdffedf"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "8392900648318f3fcfdffedf",
+            "quote": "indicator bool or str, default False\n\nIf True, adds a column to the output DataFrame called “_merge” with\ninformation on the source of each row. The column can be given a different\nname by providing a string argument. The column will have a Categorical\ntype with the value of “left_only” for observations whose merge key only\nappears in the left DataFrame, “right_only” for observations\nwhose merge key only appears in the right DataFrame, and “both”\nif the observation’s merge key is found in both DataFrames."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "8392900648318f3fcfdffedf",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — indicator bool or str, default False",
+        "text": "indicator bool or str, default False\n\nIf True, adds a column to the output DataFrame called “_merge” with\ninformation on the source of each row. The column can be given a different\nname by providing a string argument. The column will have a Categorical\ntype with the value of “left_only” for observations whose merge key only\nappears in the left DataFrame, “right_only” for observations\nwhose merge key only appears in the right DataFrame, and “both”\nif the observation’s merge key is found in both DataFrames.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 11,
+        "part": 0,
+        "content_sha256": "a2d82a1bcf8972a651e4dd63c1a687213b341e043ccdb9113d055658bc815283",
+        "score": 0.3640158656698826
+      },
+      {
+        "id": "57c6784adca5fd4f161b9485",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — left_on label or list, or array-like",
+        "text": "left_on label or list, or array-like\n\nColumn or index level names to join on in the left DataFrame. Can also\nbe an array or list of arrays of the length of the left DataFrame.\nThese arrays are treated as if they are columns.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 4,
+        "part": 0,
+        "content_sha256": "4a691f2569a94bb3d4ac23712b681607485a7e21b91288d04853f0880d89ac74",
+        "score": 0.35569494739687246
+      },
+      {
+        "id": "8ec949d19cdcfd09565751dc",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — left_index bool, default False",
+        "text": "left_index bool, default False\n\nUse the index from the left DataFrame as the join key(s). If it is a\nMultiIndex, the number of keys in the other DataFrame (either the index\nor a number of columns) must match the number of levels.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 6,
+        "part": 0,
+        "content_sha256": "d70a007ac20a4a046526e228b1a9b24a72fce106e129f211d1650b7ac6b81723",
+        "score": 0.3517907654619507
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950881.8482556,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, indicando que o parâmetro `indicator=True` adiciona uma coluna `_merge` com o valor `left_only` para registros que existem apenas no DataFrame esquerdo."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to identify records that exist only on the left?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 211,
+      "total_duration": 2081792400,
+      "load_duration": 6385100,
+      "prompt_eval_duration": 200827000,
+      "eval_duration": 1589862000
+    },
+    "retrieval_ms": 2280.0125000067055,
+    "context_chars": 963,
+    "generation_ms": 6598.565099993721,
+    "usage": {
+      "eval_count": 109,
+      "prompt_eval_count": 1192,
+      "total_duration": 6596487900,
+      "load_duration": 6996300,
+      "prompt_eval_duration": 1252156000,
+      "eval_duration": 5304723000
+    },
+    "audit_usage": {
+      "eval_count": 74,
+      "prompt_eval_count": 1442,
+      "total_duration": 5224385500,
+      "load_duration": 6854000,
+      "prompt_eval_duration": 1452836000,
+      "eval_duration": 3664672000
+    },
+    "audit_ms": 5226.0856999782845,
+    "total_ms": 14104.93710002629
+  }
+}

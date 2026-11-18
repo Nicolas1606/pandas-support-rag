@@ -1,0 +1,172 @@
+{
+  "isolated_data_directory": true,
+  "steps": [
+    {
+      "endpoint": "/health",
+      "status": 200,
+      "body": "{\"status\": \"alive\"}"
+    },
+    {
+      "endpoint": "/ready",
+      "status": 200,
+      "body": "{\"retrieval\": true, \"generation\": true, \"semantic\": true, \"default_method\": \"dense\", \"corpus_id\": \"81396567c3f64252\"}"
+    },
+    {
+      "endpoint": "/",
+      "status": 200,
+      "body": "UI HTML loaded"
+    },
+    {
+      "question": "Como validar um merge muitos para um usando validate?",
+      "expected": "answer",
+      "passed": true,
+      "seconds": 13.54996780003421,
+      "output": {
+        "request_id": "54b3a1098dcb46bb99d422a1b0f9c4d7",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Para validar um merge many-to-one usando o parâmetro `validate`, você deve especificar o valor `\"many_to_one\"` ou `\"m:1\"`, que verifica se as chaves de mesclagem são únicas no conjunto de dados direito. Isso é feito com a função `pandas.merge` e o parâmetro `validate`.",
+            "evidence_ids": [
+              "3a4cee70a1603446de850c88"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "3a4cee70a1603446de850c88",
+                "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "3a4cee70a1603446de850c88",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — validate str, optional",
+            "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 12,
+            "part": 0,
+            "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821",
+            "score": 0.6013987690413511
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "dense",
+        "model": "qwen3:8b",
+        "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+        "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+        "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+        "version": "2.2.3",
+        "time": 1794951698.9377477,
+        "audit": {
+          "supported": true,
+          "answers_question": true,
+          "portuguese": true,
+          "reason": "A resposta está alinhada com a documentação, especificando corretamente que para validar um merge many-to-one, o parâmetro `validate` deve ser definido como `\"many_to_one\"` ou `\"m:1\"`, verificando a unicidade das chaves no conjunto de dados direito."
+        },
+        "interpretation": {
+          "scope": "inside",
+          "english_question": "How to validate a many-to-one merge using validate?",
+          "message": ""
+        },
+        "planning_usage": {
+          "eval_count": 32,
+          "prompt_eval_count": 209,
+          "total_duration": 1787306600,
+          "load_duration": 5646500,
+          "prompt_eval_duration": 176199000,
+          "eval_duration": 1466685000
+        },
+        "retrieval_ms": 2317.6003999542445,
+        "context_chars": 403,
+        "generation_ms": 5774.237999983598,
+        "usage": {
+          "eval_count": 110,
+          "prompt_eval_count": 593,
+          "total_duration": 5765759400,
+          "load_duration": 4680200,
+          "prompt_eval_duration": 683473000,
+          "eval_duration": 5054485000
+        },
+        "audit_usage": {
+          "eval_count": 92,
+          "prompt_eval_count": 851,
+          "total_duration": 5434315300,
+          "load_duration": 6281900,
+          "prompt_eval_duration": 932118000,
+          "eval_duration": 4456213000
+        },
+        "audit_ms": 5450.90319996234,
+        "total_ms": 13543.299199955072
+      }
+    },
+    {
+      "question": "Como configurar um cluster Spark?",
+      "expected": "handoff",
+      "passed": true,
+      "seconds": 1.87345999997342,
+      "output": {
+        "request_id": "87080d0bffdf4131b77e565194b04700",
+        "action": "handoff",
+        "message": "Como configurar um cluster Spark?",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "dense",
+        "model": "qwen3:8b",
+        "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+        "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+        "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+        "version": "2.2.3",
+        "time": 1794951712.4865665,
+        "audit": null,
+        "interpretation": {
+          "scope": "outside",
+          "english_question": "How to configure a Spark cluster?",
+          "message": "Como configurar um cluster Spark?"
+        },
+        "planning_usage": {
+          "eval_count": 35,
+          "prompt_eval_count": 205,
+          "total_duration": 1866433000,
+          "load_duration": 5935200,
+          "prompt_eval_duration": 187645000,
+          "eval_duration": 1608786000
+        },
+        "total_ms": 1868.3108999975957
+      }
+    },
+    {
+      "question": "Meu merge duplicou linhas. Como resolver?",
+      "expected": "clarify",
+      "passed": true,
+      "seconds": 0.0061033000238239765,
+      "output": {
+        "request_id": "ffe453653f4d4fa199028d2a5dac9656",
+        "action": "clarify",
+        "message": "Qual é o exemplo mínimo da entrada, a operação executada e o resultado esperado? Inclua a mensagem de erro, se houver.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "dense",
+        "model": "qwen3:8b",
+        "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+        "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+        "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+        "version": "2.2.3",
+        "time": 1794951714.3597941,
+        "audit": null,
+        "policy_rule": "missing_reproduction_context",
+        "total_ms": 0.06009999196976423
+      }
+    }
+  ],
+  "passed": true
+}

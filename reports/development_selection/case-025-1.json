@@ -1,0 +1,100 @@
+{
+  "case_id": "case-025-1",
+  "family": "family-025",
+  "question": "Como validar um merge muitos para um?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "validate=many_to_one exige unicidade do lado direito."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "da1bb27a51424d2a91f15543f6506936",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para validar uma mesclagem many-to-one, use o parâmetro `validate='many_to_one'` ou `validate='m:1'` em `pandas.merge`, que verifica se as chaves de mesclagem são únicas no conjunto de dados direito.",
+        "evidence_ids": [
+          "3a4cee70a1603446de850c88"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "3a4cee70a1603446de850c88",
+            "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "3a4cee70a1603446de850c88",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — validate str, optional",
+        "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 12,
+        "part": 0,
+        "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821",
+        "score": 0.6140371806500656
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950349.555103,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mencionando corretamente o parâmetro `validate='many_to_one'` ou `validate='m:1'` para validar uma mesclagem many-to-one, verificando se as chaves de mesclagem são únicas no conjunto de dados direito."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to validate a many-to-one merge?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 165,
+      "total_duration": 1645107900,
+      "load_duration": 8874600,
+      "prompt_eval_duration": 162110000,
+      "eval_duration": 1344835000
+    },
+    "retrieval_ms": 1832.97649997985,
+    "context_chars": 403,
+    "generation_ms": 4782.595199998468,
+    "usage": {
+      "eval_count": 90,
+      "prompt_eval_count": 591,
+      "total_duration": 4769761200,
+      "load_duration": 5660300,
+      "prompt_eval_duration": 673047000,
+      "eval_duration": 4071302000
+    },
+    "audit_usage": {
+      "eval_count": 93,
+      "prompt_eval_count": 829,
+      "total_duration": 5247038100,
+      "load_duration": 7502600,
+      "prompt_eval_duration": 869365000,
+      "eval_duration": 4321406000
+    },
+    "audit_ms": 5248.66760004079,
+    "total_ms": 11864.421500009485
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "case_id": "case-044-2",
+  "family": "family-044",
+  "question": "Inner ou left é melhor para meu caso?",
+  "topic": "join",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir quais registros devem ser preservados."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "84300a73475e4312934e55850f8cd4be",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "O método `inner` é melhor para seu caso se você desejar usar a interseção das chaves de ambos os quadros, similar a um `INNER JOIN` em SQL. Já o método `left` usa apenas as chaves do quadro esquerdo, o que pode ser útil se você quiser preservar todas as linhas do quadro esquerdo e preencher os valores ausentes do quadro direito com `NaN`. Escolha `inner` se a sua análise exigir apenas os registros com chaves comuns entre os dois quadros.",
+        "evidence_ids": [
+          "83c80b75e43297661dcf42b3",
+          "ef69722cda980793e90c4d95"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "83c80b75e43297661dcf42b3",
+            "quote": "| Merge method | SQL Join Name | Description |\n| --- | --- | --- |\n| `left` | `LEFT OUTER JOIN` | Use keys from left frame only |\n| `right` | `RIGHT OUTER JOIN` | Use keys from right frame only |\n| `outer` | `FULL OUTER JOIN` | Use union of keys from both frames |\n| `inner` | `INNER JOIN` | Use intersection of keys from both frames |\n| `cross` | `CROSS JOIN` | Create the cartesian product of rows of both frames |\n\n```\nIn [48]: left = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K0\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K1\", \"K0\", \"K1\"],\n   ....:       \"A\": [\"A0\", \"A1\", \"A2\", \"A3\"],\n   ....:       \"B\": [\"B0\", \"B1\", \"B2\", \"B3\"],\n   ....:    }\n   ....: )\n   ....:"
+          },
+          {
+            "source_id": "ef69722cda980793e90c4d95",
+            "quote": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\n- right: use only keys from right frame, similar to a SQL right outer join;\npreserve key order.\n\n- outer: use union of keys from both frames, similar to a SQL full outer\njoin; sort keys lexicographically.\n\n- inner: use intersection of keys from both frames, similar to a SQL inner\njoin; preserve the order of the left keys.\n\n- cross: creates the cartesian product from both frames, preserves the order\nof the left keys."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "83c80b75e43297661dcf42b3",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "| Merge method | SQL Join Name | Description |\n| --- | --- | --- |\n| `left` | `LEFT OUTER JOIN` | Use keys from left frame only |\n| `right` | `RIGHT OUTER JOIN` | Use keys from right frame only |\n| `outer` | `FULL OUTER JOIN` | Use union of keys from both frames |\n| `inner` | `INNER JOIN` | Use intersection of keys from both frames |\n| `cross` | `CROSS JOIN` | Create the cartesian product of rows of both frames |\n\n```\nIn [48]: left = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K0\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K1\", \"K0\", \"K1\"],\n   ....:       \"A\": [\"A0\", \"A1\", \"A2\", \"A3\"],\n   ....:       \"B\": [\"B0\", \"B1\", \"B2\", \"B3\"],\n   ....:    }\n   ....: )\n   ....:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 2,
+        "content_sha256": "60ba05ffe73754de455b9e8f2817ff01f92de3111f3a1b3ba004537e37f61510",
+        "score": 0.2833621471905654
+      },
+      {
+        "id": "ef69722cda980793e90c4d95",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes",
+        "text": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\n- right: use only keys from right frame, similar to a SQL right outer join;\npreserve key order.\n\n- outer: use union of keys from both frames, similar to a SQL full outer\njoin; sort keys lexicographically.\n\n- inner: use intersection of keys from both frames, similar to a SQL inner\njoin; preserve the order of the left keys.\n\n- cross: creates the cartesian product from both frames, preserves the order\nof the left keys.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 2,
+        "part": 1,
+        "content_sha256": "46745f9dd1782d0588686a3a41a0fad277c20d67cf9fbcfb51bb37cd7a4575e0",
+        "score": 0.2712473384733772
+      },
+      {
+        "id": "8ec949d19cdcfd09565751dc",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — left_index bool, default False",
+        "text": "left_index bool, default False\n\nUse the index from the left DataFrame as the join key(s). If it is a\nMultiIndex, the number of keys in the other DataFrame (either the index\nor a number of columns) must match the number of levels.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 6,
+        "part": 0,
+        "content_sha256": "d70a007ac20a4a046526e228b1a9b24a72fce106e129f211d1650b7ac6b81723",
+        "score": 0.2691687266792039
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951186.047575,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta aborda corretamente a diferença entre os métodos `inner` e `left`, com base nas descrições fornecidas nos documentos, e não inverte precondições ou recomenda ignorar validações."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Inner or left is better for my case?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 207,
+      "total_duration": 1835312300,
+      "load_duration": 7515500,
+      "prompt_eval_duration": 170851000,
+      "eval_duration": 1468889000
+    },
+    "retrieval_ms": 2060.2288999943994,
+    "context_chars": 1416,
+    "generation_ms": 10582.282500050496,
+    "usage": {
+      "eval_count": 179,
+      "prompt_eval_count": 1395,
+      "total_duration": 10569387000,
+      "load_duration": 6902300,
+      "prompt_eval_duration": 1288672000,
+      "eval_duration": 9240366000
+    },
+    "audit_usage": {
+      "eval_count": 71,
+      "prompt_eval_count": 2014,
+      "total_duration": 5803073000,
+      "load_duration": 8951000,
+      "prompt_eval_duration": 1836621000,
+      "eval_duration": 3846051000
+    },
+    "audit_ms": 5805.473399988841,
+    "total_ms": 18448.363000003155
+  }
+}

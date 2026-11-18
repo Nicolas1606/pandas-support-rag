@@ -1,0 +1,133 @@
+{
+  "case_id": "case-054-2",
+  "family": "family-054",
+  "question": "to_numeric com coerce sempre devolve 0 para abc?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Corrigir: coerce gera ausência, não zero."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "0efdb31b727445e4bb0eeb9e51f2a89a",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "O parâmetro `errors='coerce'` em `pandas.to_numeric` converte valores inválidos em `NaN`, mas não retorna sempre 0 para 'abc'. O valor 'abc' será convertido em `NaN` quando `errors='coerce'` é especificado, conforme mostrado no exemplo: `pd.to_numeric(s, errors='coerce')` resulta em `0    NaN` para 'abc'.",
+        "evidence_ids": [
+          "66895e6f0b53dbc11b1711b6"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "66895e6f0b53dbc11b1711b6",
+            "quote": "Examples\n\nTake separate series and convert to numeric, coercing when told to\n\n```\n>>> s = pd.Series(['1.0', '2', -3])\n>>> pd.to_numeric(s)\n0    1.0\n1    2.0\n2   -3.0\ndtype: float64\n>>> pd.to_numeric(s, downcast='float')\n0    1.0\n1    2.0\n2   -3.0\ndtype: float32\n>>> pd.to_numeric(s, downcast='signed')\n0    1\n1    2\n2   -3\ndtype: int8\n>>> s = pd.Series(['apple', '1.0', '2', -3])\n>>> pd.to_numeric(s, errors='coerce')\n0    NaN\n1    1.0\n2    2.0\n3   -3.0\ndtype: float64\n```\n\nDowncasting of nullable integer and floating dtypes is supported:\n\n```\n>>> s = pd.Series([1, 2, 3], dtype=\"Int64\")\n>>> pd.to_numeric(s, downcast=\"integer\")\n0    1\n1    2\n2    3\ndtype: Int8\n>>> s = pd.Series([1.0, 2.1, 3.0], dtype=\"Float64\")\n>>> pd.to_numeric(s, downcast=\"float\")\n0    1.0\n1    2.1\n2    3.0\ndtype: Float32\n```"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "0ab6aee5bf7e35fa61f7c127",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric",
+        "text": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3",
+        "score": 0.4906303710699644
+      },
+      {
+        "id": "66895e6f0b53dbc11b1711b6",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric — Examples",
+        "text": "Examples\n\nTake separate series and convert to numeric, coercing when told to\n\n```\n>>> s = pd.Series(['1.0', '2', -3])\n>>> pd.to_numeric(s)\n0    1.0\n1    2.0\n2   -3.0\ndtype: float64\n>>> pd.to_numeric(s, downcast='float')\n0    1.0\n1    2.0\n2   -3.0\ndtype: float32\n>>> pd.to_numeric(s, downcast='signed')\n0    1\n1    2\n2   -3\ndtype: int8\n>>> s = pd.Series(['apple', '1.0', '2', -3])\n>>> pd.to_numeric(s, errors='coerce')\n0    NaN\n1    1.0\n2    2.0\n3   -3.0\ndtype: float64\n```\n\nDowncasting of nullable integer and floating dtypes is supported:\n\n```\n>>> s = pd.Series([1, 2, 3], dtype=\"Int64\")\n>>> pd.to_numeric(s, downcast=\"integer\")\n0    1\n1    2\n2    3\ndtype: Int8\n>>> s = pd.Series([1.0, 2.1, 3.0], dtype=\"Float64\")\n>>> pd.to_numeric(s, downcast=\"float\")\n0    1.0\n1    2.1\n2    3.0\ndtype: Float32\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 3,
+        "part": 0,
+        "content_sha256": "aa1729953e5db41c63675ae82517ce8e0643460eb1e798f8711343770108a9e3",
+        "score": 0.4545850006076832
+      },
+      {
+        "id": "c34b44fcd96265df592a7d87",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric — downcast str, default None",
+        "text": "downcast str, default None\n\nCan be ‘integer’, ‘signed’, ‘unsigned’, or ‘float’.\nIf not None, and if the data has been successfully cast to a\nnumerical dtype (or if the data was numeric to begin with),\ndowncast that resulting data to the smallest numerical dtype\npossible according to the following rules:\n\n- ‘integer’ or ‘signed’: smallest signed int dtype (min.: np.int8)\n\n- ‘unsigned’: smallest unsigned int dtype (min.: np.uint8)\n\n- ‘float’: smallest float dtype (min.: np.float32)\n\nAs this behaviour is separate from the core conversion to\nnumeric values, any errors raised during the downcasting\nwill be surfaced regardless of the value of the ‘errors’ input.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "b0809e6cbf09b8c7a429efbab082d7222ec84b0d218803b23c9311047f9691a9",
+        "score": 0.45032412722113
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951621.3105118,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, mostrando que 'abc' é convertido em NaN quando 'errors='coerce'' é usado, e não retorna 0."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Does to_numeric with coerce always return 0 for abc?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 33,
+      "prompt_eval_count": 210,
+      "total_duration": 1838584400,
+      "load_duration": 7015900,
+      "prompt_eval_duration": 175665000,
+      "eval_duration": 1487568000
+    },
+    "retrieval_ms": 2049.981599964667,
+    "context_chars": 1780,
+    "generation_ms": 8263.164499949198,
+    "usage": {
+      "eval_count": 126,
+      "prompt_eval_count": 1574,
+      "total_duration": 8261108400,
+      "load_duration": 7601800,
+      "prompt_eval_duration": 1744451000,
+      "eval_duration": 6472094000
+    },
+    "audit_usage": {
+      "eval_count": 63,
+      "prompt_eval_count": 2088,
+      "total_duration": 5784875700,
+      "load_duration": 5803000,
+      "prompt_eval_duration": 2272849000,
+      "eval_duration": 3382382000
+    },
+    "audit_ms": 5786.767599987797,
+    "total_ms": 16100.146299984772
+  }
+}

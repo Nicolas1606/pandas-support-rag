@@ -1,0 +1,144 @@
+{
+  "case_id": "case-005-2",
+  "family": "family-005",
+  "question": "Meu arquivo usa -999 para ausência. Como configurar a leitura?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Configurar tokens ausentes e explicar defaults."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.25
+  },
+  "output": {
+    "request_id": "ddd6a54262b041c39108a2e5596784b2",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para configurar a leitura de um arquivo que usa -999 como valor ausente, você deve especificar `na_values=[-999]` no método `pd.read_csv` ou `pd.read_excel`.",
+        "evidence_ids": [
+          "42766609ea51fe6066911390"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "42766609ea51fe6066911390",
+            "quote": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`)."
+          }
+        ]
+      },
+      {
+        "text": "O parâmetro `na_values` aceita números inteiros ou flutuantes para especificar valores ausentes, como -999.",
+        "evidence_ids": [
+          "42766609ea51fe6066911390"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "42766609ea51fe6066911390",
+            "quote": "If you specify a number (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`)."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "bb15d09ce9319f8eed5614c1",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "NA and missing data handling",
+        "text": "- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as NaN.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored.\n\nna_filterboolean, default `True`\n\nDetect missing value markers (empty strings and the value of na_values). In\ndata without any NAs, passing `na_filter=False` can improve the performance\nof reading a large file.\n\nverboseboolean, default `False`\n\nIndicate number of NA values placed in non-numeric columns.\n\nskip_blank_linesboolean, default `True`\n\nIf `True`, skip over blank lines rather than interpreting as NaN values.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 6,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "99fb653d16773d7249361d29adb3bf5a84ab88042d490a86037235cb77e88eec",
+        "score": 0.44378665073599155
+      },
+      {
+        "id": "42766609ea51fe6066911390",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "NA values",
+        "text": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`).\n\nTo completely override the default values that are recognized as missing, specify `keep_default_na=False`.\n\nThe default `NaN` recognized values are `['-1.#IND', '1.#QNAN', '1.#IND', '-1.#QNAN', '#N/A N/A', '#N/A', 'N/A',\\\n'n/a', 'NA', '<NA>', '#NA', 'NULL', 'null', 'NaN', '-NaN', 'nan', '-nan', 'None', '']`.\n\nLet us consider some examples:\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[5])\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 32,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "46a09f46e8aa23a84730e0ffd6ae885b09d831eec7cc46f48ba43560c3987084",
+        "score": 0.43097855769924176
+      },
+      {
+        "id": "eb3d8e3e870947ae6250159f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "title": "pandas.read_excel",
+        "section": "pandas.read_excel — na_filter bool, default True",
+        "text": "na_filter bool, default True\n\nDetect missing value markers (empty strings and the value of na_values). In\ndata without any NAs, passing `na_filter=False` can improve the\nperformance of reading a large file.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 14,
+        "part": 0,
+        "content_sha256": "01a179e992c283b7424a8e5a9811d2bf923186fc2755e4b2d4f320434fec14bc",
+        "score": 0.41762007414197316
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949322.5443237,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "Todas as afirmações estão alinhadas com a documentação: `na_values` aceita números inteiros (como -999) e o exemplo `pd.read_csv(\"path_to_file.csv\", na_values=[5])` confirma que números são aceitos."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "My file uses -999 for absence. How to configure the reading?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 37,
+      "prompt_eval_count": 169,
+      "total_duration": 729583600,
+      "load_duration": 5263300,
+      "prompt_eval_duration": 41799000,
+      "eval_duration": 532941000
+    },
+    "retrieval_ms": 913.2562999729998,
+    "context_chars": 1661,
+    "generation_ms": 7707.938899984583,
+    "usage": {
+      "eval_count": 460,
+      "prompt_eval_count": 1539,
+      "total_duration": 7705918700,
+      "load_duration": 7211000,
+      "prompt_eval_duration": 598160000,
+      "eval_duration": 7071883000
+    },
+    "audit_usage": {
+      "eval_count": 89,
+      "prompt_eval_count": 1805,
+      "total_duration": 2073264000,
+      "load_duration": 5215400,
+      "prompt_eval_duration": 687708000,
+      "eval_duration": 1252306000
+    },
+    "audit_ms": 2074.864600028377,
+    "total_ms": 10696.314000000712
+  }
+}

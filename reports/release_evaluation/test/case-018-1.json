@@ -1,0 +1,101 @@
+{
+  "case_id": "case-018-1",
+  "family": "family-018",
+  "question": "Como converter timestamps com offsets diferentes para UTC?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "utc normaliza/converte timezone conforme entradas; não inventar fuso original."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "ae3f4d0fb36940d3b3a5e9b2f6c0e058",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para converter timestamps com diferentes offsets para UTC, você pode usar o parâmetro `utc=True` na função `pandas.to_datetime`, que silencia a advertência e opta pelo novo comportamento. Isso é necessário quando você está lidando com datetimes com fusos horários mistos.",
+        "evidence_ids": [
+          "6e71e0ea829c70a240135ff1"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "6e71e0ea829c70a240135ff1",
+            "quote": "utc bool, default False\nIn a future version of pandas, parsing datetimes with mixed time\nzones will raise an error unless utc=True.\nPlease specify utc=True to opt in to the new behaviour\nand silence this warning. To create a Series with mixed offsets and\nobject dtype, please use apply and datetime.datetime.strptime.\n\nSee also: pandas general documentation about [timezone conversion and\\\\\nlocalization](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-zone-handling)."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "6e71e0ea829c70a240135ff1",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — utc bool, default False",
+        "text": "utc bool, default False\nIn a future version of pandas, parsing datetimes with mixed time\nzones will raise an error unless utc=True.\nPlease specify utc=True to opt in to the new behaviour\nand silence this warning. To create a Series with mixed offsets and\nobject dtype, please use apply and datetime.datetime.strptime.\n\nSee also: pandas general documentation about [timezone conversion and\\\\\nlocalization](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-zone-handling).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 4,
+        "part": 1,
+        "content_sha256": "0a16d53fbc6fd08c42a65d08ed96958cba9959091941384eead72d4b6c10c1d7",
+        "score": 0.5639198276073725
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950760.2760293,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação fornecida, que menciona o uso do parâmetro `utc=True` para optar pelo novo comportamento e silenciar a advertência ao lidar com datetimes com fusos horários mistos."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to convert timestamps with different offsets to UTC?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 207,
+      "total_duration": 1661768600,
+      "load_duration": 6314400,
+      "prompt_eval_duration": 171557000,
+      "eval_duration": 1365374000
+    },
+    "retrieval_ms": 1813.10339999618,
+    "context_chars": 497,
+    "generation_ms": 5047.57910000626,
+    "usage": {
+      "eval_count": 95,
+      "prompt_eval_count": 586,
+      "total_duration": 5045703200,
+      "load_duration": 5767900,
+      "prompt_eval_duration": 693252000,
+      "eval_duration": 4319352000
+    },
+    "audit_usage": {
+      "eval_count": 79,
+      "prompt_eval_count": 818,
+      "total_duration": 4546227400,
+      "load_duration": 7374600,
+      "prompt_eval_duration": 834358000,
+      "eval_duration": 3652829000
+    },
+    "audit_ms": 4548.01889997907,
+    "total_ms": 11408.860499970615
+  }
+}

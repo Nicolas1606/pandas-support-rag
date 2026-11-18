@@ -1,0 +1,4 @@
+{"id":"I1","question":"No merge de vários itens por fatura, à esquerda está o cadastro único e à direita os itens. Como validar?","expected_action":"answer","reference":"one_to_many"}
+{"id":"I2","question":"No merge de vários itens por fatura, à direita está o cadastro único e à esquerda os itens. Como validar?","expected_action":"answer","reference":"many_to_one"}
+{"id":"I3","question":"Qual lado precisa ser único para juntar essas listas?","expected_action":"clarify","reference":"perguntar disposição das tabelas"}
+{"id":"I4","question":"Como conferir um merge muitos para um usando pandas 1.5.0?","expected_action":"handoff","reference":"versão fora do escopo"}

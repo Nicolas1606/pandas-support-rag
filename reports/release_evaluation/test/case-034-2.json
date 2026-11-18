@@ -1,0 +1,138 @@
+{
+  "case_id": "case-034-2",
+  "family": "family-034",
+  "question": "O que faz concat com axis=0?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "concat axis=0 empilha linhas; não é merge por chave."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "824a5640fab748c180beec0f93ce454f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "A função `pandas.concat` com `axis=0` concatena objetos ao longo do eixo 0 (linhas), ou seja, adiciona as linhas de diferentes DataFrames ou Series umas após as outras. Se `ignore_index=True`, o índice resultante será redefinido para 0, 1, 2, ..., n-1, ignorando os índices originais.",
+        "evidence_ids": [
+          "c4fab6188a5383725c14a01f",
+          "367c78b1cd05e0a2d92f3ea0"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "c4fab6188a5383725c14a01f",
+            "quote": "axis{0/’index’, 1/’columns’}, default 0\n\nThe axis to concatenate along.\n\njoin{‘inner’, ‘outer’}, default ‘outer’\n\nHow to handle indexes on other axis (or axes)."
+          },
+          {
+            "source_id": "367c78b1cd05e0a2d92f3ea0",
+            "quote": "ignore_index bool, default False\n\nIf True, do not use the index values along the concatenation axis. The\nresulting axis will be labeled 0, …, n - 1. This is useful if you are\nconcatenating objects where the concatenation axis does not have\nmeaningful indexing information. Note the index values on the other\naxes are still respected in the join."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "c4fab6188a5383725c14a01f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "title": "pandas.concat",
+        "section": "pandas.concat",
+        "text": "axis{0/’index’, 1/’columns’}, default 0\n\nThe axis to concatenate along.\n\njoin{‘inner’, ‘outer’}, default ‘outer’\n\nHow to handle indexes on other axis (or axes).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "dec730ba8a0f6045cbc7d8f882d45aa8db097c1970756bf2a415e5e1060d7e83",
+        "score": 0.6561722027486095
+      },
+      {
+        "id": "367c78b1cd05e0a2d92f3ea0",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "title": "pandas.concat",
+        "section": "pandas.concat — ignore_index bool, default False",
+        "text": "ignore_index bool, default False\n\nIf True, do not use the index values along the concatenation axis. The\nresulting axis will be labeled 0, …, n - 1. This is useful if you are\nconcatenating objects where the concatenation axis does not have\nmeaningful indexing information. Note the index values on the other\naxes are still respected in the join.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "1353c82f9b127bfe65b982c20832def99a883e9f5b08fa6cdbafdf4e496cd568",
+        "score": 0.6272903324579593
+      },
+      {
+        "id": "82a83b8e1511a1286429e8ab",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+        "title": "pandas.concat",
+        "section": "pandas.concat",
+        "text": "pandas.concat( _objs_, _*_, _axis=0_, _join='outer'_, _ignore_index=False_, _keys=None_, _levels=None_, _names=None_, _verify_integrity=False_, _sort=False_, _copy=None_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/reshape/concat.py#L157-L395)\n\nConcatenate pandas objects along a particular axis.\n\nAllows optional set logic along the other axes.\n\nCan also add a layer of hierarchical indexing on the concatenation axis,\nwhich may be useful if the labels are the same (or overlapping) on\nthe passed axis number.\n\nParameters:objs a sequence or mapping of Series or DataFrame objects\n\nIf a mapping is passed, the sorted keys will be used as the keys\nargument, unless it is passed, in which case the values will be\nselected (see below). Any None objects will be dropped silently unless\nthey are all None in which case a ValueError will be raised.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "94f2a0ca49ceb79b16e743cb8ba47e3ba0ece4334d6dc700ee15f359f11b3392",
+        "score": 0.6258023586490511
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951028.9153037,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, explicando corretamente o comportamento de `axis=0` e o efeito de `ignore_index=True`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "What does concat do with axis=0?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 207,
+      "total_duration": 1746262900,
+      "load_duration": 10059700,
+      "prompt_eval_duration": 177013000,
+      "eval_duration": 1378164000
+    },
+    "retrieval_ms": 1934.697300021071,
+    "context_chars": 1375,
+    "generation_ms": 8758.159300021362,
+    "usage": {
+      "eval_count": 144,
+      "prompt_eval_count": 1298,
+      "total_duration": 8746344000,
+      "load_duration": 8260100,
+      "prompt_eval_duration": 1231750000,
+      "eval_duration": 7469162000
+    },
+    "audit_usage": {
+      "eval_count": 60,
+      "prompt_eval_count": 1637,
+      "total_duration": 5337932200,
+      "load_duration": 6964500,
+      "prompt_eval_duration": 1626494000,
+      "eval_duration": 3493274000
+    },
+    "audit_ms": 5340.283300029114,
+    "total_ms": 16033.49319996778
+  }
+}

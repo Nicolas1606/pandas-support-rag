@@ -1,0 +1,138 @@
+{
+  "case_id": "case-032-1",
+  "family": "family-032",
+  "question": "Chaves nulas se combinam no pandas.merge?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Chaves nulas podem casar entre si, diferente do SQL usual."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "8c6ce389531e41fd813deb660259f0c3",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "No pandas.merge, se ambas as colunas de chave contiverem linhas com valores nulos, essas linhas serão combinadas entre si. Isso é diferente do comportamento usual de junções SQL e pode levar a resultados inesperados. O parâmetro `how` define o tipo de merge, como 'inner', 'left', 'right', 'outer' ou 'cross'.",
+        "evidence_ids": [
+          "c80db015d0df5244388055ba",
+          "7b024dc48d665f2ab59d3426"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "c80db015d0df5244388055ba",
+            "quote": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\non indexes or indexes on a column or columns, the index will be passed on.\nWhen performing a cross merge, no column specifications to merge on are\nallowed.\n\nWarning\n\nIf both key columns contain rows where the key is a null value, those\nrows will be matched against each other. This is different from usual SQL\njoin behaviour and can lead to unexpected results.\n\nParameters:left DataFrame or named Seriesright DataFrame or named Series\n\nObject to merge with.\n\nhow{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}, default ‘inner’\n\nType of merge to be performed.\n\n- left: use only keys from left frame, similar to a SQL left outer join;\npreserve key order."
+          },
+          {
+            "source_id": "7b024dc48d665f2ab59d3426",
+            "quote": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\non indexes or indexes on a column or columns, the index will be passed on.\nWhen performing a cross merge, no column specifications to merge on are\nallowed.\n\nWarning\n\nIf both key columns contain rows where the key is a null value, those\nrows will be matched against each other. This is different from usual SQL\njoin behaviour and can lead to unexpected results.\n\nParameters:right DataFrame or named Series\n\nObject to merge with.\n\nhow{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}, default ‘inner’\n\nType of merge to be performed.\n\n- left: use only keys from left frame, similar to a SQL left outer join;\npreserve key order.\n\n- right: use only keys from right frame, similar to a SQL right outer join;\npreserve key order."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "c80db015d0df5244388055ba",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes",
+        "text": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\non indexes or indexes on a column or columns, the index will be passed on.\nWhen performing a cross merge, no column specifications to merge on are\nallowed.\n\nWarning\n\nIf both key columns contain rows where the key is a null value, those\nrows will be matched against each other. This is different from usual SQL\njoin behaviour and can lead to unexpected results.\n\nParameters:left DataFrame or named Seriesright DataFrame or named Series\n\nObject to merge with.\n\nhow{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}, default ‘inner’\n\nType of merge to be performed.\n\n- left: use only keys from left frame, similar to a SQL left outer join;\npreserve key order.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 2,
+        "part": 0,
+        "content_sha256": "c0a8ef35a47989429ede4641872aba6500b99dd0862e839cb7ec6d1b2d4e28fd",
+        "score": 0.7099311982166784
+      },
+      {
+        "id": "7b024dc48d665f2ab59d3426",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.merge.html",
+        "title": "pandas.DataFrame.merge",
+        "section": "pandas.DataFrame.merge — columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes",
+        "text": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\non indexes or indexes on a column or columns, the index will be passed on.\nWhen performing a cross merge, no column specifications to merge on are\nallowed.\n\nWarning\n\nIf both key columns contain rows where the key is a null value, those\nrows will be matched against each other. This is different from usual SQL\njoin behaviour and can lead to unexpected results.\n\nParameters:right DataFrame or named Series\n\nObject to merge with.\n\nhow{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}, default ‘inner’\n\nType of merge to be performed.\n\n- left: use only keys from left frame, similar to a SQL left outer join;\npreserve key order.\n\n- right: use only keys from right frame, similar to a SQL right outer join;\npreserve key order.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 2,
+        "part": 0,
+        "content_sha256": "2abac533b7f4a912b7eb0cabe7cd0e9507f2f965778599b530dc491f2c135a6d",
+        "score": 0.7007774867272253
+      },
+      {
+        "id": "76d831f249eb6376bee21dc7",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "In [45]: right = pd.DataFrame(\n   ....:     {\n   ....:         \"key\": [\"K0\", \"K1\", \"K2\", \"K3\"],\n   ....:         \"C\": [\"C0\", \"C1\", \"C2\", \"C3\"],\n   ....:         \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"],\n   ....:     }\n   ....: )\n   ....:\n\nIn [46]: result = pd.merge(left, right, on=\"key\")\n\nIn [47]: result\nOut[47]:\n  key   A   B   C   D\n0  K0  A0  B0  C0  D0\n1  K1  A1  B1  C1  D1\n2  K2  A2  B2  C2  D2\n3  K3  A3  B3  C3  D3\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key.png\n\nThe `how` argument to `merge()` specifies which keys are\nincluded in the resulting table. If a key combination does not appear in\neither the left or right tables, the values in the joined table will be\n`NA`. Here is a summary of the `how` options and their SQL equivalent names:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "08bb04bfea34d27e7750adfd73ad3b2072839aa628c3268a2458b15f209d038d",
+        "score": 0.6724851830859508
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950971.3913376,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mencionando corretamente que, em caso de chaves nulas, as linhas serão combinadas entre si, o que pode levar a resultados inesperados, e que o parâmetro `how` define o tipo de merge."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Do null keys combine in pandas.merge?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 29,
+      "prompt_eval_count": 209,
+      "total_duration": 1680096200,
+      "load_duration": 8203500,
+      "prompt_eval_duration": 188127000,
+      "eval_duration": 1324384000
+    },
+    "retrieval_ms": 1847.386399982497,
+    "context_chars": 2268,
+    "generation_ms": 9169.63240003679,
+    "usage": {
+      "eval_count": 141,
+      "prompt_eval_count": 1650,
+      "total_duration": 9167829200,
+      "load_duration": 7086700,
+      "prompt_eval_duration": 1694678000,
+      "eval_duration": 7434160000
+    },
+    "audit_usage": {
+      "eval_count": 86,
+      "prompt_eval_count": 2215,
+      "total_duration": 7366497800,
+      "load_duration": 7155400,
+      "prompt_eval_duration": 2152175000,
+      "eval_duration": 5051232000
+    },
+    "audit_ms": 7368.656499951612,
+    "total_ms": 18386.3334999769
+  }
+}

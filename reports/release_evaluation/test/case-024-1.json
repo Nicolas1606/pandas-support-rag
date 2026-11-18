@@ -1,0 +1,101 @@
+{
+  "case_id": "case-024-1",
+  "family": "family-024",
+  "question": "Para que serve infer_objects?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Inferência leve em object não equivale a parsing arbitrário."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "e2a69f6806514b86b27906e27a5d98a7",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "O parâmetro `infer_objects` é usado para inferir os tipos de dados de colunas de tipo objeto em um DataFrame. Quando `infer_objects` é `True`, o pandas aplica as regras de inferência como durante a construção normal de Series/DataFrame, convertendo, se possível, para `StringDtype`, `BooleanDtype` ou tipos de extensão apropriados para inteiros ou flutuantes, caso contrário, mantém como `object`.",
+        "evidence_ids": [
+          "a4a33847c83e240620bf9894"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "a4a33847c83e240620bf9894",
+            "quote": "For object-dtyped columns, if `infer_objects` is `True`, use the inference\nrules as during normal Series/DataFrame construction. Then, if possible,\nconvert to `StringDtype`, `BooleanDtype` or an appropriate integer\nor floating extension type, otherwise leave as `object`.\n\nIf the dtype is integer, convert to an appropriate integer extension type.\n\nIf the dtype is numeric, and consists of all integers, convert to an\nappropriate integer extension type. Otherwise, convert to an\nappropriate floating extension type.\n\nIn the future, as new dtypes are added that support `pd.NA`, the results\nof this method will change to support those new dtypes."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "a4a33847c83e240620bf9894",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.convert_dtypes.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.convert_dtypes.html",
+        "title": "pandas.DataFrame.convert_dtypes",
+        "section": "pandas.DataFrame.convert_dtypes — For object-dtyped columns, if `infer_objects` is `True`, use the inference",
+        "text": "For object-dtyped columns, if `infer_objects` is `True`, use the inference\nrules as during normal Series/DataFrame construction. Then, if possible,\nconvert to `StringDtype`, `BooleanDtype` or an appropriate integer\nor floating extension type, otherwise leave as `object`.\n\nIf the dtype is integer, convert to an appropriate integer extension type.\n\nIf the dtype is numeric, and consists of all integers, convert to an\nappropriate integer extension type. Otherwise, convert to an\nappropriate floating extension type.\n\nIn the future, as new dtypes are added that support `pd.NA`, the results\nof this method will change to support those new dtypes.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 10,
+        "part": 0,
+        "content_sha256": "5426eff15d31a5ac29c2e5bd3171e7904bd490dc1697f7b276c0dd42f69df715",
+        "score": 0.43680081167644746
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950849.7781982,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação fornecida, explicando corretamente o uso do parâmetro `infer_objects` e suas implicações na conversão de tipos de colunas de objeto em um DataFrame."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "What is infer_objects used for?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 28,
+      "prompt_eval_count": 204,
+      "total_duration": 1552098800,
+      "load_duration": 5763400,
+      "prompt_eval_duration": 170841000,
+      "eval_duration": 1233395000
+    },
+    "retrieval_ms": 1715.9828000003472,
+    "context_chars": 645,
+    "generation_ms": 7012.844800017774,
+    "usage": {
+      "eval_count": 138,
+      "prompt_eval_count": 641,
+      "total_duration": 7010648400,
+      "load_duration": 5799800,
+      "prompt_eval_duration": 695615000,
+      "eval_duration": 6282109000
+    },
+    "audit_usage": {
+      "eval_count": 72,
+      "prompt_eval_count": 953,
+      "total_duration": 4424607400,
+      "load_duration": 7153400,
+      "prompt_eval_duration": 962448000,
+      "eval_duration": 3388287000
+    },
+    "audit_ms": 4426.615099946503,
+    "total_ms": 13155.834900040645
+  }
+}

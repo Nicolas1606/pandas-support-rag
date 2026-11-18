@@ -1,0 +1,1374 @@
+{
+  "summary": {
+    "public_cases": 24,
+    "public_passed": 24,
+    "p95_pipeline_ms": 0.3087748499808638,
+    "historical_n": 60,
+    "historical_action_matches": 49,
+    "controlled_action_matches": 27,
+    "controlled_actions": {
+      "handoff": 45,
+      "answer": 8,
+      "clarify": 7
+    },
+    "historical_is_independent": false,
+    "external_review": "pending",
+    "user_study": "pending"
+  },
+  "public": [
+    {
+      "question": "Para juntar linhas de pedidos a clientes, como valido merge m:1?",
+      "expected_action": "answer",
+      "expected_contract": "merge_m1",
+      "passed": true,
+      "output": {
+        "request_id": "8244c42add3d4f6ca8f375decaf6ec86",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `validate=\"many_to_one\"` (ou `\"m:1\"`). As chaves do lado direito precisam ser únicas. A esquerda pode ter duplicatas.",
+            "evidence_ids": [
+              "3a4cee70a1603446de850c88"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "3a4cee70a1603446de850c88",
+                "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "3a4cee70a1603446de850c88",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — validate str, optional",
+            "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 12,
+            "part": 0,
+            "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1379755,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "merge_m1",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.9270840000112912
+      }
+    },
+    {
+      "question": "No merge, quero um para muitos. Qual validate?",
+      "expected_action": "answer",
+      "expected_contract": "merge_1m",
+      "passed": true,
+      "output": {
+        "request_id": "01849d7ba17f479182c0a1465cd49e25",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `validate=\"one_to_many\"` (ou `\"1:m\"`). As chaves do lado esquerdo precisam ser únicas.",
+            "evidence_ids": [
+              "3a4cee70a1603446de850c88"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "3a4cee70a1603446de850c88",
+                "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "3a4cee70a1603446de850c88",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — validate str, optional",
+            "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 12,
+            "part": 0,
+            "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.139359,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "merge_1m",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.14644800000951363
+      }
+    },
+    {
+      "question": "Que validação uso para um merge 1:1?",
+      "expected_action": "answer",
+      "expected_contract": "merge_11",
+      "passed": true,
+      "output": {
+        "request_id": "e662cdcd6f354ba1a9ae2d29102087ba",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `validate=\"one_to_one\"` (ou `\"1:1\"`). As chaves precisam ser únicas nos dois lados.",
+            "evidence_ids": [
+              "3a4cee70a1603446de850c88"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "3a4cee70a1603446de850c88",
+                "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "3a4cee70a1603446de850c88",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — validate str, optional",
+            "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 12,
+            "part": 0,
+            "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1398513,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "merge_11",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.16192099997169862
+      }
+    },
+    {
+      "question": "Em pandas.merge, as chaves nulas dão match?",
+      "expected_action": "answer",
+      "expected_contract": "merge_null",
+      "passed": true,
+      "output": {
+        "request_id": "4f12b5473eda4f1a9c6dfc686a2aac42",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "O `pandas.merge` pode combinar chaves nulas dos dois lados. Esse comportamento difere das junções SQL usuais.",
+            "evidence_ids": [
+              "c80db015d0df5244388055ba"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "c80db015d0df5244388055ba",
+                "quote": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\non indexes or indexes on a column or columns, the index will be passed on.\nWhen performing a cross merge, no column specifications to merge on are\nallowed.\n\nWarning\n\nIf both key columns contain rows where the key is a null value, those\nrows will be matched against each other. This is different from usual SQL\njoin behaviour and can lead to unexpected results.\n\nParameters:left DataFrame or named Seriesright DataFrame or named Series\n\nObject to merge with.\n\nhow{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}, default ‘inner’\n\nType of merge to be performed.\n\n- left: use only keys from left frame, similar to a SQL left outer join;\npreserve key order."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "c80db015d0df5244388055ba",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes",
+            "text": "columns, the DataFrame indexes _will be ignored_. Otherwise if joining indexes\non indexes or indexes on a column or columns, the index will be passed on.\nWhen performing a cross merge, no column specifications to merge on are\nallowed.\n\nWarning\n\nIf both key columns contain rows where the key is a null value, those\nrows will be matched against each other. This is different from usual SQL\njoin behaviour and can lead to unexpected results.\n\nParameters:left DataFrame or named Seriesright DataFrame or named Series\n\nObject to merge with.\n\nhow{‘left’, ‘right’, ‘outer’, ‘inner’, ‘cross’}, default ‘inner’\n\nType of merge to be performed.\n\n- left: use only keys from left frame, similar to a SQL left outer join;\npreserve key order.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": true,
+            "block_id": 0,
+            "unit": 2,
+            "part": 0,
+            "content_sha256": "c0a8ef35a47989429ede4641872aba6500b99dd0862e839cb7ec6d1b2d4e28fd"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1403656,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "merge_null",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.19825499998660234
+      }
+    },
+    {
+      "question": "No merge, minhas chaves têm nomes distintos: cliente_id e id.",
+      "expected_action": "answer",
+      "expected_contract": "merge_keys",
+      "passed": true,
+      "output": {
+        "request_id": "5230cb30bcfa42f9922767d861408bc1",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `left_on` para identificar a chave à esquerda e `right_on` para a chave à direita. Use os nomes exatos das colunas de cada tabela.",
+            "evidence_ids": [
+              "57c6784adca5fd4f161b9485",
+              "ac4edf76d014515527ccc44f"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "57c6784adca5fd4f161b9485",
+                "quote": "left_on label or list, or array-like\n\nColumn or index level names to join on in the left DataFrame. Can also\nbe an array or list of arrays of the length of the left DataFrame.\nThese arrays are treated as if they are columns."
+              },
+              {
+                "source_id": "ac4edf76d014515527ccc44f",
+                "quote": "right_on label or list, or array-like\n\nColumn or index level names to join on in the right DataFrame. Can also\nbe an array or list of arrays of the length of the right DataFrame.\nThese arrays are treated as if they are columns."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "57c6784adca5fd4f161b9485",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — left_on label or list, or array-like",
+            "text": "left_on label or list, or array-like\n\nColumn or index level names to join on in the left DataFrame. Can also\nbe an array or list of arrays of the length of the left DataFrame.\nThese arrays are treated as if they are columns.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 4,
+            "part": 0,
+            "content_sha256": "4a691f2569a94bb3d4ac23712b681607485a7e21b91288d04853f0880d89ac74"
+          },
+          {
+            "id": "ac4edf76d014515527ccc44f",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — right_on label or list, or array-like",
+            "text": "right_on label or list, or array-like\n\nColumn or index level names to join on in the right DataFrame. Can also\nbe an array or list of arrays of the length of the right DataFrame.\nThese arrays are treated as if they are columns.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 5,
+            "part": 0,
+            "content_sha256": "a6b055b768df72bfa996fdb168118ed57a5deecb405d3f558f6d73443d78d5ea"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1410582,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "merge_keys",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.17104500000186817
+      }
+    },
+    {
+      "question": "CSV de inventário: como conservar o código NA como texto?",
+      "expected_action": "answer",
+      "expected_contract": "csv_na_text",
+      "passed": true,
+      "output": {
+        "request_id": "627796c865b941af8af83d8876ff0b3d",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `keep_default_na=False` e deixe o código literal NA fora de `na_values`. Se precisar reconhecer outros marcadores de ausência, inclua apenas esses marcadores em `na_values`.",
+            "evidence_ids": [
+              "bdfa06a6451958f78934c8f4"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "bdfa06a6451958f78934c8f4",
+                "quote": "keep_default_na bool, default True\n\nWhether or not to include the default `NaN` values when parsing the data.\nDepending on whether `na_values` is passed in, the behavior is as follows:\n\n- If `keep_default_na` is `True`, and `na_values` are specified, `na_values`\nis appended to the default `NaN` values used for parsing.\n\n- If `keep_default_na` is `True`, and `na_values` are not specified, only\nthe default `NaN` values are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are specified, only\nthe `NaN` values specified `na_values` are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as `NaN`.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "bdfa06a6451958f78934c8f4",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "title": "pandas.read_csv",
+            "section": "pandas.read_csv — keep_default_na bool, default True",
+            "text": "keep_default_na bool, default True\n\nWhether or not to include the default `NaN` values when parsing the data.\nDepending on whether `na_values` is passed in, the behavior is as follows:\n\n- If `keep_default_na` is `True`, and `na_values` are specified, `na_values`\nis appended to the default `NaN` values used for parsing.\n\n- If `keep_default_na` is `True`, and `na_values` are not specified, only\nthe default `NaN` values are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are specified, only\nthe `NaN` values specified `na_values` are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as `NaN`.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 20,
+            "part": 0,
+            "content_sha256": "58e83dd132771b492181e0aa48938d65e5b9b8adf288c57e341584453d0c4a35"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1415098,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "csv_na_text",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.32595599998330727
+      }
+    },
+    {
+      "question": "Como preservar zeros à esquerda no CSV de agências?",
+      "expected_action": "answer",
+      "expected_contract": "csv_ids",
+      "passed": true,
+      "output": {
+        "request_id": "583c581240aa47d48ec0965d2ed19f1a",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Informe um tipo textual em `dtype` para a coluna identificadora, usando o nome exato da coluna. Configure separadamente os marcadores de ausência do arquivo.",
+            "evidence_ids": [
+              "80999dcbecaf83cd8438a553"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "80999dcbecaf83cd8438a553",
+                "quote": "If callable, the callable function will be evaluated against the column\nnames, returning names where the callable function evaluates to `True`. An\nexample of a valid callable argument would be `lambda x: x.upper() in\n['AAA', 'BBB', 'DDD']`. Using this parameter results in much faster\nparsing time and lower memory usage.\n\ndtype dtype or dict of {Hashabledtype}, optional\n\nData type(s) to apply to either the whole dataset or individual columns.\nE.g., `{'a': np.float64, 'b': np.int32, 'c': 'Int64'}`\nUse `str` or `object` together with suitable `na_values` settings\nto preserve and not interpret `dtype`.\nIf `converters` are specified, they will be applied INSTEAD\nof `dtype` conversion."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "80999dcbecaf83cd8438a553",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "title": "pandas.read_csv",
+            "section": "pandas.read_csv — If callable, the callable function will be evaluated against the column",
+            "text": "If callable, the callable function will be evaluated against the column\nnames, returning names where the callable function evaluates to `True`. An\nexample of a valid callable argument would be `lambda x: x.upper() in\n['AAA', 'BBB', 'DDD']`. Using this parameter results in much faster\nparsing time and lower memory usage.\n\ndtype dtype or dict of {Hashabledtype}, optional\n\nData type(s) to apply to either the whole dataset or individual columns.\nE.g., `{'a': np.float64, 'b': np.int32, 'c': 'Int64'}`\nUse `str` or `object` together with suitable `na_values` settings\nto preserve and not interpret `dtype`.\nIf `converters` are specified, they will be applied INSTEAD\nof `dtype` conversion.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": true,
+            "block_id": 0,
+            "unit": 10,
+            "part": 0,
+            "content_sha256": "d75abd7bfe389bf9b72de4139de3ee4bff6e9ced66b47cb2e0a19d59a9fb5076"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1419804,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "csv_ids",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.10551700000860365
+      }
+    },
+    {
+      "question": "Quero usar usecols no CSV com valor_líquido e agência.",
+      "expected_action": "answer",
+      "expected_contract": "csv_columns",
+      "passed": true,
+      "output": {
+        "request_id": "4641c0b616dc4689813b9f59f2b655a5",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `usecols` em `read_csv` para selecionar colunas por nome ou posição. Ao passar nomes, preserve exatamente a grafia do arquivo.",
+            "evidence_ids": [
+              "bc21c98626d35aebceec91aa"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "bc21c98626d35aebceec91aa",
+                "quote": "usecols Sequence of Hashable or Callable, optional\n\nSubset of columns to select, denoted either by column labels or column indices."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "bc21c98626d35aebceec91aa",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "title": "pandas.read_csv",
+            "section": "pandas.read_csv — usecols Sequence of Hashable or Callable, optional",
+            "text": "usecols Sequence of Hashable or Callable, optional\n\nSubset of columns to select, denoted either by column labels or column indices.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 8,
+            "part": 0,
+            "content_sha256": "5e97a2cafa8d1a5d8e8a1c885fd7261572fe6a53953de39e38393dd553196440"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1422937,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "csv_columns",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.15154599998368212
+      }
+    },
+    {
+      "question": "Como passar parse_dates em read_csv para a coluna data_base?",
+      "expected_action": "answer",
+      "expected_contract": "csv_dates",
+      "passed": true,
+      "output": {
+        "request_id": "bd5c2e2267c544f28f6f9b0b53c46dfe",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Para tentar interpretar colunas de data, passe uma lista de nomes em `parse_dates`. O valor `True` tenta interpretar o índice.",
+            "evidence_ids": [
+              "a5d5a0e7e9b1ae705e80e3ae"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "a5d5a0e7e9b1ae705e80e3ae",
+                "quote": "parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False\n\nThe behavior is as follows:\n\n- `bool`. If `True` -\\> try parsing the index. Note: Automatically set to\n`True` if `date_format` or `date_parser` arguments have been passed.\n\n- `list` of `int` or names. e.g. If `[1, 2, 3]` -\\> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of `list`. e.g. If `[[1, 3]]` -\\> combine columns 1 and 3 and parse\nas a single date column. Values are joined with a space before parsing.\n\n- `dict`, e.g. `{'foo' : [1, 3]}` -\\> parse columns 1, 3 as date and call\nresult ‘foo’. Values are joined with a space before parsing.\n\nIf a column or index cannot be represented as an array of `datetime`,\nsay because of an unparsable value or a mixture of timezones, the column"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "a5d5a0e7e9b1ae705e80e3ae",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+            "title": "pandas.read_csv",
+            "section": "pandas.read_csv — parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False",
+            "text": "parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False\n\nThe behavior is as follows:\n\n- `bool`. If `True` -\\> try parsing the index. Note: Automatically set to\n`True` if `date_format` or `date_parser` arguments have been passed.\n\n- `list` of `int` or names. e.g. If `[1, 2, 3]` -\\> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of `list`. e.g. If `[[1, 3]]` -\\> combine columns 1 and 3 and parse\nas a single date column. Values are joined with a space before parsing.\n\n- `dict`, e.g. `{'foo' : [1, 3]}` -\\> parse columns 1, 3 as date and call\nresult ‘foo’. Values are joined with a space before parsing.\n\nIf a column or index cannot be represented as an array of `datetime`,\nsay because of an unparsable value or a mixture of timezones, the column",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 24,
+            "part": 0,
+            "content_sha256": "02d2e9a799bfe9c1f707b96860eb6f71586e57af60395b12ae7fe57f9034ad63"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.142604,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "csv_dates",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.21141499996701896
+      }
+    },
+    {
+      "question": "to_numeric com coerce produz zero?",
+      "expected_action": "answer",
+      "expected_contract": "numeric_coerce",
+      "passed": true,
+      "output": {
+        "request_id": "4dac52d3082b4112a5e5fb83c23f7266",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Com `errors=\"coerce\"`, conversões numéricas inválidas viram valores ausentes, em vez de zero.",
+            "evidence_ids": [
+              "0ab6aee5bf7e35fa61f7c127"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "0ab6aee5bf7e35fa61f7c127",
+                "quote": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "0ab6aee5bf7e35fa61f7c127",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+            "title": "pandas.to_numeric",
+            "section": "pandas.to_numeric",
+            "text": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": true,
+            "block_id": 0,
+            "unit": 0,
+            "part": 1,
+            "content_sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1430562,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "numeric_coerce",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.20821999999043328
+      }
+    },
+    {
+      "question": "Como sinalizo uma exceção com to_numeric?",
+      "expected_action": "answer",
+      "expected_contract": "numeric_raise",
+      "passed": true,
+      "output": {
+        "request_id": "5ea2c2a50cd9405b8756b74e90579b76",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `errors=\"raise\"` para obter uma exceção quando a conversão numérica falhar. Esse é o padrão documentado.",
+            "evidence_ids": [
+              "0ab6aee5bf7e35fa61f7c127"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "0ab6aee5bf7e35fa61f7c127",
+                "quote": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead."
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "0ab6aee5bf7e35fa61f7c127",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+            "title": "pandas.to_numeric",
+            "section": "pandas.to_numeric",
+            "text": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead.",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": true,
+            "block_id": 0,
+            "unit": 0,
+            "part": 1,
+            "content_sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1434162,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "numeric_raise",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.11406999999508116
+      }
+    },
+    {
+      "question": "O que DataFrame.infer_objects faz?",
+      "expected_action": "answer",
+      "expected_contract": "infer_objects",
+      "passed": true,
+      "output": {
+        "request_id": "c1fddb0321a6414a96fe5dda7d46a6d4",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "O método `DataFrame.infer_objects()` tenta uma conversão leve de colunas object. Colunas não convertíveis permanecem como estão.",
+            "evidence_ids": [
+              "d09e7b00d417aaef012ae19c"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "d09e7b00d417aaef012ae19c",
+                "quote": "DataFrame.infer_objects( _copy=None_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6831-L6890)\n\nAttempt to infer better dtypes for object columns.\n\nAttempts soft conversion of object-dtyped\ncolumns, leaving non-object and unconvertible\ncolumns unchanged. The inference rules are the\nsame as during normal Series/DataFrame construction.\n\nParameters:copy bool, default True\n\nWhether to make a copy for non-object or non-inferable columns"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "d09e7b00d417aaef012ae19c",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.infer_objects.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.infer_objects.html",
+            "title": "pandas.DataFrame.infer_objects",
+            "section": "pandas.DataFrame.infer_objects",
+            "text": "DataFrame.infer_objects( _copy=None_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6831-L6890)\n\nAttempt to infer better dtypes for object columns.\n\nAttempts soft conversion of object-dtyped\ncolumns, leaving non-object and unconvertible\ncolumns unchanged. The inference rules are the\nsame as during normal Series/DataFrame construction.\n\nParameters:copy bool, default True\n\nWhether to make a copy for non-object or non-inferable columns",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 0,
+            "part": 0,
+            "content_sha256": "bded320fbf617872e421f05c63b0928b023ac3ba6b3fc8f726e509be049ee43b"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.143654,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "contract_id": "infer_objects",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 0.1013510000120732
+      }
+    },
+    {
+      "question": "Merge 1:m ou m:1 para dados de clientes?",
+      "expected_action": "clarify",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "07b48adffc2248cf94dc60c15f2e1220",
+        "action": "clarify",
+        "message": "Identifique uma operação e o resultado esperado.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1439657,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "multiple_operations",
+        "total_ms": 0.04781100000172955
+      }
+    },
+    {
+      "question": "Qual encoding devo usar para esse CSV?",
+      "expected_action": "clarify",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "810bd4e02dfa46798357d5d0877c01c6",
+        "action": "clarify",
+        "message": "Informe a operação, um exemplo mínimo e o resultado esperado. Inclua o significado dos campos quando a decisão envolver tipos ou ausentes.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1442223,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "missing_context",
+        "total_ms": 0.031137000007674942
+      }
+    },
+    {
+      "question": "Qual tipo devo usar para o campo contrato?",
+      "expected_action": "clarify",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "f720deb3f6f344f3b99ec590fad4ff5f",
+        "action": "clarify",
+        "message": "Informe a operação, um exemplo mínimo e o resultado esperado. Inclua o significado dos campos quando a decisão envolver tipos ou ausentes.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.144394,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "missing_context",
+        "total_ms": 0.0246870000069066
+      }
+    },
+    {
+      "question": "É correto preencher todos ausentes com zero?",
+      "expected_action": "clarify",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "3e10a4c53788438cb8e6785db726dcf1",
+        "action": "clarify",
+        "message": "Informe a operação, um exemplo mínimo e o resultado esperado. Inclua o significado dos campos quando a decisão envolver tipos ou ausentes.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1445186,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "missing_context",
+        "total_ms": 0.024326000016117177
+      }
+    },
+    {
+      "question": "Meu merge duplicou pedidos.",
+      "expected_action": "clarify",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "231793b498894d88aae87257046eca44",
+        "action": "clarify",
+        "message": "Informe a operação, um exemplo mínimo e o resultado esperado. Inclua o significado dos campos quando a decisão envolver tipos ou ausentes.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1446335,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "missing_context",
+        "total_ms": 0.018968999995649938
+      }
+    },
+    {
+      "question": "Quero juntar sem usar merge m:1.",
+      "expected_action": "clarify",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "9bd5431a567e4e6baa1eabaf91590156",
+        "action": "clarify",
+        "message": "Confirme a operação desejada e a restrição.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1447916,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "alternative_operation",
+        "total_ms": 0.023153999961778027
+      }
+    },
+    {
+      "question": "Como validar um merge m:1 no Polars?",
+      "expected_action": "handoff",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "dd7cf29aabef4f0f84e761286d4fc13c",
+        "action": "handoff",
+        "message": "Encaminhe a solicitação. A base cobre apenas operações documentadas de pandas.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.144913,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "outside_scope",
+        "total_ms": 0.019680000036714773
+      }
+    },
+    {
+      "question": "Como usar merge m:1 em pandas 3.0?",
+      "expected_action": "handoff",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "e8744afe96e94197a476a0c1b81bd603",
+        "action": "handoff",
+        "message": "Consulte a documentação da versão utilizada. Esta base cobre pandas 2.2.3.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1452434,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "unsupported_version",
+        "total_ms": 0.0283119999835435
+      }
+    },
+    {
+      "question": "Como uso merge m:1?",
+      "expected_action": "handoff",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "19120dbe58e5441abc2849b8ed839892",
+        "action": "handoff",
+        "message": "Consulte a documentação da versão utilizada. Esta base cobre pandas 2.2.3.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1453853,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "unsupported_version",
+        "total_ms": 0.01806699998496697
+      }
+    },
+    {
+      "question": "Como uso merge m:1?",
+      "expected_action": "handoff",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "e26571135beb4b80a8e24172ad96b07b",
+        "action": "handoff",
+        "message": "Encaminhe a solicitação. A base cobre apenas operações documentadas de pandas.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1454968,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "outside_scope",
+        "total_ms": 0.022182999998676678
+      }
+    },
+    {
+      "question": "Como regularizo hiperparâmetros de uma árvore?",
+      "expected_action": "handoff",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "204d033f77574561bbc6c64a8e742242",
+        "action": "handoff",
+        "message": "Consulte as fontes ou encaminhe para revisão. Não há orientação catalogada para esta formulação.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1456368,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "no_supported_contract",
+        "total_ms": 0.048902999992606055
+      }
+    },
+    {
+      "question": "Como renomear índices de um DataFrame?",
+      "expected_action": "handoff",
+      "expected_contract": null,
+      "passed": true,
+      "output": {
+        "request_id": "401e1d8afd1846e49166502b0cb66cb9",
+        "action": "handoff",
+        "message": "Consulte as fontes ou encaminhe para revisão. Não há orientação catalogada para esta formulação.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1794973967.1458352,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+        "decision_reason": "no_supported_contract",
+        "total_ms": 0.03980900004307841
+      }
+    }
+  ],
+  "replay": [
+    {
+      "case_id": "case-002-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-002-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-004-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "csv_columns"
+    },
+    {
+      "case_id": "case-004-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-006-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "csv_na_text"
+    },
+    {
+      "case_id": "case-006-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-008-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-008-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-010-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-010-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-012-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-012-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-014-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-014-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-016-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-016-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-018-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-018-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-020-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-020-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-022-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-022-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-024-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "infer_objects"
+    },
+    {
+      "case_id": "case-024-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "infer_objects"
+    },
+    {
+      "case_id": "case-026-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-026-2",
+      "expected": "answer",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-028-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-028-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-030-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-030-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-032-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "merge_null"
+    },
+    {
+      "case_id": "case-032-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "merge_null"
+    },
+    {
+      "case_id": "case-034-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-034-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-036-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-036-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-038-1",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-038-2",
+      "expected": "clarify",
+      "historical": "clarify",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-040-1",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-040-2",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-042-1",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-042-2",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-044-1",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-044-2",
+      "expected": "clarify",
+      "historical": "answer",
+      "observed": "clarify",
+      "contract": null
+    },
+    {
+      "case_id": "case-046-1",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-046-2",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-048-1",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-048-2",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-050-1",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-050-2",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-052-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-052-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "merge_null"
+    },
+    {
+      "case_id": "case-054-1",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-054-2",
+      "expected": "answer",
+      "historical": "answer",
+      "observed": "answer",
+      "contract": "numeric_coerce"
+    },
+    {
+      "case_id": "case-056-1",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-056-2",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-058-1",
+      "expected": "handoff",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-058-2",
+      "expected": "handoff",
+      "historical": "handoff",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-060-1",
+      "expected": "handoff",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    },
+    {
+      "case_id": "case-060-2",
+      "expected": "handoff",
+      "historical": "answer",
+      "observed": "handoff",
+      "contract": null
+    }
+  ]
+}

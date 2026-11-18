@@ -1,0 +1,248 @@
+{
+  "corpus_id": "81396567c3f64252",
+  "chunks": 1068,
+  "model": "embeddinggemma:latest",
+  "format": "gzip JSON; no model weights",
+  "sources": [
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+      "sha256": "257bb1a0ab27a4441c5848947b0dec1767902eeddeb0279d4f9b11b1c80a6950",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 23646
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+      "sha256": "b3994afe15e630182f675fd45f0879535c9945d0cb472048f0c676a4a101d119",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 16138
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Series.astype.html",
+      "sha256": "f7146076d6fcccd30a0284ae4a7bf958822925d12bffa1917caddd647fa80dc5",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 5842
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Series.convert_dtypes.html",
+      "sha256": "5965070f0201e337658a8885f7282dcd55a6181abc49bdf79b4860dcddbde78d",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 7400
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.infer_objects.html",
+      "sha256": "c72e753ec86a9d547140824427d14d71c842c185d858dd1232887d19fe0b500f",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 4269
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Series.dtype.html",
+      "sha256": "1f923324393742f7278ad88b040dd2f7f31507f0f49b454d5b135c80ac7c7b5a",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 2227
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.isna.html",
+      "sha256": "732882bf811322412797bd6eddc0dee8fbd726acfcca14ced3976d42ec890d81",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 4430
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+      "sha256": "cb599b3eb6c3fbffc934fc5ad8028a1eb104926ef472af2d9efe1b09772ba903",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 9624
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.concat.html",
+      "sha256": "70494409b8257c45a85a9c1f7e929360eb9c533c380f0a932c0625f2e1b77a42",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 8601
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.duplicated.html",
+      "sha256": "8ee5ad62d834017380013748218067bba67474fcef9c92688216e9260481b2b0",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 5014
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Index.is_unique.html",
+      "sha256": "52d1511eeb9955ce65f200341321131fbdfb34ab817a57209cee3891d4c89592",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 2931
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+      "sha256": "fe5d2234052a61fc898e8f7ecffeac9f89c8110fb91e7e7683793421fcb915fb",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 317921
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+      "sha256": "75ed1131fff2e364f82f7227f96b1af21518f88c84ec7de61fcfb23819668cee",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 63271
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/integer_na.html",
+      "sha256": "13089b438aad8fb305e44380e87cefebf07348eef4556006d9b27bb1e4e97d51",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 8485
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+      "sha256": "546947dc413ad508fe5a9426c47a8ad0f23a61b53dd7c3aba12fc49668cbe92c",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 40163
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+      "sha256": "bbd5cfb8032a4e9c058e427d3077dcc3e342fe9aed947811f0cc46ba203d4b78",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 150406
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_table.html",
+      "sha256": "dab2d5c31376484c8ece8d5bee73e5ca3a3c4db23e5aa42da3d411dd4498513f",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 23697
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_json.html",
+      "sha256": "770221a0a9c25d80b6d8e1d7cc667528a7b0613f0e8387954822260a48360566",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 13303
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.ExcelFile.html",
+      "sha256": "bcdb1adbb9d3dea11e853f1c55b7463fa45c76b34ad87abcab22ac498cfa982a",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 4778
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html",
+      "sha256": "ebaaa00251ca3df51551b2f0040253735bb08bb3514798f29c6a4a48af2e7da4",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 5905
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+      "sha256": "acf963d730b131690a7bebf7dc1fc1ffc973903579ba3465e26ebd13eb8cb834",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 6726
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+      "sha256": "0845915139a8c2417cc90e7d3985cceb5f1c5744845266972cc0d0de69228d80",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 22170
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.convert_dtypes.html",
+      "sha256": "cc71b3530a7fa71ae9cdcd6c3856e288c3070e66d03c275cf958da6b7c35eb15",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 7472
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+      "sha256": "8d7c56e32fb111408c7c294c4a4650ae62d5edd2cc1b763f44cdf11c20524a46",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 2912
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.notna.html",
+      "sha256": "be6e393bb2d57902aecd998e442ccbf25ec6bdda6d5277afb4ebcfd36df736cd",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 4495
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.merge.html",
+      "sha256": "35164435ce3be36539770a0c5d461db1217f98e068b9dad941f0b73419686837",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 9781
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+      "sha256": "61f08895d648e074dde91a50009e5f64c07999072fc72ef6c8dd336a07656db3",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 6841
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.drop_duplicates.html",
+      "sha256": "9fd6da3862e5ce5afc32360a1eb65ecd94d994d777246ae8f6a0df885cb7faa4",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 4640
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.StringDtype.html",
+      "sha256": "f8b6029e68c2df0d6aa15a388fd7eeaf49ee9552f516f8021930af73643a6e19",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 2645
+    },
+    {
+      "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.Int64Dtype.html",
+      "sha256": "cdce7b09c7ce3b7c0352c54380532cbc2cc8ed956d6987a6014d39add7b6ea23",
+      "retrieved_at": "2026-11-17",
+      "format": "markdown",
+      "collector": "connected retrieval",
+      "characters": 3411
+    }
+  ]
+}

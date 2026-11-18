@@ -1,0 +1,149 @@
+{
+  "case_id": "case-009-2",
+  "family": "family-009",
+  "question": "O que faz on_bad_lines=skip e que dados posso perder?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Explicar warn/skip/error e perda de dados ao pular."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.25
+  },
+  "output": {
+    "request_id": "fcf26508cf384180a338cca74cfee461",
+    "action": "handoff",
+    "message": "Não foi possível confirmar uma orientação segura para este caso. Confira as fontes e encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "90c861d0c4d6b121ac9fbc93",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Handling “bad” lines",
+        "text": "Some files may have malformed lines with too few fields or too many. Lines with\ntoo few fields will have NA values filled in the trailing fields. Lines with\ntoo many fields will raise an error by default:\n\n\nExemplo com exceção; pilha interna omitida.\nParserError: Error tokenizing data. C error: Expected 3 fields in line 3, saw 4\n\nYou can elect to skip bad lines:\n\n```\nIn [162]: data = \"a,b,c\\n1,2,3\\n4,5,6,7\\n8,9,10\"\n\nIn [163]: pd.read_csv(StringIO(data), on_bad_lines=\"skip\")\nOut[163]:\n   a  b   c\n0  1  2   3\n1  8  9  10\n```\n\nAdded in version 1.4.0.\n\nOr pass a callable function to handle the bad line if `engine=\"python\"`.\nThe bad line will be a list of strings that was split by the `sep`:\n\n```\nIn [164]: external_list = []\n\nIn [165]: def bad_lines_func(line):\n   .....:     external_list.append(line)\n   .....:     return line[-3:]\n   .....:\n\nIn [166]: external_list\nOut[166]: []\n```\n\nNote",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 35,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "255bb1a5ad8be55b63f74955234629f4a5eccc1e4c7c8bcf9a73ee9b66d238d6",
+        "score": 0.6463788034752495
+      },
+      {
+        "id": "5f68f3908de839778aa83f6c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Error handling",
+        "text": "on_bad_lines(‘error’, ‘warn’, ‘skip’), default ‘error’\n\nSpecifies what to do upon encountering a bad line (a line with too many fields).\nAllowed values are :\n\n- ‘error’, raise an ParserError when a bad line is encountered.\n\n- ‘warn’, print a warning when a bad line is encountered and skip that line.\n\n- ‘skip’, skip bad lines without raising or warning when they are encountered.\n\nAdded in version 1.3.0.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 10,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "a2b2eec51d742ac39de0f53879520a159d224d2cf175e6cbafe082f7d05d8ae0",
+        "score": 0.6124374173242813
+      },
+      {
+        "id": "5ef19c60772759e85e9514ef",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Handling “bad” lines — The callable function will handle only a line with too many fields.",
+        "text": "The callable function will handle only a line with too many fields.\nBad lines caused by other errors will be silently skipped.\n\n```\nIn [167]: bad_lines_func = lambda line: print(line)\n\nIn [168]: data = 'name,type\\nname a,a is of type a\\nname b,\"b\\\" is of type b\"'\n\nIn [169]: data\nOut[169]: 'name,type\\nname a,a is of type a\\nname b,\"b\" is of type b\"'\n\nIn [170]: pd.read_csv(StringIO(data), on_bad_lines=bad_lines_func, engine=\"python\")\nOut[170]:\n     name            type\n0  name a  a is of type a\n```\n\nThe line was not processed in this case, as a “bad line” here is caused by an escape character.\n\nYou can also use the `usecols` parameter to eliminate extraneous column\ndata that appear in some lines but not others:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 35,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "4693a1e2c7082cf8c649a56bd647b20696dc7ab36f4f94583480ef5274856b42",
+        "score": 0.6102988332103964
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949350.2731118,
+    "audit": {
+      "supported": false,
+      "answers_question": false,
+      "portuguese": false,
+      "reason": "O draft não é em português"
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "What does on_bad_lines=skip do and what data can I lose?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 36,
+      "prompt_eval_count": 165,
+      "total_duration": 648265200,
+      "load_duration": 6190100,
+      "prompt_eval_duration": 38896000,
+      "eval_duration": 466308000
+    },
+    "retrieval_ms": 784.156100009568,
+    "context_chars": 2019,
+    "generation_ms": 6466.350700007752,
+    "usage": {
+      "eval_count": 433,
+      "prompt_eval_count": 1750,
+      "total_duration": 6464312200,
+      "load_duration": 6238700,
+      "prompt_eval_duration": 629970000,
+      "eval_duration": 5801611000
+    },
+    "audit_usage": {
+      "eval_count": 38,
+      "prompt_eval_count": 1991,
+      "total_duration": 1457103800,
+      "load_duration": 6481200,
+      "prompt_eval_duration": 729795000,
+      "eval_duration": 535369000
+    },
+    "audit_ms": 1458.9856999809854,
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "on_bad_lines=\"skip\" skips lines with too many fields without raising errors or warnings",
+          "evidence_ids": [
+            "5f68f3908de839778aa83f6c"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "5f68f3908de839778aa83f6c",
+              "quote": "on_bad_lines(‘error’, ‘warn’, ‘skip’), default ‘error’\n\nSpecifies what to do upon encountering a bad line (a line with too many fields).\nAllowed values are :\n\n- ‘error’, raise an ParserError when a bad line is encountered.\n\n- ‘warn’, print a warning when a bad line is encountered and skip that line.\n\n- ‘skip’, skip bad lines without raising or warning when they are encountered."
+            }
+          ]
+        },
+        {
+          "text": "Data lost when using on_bad_lines=\"skip\" includes lines with too many fields",
+          "evidence_ids": [
+            "5f68f3908de839778aa83f6c"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "5f68f3908de839778aa83f6c",
+              "quote": "on_bad_lines(‘error’, ‘warn’, ‘skip’), default ‘error’\n\nSpecifies what to do upon encountering a bad line (a line with too many fields).\nAllowed values are :\n\n- ‘error’, raise an ParserError when a bad line is encountered.\n\n- ‘warn’, print a warning when a bad line is encountered and skip that line.\n\n- ‘skip’, skip bad lines without raising or warning when they are encountered."
+            }
+          ]
+        }
+      ]
+    },
+    "total_ms": 8709.771700028796
+  }
+}

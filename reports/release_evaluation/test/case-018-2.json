@@ -1,0 +1,122 @@
+{
+  "case_id": "case-018-2",
+  "family": "family-018",
+  "question": "Como usar utc=True em to_datetime com offsets?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "utc normaliza/converte timezone conforme entradas; não inventar fuso original."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "7c9ae2380ad8406daf6f41d0e841431f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para usar `utc=True` em `pd.to_datetime`, é necessário especificar esse parâmetro para garantir que os dados sejam sempre interpretados como timezone-aware UTC. Isso localiza ou converte os valores de entrada para UTC, independentemente de serem timezone-naive ou timezone-aware. O uso de `utc=True` é recomendado para evitar erros em versões futuras do pandas quando houver dados com fusos horários mistos.",
+        "evidence_ids": [
+          "6e71e0ea829c70a240135ff1",
+          "081dabf7bdd1b7bb0663b7fe"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "6e71e0ea829c70a240135ff1",
+            "quote": "utc bool, default False\nIn a future version of pandas, parsing datetimes with mixed time\nzones will raise an error unless utc=True.\nPlease specify utc=True to opt in to the new behaviour\nand silence this warning. To create a Series with mixed offsets and\nobject dtype, please use apply and datetime.datetime.strptime.\n\nSee also: pandas general documentation about [timezone conversion and\\\\\nlocalization](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-zone-handling)."
+          },
+          {
+            "source_id": "081dabf7bdd1b7bb0663b7fe",
+            "quote": "utc bool, default False\n\nControl timezone-related parsing, localization and conversion.\n\n- If `True`, the function _always_ returns a timezone-aware\nUTC-localized `Timestamp`, `Series` or\n`DatetimeIndex`. To do this, timezone-naive inputs are\n_localized_ as UTC, while timezone-aware inputs are _converted_ to UTC.\n\n- If `False` (default), inputs will not be coerced to UTC.\nTimezone-naive inputs will remain naive, while timezone-aware ones\nwill keep their time offsets. Limitations exist for mixed\noffsets (typically, daylight savings), see Examples section for details.\n\nWarning"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "6e71e0ea829c70a240135ff1",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — utc bool, default False",
+        "text": "utc bool, default False\nIn a future version of pandas, parsing datetimes with mixed time\nzones will raise an error unless utc=True.\nPlease specify utc=True to opt in to the new behaviour\nand silence this warning. To create a Series with mixed offsets and\nobject dtype, please use apply and datetime.datetime.strptime.\n\nSee also: pandas general documentation about [timezone conversion and\\\\\nlocalization](https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#time-zone-handling).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 4,
+        "part": 1,
+        "content_sha256": "0a16d53fbc6fd08c42a65d08ed96958cba9959091941384eead72d4b6c10c1d7",
+        "score": 0.6879020340284924
+      },
+      {
+        "id": "081dabf7bdd1b7bb0663b7fe",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — utc bool, default False",
+        "text": "utc bool, default False\n\nControl timezone-related parsing, localization and conversion.\n\n- If `True`, the function _always_ returns a timezone-aware\nUTC-localized `Timestamp`, `Series` or\n`DatetimeIndex`. To do this, timezone-naive inputs are\n_localized_ as UTC, while timezone-aware inputs are _converted_ to UTC.\n\n- If `False` (default), inputs will not be coerced to UTC.\nTimezone-naive inputs will remain naive, while timezone-aware ones\nwill keep their time offsets. Limitations exist for mixed\noffsets (typically, daylight savings), see Examples section for details.\n\nWarning",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 4,
+        "part": 0,
+        "content_sha256": "f93ca8fbaeda8e9d0af0baaf6c8253b60343e0709076c152f5d6bd0427f21ebb",
+        "score": 0.6498172304736844
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950771.690078,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, explicando corretamente o uso de `utc=True` em `pd.to_datetime` para garantir que os dados sejam interpretados como timezone-aware UTC, conforme descrito nos trechos citados."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to use utc=True in to_datetime with offsets?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 208,
+      "total_duration": 1665137500,
+      "load_duration": 6800500,
+      "prompt_eval_duration": 188084000,
+      "eval_duration": 1406084000
+    },
+    "retrieval_ms": 1832.4727999861352,
+    "context_chars": 1078,
+    "generation_ms": 7971.3224999723025,
+    "usage": {
+      "eval_count": 149,
+      "prompt_eval_count": 966,
+      "total_duration": 7968777600,
+      "load_duration": 6789600,
+      "prompt_eval_duration": 848570000,
+      "eval_duration": 7064307000
+    },
+    "audit_usage": {
+      "eval_count": 77,
+      "prompt_eval_count": 1420,
+      "total_duration": 5281204200,
+      "load_duration": 6388700,
+      "prompt_eval_duration": 1391064000,
+      "eval_duration": 3814610000
+    },
+    "audit_ms": 5282.773500017356,
+    "total_ms": 15086.858699971344
+  }
+}

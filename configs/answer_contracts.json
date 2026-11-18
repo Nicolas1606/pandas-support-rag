@@ -1,0 +1,312 @@
+[
+  {
+    "id": "merge_m1",
+    "patterns": [
+      "(?:\\b(merge|juncao)\\b)|(?:\\b(?:juntar|juncao|junte|cruzar|cruzamento|unir|mesclar|validate)\\b)",
+      "(?:muitos[ -]+para[ -]+um|\\bmany_to_one\\b|\\bm:1\\b)|(?:^(?!.*\\b(?:esquerda|direita)\\b).*?\\b(?:muitos|varios|multiplos)\\s+\\w+\\s+(?:para (?:um|uma)|por)\\s+\\w+|\\b(?:unica linha|chaves? unicas?)\\b.{0,36}\\bdireita\\b)|\\bdireita\\b.{0,32}\\b(?:chave unica|cadastro unico)\\b"
+    ],
+    "answer": "Use `validate=\"many_to_one\"` (ou `\"m:1\"`). As chaves do lado direito precisam ser únicas. A esquerda pode ter duplicatas. Por exemplo, em pedidos por cliente, essa orientação pressupõe pedidos à esquerda e cadastro único à direita.",
+    "evidence": [
+      {
+        "id": "3a4cee70a1603446de850c88",
+        "sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+      }
+    ]
+  },
+  {
+    "id": "merge_1m",
+    "patterns": [
+      "(?:\\b(merge|juncao)\\b)|(?:\\b(?:juntar|juncao|junte|cruzar|cruzamento|unir|mesclar|validate)\\b)",
+      "(?:um[ -]+para[ -]+muitos|\\bone_to_many\\b|\\b1:m\\b)|(?:\\b(?:unica linha|chaves? unicas?)\\b.{0,36}\\besquerda\\b)|\\besquerda\\b.{0,32}\\b(?:chave unica|cadastro unico)\\b"
+    ],
+    "answer": "Use `validate=\"one_to_many\"` (ou `\"1:m\"`). As chaves do lado esquerdo precisam ser únicas.",
+    "evidence": [
+      {
+        "id": "3a4cee70a1603446de850c88",
+        "sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+      }
+    ]
+  },
+  {
+    "id": "merge_11",
+    "patterns": [
+      "(?:\\b(merge|juncao)\\b)|(?:\\b(?:juntar|juncao|junte|cruzar|cruzamento|unir|mesclar|validate)\\b)",
+      "(?:um[ -]+para[ -]+um|\\bone_to_one\\b|\\b1:1\\b)|(?:unicidade (?:dos|nos) dois lados)"
+    ],
+    "answer": "Use `validate=\"one_to_one\"` (ou `\"1:1\"`). As chaves precisam ser únicas nos dois lados.",
+    "evidence": [
+      {
+        "id": "3a4cee70a1603446de850c88",
+        "sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+      }
+    ]
+  },
+  {
+    "id": "merge_null",
+    "patterns": [
+      "\\b(?:merge|pandas|juncao)\\b",
+      "\\b(nulos?|nulas?|nan)\\b",
+      "\\b(chaves?|merge|juncao)\\b"
+    ],
+    "answer": "O `pandas.merge` pode combinar chaves nulas dos dois lados. Esse comportamento difere das junções SQL usuais.",
+    "evidence": [
+      {
+        "id": "c80db015d0df5244388055ba",
+        "sha256": "c0a8ef35a47989429ede4641872aba6500b99dd0862e839cb7ec6d1b2d4e28fd"
+      }
+    ]
+  },
+  {
+    "id": "merge_keys",
+    "patterns": [
+      "(?:\\bmerge\\b|juntar tabelas)|(?:\\b(?:juntar|juncao|junte|cruzar|cruzamento|unir|mesclar|validate)\\b)",
+      "(?:left_on|right_on|chaves.*nomes (diferentes|distintos)|de um lado.*do outro)|(?:\\bpelo?\\s+\\w+ na esquerda e \\w+ na direita)"
+    ],
+    "answer": "Use `left_on` para identificar a chave à esquerda e `right_on` para a chave à direita. Use os nomes exatos das colunas de cada tabela.",
+    "evidence": [
+      {
+        "id": "57c6784adca5fd4f161b9485",
+        "sha256": "4a691f2569a94bb3d4ac23712b681607485a7e21b91288d04853f0880d89ac74"
+      },
+      {
+        "id": "ac4edf76d014515527ccc44f",
+        "sha256": "a6b055b768df72bfa996fdb168118ed57a5deecb405d3f558f6d73443d78d5ea"
+      }
+    ]
+  },
+  {
+    "id": "csv_na_text",
+    "patterns": [
+      "\\b(csv|read_csv)\\b",
+      "(?:\\bna\\b.*(texto|literal|codigo)|(?:preserv|manter|conservar).*\\bna\\b)|(?:\\bna\\b.{0,25}\\b(?:sigla|regiao|setor)\\b)"
+    ],
+    "answer": "Use `keep_default_na=False` e deixe o código literal NA fora de `na_values`. Se precisar reconhecer outros marcadores de ausência, inclua apenas esses marcadores em `na_values`.",
+    "evidence": [
+      {
+        "id": "bdfa06a6451958f78934c8f4",
+        "sha256": "58e83dd132771b492181e0aa48938d65e5b9b8adf288c57e341584453d0c4a35"
+      }
+    ]
+  },
+  {
+    "id": "csv_ids",
+    "patterns": [
+      "\\b(?:csv|read_csv)\\b|\\bimport(?:ar|acao|ando)\\b",
+      "zeros (?:a|na) esquerda|(?=.*\\b0\\d+\\b)(?=.*\\b(?:codigos?|identificadores?|ceps?|matriculas?|ids?)\\b)(?=.*\\b(?:texto|preserv\\w*|manter|conservar)\\b)"
+    ],
+    "answer": "Para importar um CSV, configure a coluna identificadora como texto já na leitura. Por exemplo, para uma coluna chamada codigo, use pd.read_csv(arquivo, dtype={\"codigo\": \"string\"}). Assim, 0007 permanece \"0007\". Configure os marcadores de ausência conforme o significado deles no arquivo.",
+    "evidence": [
+      {
+        "id": "80999dcbecaf83cd8438a553",
+        "sha256": "d75abd7bfe389bf9b72de4139de3ee4bff6e9ced66b47cb2e0a19d59a9fb5076"
+      }
+    ]
+  },
+  {
+    "id": "csv_columns",
+    "patterns": [
+      "\\b(csv|read_csv)\\b",
+      "(?:\\busecols\\b|(?:apenas|somente|limitar).*colunas)|(?:\\b(?:importar|ler|carregar|selecionar) (?:apenas|somente|so)\\b|seleciona(?:r)? colunas)"
+    ],
+    "answer": "Use `usecols` em `read_csv` para selecionar colunas por nome ou posição. Ao passar nomes, preserve exatamente a grafia do arquivo.",
+    "evidence": [
+      {
+        "id": "bc21c98626d35aebceec91aa",
+        "sha256": "5e97a2cafa8d1a5d8e8a1c885fd7261572fe6a53953de39e38393dd553196440"
+      }
+    ]
+  },
+  {
+    "id": "csv_dates",
+    "patterns": [
+      "(?:\\bparse_dates\\b|\\b(?:csv|read_csv)\\b.*\\bdata\\b|\\bdata\\b.*\\bread_csv\\b)|(?:\\bdata\\b.{0,40}\\b(?:leitura|importacao)\\b.{0,16}\\bcsv\\b)"
+    ],
+    "answer": "Para tentar interpretar colunas de data, passe uma lista de nomes em `parse_dates`. O valor `True` tenta interpretar o índice.",
+    "evidence": [
+      {
+        "id": "a5d5a0e7e9b1ae705e80e3ae",
+        "sha256": "02d2e9a799bfe9c1f707b96860eb6f71586e57af60395b12ae7fe57f9034ad63"
+      }
+    ]
+  },
+  {
+    "id": "numeric_coerce",
+    "patterns": [
+      "(?:\\bto_numeric\\b)|(?:\\bconverter\\b.{0,45}\\bnumero\\b)",
+      "(?:\\bcoerce\\b)|(?:\\b(?:invalido|invalidos|ruins?)\\b.{0,30}\\b(?:nan|ausente)\\b)"
+    ],
+    "answer": "Com `errors=\"coerce\"`, conversões numéricas inválidas viram valores ausentes, em vez de zero.",
+    "evidence": [
+      {
+        "id": "0ab6aee5bf7e35fa61f7c127",
+        "sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3"
+      }
+    ]
+  },
+  {
+    "id": "numeric_raise",
+    "patterns": [
+      "\\bto_numeric\\b|convers(?:ao|oes) numeric",
+      "\\braise\\b|excecao|falhar"
+    ],
+    "answer": "Use `errors=\"raise\"` para obter uma exceção quando a conversão numérica falhar. Esse é o padrão documentado.",
+    "evidence": [
+      {
+        "id": "0ab6aee5bf7e35fa61f7c127",
+        "sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3"
+      }
+    ]
+  },
+  {
+    "id": "infer_objects",
+    "patterns": [
+      "(?:\\binfer_objects\\b)|(?:\\bobject\\b.{0,65}\\binferir\\b)",
+      ".+"
+    ],
+    "answer": "O método `DataFrame.infer_objects()` tenta uma conversão leve de colunas object. Colunas não convertíveis permanecem como estão.",
+    "evidence": [
+      {
+        "id": "d09e7b00d417aaef012ae19c",
+        "sha256": "bded320fbf617872e421f05c63b0928b023ac3ba6b3fc8f726e509be049ee43b"
+      }
+    ]
+  },
+  {
+    "id": "csv_separator",
+    "patterns": [
+      "\\b(csv|read_csv)\\b",
+      "ponto e virgula|delimitador|\\bsep\\b"
+    ],
+    "evidence": [
+      {
+        "id": "60e5ff74cb11f8fbd46d8c71",
+        "sha256": "caf6639f0ab2c4a838a74bcd83f0960b54df3e652cbbd09959cb9adb05604f34"
+      }
+    ],
+    "answer": "Em `read_csv`, informe o delimitador em `sep`. Para um arquivo separado por ponto e vírgula, use `sep=';'`."
+  },
+  {
+    "id": "csv_chunks",
+    "patterns": [
+      "\\bchunksize\\b|\\b(csv|read_csv)\\b.*\\bblocos\\b"
+    ],
+    "evidence": [
+      {
+        "id": "0c34bda3ca03adedf9827a8c",
+        "sha256": "6fa8e9723fa34b1c07f540bc51c99a45ce653ea5bb28edccb94bb2b52a3d9aa0"
+      }
+    ],
+    "answer": "Informe em `chunksize` o número de linhas por bloco. `read_csv` retorna um leitor iterável. Processe cada bloco antes de passar ao próximo."
+  },
+  {
+    "id": "csv_no_header",
+    "patterns": [
+      "\\bcsv\\b.*(?:sem|nao tem) cabecalho|\\bheader\\s*=\\s*none\\b"
+    ],
+    "evidence": [
+      {
+        "id": "37aaa8742b3506720b4ce0e9",
+        "sha256": "056915331b4d66df2a8c04b2afcb9281b482314bec65badfeab160e215a4d036"
+      }
+    ],
+    "answer": "Use `header=None` quando a primeira linha é dado. Se quiser definir os nomes das colunas, passe uma lista em `names`."
+  },
+  {
+    "id": "datetime_format",
+    "patterns": [
+      "\\bto_datetime\\b",
+      "formato|\\bformat\\b"
+    ],
+    "evidence": [
+      {
+        "id": "077fa1eb21ce7de8b0d548af",
+        "sha256": "1d137fd6db4cc301b1e7348fd74db70fffc3ab3ffad40f19fa5e45293cfd5d43"
+      }
+    ],
+    "answer": "Passe o formato real de entrada em `format` ao usar `pd.to_datetime` com texto ou uma série. Para dia/mês/ano com quatro dígitos, use `format='%d/%m/%Y'`."
+  },
+  {
+    "id": "datetime_utc",
+    "patterns": [
+      "\\b(to_datetime|timestamps?)\\b",
+      "\\butc\\b"
+    ],
+    "evidence": [
+      {
+        "id": "081dabf7bdd1b7bb0663b7fe",
+        "sha256": "f93ca8fbaeda8e9d0af0baaf6c8253b60343e0709076c152f5d6bd0427f21ebb"
+      }
+    ],
+    "answer": "Em `pd.to_datetime`, `utc=True` converte entradas com fuso para UTC e interpreta entradas sem fuso como UTC. Confirme o fuso de origem antes de usar essa opção em valores sem fuso."
+  },
+  {
+    "id": "frame_astype",
+    "patterns": [
+      "\\b(?:dataframe[.]astype|astype)\\b",
+      "coluna|dicionario|mapping"
+    ],
+    "evidence": [
+      {
+        "id": "b452f2dabf6b57172ce6e42f",
+        "sha256": "7361aac2f1ae39309aa9a3bdf77b0bde1c9600d4c0a5d09a57687a617c00251f"
+      }
+    ],
+    "answer": "Em `DataFrame.astype`, passe um dicionário na forma `{nome_da_coluna: tipo}`. Preserve o nome original da coluna e use o tipo desejado como valor."
+  },
+  {
+    "id": "frame_dtypes",
+    "patterns": [
+      "\\bdtypes\\b|tipos de todas as colunas"
+    ],
+    "evidence": [
+      {
+        "id": "ce29c96cd6a4496a1ace0512",
+        "sha256": "e31aa5645dc43362f63f75e615116144c6c07463b48989641d3980502c9bd079"
+      }
+    ],
+    "answer": "Consulte `df.dtypes`. A propriedade retorna uma série com o tipo de cada coluna."
+  },
+  {
+    "id": "merge_indicator",
+    "patterns": [
+      "\\bindicator\\b|registros.*so a esquerda"
+    ],
+    "evidence": [
+      {
+        "id": "8392900648318f3fcfdffedf",
+        "sha256": "a2d82a1bcf8972a651e4dd63c1a687213b341e043ccdb9113d055658bc815283"
+      },
+      {
+        "id": "c80db015d0df5244388055ba",
+        "sha256": "c0a8ef35a47989429ede4641872aba6500b99dd0862e839cb7ec6d1b2d4e28fd"
+      }
+    ],
+    "answer": "Use `indicator=True` no merge para obter `_merge`. Com `how='left'`, filtre `_merge == 'left_only'` para achar registros da esquerda sem correspondência. Um merge `inner` descarta esses registros."
+  },
+  {
+    "id": "concat_rows",
+    "patterns": [
+      "\\bconcat\\b.*axis\\s*=\\s*0|empilhar.*(dataframes|linhas).*vertical"
+    ],
+    "evidence": [
+      {
+        "id": "c4fab6188a5383725c14a01f",
+        "sha256": "dec730ba8a0f6045cbc7d8f882d45aa8db097c1970756bf2a415e5e1060d7e83"
+      }
+    ],
+    "answer": "Use `pd.concat([...], axis=0)` para concatenar os objetos ao longo do eixo das linhas."
+  },
+  {
+    "id": "frame_duplicates",
+    "patterns": [
+      "\\bduplicated\\b|(?:localizar|identificar).*chaves duplicadas"
+    ],
+    "evidence": [
+      {
+        "id": "8903467a6f23b857e5fc27f9",
+        "sha256": "5496ada6ea65a873ac2009aa254d939aaac92e01b5a6fc7b20b6b9bc6af8f270"
+      }
+    ],
+    "answer": "Use `df.duplicated(subset=[...], keep=False)` para marcar todas as ocorrências duplicadas nas colunas que compõem a chave."
+  }
+]

@@ -1,0 +1,138 @@
+{
+  "case_id": "case-036-2",
+  "family": "family-036",
+  "question": "Como usar duplicated em duas colunas que formam uma chave?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "duplicated com subset inspeciona duplicidade das chaves."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "fdab8669b3bd4fa9a8589a37c3802e8a",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para usar `duplicated` em duas colunas que formam uma chave, utilize o parâmetro `subset` com uma lista contendo as duas colunas. Por exemplo, `df.duplicated(subset=['coluna1', 'coluna2'])` identificará duplicados com base nas combinações dessas colunas. O parâmetro `keep` pode ser usado para definir qual ocorrência será marcada como `False` (primeira, última ou nenhuma).",
+        "evidence_ids": [
+          "e8667e6b182cdb0f7336beca",
+          "725e8bd235dd2c450d87be86"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "e8667e6b182cdb0f7336beca",
+            "quote": "```\n>>> df.duplicated(keep=False)\n0     True\n1     True\n2    False\n3    False\n4    False\ndtype: bool\n```\n\nTo find duplicates on specific column(s), use `subset`.\n\n```\n>>> df.duplicated(subset=['brand'])\n0    False\n1     True\n2    False\n3     True\n4     True\ndtype: bool\n```"
+          },
+          {
+            "source_id": "725e8bd235dd2c450d87be86",
+            "quote": "Examples\n\nConsider dataset containing ramen rating.\n\n```\n>>> df = pd.DataFrame({\n...     'brand': ['Yum Yum', 'Yum Yum', 'Indomie', 'Indomie', 'Indomie'],\n...     'style': ['cup', 'cup', 'cup', 'pack', 'pack'],\n...     'rating': [4, 4, 3.5, 15, 5]\n... })\n>>> df\n    brand style  rating\n0  Yum Yum   cup     4.0\n1  Yum Yum   cup     4.0\n2  Indomie   cup     3.5\n3  Indomie  pack    15.0\n4  Indomie  pack     5.0\n```\n\nBy default, for each set of duplicated values, the first occurrence\nis set on False and all others on True.\n\n```\n>>> df.duplicated()\n0    False\n1     True\n2    False\n3    False\n4    False\ndtype: bool\n```\n\nBy using ‘last’, the last occurrence of each set of duplicated values\nis set on False and all others on True.\n\n```\n>>> df.duplicated(keep='last')\n0     True\n1    False\n2    False\n3    False\n4    False\ndtype: bool\n```\n\nBy setting `keep` on False, all duplicates are True."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "e8667e6b182cdb0f7336beca",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.duplicated.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.duplicated.html",
+        "title": "pandas.DataFrame.duplicated",
+        "section": "pandas.DataFrame.duplicated — Examples",
+        "text": "```\n>>> df.duplicated(keep=False)\n0     True\n1     True\n2    False\n3    False\n4    False\ndtype: bool\n```\n\nTo find duplicates on specific column(s), use `subset`.\n\n```\n>>> df.duplicated(subset=['brand'])\n0    False\n1     True\n2    False\n3     True\n4     True\ndtype: bool\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 3,
+        "part": 1,
+        "content_sha256": "15d176c1d9b9eb34da23de7a2bd3ac661ee96fcd16b3e3244e198e0659f3576d",
+        "score": 0.5019281812231275
+      },
+      {
+        "id": "6db7c014036fc1f3d38db258",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Duplicate names parsing",
+        "text": "If the file or header contains duplicate names, pandas will by default\ndistinguish between them so as to prevent overwriting data:\n\n```\nIn [59]: data = \"a,b,a\\n0,1,2\\n3,4,5\"\n\nIn [60]: pd.read_csv(StringIO(data))\nOut[60]:\n   a  b  a.1\n0  0  1    2\n1  3  4    5\n```\n\nThere is no more duplicate data because duplicate columns ‘X’, …, ‘X’ become\n‘X’, ‘X.1’, …, ‘X.N’.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 14,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "49e295cd23b4ca4b9e55f6495bfd15a96e0e6d44fdf769485e7ccb0591cab907",
+        "score": 0.47781250292575106
+      },
+      {
+        "id": "725e8bd235dd2c450d87be86",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.duplicated.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.duplicated.html",
+        "title": "pandas.DataFrame.duplicated",
+        "section": "pandas.DataFrame.duplicated — Examples",
+        "text": "Examples\n\nConsider dataset containing ramen rating.\n\n```\n>>> df = pd.DataFrame({\n...     'brand': ['Yum Yum', 'Yum Yum', 'Indomie', 'Indomie', 'Indomie'],\n...     'style': ['cup', 'cup', 'cup', 'pack', 'pack'],\n...     'rating': [4, 4, 3.5, 15, 5]\n... })\n>>> df\n    brand style  rating\n0  Yum Yum   cup     4.0\n1  Yum Yum   cup     4.0\n2  Indomie   cup     3.5\n3  Indomie  pack    15.0\n4  Indomie  pack     5.0\n```\n\nBy default, for each set of duplicated values, the first occurrence\nis set on False and all others on True.\n\n```\n>>> df.duplicated()\n0    False\n1     True\n2    False\n3    False\n4    False\ndtype: bool\n```\n\nBy using ‘last’, the last occurrence of each set of duplicated values\nis set on False and all others on True.\n\n```\n>>> df.duplicated(keep='last')\n0     True\n1    False\n2    False\n3    False\n4    False\ndtype: bool\n```\n\nBy setting `keep` on False, all duplicates are True.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 3,
+        "part": 0,
+        "content_sha256": "dd22fa8b23da0aa62dd020d00283e3db98647db8b8779d154d5b4ae9ebd835b8",
+        "score": 0.4760358806981131
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951062.8607128,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada em evidências fornecidas, explicando como usar `duplicated` com duas colunas que formam uma chave utilizando o parâmetro `subset` e mencionando o uso do parâmetro `keep`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to use duplicated in two columns that form a key?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 33,
+      "prompt_eval_count": 211,
+      "total_duration": 1826122800,
+      "load_duration": 7610000,
+      "prompt_eval_duration": 177003000,
+      "eval_duration": 1474519000
+    },
+    "retrieval_ms": 2012.425200024154,
+    "context_chars": 1527,
+    "generation_ms": 9998.47230000887,
+    "usage": {
+      "eval_count": 163,
+      "prompt_eval_count": 1533,
+      "total_duration": 9996064300,
+      "load_duration": 6668800,
+      "prompt_eval_duration": 1382490000,
+      "eval_duration": 8570198000
+    },
+    "audit_usage": {
+      "eval_count": 78,
+      "prompt_eval_count": 2179,
+      "total_duration": 6603280700,
+      "load_duration": 7610600,
+      "prompt_eval_duration": 2083411000,
+      "eval_duration": 4374303000
+    },
+    "audit_ms": 6605.821400007699,
+    "total_ms": 18617.352800036315
+  }
+}

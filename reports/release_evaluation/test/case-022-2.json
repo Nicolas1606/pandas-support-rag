@@ -1,0 +1,138 @@
+{
+  "case_id": "case-022-2",
+  "family": "family-022",
+  "question": "Como inspecionar DataFrame.dtypes?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "dtypes apresenta um tipo por coluna."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "587d8554bc1749b5a6d3672a357bd353",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para inspecionar os tipos de dados (`dtypes`) de um DataFrame, você pode usar a propriedade `DataFrame.dtypes`, que retorna uma série com o tipo de dados de cada coluna. Por exemplo, `df.dtypes` exibe os tipos de dados de todas as colunas do DataFrame. Colunas com tipos misturados são armazenadas com o tipo `object`.",
+        "evidence_ids": [
+          "ce29c96cd6a4496a1ace0512",
+          "fc241f6ee217993581e21b4d"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "ce29c96cd6a4496a1ace0512",
+            "quote": "_property_ DataFrame.dtypes [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6432-L6461)\n\nReturn the dtypes in the DataFrame.\n\nThis returns a Series with the data type of each column.\nThe result’s index is the original DataFrame’s columns. Columns\nwith mixed types are stored with the `object` dtype. See\nthe User Guide for more.\n\nReturns:pandas.Series\n\nThe data type of each column."
+          },
+          {
+            "source_id": "fc241f6ee217993581e21b4d",
+            "quote": "Examples\n\n```\n>>> df = pd.DataFrame({'float': [1.0],\n...                    'int': [1],\n...                    'datetime': [pd.Timestamp('20180310')],\n...                    'string': ['foo']})\n>>> df.dtypes\nfloat              float64\nint                  int64\ndatetime    datetime64[ns]\nstring              object\ndtype: object\n```"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "ce29c96cd6a4496a1ace0512",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "title": "pandas.DataFrame.dtypes",
+        "section": "pandas.DataFrame.dtypes — _property_ DataFrame.dtypes [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6432-L6461)",
+        "text": "_property_ DataFrame.dtypes [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6432-L6461)\n\nReturn the dtypes in the DataFrame.\n\nThis returns a Series with the data type of each column.\nThe result’s index is the original DataFrame’s columns. Columns\nwith mixed types are stored with the `object` dtype. See\nthe User Guide for more.\n\nReturns:pandas.Series\n\nThe data type of each column.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "e31aa5645dc43362f63f75e615116144c6c07463b48989641d3980502c9bd079",
+        "score": 0.6943804423769195
+      },
+      {
+        "id": "fc241f6ee217993581e21b4d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.dtypes.html",
+        "title": "pandas.DataFrame.dtypes",
+        "section": "pandas.DataFrame.dtypes — Examples",
+        "text": "Examples\n\n```\n>>> df = pd.DataFrame({'float': [1.0],\n...                    'int': [1],\n...                    'datetime': [pd.Timestamp('20180310')],\n...                    'string': ['foo']})\n>>> df.dtypes\nfloat              float64\nint                  int64\ndatetime    datetime64[ns]\nstring              object\ndtype: object\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "8404e43134a1a8ed5d94cd85b7b22d9c324962ad83effbdb291415b2154925f0",
+        "score": 0.6731588062849381
+      },
+      {
+        "id": "209ee343516004df32632bc3",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "string data forces an ``object`` dtype",
+        "text": "In [351]: pd.Series([1, 2, 3, 6.0, \"foo\"])\nOut[351]:\n0      1\n1      2\n2      3\n3    6.0\n4    foo\ndtype: object\n```\n\nCopy to clipboard\n\nThe number of columns of each type in a `DataFrame` can be found by calling\n`DataFrame.dtypes.value_counts()`.\n\n```\nIn [352]: dft.dtypes.value_counts()\nOut[352]:\nfloat64          1\nint64            1\nobject           1\ndatetime64[s]    1\nfloat32          1\nbool             1\nint8             1\nName: count, dtype: int64\n```\n\nCopy to clipboard\n\nNumeric dtypes will propagate and can coexist in DataFrames.\nIf a dtype is passed (either directly via the `dtype` keyword, a passed `ndarray`,\nor a passed `Series`), then it will be preserved in DataFrame operations. Furthermore,\ndifferent numeric dtypes will **NOT** be combined. The following example will give you a taste.\n\n```\nIn [353]: df1 = pd.DataFrame(np.random.randn(8, 1), columns=[\"A\"], dtype=\"float32\")",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 62,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "b9a07574e124cc4e92ce48f1b1800adce5a545c6f56c1a81963a5f59a24282ca",
+        "score": 0.6471683390962982
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950832.7621386,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, explicando corretamente como inspecionar os tipos de dados de um DataFrame usando a propriedade `dtypes`, com exemplos e menção ao comportamento de colunas com tipos misturados."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to inspect DataFrame.dtypes?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 28,
+      "prompt_eval_count": 207,
+      "total_duration": 1603625000,
+      "load_duration": 5738600,
+      "prompt_eval_duration": 192278000,
+      "eval_duration": 1290182000
+    },
+    "retrieval_ms": 1796.419500024058,
+    "context_chars": 1647,
+    "generation_ms": 8865.370300016366,
+    "usage": {
+      "eval_count": 142,
+      "prompt_eval_count": 1526,
+      "total_duration": 8863396500,
+      "load_duration": 7152900,
+      "prompt_eval_duration": 1490783000,
+      "eval_duration": 7332344000
+    },
+    "audit_usage": {
+      "eval_count": 79,
+      "prompt_eval_count": 1936,
+      "total_duration": 6346595900,
+      "load_duration": 6318900,
+      "prompt_eval_duration": 2013021000,
+      "eval_duration": 4187892000
+    },
+    "audit_ms": 6348.599299963098,
+    "total_ms": 17010.60239999788
+  }
+}

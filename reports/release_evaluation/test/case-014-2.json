@@ -1,0 +1,133 @@
+{
+  "case_id": "case-014-2",
+  "family": "family-014",
+  "question": "Quero detectar conversões numéricas inválidas por exceção. Como?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "errors=raise sinaliza falha."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "0cede7eda4c740db8173c5642143a63f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para detectar conversões numéricas inválidas por exceção, use o parâmetro `errors='raise'` na função `pandas.to_numeric`, que lança uma exceção em caso de falha na conversão. O valor `errors='raise'` é o padrão e é recomendado para capturar erros explicitamente, conforme documentado.",
+        "evidence_ids": [
+          "0ab6aee5bf7e35fa61f7c127"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "0ab6aee5bf7e35fa61f7c127",
+            "quote": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "0ab6aee5bf7e35fa61f7c127",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric",
+        "text": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3",
+        "score": 0.5549135134444689
+      },
+      {
+        "id": "c34b44fcd96265df592a7d87",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric — downcast str, default None",
+        "text": "downcast str, default None\n\nCan be ‘integer’, ‘signed’, ‘unsigned’, or ‘float’.\nIf not None, and if the data has been successfully cast to a\nnumerical dtype (or if the data was numeric to begin with),\ndowncast that resulting data to the smallest numerical dtype\npossible according to the following rules:\n\n- ‘integer’ or ‘signed’: smallest signed int dtype (min.: np.int8)\n\n- ‘unsigned’: smallest unsigned int dtype (min.: np.uint8)\n\n- ‘float’: smallest float dtype (min.: np.float32)\n\nAs this behaviour is separate from the core conversion to\nnumeric values, any errors raised during the downcasting\nwill be surfaced regardless of the value of the ‘errors’ input.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "b0809e6cbf09b8c7a429efbab082d7222ec84b0d218803b23c9311047f9691a9",
+        "score": 0.47530189107281895
+      },
+      {
+        "id": "c98713a8590590ccf81f24e0",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric",
+        "text": "pandas.to_numeric( _arg_, _errors='raise'_, _downcast=None_, _dtype_backend=<no_default>_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/tools/numeric.py#L44-L329)\n\nConvert argument to a numeric type.\n\nThe default return dtype is float64 or int64\ndepending on the data supplied. Use the downcast parameter\nto obtain other dtypes.\n\nPlease note that precision loss may occur if really large numbers\nare passed in. Due to the internal limitations of ndarray, if\nnumbers smaller than -9223372036854775808 (np.iinfo(np.int64).min)\nor larger than 18446744073709551615 (np.iinfo(np.uint64).max) are\npassed in, it is very likely they will be converted to float so that\nthey can be stored in an ndarray. These warnings apply similarly to\nSeries since it internally leverages ndarray.\n\nParameters:arg scalar, list, tuple, 1-d array, or Series\n\nArgument to be converted.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "cbae669bb6883ef9286746754a7979eaf7e91dd52596870b2bbdf2dbd38039ab",
+        "score": 0.4749919142051341
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950716.1537712,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada no documento fornecido, que afirma que o parâmetro `errors='raise'` lança uma exceção em caso de conversão numérica inválida, conforme solicitado na pergunta."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "I want to detect invalid numeric conversions by exception. How?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 33,
+      "prompt_eval_count": 216,
+      "total_duration": 1755928000,
+      "load_duration": 6244400,
+      "prompt_eval_duration": 179923000,
+      "eval_duration": 1453036000
+    },
+    "retrieval_ms": 1926.8373000086285,
+    "context_chars": 1866,
+    "generation_ms": 7128.76839999808,
+    "usage": {
+      "eval_count": 111,
+      "prompt_eval_count": 1478,
+      "total_duration": 7126483000,
+      "load_duration": 5780700,
+      "prompt_eval_duration": 1495222000,
+      "eval_duration": 5585313000
+    },
+    "audit_usage": {
+      "eval_count": 74,
+      "prompt_eval_count": 1697,
+      "total_duration": 5759114000,
+      "load_duration": 6768000,
+      "prompt_eval_duration": 1824358000,
+      "eval_duration": 3778648000
+    },
+    "audit_ms": 5760.9449999872595,
+    "total_ms": 14816.793699981645
+  }
+}

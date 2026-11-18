@@ -1,0 +1,30 @@
+{
+  "config": {
+    "pandas_version": "2.2.3",
+    "model": "qwen3:8b",
+    "embedding_model": "embeddinggemma:latest",
+    "ollama_url": "http://127.0.0.1:11434",
+    "chunk_chars": 900,
+    "top_k": 5,
+    "context_chars": 5000,
+    "timeout": 90,
+    "default_method": "dense",
+    "max_sources": 3,
+    "verify_answers": true,
+    "generation_options": {
+      "temperature": 0,
+      "seed": 42,
+      "num_ctx": 4096,
+      "num_predict": 450
+    },
+    "use_planner": true
+  },
+  "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+  "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+  "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+  "cases_sha256": "51f0d5718e850e530e8aac8385588fac565b51d73926e41cb19e3dd8fe16880b",
+  "corpus_id": "81396567c3f64252",
+  "reference_status": "source-authored; independent human review not performed",
+  "model": "qwen3:8b",
+  "started_at": 1794950522.2268605
+}

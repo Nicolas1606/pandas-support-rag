@@ -1,0 +1,30 @@
+{"id":"A1","question":"Como validar muitos pedidos para um cliente no merge?","expected_action":"answer","reference":"many_to_one, cadastro direito único"}
+{"id":"A2","question":"Quero um merge um para muitos de lojas para visitas. Qual validate?","expected_action":"answer","reference":"one_to_many, lado esquerdo único"}
+{"id":"A3","question":"No merge de duas listas de CPFs preciso validar um para um. Como?","expected_action":"answer","reference":"one_to_one, ambos únicos"}
+{"id":"A4","question":"Como o merge trata chaves nulas nas duas tabelas?","expected_action":"answer","reference":"Chaves nulas podem corresponder"}
+{"id":"A5","question":"Como juntar pelo sku na esquerda e codigo na direita?","expected_action":"answer","reference":"left_on e right_on"}
+{"id":"A6","question":"No CSV o NA é uma sigla válida e FALTA é ausente. Como ler?","expected_action":"answer","reference":"keep_default_na=False e na_values"}
+{"id":"A7","question":"Como preservar os zeros à esquerda do CEP lendo um CSV?","expected_action":"answer","reference":"dtype textual na importação"}
+{"id":"A8","question":"Meu CSV tem 90 colunas. Como importar apenas loja e valor?","expected_action":"answer","reference":"usecols"}
+{"id":"A9","question":"Como converter a coluna data na leitura do CSV?","expected_action":"answer","reference":"parse_dates"}
+{"id":"A10","question":"Quero converter saldo para número e marcar texto inválido como ausente.","expected_action":"answer","reference":"to_numeric errors=coerce"}
+{"id":"A11","question":"Como fazer a conversão numérica falhar ao encontrar lixo?","expected_action":"answer","reference":"to_numeric errors=raise"}
+{"id":"A12","question":"Uma coluna object contém inteiros Python. Como inferir o tipo?","expected_action":"answer","reference":"infer_objects"}
+{"id":"A13","question":"Que validate uso se o mesmo código aparece em várias vendas e uma única linha no cadastro à direita?","expected_action":"answer","reference":"many_to_one"}
+{"id":"A14","question":"Ao importar códigos 0007 e 0020 como texto como preservo os dígitos?","expected_action":"answer","reference":"dtype textual"}
+{"id":"A15","question":"Quero ler só produto e quantidade com read_csv. Qual argumento seleciona colunas?","expected_action":"answer","reference":"usecols"}
+{"id":"A16","question":"No pandas.merge qual lado tem de ser único se uso m:1?","expected_action":"answer","reference":"direito"}
+{"id":"A17","question":"Se uso validate 1:m na junção posso repetir a chave da direita?","expected_action":"answer","reference":"sim, lado esquerdo único"}
+{"id":"A18","question":"O que acontece se uma chave vazia dos dois lados for NaN no merge?","expected_action":"answer","reference":"pode corresponder"}
+{"id":"A19","question":"Como converter valores ruins de receita em NaN usando to_numeric?","expected_action":"answer","reference":"errors=coerce"}
+{"id":"A20","question":"Quero garantir unicidade dos dois lados do merge de matrículas.","expected_action":"answer","reference":"one_to_one"}
+{"id":"A21","question":"Qual validate devo usar na junção do cadastro?","expected_action":"clarify","reference":"perguntar cardinalidade"}
+{"id":"A22","question":"Ao converter meu saldo o que faço com texto inesperado?","expected_action":"clarify","reference":"perguntar política de inválidos"}
+{"id":"A23","question":"Qual tipo eu uso para a coluna do CSV?","expected_action":"clarify","reference":"pedir exemplo e objetivo"}
+{"id":"A24","question":"Quero juntar pedidos. Qual lado deve ser único?","expected_action":"clarify","reference":"pedir relação entre tabelas"}
+{"id":"A25","question":"Como tratar NA no meu arquivo?","expected_action":"clarify","reference":"perguntar se é literal ou ausente"}
+{"id":"A26","question":"Como configurar um cluster Spark no Kubernetes?","expected_action":"handoff","reference":"fora de escopo"}
+{"id":"A27","question":"Como calcular o intervalo de confiança do churn?","expected_action":"handoff","reference":"fora de escopo"}
+{"id":"A28","question":"Como criar um dashboard Power BI para devoluções?","expected_action":"handoff","reference":"fora de escopo"}
+{"id":"A29","question":"Qual índice devo criar no PostgreSQL para acelerar joins?","expected_action":"handoff","reference":"fora de escopo"}
+{"id":"A30","question":"Como prever a demanda semanal com Prophet?","expected_action":"handoff","reference":"fora de escopo"}

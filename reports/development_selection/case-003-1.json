@@ -1,0 +1,100 @@
+{
+  "case_id": "case-003-1",
+  "family": "family-003",
+  "question": "Como ler números com vírgula decimal em read_csv?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Definir decimal; thousands quando aplicável."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "19ac72e10ecf47019b09914fe5616d1e",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para ler números com vírgula como separador decimal no `read_csv`, use o parâmetro `decimal` com o valor `','`. Isso é útil para dados europeus onde a vírgula é usada em vez do ponto.",
+        "evidence_ids": [
+          "63f0ccaddc99bc8e8e849e3c"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "63f0ccaddc99bc8e8e849e3c",
+            "quote": "decimal str (length 1), default ‘.’\n\nCharacter to recognize as decimal point (e.g., use ‘,’ for European data)."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "63f0ccaddc99bc8e8e849e3c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — decimal str (length 1), default ‘.’",
+        "text": "decimal str (length 1), default ‘.’\n\nCharacter to recognize as decimal point (e.g., use ‘,’ for European data).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 36,
+        "part": 0,
+        "content_sha256": "a387f6d0dbf0fd6d6ff589052ed7af7b4364344ff82adcd58fda499d98489133",
+        "score": 0.5843014357692977
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950271.6080012,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, indicando o uso do parâmetro `decimal` com `','` para números com vírgula como separador decimal, conforme mencionado no texto da documentação."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to read numbers with decimal comma in read_csv?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 168,
+      "total_duration": 1720374100,
+      "load_duration": 5378800,
+      "prompt_eval_duration": 160752000,
+      "eval_duration": 1426487000
+    },
+    "retrieval_ms": 1866.8146000127308,
+    "context_chars": 111,
+    "generation_ms": 4266.880900016986,
+    "usage": {
+      "eval_count": 82,
+      "prompt_eval_count": 508,
+      "total_duration": 4264842600,
+      "load_duration": 5897600,
+      "prompt_eval_duration": 513660999,
+      "eval_duration": 3725094000
+    },
+    "audit_usage": {
+      "eval_count": 72,
+      "prompt_eval_count": 644,
+      "total_duration": 4061619700,
+      "load_duration": 6495400,
+      "prompt_eval_duration": 745569000,
+      "eval_duration": 3262720000
+    },
+    "audit_ms": 4063.4958000155166,
+    "total_ms": 10197.365900035948
+  }
+}

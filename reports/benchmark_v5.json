@@ -1,0 +1,206 @@
+[
+  {
+    "id": "A1",
+    "expected": "merge_m1",
+    "observed": "merge_m1",
+    "passed": true
+  },
+  {
+    "id": "A2",
+    "expected": "merge_1m",
+    "observed": "merge_1m",
+    "passed": true
+  },
+  {
+    "id": "A3",
+    "expected": "merge_11",
+    "observed": "merge_11",
+    "passed": true
+  },
+  {
+    "id": "A4",
+    "expected": "merge_null",
+    "observed": "merge_null",
+    "passed": true
+  },
+  {
+    "id": "A5",
+    "expected": "merge_keys",
+    "observed": "merge_keys",
+    "passed": true
+  },
+  {
+    "id": "A6",
+    "expected": "csv_na_text",
+    "observed": "csv_na_text",
+    "passed": true
+  },
+  {
+    "id": "A7",
+    "expected": "csv_ids",
+    "observed": "csv_ids",
+    "passed": true
+  },
+  {
+    "id": "A8",
+    "expected": "csv_columns",
+    "observed": "csv_columns",
+    "passed": true
+  },
+  {
+    "id": "A9",
+    "expected": "csv_dates",
+    "observed": "csv_dates",
+    "passed": true
+  },
+  {
+    "id": "A10",
+    "expected": "numeric_coerce",
+    "observed": "numeric_coerce",
+    "passed": true
+  },
+  {
+    "id": "A11",
+    "expected": "numeric_raise",
+    "observed": "numeric_raise",
+    "passed": true
+  },
+  {
+    "id": "A12",
+    "expected": "infer_objects",
+    "observed": "infer_objects",
+    "passed": true
+  },
+  {
+    "id": "A13",
+    "expected": "merge_m1",
+    "observed": "merge_m1",
+    "passed": true
+  },
+  {
+    "id": "A14",
+    "expected": "csv_ids",
+    "observed": "handoff",
+    "passed": false
+  },
+  {
+    "id": "A15",
+    "expected": "csv_columns",
+    "observed": "csv_columns",
+    "passed": true
+  },
+  {
+    "id": "A16",
+    "expected": "merge_m1",
+    "observed": "merge_m1",
+    "passed": true
+  },
+  {
+    "id": "A17",
+    "expected": "merge_1m",
+    "observed": "merge_1m",
+    "passed": true
+  },
+  {
+    "id": "A18",
+    "expected": "merge_null",
+    "observed": "merge_null",
+    "passed": true
+  },
+  {
+    "id": "A19",
+    "expected": "numeric_coerce",
+    "observed": "numeric_coerce",
+    "passed": true
+  },
+  {
+    "id": "A20",
+    "expected": "merge_11",
+    "observed": "merge_11",
+    "passed": true
+  },
+  {
+    "id": "A21",
+    "expected": "clarify",
+    "observed": "clarify",
+    "passed": true
+  },
+  {
+    "id": "A22",
+    "expected": "clarify",
+    "observed": "clarify",
+    "passed": true
+  },
+  {
+    "id": "A23",
+    "expected": "clarify",
+    "observed": "clarify",
+    "passed": true
+  },
+  {
+    "id": "A24",
+    "expected": "clarify",
+    "observed": "clarify",
+    "passed": true
+  },
+  {
+    "id": "A25",
+    "expected": "clarify",
+    "observed": "clarify",
+    "passed": true
+  },
+  {
+    "id": "A26",
+    "expected": "handoff",
+    "observed": "handoff",
+    "passed": true
+  },
+  {
+    "id": "A27",
+    "expected": "handoff",
+    "observed": "handoff",
+    "passed": true
+  },
+  {
+    "id": "A28",
+    "expected": "handoff",
+    "observed": "handoff",
+    "passed": true
+  },
+  {
+    "id": "A29",
+    "expected": "handoff",
+    "observed": "handoff",
+    "passed": true
+  },
+  {
+    "id": "A30",
+    "expected": "handoff",
+    "observed": "handoff",
+    "passed": true
+  },
+  {
+    "id": "I1",
+    "expected": "merge_1m",
+    "observed": "merge_1m",
+    "passed": true
+  },
+  {
+    "id": "I2",
+    "expected": "merge_m1",
+    "observed": "merge_m1",
+    "passed": true
+  },
+  {
+    "id": "I3",
+    "expected": "clarify",
+    "observed": "clarify",
+    "passed": true
+  },
+  {
+    "id": "I4",
+    "expected": "handoff",
+    "observed": "handoff",
+    "passed": true
+  }
+]

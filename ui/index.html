@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Suporte pandas · Assistente com fontes</title>
+<style>
+:root{font-family:Inter,Segoe UI,system-ui,sans-serif;color:#15273a;background:#f4f6f8;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}header{background:#102c3c;color:white;padding:22px max(24px,calc((100vw - 1120px)/2));display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:750;font-size:20px;letter-spacing:-.4px}.brand span{font-weight:400;color:#97cbbd}.tag{font-size:12px;border:1px solid #56717c;border-radius:20px;padding:6px 10px}
+main{max-width:1120px;margin:36px auto;padding:0 24px}h1{font-size:34px;letter-spacing:-1px;margin:12px 0}h2{font-size:20px;margin:0 0 16px}h3{font-size:16px}p{line-height:1.6}.muted{color:#5d6e7b;font-size:14px}.eyebrow{font-size:12px;letter-spacing:1.5px;color:#14745e;font-weight:700}
+nav{display:flex;gap:8px;margin:24px 0}button,input,textarea,select{font:inherit}button{cursor:pointer;border:0;border-radius:8px;padding:11px 15px;background:#e8edf0;color:#183345;font-weight:600}button.primary,nav button.active{background:#146c56;color:white}button:disabled{opacity:.5;cursor:wait}button:hover:not(:disabled){filter:brightness(.96)}
+.grid{display:grid;grid-template-columns:1fr 320px;gap:22px;align-items:start}.card{background:white;border:1px solid #e0e6ea;border-radius:14px;padding:24px;box-shadow:0 3px 12px #18344505;margin-bottom:20px}
+label{display:block;font-weight:600;font-size:14px;margin:14px 0 8px}textarea,input,select{width:100%;border:1px solid #bfcdd4;border-radius:8px;padding:12px;background:white;color:#183345}textarea:focus,input:focus,select:focus{outline:2px solid #79b7a6;outline-offset:2px}
+textarea{resize:vertical}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.badge{display:inline-block;font-size:12px;background:#e9f5ef;color:#17694e;padding:5px 8px;border-radius:6px}.warn{background:#fff3dc;color:#885c13}.error{background:#ffebeb;color:#983a3a}
+.hidden{display:none!important}code{font-family:Consolas,monospace;background:#edf3f5;padding:2px 5px;border-radius:4px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#f1f5f7;padding:15px;border-radius:8px;font-size:13px;line-height:1.6}
+.claim{border-left:3px solid #35977a;padding-left:16px;margin:22px 0}.quote{font-size:13px;line-height:1.6;color:#4e6371;white-space:pre-wrap;border-left:2px solid #d8e4e8;padding:10px 14px;margin:10px 0}
+details{border-top:1px solid #e3eaee;padding:13px 0}summary{cursor:pointer;font-weight:600;font-size:14px}a{color:#146c56}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.metric strong{display:block;font-size:28px}.metric small{color:#637581}
+footer{padding:20px 0 35px;font-size:12px;color:#627887}.status{min-height:24px;margin-top:15px;font-size:14px}aside ul{padding-left:20px;line-height:1.9;font-size:14px}.examples button{font-weight:400;font-size:13px;text-align:left;margin:4px 0;width:100%;background:#f1f5f6}.source-title{font-size:13px}#response-title{margin-top:4px}
+@media(max-width:800px){.grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr}h1{font-size:27px}header{padding:18px 24px}.card{padding:18px}}
+</style>
+</head>
+<body>
+<header><div class="brand">Pandas Support <span>/ fontes primeiro</span></div><span class="tag">Local · versão 3.0</span></header>
+<main>
+<div class="eyebrow">ASSISTENTE PARA ATENDENTES</div>
+<h1>Uma orientação que você pode conferir.</h1>
+<p class="muted">Leitura de arquivos, tipos de dados e junções. Respostas em português com documentação do pandas 2.2.3.</p>
+<nav aria-label="Navegação"><button class="active" data-tab="assistant">Assistente</button><button data-tab="operation">Operação</button><button data-tab="about">Avaliação</button></nav>
+<section id="assistant" class="tab">
+<div class="grid">
+<div>
+<form id="form" class="card">
+<h2>Qual é a dúvida?</h2>
+<label for="question">Pergunta</label><textarea id="question" rows="4" maxlength="3000" required placeholder="Como validar um merge muitos para um usando validate?"></textarea>
+<label for="context">Contexto adicional <span class="muted">(opcional)</span></label><textarea id="context" rows="2" maxlength="3000" placeholder="O que você esperava, erro e exemplo mínimo sem dados pessoais."></textarea>
+<div class="row"><div style="flex:1"><label for="version">Versão utilizada</label><input id="version" maxlength="30" placeholder="2.2.3"></div><div style="flex:1"><label for="method">Método de busca de fontes</label><select id="method"><option value="hybrid">Híbrida</option><option value="dense">Semântica</option><option value="bm25">BM25 · baseline</option></select></div></div>
+<div class="row" style="margin-top:22px"><button class="primary" id="answer" type="submit">Obter orientação</button><button id="search" type="button">Consultar fontes</button></div>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+</form>
+<div id="response" class="card hidden"><span id="response-badge" class="badge"></span><h2 id="response-title"></h2><div id="result"></div></div>
+</div>
+<aside>
+<div class="card"><h2>Antes de consultar</h2><div id="readiness" class="muted">Verificando serviços…</div><ul><li>Fontes oficiais, versão fixa.</li><li>Confira a orientação antes de aplicar.</li><li>O escopo controlado inclui operações selecionadas de CSV, conversão e junção.</li><li>Informação insuficiente pode exigir esclarecimento ou revisão humana.</li></ul></div>
+<div class="card examples"><h2>Experimente</h2><button type="button">Como validar um merge muitos para um usando validate?</button><button type="button">Como preservar NA como texto no CSV?</button><button type="button">O que to_numeric faz com errors=coerce?</button><button type="button">Meu merge duplicou linhas. Como resolver?</button></div>
+</aside>
+</div>
+</section>
+<section id="operation" class="tab hidden"><div class="card"><h2>Operação local</h2><p class="muted">Volume, decisões e latência das execuções deste ambiente. Estes indicadores não medem correção factual.</p><button id="refresh-stats">Atualizar indicadores</button><div id="stats"></div></div></section>
+<section id="about" class="tab hidden"><div class="card"><h2>Avaliação</h2><p>O modo controlado usa orientações versionadas e passagens fixadas por hash. A busca de documentação continua disponível para perguntas fora do catálogo.</p><p>A avaliação externa e o piloto com usuários aguardam coleta. O repositório registra a comparação histórica e as regressões públicas.</p></div></section>
+<footer>Projeto de portfólio independente · Sem afiliação com pandas · Não envie dados confidenciais.</footer>
+</main>
+<script>
+const el=id=>document.getElementById(id);let pending=false,currentRequest=null;
+function node(tag,value,parent,cls){const e=document.createElement(tag);if(value!==undefined)e.textContent=value;if(cls)e.className=cls;parent.appendChild(e);return e}
+function formatted(value,parent){const p=node('p','',parent);for(const [i,part] of value.split('`').entries())node(i%2?'code':'span',part,p);return p}
+function tab(id){document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('hidden',e.id!==id));document.querySelectorAll('nav button').forEach(e=>e.classList.toggle('active',e.dataset.tab===id))}
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>tab(b.dataset.tab));
+document.querySelectorAll('.examples button').forEach(b=>b.onclick=()=>{el('question').value=b.textContent;el('question').focus()});
+async function readiness(){try{const r=await fetch('/ready');const d=await r.json();el('readiness').textContent='Corpus: '+(d.retrieval?'pronto':'indisponível')+' · Modelo: '+(d.answer_mode==='controlled'?'modo controlado':d.generation?'disponível':'indisponível')+' · Índice: '+(d.semantic?'pronto':'não preparado');if(d.default_method)el('method').value=d.default_method}catch{el('readiness').textContent='Não foi possível verificar os serviços.'}}
+function render(data){
+const area=el('result');area.replaceChildren();el('response').classList.remove('hidden');
+const labels={answer:'Rascunho para revisão',clarify:'Precisamos de mais contexto',handoff:'Encaminhar para revisão',error:'Não foi possível concluir'};
+el('response-title').textContent=labels[data.action]||'Fontes recuperadas';
+el('response-badge').textContent=data.action==='answer'?(data.answer_mode==='controlled'?'Orientação catalogada com fonte':'Geração experimental para revisão'):data.action==='error'?'Falha operacional':data.action?'Ação do atendimento':'Busca documental';
+el('response-badge').className='badge '+(['handoff','clarify'].includes(data.action)?'warn':data.action==='error'?'error':'');
+if(data.message)formatted(data.message,area);
+const sources=new Map((data.sources||[]).map(s=>[s.id,s]));
+for(const c of data.claims||[]){const claim=node('div','',area,'claim');formatted(c.text,claim);const details=node('details','',claim);node('summary','Conferir evidências',details);
+ for(const q of c.evidence_quotes||[]){const s=sources.get(q.source_id);node('div',q.quote,details,'quote');if(s){const a=node('a',s.title+' · '+s.section,details);a.href=s.source_url;a.target='_blank';a.rel='noopener'}}}
+const all=node('details','',area);node('summary','Fontes consultadas ('+(data.sources||[]).length+')',all);
+for(const s of data.sources||[]){const detail=node('details','',all);node('summary',s.title+' — '+s.section,detail);node('pre',s.text,detail);const a=node('a','Abrir documentação oficial',detail);a.href=s.source_url;a.target='_blank';a.rel='noopener'}
+if(data.total_ms!==undefined)node('p','Tempo total: '+(data.total_ms/1000).toFixed(2)+' s',area,'muted');
+currentRequest=data.request_id;
+if(currentRequest){const row=node('div','',area,'row');for(const [rating,label] of [['useful','Útil'],['incorrect','Incorreta'],['incomplete','Incompleta']]){const b=node('button',label,row);b.onclick=async()=>{try{const r=await fetch('/feedback',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:currentRequest,rating})});b.textContent=r.ok?'Registrado':'Não registrado'}catch{b.textContent='Falha ao registrar'}}}}
+const debug=node('details','',area);node('summary','Detalhes técnicos',debug);node('pre',JSON.stringify(data,null,2),debug);
+}
+async function run(mode){if(pending)return;if(el('question').value.trim().length<3){el('status').textContent='Escreva uma pergunta com pelo menos três caracteres.';return}
+pending=true;el('answer').disabled=true;el('search').disabled=true;el('response').classList.add('hidden');const began=Date.now();
+el('status').textContent='Consultando documentação…';const timer=setInterval(()=>el('status').textContent='Processando e verificando… '+Math.floor((Date.now()-began)/1000)+' s',1000);
+const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),200000);
+try{const r=await fetch('/'+mode,{method:'POST',headers:{'Content-Type':'application/json'},signal:controller.signal,body:JSON.stringify({question:el('question').value,context:el('context').value,version:el('version').value||null,method:el('method').value})});const data=await r.json();if(!r.ok)throw Error(data.message||data.error||'Serviço indisponível');render(data);el('status').textContent='Consulta concluída.'}
+catch(e){el('status').textContent=e.name==='AbortError'?'O limite da interface foi atingido. O servidor pode ainda estar concluindo a execução.':'Falha: '+e.message}
+finally{clearInterval(timer);clearTimeout(timeout);pending=false;el('answer').disabled=false;el('search').disabled=false}}
+el('form').onsubmit=e=>{e.preventDefault();run('answer')};el('search').onclick=()=>run('search');
+el('refresh-stats').onclick=async()=>{const area=el('stats');area.replaceChildren();try{const r=await fetch('/stats');const d=await r.json();const grid=node('div','',area,'metrics');for(const [label,value] of [['Consultas',d.requests],['Latência mediana',d.latency_median_ms===null?'—':(d.latency_median_ms/1000).toFixed(2)+' s'],['Latência p95',d.latency_p95_ms===null?'—':(d.latency_p95_ms/1000).toFixed(2)+' s']]){const m=node('div','',grid,'metric');node('strong',String(value),m);node('small',label,m)}node('pre',JSON.stringify({actions:d.actions,errors:d.errors},null,2),area)}catch{node('p','Não foi possível carregar os indicadores.',area)}};
+readiness();
+</script>
+</body></html>

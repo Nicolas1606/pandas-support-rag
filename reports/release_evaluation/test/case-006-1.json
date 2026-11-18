@@ -1,0 +1,138 @@
+{
+  "case_id": "case-006-1",
+  "family": "family-006",
+  "question": "Quero manter a string NA como texto no CSV. Como evitar sua conversão em ausente?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "keep_default_na controla lista padrão; explicar na_values."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "20be1f654ffe4efdbf4b2bebd33253bd",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para manter a string 'NA' como texto no CSV e evitar que seja convertida para missing, você pode usar o parâmetro `keep_default_na=False` e especificar `na_values` com a string 'NA' como valor. Isso fará com que apenas os valores definidos em `na_values` sejam considerados como `NaN`, evitando a conversão da string 'NA' para missing. Exemplo: `pd.read_csv(\"path_to_file.csv\", keep_default_na=False, na_values=[\"NA\"])`.",
+        "evidence_ids": [
+          "bdfa06a6451958f78934c8f4",
+          "e749b462507718455dbec8f0"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "bdfa06a6451958f78934c8f4",
+            "quote": "keep_default_na bool, default True\n\nWhether or not to include the default `NaN` values when parsing the data.\nDepending on whether `na_values` is passed in, the behavior is as follows:\n\n- If `keep_default_na` is `True`, and `na_values` are specified, `na_values`\nis appended to the default `NaN` values used for parsing.\n\n- If `keep_default_na` is `True`, and `na_values` are not specified, only\nthe default `NaN` values are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are specified, only\nthe `NaN` values specified `na_values` are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as `NaN`.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored."
+          },
+          {
+            "source_id": "e749b462507718455dbec8f0",
+            "quote": "In the example above `5` and `5.0` will be recognized as `NaN`, in\naddition to the defaults. A string will first be interpreted as a numerical\n`5`, then as a `NaN`.\n\n```\npd.read_csv(\"path_to_file.csv\", keep_default_na=False, na_values=[\"\"])\n```\n\nAbove, only an empty field will be recognized as `NaN`.\n\n```\npd.read_csv(\"path_to_file.csv\", keep_default_na=False, na_values=[\"NA\", \"0\"])\n```\n\nAbove, both `NA` and `0` as strings are `NaN`.\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[\"Nope\"])\n```\n\nThe default values, in addition to the string `\"Nope\"` are recognized as\n`NaN`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "42766609ea51fe6066911390",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "NA values",
+        "text": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`).\n\nTo completely override the default values that are recognized as missing, specify `keep_default_na=False`.\n\nThe default `NaN` recognized values are `['-1.#IND', '1.#QNAN', '1.#IND', '-1.#QNAN', '#N/A N/A', '#N/A', 'N/A',\\\n'n/a', 'NA', '<NA>', '#NA', 'NULL', 'null', 'NaN', '-NaN', 'nan', '-nan', 'None', '']`.\n\nLet us consider some examples:\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[5])\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 32,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "46a09f46e8aa23a84730e0ffd6ae885b09d831eec7cc46f48ba43560c3987084",
+        "score": 0.6455020903052097
+      },
+      {
+        "id": "bdfa06a6451958f78934c8f4",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — keep_default_na bool, default True",
+        "text": "keep_default_na bool, default True\n\nWhether or not to include the default `NaN` values when parsing the data.\nDepending on whether `na_values` is passed in, the behavior is as follows:\n\n- If `keep_default_na` is `True`, and `na_values` are specified, `na_values`\nis appended to the default `NaN` values used for parsing.\n\n- If `keep_default_na` is `True`, and `na_values` are not specified, only\nthe default `NaN` values are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are specified, only\nthe `NaN` values specified `na_values` are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as `NaN`.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 20,
+        "part": 0,
+        "content_sha256": "58e83dd132771b492181e0aa48938d65e5b9b8adf288c57e341584453d0c4a35",
+        "score": 0.6272334252427629
+      },
+      {
+        "id": "e749b462507718455dbec8f0",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "NA values",
+        "text": "In the example above `5` and `5.0` will be recognized as `NaN`, in\naddition to the defaults. A string will first be interpreted as a numerical\n`5`, then as a `NaN`.\n\n```\npd.read_csv(\"path_to_file.csv\", keep_default_na=False, na_values=[\"\"])\n```\n\nAbove, only an empty field will be recognized as `NaN`.\n\n```\npd.read_csv(\"path_to_file.csv\", keep_default_na=False, na_values=[\"NA\", \"0\"])\n```\n\nAbove, both `NA` and `0` as strings are `NaN`.\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[\"Nope\"])\n```\n\nThe default values, in addition to the string `\"Nope\"` are recognized as\n`NaN`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 32,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "61e27fa56b3c87676843bd5ba2d0a5438bc4b82cf300671bab6a85e6f8fe42d3",
+        "score": 0.6095788629310546
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950565.976091,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada nas evidências fornecidas. O uso de `keep_default_na=False` e `na_values=[\"NA\"]` evita que a string 'NA' seja interpretada como `NaN`, mantendo-a como texto no DataFrame."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "I want to keep the string 'NA' as text in the CSV. How can I avoid its conversion to missing?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 45,
+      "prompt_eval_count": 219,
+      "total_duration": 2323553200,
+      "load_duration": 7589900,
+      "prompt_eval_duration": 180175000,
+      "eval_duration": 2007380000
+    },
+    "retrieval_ms": 2500.858800020069,
+    "context_chars": 2191,
+    "generation_ms": 9253.5901000374,
+    "usage": {
+      "eval_count": 171,
+      "prompt_eval_count": 1633,
+      "total_duration": 9251235300,
+      "load_duration": 7671700,
+      "prompt_eval_duration": 52506000,
+      "eval_duration": 9119045000
+    },
+    "audit_usage": {
+      "eval_count": 80,
+      "prompt_eval_count": 2277,
+      "total_duration": 7200755900,
+      "load_duration": 6526500,
+      "prompt_eval_duration": 2355852000,
+      "eval_duration": 4711910000
+    },
+    "audit_ms": 7202.754299971275,
+    "total_ms": 18957.52589998301
+  }
+}

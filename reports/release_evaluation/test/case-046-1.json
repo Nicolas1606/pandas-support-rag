@@ -1,0 +1,46 @@
+{
+  "case_id": "case-046-1",
+  "family": "family-046",
+  "question": "Como escalar executores Spark?",
+  "topic": "outside",
+  "expected_action": "handoff",
+  "reference_facts": [
+    "Fora do domínio coberto."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "497eff4400484e54810b48c8a1d78016",
+    "action": "handoff",
+    "message": "Como escalar executores Spark?",
+    "claims": [],
+    "sources": [],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951204.501366,
+    "audit": null,
+    "interpretation": {
+      "scope": "outside",
+      "english_question": "How to scale Spark executors?",
+      "message": "Como escalar executores Spark?"
+    },
+    "planning_usage": {
+      "eval_count": 36,
+      "prompt_eval_count": 206,
+      "total_duration": 2084146600,
+      "load_duration": 8682800,
+      "prompt_eval_duration": 178664000,
+      "eval_duration": 1718172000
+    },
+    "total_ms": 2086.5350000094622
+  }
+}

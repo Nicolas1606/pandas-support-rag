@@ -1,0 +1,11 @@
+{
+  "missing_files": [],
+  "families_disjoint": true,
+  "case_count": 120,
+  "test_cases_executed": 60,
+  "clean_installation_passed": true,
+  "unit_and_integration_passed": true,
+  "package_complete": true,
+  "autonomous_production_approved": false,
+  "reason": "Release local para portfólio e revisão pelo atendente; falhas factuais e ausência de validação humana externa estão documentadas."
+}

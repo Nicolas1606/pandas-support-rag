@@ -1,0 +1,46 @@
+{
+  "case_id": "case-026-2",
+  "family": "family-026",
+  "question": "Como usar indicator para auditar correspondências?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "indicator gera origem; left/outer preserva exclusivos à esquerda."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "5db3e68d5d404c4694e75805ee788dd5",
+    "action": "handoff",
+    "message": "Como usar indicador para auditoria de correspondências?",
+    "claims": [],
+    "sources": [],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950895.959647,
+    "audit": null,
+    "interpretation": {
+      "scope": "outside",
+      "english_question": "How to use indicator to audit matches?",
+      "message": "Como usar indicador para auditoria de correspondências?"
+    },
+    "planning_usage": {
+      "eval_count": 40,
+      "prompt_eval_count": 207,
+      "total_duration": 2035939300,
+      "load_duration": 6420500,
+      "prompt_eval_duration": 161899000,
+      "eval_duration": 1772451000
+    },
+    "total_ms": 2038.1252000224777
+  }
+}

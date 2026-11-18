@@ -1,0 +1,137 @@
+{
+  "case_id": "case-005-1",
+  "family": "family-005",
+  "question": "Como tratar o texto SEM_DADO como ausente no CSV?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Configurar tokens ausentes e explicar defaults."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "8bc3c06c08604683a4aec6d70131c7cd",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para tratar o texto `SEM_DADO` como valor ausente em um CSV, você pode usar o parâmetro `na_values` na função `read_csv` especificando `na_values=['SEM_DADO']`. Isso fará com que o pandas interprete `SEM_DADO` como um valor ausente durante a leitura do arquivo.",
+        "evidence_ids": [
+          "57cebee071a209c4c2da6706",
+          "42766609ea51fe6066911390"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "57cebee071a209c4c2da6706",
+            "quote": "na_filter bool, default True\n\nDetect missing value markers (empty strings and the value of `na_values`). In\ndata without any `NA` values, passing `na_filter=False` can improve the\nperformance of reading a large file."
+          },
+          {
+            "source_id": "42766609ea51fe6066911390",
+            "quote": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`).\n\nTo completely override the default values that are recognized as missing, specify `keep_default_na=False`.\n\nThe default `NaN` recognized values are `['-1.#IND', '1.#QNAN', '1.#IND', '-1.#QNAN', '#N/A N/A', '#N/A', 'N/A',\\\n'n/a', 'NA', '<NA>', '#NA', 'NULL', 'null', 'NaN', '-NaN', 'nan', '-nan', 'None', '']`.\n\nLet us consider some examples:\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[5])\n```"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "1b6987985e2e168dfd60896f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Automatically “sniffing” the delimiter \\",
+        "text": "\\\n`read_csv` is capable of inferring delimited (not necessarily\\\ncomma-separated) files, as pandas uses the `csv.Sniffer`\\\nclass of the csv module. For this, you have to specify `sep=None`.\\\n\\\n```\\\nIn [221]: df = pd.DataFrame(np.random.randn(10, 4))\\\n\\\nIn [222]: df.to_csv(\"tmp2.csv\", sep=\":\", index=False)\\\n\\\nIn [223]: pd.read_csv(\"tmp2.csv\", sep=None, engine=\"python\")\\\nOut[223]:\\\n          0         1         2         3\\\n0  0.469112 -0.282863 -1.509059 -1.135632\\\n1  1.212112 -0.173215  0.119209 -1.044236\\\n2 -0.861849 -2.104569 -0.494929  1.071804\\\n3  0.721555 -0.706771 -1.039575  0.271860\\\n4 -0.424972  0.567020  0.276232 -1.087401\\\n5 -0.673690  0.113648 -1.478427  0.524988\\\n6  0.404705  0.577046 -1.715002 -1.039268\\\n7 -0.370647 -1.157892 -1.344312  0.844885\\\n8  1.075770 -0.109050  1.643563 -1.469388\\\n9  0.357021 -0.674600 -1.776904 -0.968914\\\n```\\\n\\\nCopy to clipboard\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 45,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "885548fad47073ee04b8ab09cb8a10cd5597bdfabc018189662332c004d5883c",
+        "score": 0.47420151760704304
+      },
+      {
+        "id": "57cebee071a209c4c2da6706",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — na_filter bool, default True",
+        "text": "na_filter bool, default True\n\nDetect missing value markers (empty strings and the value of `na_values`). In\ndata without any `NA` values, passing `na_filter=False` can improve the\nperformance of reading a large file.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 21,
+        "part": 0,
+        "content_sha256": "c0cca542bc9aa33c3a70fe27266aafbfecf27c8dce9a2d9cf8b6deb6efe15668",
+        "score": 0.4689416118361327
+      },
+      {
+        "id": "42766609ea51fe6066911390",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "NA values",
+        "text": "To control which values are parsed as missing values (which are signified by\n`NaN`), specify a string in `na_values`. If you specify a list of strings,\nthen all values in it are considered to be missing values. If you specify a\nnumber (a `float`, like `5.0` or an `integer` like `5`), the\ncorresponding equivalent values will also imply a missing value (in this case\neffectively `[5.0, 5]` are recognized as `NaN`).\n\nTo completely override the default values that are recognized as missing, specify `keep_default_na=False`.\n\nThe default `NaN` recognized values are `['-1.#IND', '1.#QNAN', '1.#IND', '-1.#QNAN', '#N/A N/A', '#N/A', 'N/A',\\\n'n/a', 'NA', '<NA>', '#NA', 'NULL', 'null', 'NaN', '-NaN', 'nan', '-nan', 'None', '']`.\n\nLet us consider some examples:\n\n```\npd.read_csv(\"path_to_file.csv\", na_values=[5])\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 32,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "46a09f46e8aa23a84730e0ffd6ae885b09d831eec7cc46f48ba43560c3987084",
+        "score": 0.4630535253790126
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950281.9495492,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada nas evidências fornecidas. O uso do parâmetro `na_values` para tratar `SEM_DADO` como valor ausente é recomendado e está alinhado com a documentação."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to treat the text SEM_DADO as missing in the CSV?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 35,
+      "prompt_eval_count": 170,
+      "total_duration": 1852568700,
+      "load_duration": 6228500,
+      "prompt_eval_duration": 168049000,
+      "eval_duration": 1630610000
+    },
+    "retrieval_ms": 2025.0977000105195,
+    "context_chars": 1913,
+    "generation_ms": 8648.123699997086,
+    "usage": {
+      "eval_count": 128,
+      "prompt_eval_count": 1824,
+      "total_duration": 8645698400,
+      "load_duration": 5975000,
+      "prompt_eval_duration": 1708460000,
+      "eval_duration": 6885267000
+    },
+    "audit_usage": {
+      "eval_count": 74,
+      "prompt_eval_count": 2312,
+      "total_duration": 6940629900,
+      "load_duration": 7619600,
+      "prompt_eval_duration": 2520738000,
+      "eval_duration": 4270747999
+    },
+    "audit_ms": 6942.6951999776065,
+    "total_ms": 17616.19149998296
+  }
+}

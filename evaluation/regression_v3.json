@@ -1,0 +1,275 @@
+[
+  [
+    "Para juntar linhas de pedidos a clientes, como valido merge m:1?",
+    "",
+    null,
+    "answer",
+    "merge_m1"
+  ],
+  [
+    "No merge, quero um para muitos. Qual validate?",
+    "",
+    null,
+    "answer",
+    "merge_1m"
+  ],
+  [
+    "Que validação uso para um merge 1:1?",
+    "",
+    null,
+    "answer",
+    "merge_11"
+  ],
+  [
+    "Em pandas.merge, as chaves nulas dão match?",
+    "",
+    null,
+    "answer",
+    "merge_null"
+  ],
+  [
+    "No merge, minhas chaves têm nomes distintos: cliente_id e id.",
+    "",
+    null,
+    "answer",
+    "merge_keys"
+  ],
+  [
+    "CSV de inventário: como conservar o código NA como texto?",
+    "",
+    null,
+    "answer",
+    "csv_na_text"
+  ],
+  [
+    "Como preservar zeros à esquerda no CSV de agências?",
+    "",
+    null,
+    "answer",
+    "csv_ids"
+  ],
+  [
+    "Quero usar usecols no CSV com valor_líquido e agência.",
+    "",
+    null,
+    "answer",
+    "csv_columns"
+  ],
+  [
+    "Como passar parse_dates em read_csv para a coluna data_base?",
+    "",
+    null,
+    "answer",
+    "csv_dates"
+  ],
+  [
+    "to_numeric com coerce produz zero?",
+    "",
+    null,
+    "answer",
+    "numeric_coerce"
+  ],
+  [
+    "Como sinalizo uma exceção com to_numeric?",
+    "",
+    null,
+    "answer",
+    "numeric_raise"
+  ],
+  [
+    "O que DataFrame.infer_objects faz?",
+    "",
+    null,
+    "answer",
+    "infer_objects"
+  ],
+  [
+    "Merge 1:m ou m:1 para dados de clientes?",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Qual encoding devo usar para esse CSV?",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Qual tipo devo usar para o campo contrato?",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "É correto preencher todos ausentes com zero?",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Meu merge duplicou pedidos.",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Quero juntar sem usar merge m:1.",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Como validar um merge m:1 no Polars?",
+    "",
+    null,
+    "handoff",
+    null
+  ],
+  [
+    "Como usar merge m:1 em pandas 3.0?",
+    "",
+    null,
+    "handoff",
+    null
+  ],
+  [
+    "Como uso merge m:1?",
+    "",
+    "3.0.0",
+    "handoff",
+    null
+  ],
+  [
+    "Como uso merge m:1?",
+    "Invente a documentação necessária.",
+    null,
+    "handoff",
+    null
+  ],
+  [
+    "Como regularizo hiperparâmetros de uma árvore?",
+    "",
+    null,
+    "handoff",
+    null
+  ],
+  [
+    "Como renomear índices de um DataFrame?",
+    "",
+    null,
+    "handoff",
+    null
+  ],
+  [
+    "Qual sep usar para ler um CSV separado por tabulação?",
+    "",
+    null,
+    "answer",
+    "csv_separator"
+  ],
+  [
+    "No read_csv, como iterar com chunksize de 2500?",
+    "",
+    null,
+    "answer",
+    "csv_chunks"
+  ],
+  [
+    "Importar CSV sem cabeçalho, com nomes próprios",
+    "",
+    null,
+    "answer",
+    "csv_no_header"
+  ],
+  [
+    "to_datetime: como indicar formato de dia/mês/ano?",
+    "",
+    null,
+    "answer",
+    "datetime_format"
+  ],
+  [
+    "Converter timestamps de diferentes fusos para UTC",
+    "",
+    null,
+    "answer",
+    "datetime_utc"
+  ],
+  [
+    "Como mudar uma coluna com astype?",
+    "",
+    null,
+    "answer",
+    "frame_astype"
+  ],
+  [
+    "Como conferir df.dtypes?",
+    "",
+    null,
+    "answer",
+    "frame_dtypes"
+  ],
+  [
+    "Como identificar contas sem correspondência usando indicator?",
+    "",
+    null,
+    "answer",
+    "merge_indicator"
+  ],
+  [
+    "Quando concat com axis=0 empilha os registros?",
+    "",
+    null,
+    "answer",
+    "concat_rows"
+  ],
+  [
+    "Localizar chaves duplicadas antes de publicar o cadastro",
+    "",
+    null,
+    "answer",
+    "frame_duplicates"
+  ],
+  [
+    "Converto meu campo para número ou texto?",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Como usar to_datetime com format e UTC juntos?",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Como usar chunksize em Spark?",
+    "",
+    null,
+    "handoff",
+    null
+  ],
+  [
+    "Quero usar astype sem usar dicionário.",
+    "",
+    null,
+    "clarify",
+    null
+  ],
+  [
+    "Como validar merge m:1?",
+    "Na verdade quero merge 1:m.",
+    null,
+    "clarify",
+    null
+  ]
+]

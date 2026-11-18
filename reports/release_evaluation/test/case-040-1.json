@@ -1,0 +1,138 @@
+{
+  "case_id": "case-040-1",
+  "family": "family-040",
+  "question": "Qual tipo devo colocar nessa coluna?",
+  "topic": "types",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir significado e exemplos; identificador pode ser textual."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "c5da87359e1b4f358792d49aacf2b7a1",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Você deve usar o tipo `object` para essa coluna, pois, se houver dados com múltiplos tipos em uma única coluna, o pandas escolherá o tipo `object` como o mais geral para acomodar todos os dados. Isso é especialmente relevante quando os dados são lidos de um arquivo CSV e há mistura de tipos em uma coluna.",
+        "evidence_ids": [
+          "5e69fc8ab28d652d58207506",
+          "291e5fd73b9c7dcf34ba756b"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "5e69fc8ab28d652d58207506",
+            "quote": "If a pandas object contains data with multiple dtypes _in a single column_, the\ndtype of the column will be chosen to accommodate all of the data types\n(`object` is the most general).\n\n```"
+          },
+          {
+            "source_id": "291e5fd73b9c7dcf34ba756b",
+            "quote": "You can indicate the data type for the whole `DataFrame` or individual\ncolumns:\n\n```\nIn [9]: import numpy as np\n\nIn [10]: data = \"a,b,c,d\\n1,2,3,4\\n5,6,7,8\\n9,10,11\"\n\nIn [11]: print(data)\na,b,c,d\n1,2,3,4\n5,6,7,8\n9,10,11\n\nIn [12]: df = pd.read_csv(StringIO(data), dtype=object)\n\nIn [13]: df\nOut[13]:\n   a   b   c    d\n0  1   2   3    4\n1  5   6   7    8\n2  9  10  11  NaN\n\nIn [14]: df[\"a\"][0]\nOut[14]: '1'\n\nIn [15]: df = pd.read_csv(StringIO(data), dtype={\"b\": object, \"c\": np.float64, \"d\": \"Int64\"})\n\nIn [16]: df.dtypes\nOut[16]:\na      int64\nb     object\nc    float64\nd      Int64\ndtype: object\n```\n\nFortunately, pandas offers more than one way to ensure that your column(s)\ncontain only one `dtype`. If you’re unfamiliar with these concepts, you can\nsee here to learn more about dtypes, and\nhere to learn more about `object` conversion in\npandas."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "5e69fc8ab28d652d58207506",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "dtypes",
+        "text": "If a pandas object contains data with multiple dtypes _in a single column_, the\ndtype of the column will be chosen to accommodate all of the data types\n(`object` is the most general).\n\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 60,
+        "unit": 0,
+        "part": 4,
+        "content_sha256": "097d33ee42204b36c4c0a960400ae3f4200aca21b088ddfdf38437fbeabde803",
+        "score": 0.4779643172949243
+      },
+      {
+        "id": "8b790c33f55822240cbad2f7",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "In [27]: df.to_csv(\"foo.csv\")\n\nIn [28]: mixed_df = pd.read_csv(\"foo.csv\")\n\nIn [29]: mixed_df[\"col_1\"].apply(type).value_counts()\nOut[29]:\ncol_1\n<class 'int'>    737858\n<class 'str'>    262144\nName: count, dtype: int64\n\nIn [30]: mixed_df[\"col_1\"].dtype\nOut[30]: dtype('O')\n```\n\nwill result with `mixed_df` containing an `int` dtype for certain chunks\nof the column, and `str` for others due to the mixed dtypes from the\ndata that was read in. It is important to note that the overall column will be\nmarked with a `dtype` of `object`, which is used for columns with mixed dtypes.\n\nSetting `dtype_backend=\"numpy_nullable\"` will result in nullable dtypes for every column.\n\n```\nIn [31]: data = \"\"\"a,b,c,d,e,f,g,h,i,j\n   ....: 1,2.5,True,a,,,,,12-31-2019,\n   ....: 3,4.5,False,b,6,7.5,True,a,12-31-2019,\n   ....: \"\"\"\n   ....:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 3,
+        "content_sha256": "d6dade2fe4eb43b065762fc08be5dfe1322518f76b9d613079cf445eaa51cc47",
+        "score": 0.47140903424833214
+      },
+      {
+        "id": "291e5fd73b9c7dcf34ba756b",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "You can indicate the data type for the whole `DataFrame` or individual\ncolumns:\n\n```\nIn [9]: import numpy as np\n\nIn [10]: data = \"a,b,c,d\\n1,2,3,4\\n5,6,7,8\\n9,10,11\"\n\nIn [11]: print(data)\na,b,c,d\n1,2,3,4\n5,6,7,8\n9,10,11\n\nIn [12]: df = pd.read_csv(StringIO(data), dtype=object)\n\nIn [13]: df\nOut[13]:\n   a   b   c    d\n0  1   2   3    4\n1  5   6   7    8\n2  9  10  11  NaN\n\nIn [14]: df[\"a\"][0]\nOut[14]: '1'\n\nIn [15]: df = pd.read_csv(StringIO(data), dtype={\"b\": object, \"c\": np.float64, \"d\": \"Int64\"})\n\nIn [16]: df.dtypes\nOut[16]:\na      int64\nb     object\nc    float64\nd      Int64\ndtype: object\n```\n\nFortunately, pandas offers more than one way to ensure that your column(s)\ncontain only one `dtype`. If you’re unfamiliar with these concepts, you can\nsee here to learn more about dtypes, and\nhere to learn more about `object` conversion in\npandas.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "f68f6028e9f50f70a2a28fcc30fb70cf78975fd769875dc54a18e6a6a6c6f70f",
+        "score": 0.46418048230729075
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951094.5511394,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, indicando que o tipo `object` é usado quando há múltiplos tipos em uma única coluna, o que é relevante para o contexto descrito."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "What type should I put in this column?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 209,
+      "total_duration": 1612516400,
+      "load_duration": 8057400,
+      "prompt_eval_duration": 171062000,
+      "eval_duration": 1336337000
+    },
+    "retrieval_ms": 1797.5105000077747,
+    "context_chars": 1855,
+    "generation_ms": 8928.49020002177,
+    "usage": {
+      "eval_count": 137,
+      "prompt_eval_count": 1674,
+      "total_duration": 8926114300,
+      "load_duration": 7743700,
+      "prompt_eval_duration": 1612797000,
+      "eval_duration": 7265982000
+    },
+    "audit_usage": {
+      "eval_count": 69,
+      "prompt_eval_count": 2284,
+      "total_duration": 6173229100,
+      "load_duration": 8120700,
+      "prompt_eval_duration": 2135995000,
+      "eval_duration": 3886908000
+    },
+    "audit_ms": 6175.304900039919,
+    "total_ms": 16901.58910001628
+  }
+}

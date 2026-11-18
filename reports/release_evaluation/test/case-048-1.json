@@ -1,0 +1,46 @@
+{
+  "case_id": "case-048-1",
+  "family": "family-048",
+  "question": "Como treinar um classificador XGBoost?",
+  "topic": "outside",
+  "expected_action": "handoff",
+  "reference_facts": [
+    "Fora do domínio coberto."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "7063f7d200c94feb92fb3623a4db7ec6",
+    "action": "handoff",
+    "message": "Como treinar um classificador XGBoost?",
+    "claims": [],
+    "sources": [],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951560.1782534,
+    "audit": null,
+    "interpretation": {
+      "scope": "outside",
+      "english_question": "How to train an XGBoost classifier?",
+      "message": "Como treinar um classificador XGBoost?"
+    },
+    "planning_usage": {
+      "eval_count": 40,
+      "prompt_eval_count": 208,
+      "total_duration": 1968569300,
+      "load_duration": 6320900,
+      "prompt_eval_duration": 171842000,
+      "eval_duration": 1782659000
+    },
+    "total_ms": 1970.4720000154339
+  }
+}

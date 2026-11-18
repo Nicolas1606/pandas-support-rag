@@ -1,0 +1,9 @@
+{
+  "review": {
+    "status": "pending_cases"
+  },
+  "utility": {
+    "status": "pending_pairs",
+    "pairs_recorded": 0
+  }
+}

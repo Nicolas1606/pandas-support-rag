@@ -1,0 +1,6 @@
+{"id": "Z1", "question": "Como importar matrículas 00123 e 00456 preservando os dígitos?", "expected_action": "answer", "reference": "dtype textual"}
+{"id": "Z2", "question": "Como ler CSV com os zeros à esquerda dos IDs?", "expected_action": "answer", "reference": "dtype textual"}
+{"id": "Z3", "question": "No CSV há 0042. Como importar essa coluna?", "expected_action": "clarify", "reference": "pedir significado"}
+{"id": "Z4", "question": "Preciso preservar os códigos 007 no CSV e somar a mesma coluna. Como importar?", "expected_action": "clarify", "reference": "resolver conflito"}
+{"id": "Z5", "question": "Como importar códigos 003 como texto no Excel?", "expected_action": "handoff", "reference": "formato fora deste contrato"}
+{"id": "Z6", "question": "No pandas 1.5.0 como importar códigos 0003 como texto no CSV?", "expected_action": "handoff", "reference": "versão sem suporte"}

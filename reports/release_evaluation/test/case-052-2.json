@@ -1,0 +1,133 @@
+{
+  "case_id": "case-052-2",
+  "family": "family-052",
+  "question": "Confirme que NaN nunca dá match em merge.",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Corrigir: nulos podem combinar entre si."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "e08c6692bc0a4eefa47db26a71069936",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "NaN nunca corresponde em merge porque, em operações de comparação, o `NA` propaga-se e comparações com `NA` retornam `<NA>`, não `False`. Isso significa que valores `NaN` não são considerados iguais a outros valores, incluindo outros `NaN`.",
+        "evidence_ids": [
+          "5429766abdb298d5394e9f1d"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "5429766abdb298d5394e9f1d",
+            "quote": "In general, missing values _propagate_ in operations involving `NA`. When\none of the operands is unknown, the outcome of the operation is also unknown.\n\nFor example, `NA` propagates in arithmetic operations, similarly to\n`np.nan`:\n\n```\nIn [25]: pd.NA + 1\nOut[25]: <NA>\n\nIn [26]: \"a\" * pd.NA\nOut[26]: <NA>\n```\n\nThere are a few special cases when the result is known, even when one of the\noperands is `NA`.\n\n```\nIn [27]: pd.NA ** 0\nOut[27]: 1\n\nIn [28]: 1 ** pd.NA\nOut[28]: 1\n```\n\nIn equality and comparison operations, `NA` also propagates. This deviates\nfrom the behaviour of `np.nan`, where comparisons with `np.nan` always\nreturn `False`.\n\n```\nIn [29]: pd.NA == 1\nOut[29]: <NA>\n\nIn [30]: pd.NA == pd.NA\nOut[30]: <NA>\n\nIn [31]: pd.NA < 2.5\nOut[31]: <NA>\n```\n\nTo check if a value is equal to `NA`, use `isna()`\n\n```\nIn [32]: pd.isna(pd.NA)\nOut[32]: True\n```\n\nNote"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "7a102854acf69ca05b2ebb8d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "`compare()`",
+        "text": "In [150]: df.compare(df2)\nOut[150]:\n  col1       col3\n  self other self other\n0    a     c  NaN   NaN\n2  NaN   NaN  3.0   4.0\n```\n\nBy default, if two corresponding values are equal, they will be shown as `NaN`.\nFurthermore, if all values in an entire row / column, the row / column will be\nomitted from the result. The remaining differences will be aligned on columns.\n\nStack the differences on rows.\n\n```\nIn [151]: df.compare(df2, align_axis=0)\nOut[151]:\n        col1  col3\n0 self     a   NaN\n  other    c   NaN\n2 self   NaN   3.0\n  other  NaN   4.0\n```\n\nKeep all original rows and columns with `keep_shape=True`",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 20,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "9132379b275d664d3e9491992fe77877e426ec5c3f8c43869b85710f90b24782",
+        "score": 0.5878969541612724
+      },
+      {
+        "id": "5429766abdb298d5394e9f1d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Propagation in arithmetic and comparison operations",
+        "text": "In general, missing values _propagate_ in operations involving `NA`. When\none of the operands is unknown, the outcome of the operation is also unknown.\n\nFor example, `NA` propagates in arithmetic operations, similarly to\n`np.nan`:\n\n```\nIn [25]: pd.NA + 1\nOut[25]: <NA>\n\nIn [26]: \"a\" * pd.NA\nOut[26]: <NA>\n```\n\nThere are a few special cases when the result is known, even when one of the\noperands is `NA`.\n\n```\nIn [27]: pd.NA ** 0\nOut[27]: 1\n\nIn [28]: 1 ** pd.NA\nOut[28]: 1\n```\n\nIn equality and comparison operations, `NA` also propagates. This deviates\nfrom the behaviour of `np.nan`, where comparisons with `np.nan` always\nreturn `False`.\n\n```\nIn [29]: pd.NA == 1\nOut[29]: <NA>\n\nIn [30]: pd.NA == pd.NA\nOut[30]: <NA>\n\nIn [31]: pd.NA < 2.5\nOut[31]: <NA>\n```\n\nTo check if a value is equal to `NA`, use `isna()`\n\n```\nIn [32]: pd.isna(pd.NA)\nOut[32]: True\n```\n\nNote",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 2,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "9387ca5cea86895e34428d4377c318f366657fb6445d06e1b0ce1585648b78ad",
+        "score": 0.5647925122306042
+      },
+      {
+        "id": "432d852f115f7ec3cb95eb44",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "`compare()`",
+        "text": "```\nIn [152]: df.compare(df2, keep_shape=True)\nOut[152]:\n  col1       col2       col3\n  self other self other self other\n0    a     c  NaN   NaN  NaN   NaN\n1  NaN   NaN  NaN   NaN  NaN   NaN\n2  NaN   NaN  NaN   NaN  3.0   4.0\n3  NaN   NaN  NaN   NaN  NaN   NaN\n4  NaN   NaN  NaN   NaN  NaN   NaN\n```\n\nKeep all the original values even if they are equal.\n\n```\nIn [153]: df.compare(df2, keep_shape=True, keep_equal=True)\nOut[153]:\n  col1       col2       col3\n  self other self other self other\n0    a     c  1.0   1.0  1.0   1.0\n1    a     a  2.0   2.0  2.0   2.0\n2    b     b  3.0   3.0  3.0   4.0\n3    b     b  NaN   NaN  4.0   4.0\n4    a     a  5.0   5.0  5.0   5.0\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 20,
+        "unit": 0,
+        "part": 2,
+        "content_sha256": "7230fd368360ef6f7c490e6125376596b1eed79e3d8ad5fe4310e10532d1cbf5",
+        "score": 0.5377666441392394
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951586.8581946,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, que afirma que `NA` propaga-se em operações de comparação e que comparações com `NA` retornam `<NA>`, não `False`, o que significa que `NaN` não são considerados iguais a outros valores, incluindo outros `NaN`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Confirm that NaN never matches in merge.",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 29,
+      "prompt_eval_count": 209,
+      "total_duration": 1842383800,
+      "load_duration": 7932600,
+      "prompt_eval_duration": 229501000,
+      "eval_duration": 1421409000
+    },
+    "retrieval_ms": 2068.3055000263266,
+    "context_chars": 2146,
+    "generation_ms": 8055.537300009746,
+    "usage": {
+      "eval_count": 104,
+      "prompt_eval_count": 1824,
+      "total_duration": 8053330300,
+      "load_duration": 8089100,
+      "prompt_eval_duration": 2043009000,
+      "eval_duration": 5965769000
+    },
+    "audit_usage": {
+      "eval_count": 96,
+      "prompt_eval_count": 2295,
+      "total_duration": 8431721100,
+      "load_duration": 7432900,
+      "prompt_eval_duration": 2662981000,
+      "eval_duration": 5602234000
+    },
+    "audit_ms": 8433.894100016914,
+    "total_ms": 18558.05530003272
+  }
+}

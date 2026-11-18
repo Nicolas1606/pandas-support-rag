@@ -1,0 +1,121 @@
+{
+  "case_id": "case-007-2",
+  "family": "family-007",
+  "question": "Conheço o encoding cp1252 do arquivo. Onde configuro?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Encoding deve corresponder ao arquivo, não adivinhar."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "ba5605838ccf4784b472a52c9a7f9e66",
+    "action": "handoff",
+    "message": "Não foi possível confirmar uma orientação segura para este caso. Confira as fontes e encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "ada548fde28cafe66dbe4ab5",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — encoding str, optional, default ‘utf-8’",
+        "text": "encoding str, optional, default ‘utf-8’\n\nEncoding to use for UTF when reading/writing (ex. `'utf-8'`). [List of Python\\\\\nstandard encodings](https://docs.python.org/3/library/codecs.html#standard-encodings) .",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 42,
+        "part": 0,
+        "content_sha256": "f1ca85f0f9fd12c2bbcf5182d9507d9ba053e65db9a15214377583217628d34b",
+        "score": 0.42653476089430875
+      },
+      {
+        "id": "d06323157c8d4981cfe7b07d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_json.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_json.html",
+        "title": "pandas.read_json",
+        "section": "pandas.read_json — encoding str, default is ‘utf-8’",
+        "text": "encoding str, default is ‘utf-8’\n\nThe encoding to use to decode py3 bytes.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 9,
+        "part": 0,
+        "content_sha256": "37b1c292a54d391e14a50a0a59e6937f1ce2700945acd8b170f8ccacb1b55581",
+        "score": 0.36938874994896675
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949337.223378,
+    "audit": {
+      "supported": false,
+      "answers_question": false,
+      "portuguese": false,
+      "reason": "O parâmetro `encoding` é mencionado para a função `pandas.read_csv`, mas o usuário pergunta sobre a codificação cp1252, que não é um exemplo válido no texto (ex. `'utf-8'`). O texto menciona que a codificação padrão é 'utf-8' e lista as codificações padrão do Python, mas não especifica que cp1252 é uma codificação válida para esse contexto."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "I know the encoding cp1252 of the file. Where do I configure?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 39,
+      "prompt_eval_count": 168,
+      "total_duration": 686399000,
+      "load_duration": 4654500,
+      "prompt_eval_duration": 39883000,
+      "eval_duration": 498748000
+    },
+    "retrieval_ms": 846.6350000235252,
+    "context_chars": 282,
+    "generation_ms": 2638.70270003099,
+    "usage": {
+      "eval_count": 172,
+      "prompt_eval_count": 939,
+      "total_duration": 2636829500,
+      "load_duration": 7101700,
+      "prompt_eval_duration": 336053000,
+      "eval_duration": 2271925000
+    },
+    "audit_usage": {
+      "eval_count": 128,
+      "prompt_eval_count": 960,
+      "total_duration": 2070616700,
+      "load_duration": 4652000,
+      "prompt_eval_duration": 338626000,
+      "eval_duration": 1648621000
+    },
+    "audit_ms": 2072.961900033988,
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "Para configurar a codificação cp1252 ao ler um arquivo CSV, use o parâmetro `encoding` na função `pandas.read_csv`.",
+          "evidence_ids": [
+            "ada548fde28cafe66dbe4ab5"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "ada548fde28cafe66dbe4ab5",
+              "quote": "encoding str, optional, default ‘utf-8’\n\nEncoding to use for UTF when reading/writing (ex. `'utf-8'`). [List of Python\\\\\nstandard encodings](https://docs.python.org/3/library/codecs.html#standard-encodings) ."
+            }
+          ]
+        }
+      ]
+    },
+    "total_ms": 5558.435800019652
+  }
+}

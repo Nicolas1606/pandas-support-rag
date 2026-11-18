@@ -1,0 +1,34 @@
+{
+  "case_id": "case-038-2",
+  "family": "family-038",
+  "question": "Meu arquivo tem caracteres estranhos. Qual codificação é?",
+  "topic": "io",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir origem/encoding conhecido; não inferir com certeza."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "f88e0701314a471bb6cb7fb5fe9227c4",
+    "action": "clarify",
+    "message": "Qual é o exemplo mínimo da entrada, a operação executada e o resultado esperado? Inclua a mensagem de erro, se houver.",
+    "claims": [],
+    "sources": [],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951094.5468445,
+    "audit": null,
+    "policy_rule": "missing_reproduction_context",
+    "total_ms": 0.09699998190626502
+  }
+}

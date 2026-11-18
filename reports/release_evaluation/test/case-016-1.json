@@ -1,0 +1,101 @@
+{
+  "case_id": "case-016-1",
+  "family": "family-016",
+  "question": "Como converter 31/12/2025 com formato explícito?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Formato explícito ajuda parsing; distinguir dia e mês."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "ceae94a61650475eb677dbc6b447b1ed",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para converter a data 31/12/2025 com formato explícito, use `pandas.to_datetime` com o parâmetro `format` definido como `\"%d/%m/%Y\"`, que é o formato necessário para essa data.",
+        "evidence_ids": [
+          "077fa1eb21ce7de8b0d548af"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "077fa1eb21ce7de8b0d548af",
+            "quote": "format str, default None\n\nThe strftime to parse time, e.g. `\"%d/%m/%Y\"`. See\nstrftime documentation for more information on choices, though\nnote that `\"%f\"` will parse all the way up to nanoseconds.\nYou can also pass:\n\n- “ISO8601”, to parse any ISO8601\ntime string (not necessarily in exactly the same format);\n\n- “mixed”, to infer the format for each element individually. This is risky,\nand you should probably use it along with dayfirst.\n\nNote\n\nIf a `DataFrame` is passed, then format has no effect."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "077fa1eb21ce7de8b0d548af",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — format str, default None",
+        "text": "format str, default None\n\nThe strftime to parse time, e.g. `\"%d/%m/%Y\"`. See\nstrftime documentation for more information on choices, though\nnote that `\"%f\"` will parse all the way up to nanoseconds.\nYou can also pass:\n\n- “ISO8601”, to parse any ISO8601\ntime string (not necessarily in exactly the same format);\n\n- “mixed”, to infer the format for each element individually. This is risky,\nand you should probably use it along with dayfirst.\n\nNote\n\nIf a `DataFrame` is passed, then format has no effect.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 5,
+        "part": 0,
+        "content_sha256": "1d137fd6db4cc301b1e7348fd74db70fffc3ab3ffad40f19fa5e45293cfd5d43",
+        "score": 0.4005156435624494
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950730.9764955,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, indicando o uso do parâmetro `format` com o formato `\"%d/%m/%Y\"` para converter a data 31/12/2025 com formato explícito, conforme solicitado."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to convert 31/12/2025 with explicit format?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 39,
+      "prompt_eval_count": 217,
+      "total_duration": 2025737200,
+      "load_duration": 9114300,
+      "prompt_eval_duration": 171630000,
+      "eval_duration": 1706376000
+    },
+    "retrieval_ms": 2192.7728000446223,
+    "context_chars": 502,
+    "generation_ms": 4727.966399979778,
+    "usage": {
+      "eval_count": 88,
+      "prompt_eval_count": 617,
+      "total_duration": 4725992500,
+      "load_duration": 5814500,
+      "prompt_eval_duration": 700490000,
+      "eval_duration": 3992109000
+    },
+    "audit_usage": {
+      "eval_count": 84,
+      "prompt_eval_count": 871,
+      "total_duration": 5075852300,
+      "load_duration": 7407900,
+      "prompt_eval_duration": 876291000,
+      "eval_duration": 4137173000
+    },
+    "audit_ms": 5077.931199979503,
+    "total_ms": 11998.85810003616
+  }
+}

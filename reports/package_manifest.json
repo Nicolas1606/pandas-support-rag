@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "scope": "local end-to-end portfolio release; human-reviewed assistance",
+  "corpus_id": "81396567c3f64252",
+  "documents": 30,
+  "chunks": 1068,
+  "tests_passed": 73,
+  "test_cases_executed": 60,
+  "clean_installation_passed": true,
+  "autonomous_production_approved": false,
+  "semantic_approval": {
+    "numerator": 24,
+    "denominator": 49,
+    "reviewer": "OpenAI assistant; not independent human validation"
+  },
+  "models": [
+    "qwen3:8b",
+    "embeddinggemma:latest"
+  ],
+  "remote_github_ci_executed": false,
+  "public_hosting_deployed": false
+}

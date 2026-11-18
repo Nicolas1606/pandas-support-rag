@@ -1,0 +1,93 @@
+test_header (test_cleaner.CleanerTests.test_header) ... ok
+test_link_label (test_cleaner.CleanerTests.test_link_label) ... ok
+test_no_destructive_original_mutation (test_cleaner.CleanerTests.test_no_destructive_original_mutation) ... ok
+test_preamble_removed (test_cleaner.CleanerTests.test_preamble_removed) ... ok
+test_source_action_removed (test_cleaner.CleanerTests.test_source_action_removed) ... ok
+test_underscore (test_cleaner.CleanerTests.test_underscore) ... ok
+test_audit_rejects_string_boolean (test_evidence_and_api.EvidenceTests.test_audit_rejects_string_boolean) ... ok
+test_context_budget (test_evidence_and_api.EvidenceTests.test_context_budget) ... ok
+test_context_deduplicates (test_evidence_and_api.EvidenceTests.test_context_deduplicates) ... ok
+test_existing_id_but_fabricated_quote_rejected (test_evidence_and_api.EvidenceTests.test_existing_id_but_fabricated_quote_rejected) ... ok
+test_named_api_parameter_priority (test_evidence_and_api.EvidenceTests.test_named_api_parameter_priority) ... ok
+test_negation_not_removed (test_evidence_and_api.EvidenceTests.test_negation_not_removed) ... ok
+test_no_claim_without_quote (test_evidence_and_api.EvidenceTests.test_no_claim_without_quote) ... ok
+test_typographic_quotes_equivalent (test_evidence_and_api.EvidenceTests.test_typographic_quotes_equivalent) ... ok
+C:\Users\nicol\Documents\Codex\2026-11-17\new-chat-2\pandas-support-rag-final\.venv\Lib\site-packages\fastapi\testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+test_bad_input (test_evidence_and_api.OptionalFastAPITests.test_bad_input) ... ok
+test_health (test_evidence_and_api.OptionalFastAPITests.test_health) ... ok
+test_home (test_evidence_and_api.OptionalFastAPITests.test_home) ... ok
+test_unknown_feedback (test_evidence_and_api.OptionalFastAPITests.test_unknown_feedback) ... ok
+test_health_handler (test_http_handlers.HandlerTests.test_health_handler) ... 127.0.0.1 - - [17/Nov/2026 18:32:47] "GET /health HTTP/1.0" 200 -
+ok
+test_invalid_handler (test_http_handlers.HandlerTests.test_invalid_handler) ... 127.0.0.1 - - [17/Nov/2026 18:32:47] "POST /search HTTP/1.0" 422 -
+ok
+test_missing_feedback_execution (test_http_handlers.HandlerTests.test_missing_feedback_execution) ... 127.0.0.1 - - [17/Nov/2026 18:32:47] "POST /feedback HTTP/1.0" 422 -
+ok
+test_search_handler (test_http_handlers.HandlerTests.test_search_handler) ... 127.0.0.1 - - [17/Nov/2026 18:32:47] "POST /search HTTP/1.0" 200 -
+ok
+test_ui_handler (test_http_handlers.HandlerTests.test_ui_handler) ... 127.0.0.1 - - [17/Nov/2026 18:32:48] "GET / HTTP/1.0" 200 -
+ok
+test_empty_draft_is_handoff (test_release_policy.ReleasePolicyTests.test_empty_draft_is_handoff) ... ok
+test_quote_is_attached_from_source (test_release_policy.ReleasePolicyTests.test_quote_is_attached_from_source) ... ok
+test_specific_question_is_not_forced_to_clarify (test_release_policy.ReleasePolicyTests.test_specific_question_is_not_forced_to_clarify) ... ok
+test_supplied_context_is_considered (test_release_policy.ReleasePolicyTests.test_supplied_context_is_considered) ... ok
+test_symptom_without_example_requires_context (test_release_policy.ReleasePolicyTests.test_symptom_without_example_requires_context) ... ok
+test_unknown_id_rejected_before_publication (test_release_policy.ReleasePolicyTests.test_unknown_id_rejected_before_publication) ... ok
+test_parameter_stays_together (test_segmentation.SegmentationTests.test_parameter_stays_together) ... ok
+test_real_corpus_portuguese_query (test_segmentation.SegmentationTests.test_real_corpus_portuguese_query) ... ok
+test_regular_code_retained (test_segmentation.SegmentationTests.test_regular_code_retained) ... ok
+test_traceback_condensed (test_segmentation.SegmentationTests.test_traceback_condensed) ... ok
+test_health (test_system.APITests.test_health) ... 127.0.0.1 - - [17/Nov/2026 18:32:48] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 18:32:48] "GET /health HTTP/1.1" 200 -
+ok
+test_invalid_input (test_system.APITests.test_invalid_input) ... 127.0.0.1 - - [17/Nov/2026 18:32:48] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 18:32:48] "POST /search HTTP/1.1" 422 -
+ok
+test_search (test_system.APITests.test_search) ... 127.0.0.1 - - [17/Nov/2026 18:32:49] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 18:32:49] "POST /search HTTP/1.1" 200 -
+ok
+test_ui (test_system.APITests.test_ui) ... 127.0.0.1 - - [17/Nov/2026 18:32:49] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [17/Nov/2026 18:32:49] "GET / HTTP/1.1" 200 -
+ok
+test_answer_needs_claims (test_system.ContractTests.test_answer_needs_claims) ... ok
+test_clarify_valid (test_system.ContractTests.test_clarify_valid) ... ok
+test_extra_fields (test_system.ContractTests.test_extra_fields) ... ok
+test_fake_citation (test_system.ContractTests.test_fake_citation) ... ok
+test_remote_llm_rejected (test_system.ContractTests.test_remote_llm_rejected) ... ok
+test_family_disjoint (test_system.EvaluationTests.test_family_disjoint) ... ok
+test_metrics (test_system.EvaluationTests.test_metrics) ... ok
+test_missing_evidence (test_system.EvaluationTests.test_missing_evidence) ... ok
+test_percentile (test_system.EvaluationTests.test_percentile) ... ok
+test_unreviewed_blocked (test_system.EvaluationTests.test_unreviewed_blocked) ... ok
+test_wilson (test_system.EvaluationTests.test_wilson) ... ok
+test_chunk_bound (test_system.ParseTests.test_chunk_bound) ... ok
+test_empty_rejected (test_system.ParseTests.test_empty_rejected) ... ok
+test_path_escape (test_system.ParseTests.test_path_escape) ... ok
+test_preserve_code (test_system.ParseTests.test_preserve_code) ... ok
+test_remove_script (test_system.ParseTests.test_remove_script) ... ok
+test_table (test_system.ParseTests.test_table) ... ok
+test_busy (test_system.PipelineTests.test_busy) ... ok
+test_invalid_citation_error (test_system.PipelineTests.test_invalid_citation_error) ... ok
+test_long_question (test_system.PipelineTests.test_long_question) ... ok
+test_timeout_error (test_system.PipelineTests.test_timeout_error) ... ok
+test_valid_generation (test_system.PipelineTests.test_valid_generation) ... ok
+test_version_handoff (test_system.PipelineTests.test_version_handoff) ... ok
+test_zero_evidence (test_system.PipelineTests.test_zero_evidence) ... ok
+test_bm25 (test_system.RetrievalTests.test_bm25) ... ok
+test_cosine (test_system.RetrievalTests.test_cosine) ... ok
+test_cosine_zero (test_system.RetrievalTests.test_cosine_zero) ... ok
+test_dense_requires_index (test_system.RetrievalTests.test_dense_requires_index) ... ok
+test_dimensions (test_system.RetrievalTests.test_dimensions) ... ok
+test_rrf (test_system.RetrievalTests.test_rrf) ... ok
+test_unknown_terms (test_system.RetrievalTests.test_unknown_terms) ... ok
+test_failed_promotion_keeps_active (test_system.StoreTests.test_failed_promotion_keeps_active) ... ok
+test_idempotent (test_system.StoreTests.test_idempotent) ... ok
+test_integrity (test_system.StoreTests.test_integrity) ... ok
+test_path_traversal (test_system.StoreTests.test_path_traversal) ... ok
+test_rollback (test_system.StoreTests.test_rollback) ... ok
+
+----------------------------------------------------------------------
+Ran 73 tests in 4.449s
+
+OK

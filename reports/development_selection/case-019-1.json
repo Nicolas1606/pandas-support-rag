@@ -1,0 +1,137 @@
+{
+  "case_id": "case-019-1",
+  "family": "family-019",
+  "question": "Como armazenar inteiros e ausentes na mesma coluna?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Tipo anulável Int64 com I maiúsculo permite pd.NA."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "116860e9026f4db89aef8804db9858cd",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para armazenar inteiros e valores ausentes na mesma coluna, use o tipo de dados `Int64` com `pandas.array`, que permite representar valores inteiros e `pandas.NA` para ausências. Exemplo: `pd.array([1, 2, None], dtype=pd.Int64Dtype())` ou `pd.array([1, 2, np.nan], dtype=\"Int64\")`.",
+        "evidence_ids": [
+          "1082cf5071dd567f61b5adc5",
+          "6f59afcc6a1bc90569003699"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "1082cf5071dd567f61b5adc5",
+            "quote": "pandas can represent integer data with possibly missing values using\n`arrays.IntegerArray`. This is an extension type\nimplemented within pandas.\n\n```\nIn [1]: arr = pd.array([1, 2, None], dtype=pd.Int64Dtype())\n\nIn [2]: arr\nOut[2]:\n<IntegerArray>\n[1, 2, <NA>]\nLength: 3, dtype: Int64\n```\n\nOr the string alias `\"Int64\"` (note the capital `\"I\"`) to differentiate from\nNumPy’s `'int64'` dtype:\n\n```\nIn [3]: pd.array([1, 2, np.nan], dtype=\"Int64\")\nOut[3]:\n<IntegerArray>\n[1, 2, <NA>]\nLength: 3, dtype: Int64\n```\n\nAll NA-like values are replaced with `pandas.NA`.\n\n```\nIn [4]: pd.array([1, 2, np.nan, None, pd.NA], dtype=\"Int64\")\nOut[4]:\n<IntegerArray>\n[1, 2, <NA>, <NA>, <NA>]\nLength: 5, dtype: Int64\n```"
+          },
+          {
+            "source_id": "6f59afcc6a1bc90569003699",
+            "quote": "Note\n\nIntegerArray is currently experimental. Its API or implementation may\nchange without warning. Uses `pandas.NA` as the missing value.\n\nIn Working with missing data, we saw that pandas primarily uses `NaN` to represent\nmissing data. Because `NaN` is a float, this forces an array of integers with\nany missing values to become floating point. In some cases, this may not matter\nmuch. But if your integer column is, say, an identifier, casting to float can\nbe problematic. Some integers cannot even be represented as floating point\nnumbers."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "6f59afcc6a1bc90569003699",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/integer_na.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/integer_na.html",
+        "title": "coerce when needed",
+        "section": "Nullable integer data type",
+        "text": "Note\n\nIntegerArray is currently experimental. Its API or implementation may\nchange without warning. Uses `pandas.NA` as the missing value.\n\nIn Working with missing data, we saw that pandas primarily uses `NaN` to represent\nmissing data. Because `NaN` is a float, this forces an array of integers with\nany missing values to become floating point. In some cases, this may not matter\nmuch. But if your integer column is, say, an identifier, casting to float can\nbe problematic. Some integers cannot even be represented as floating point\nnumbers.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "a9f13dd7d5f5971f837d708f8cca0e949e8d45d08f16f4d466d997e2e51ef5c1",
+        "score": 0.49348427196382677
+      },
+      {
+        "id": "1082cf5071dd567f61b5adc5",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/integer_na.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/integer_na.html",
+        "title": "coerce when needed",
+        "section": "Construction",
+        "text": "pandas can represent integer data with possibly missing values using\n`arrays.IntegerArray`. This is an extension type\nimplemented within pandas.\n\n```\nIn [1]: arr = pd.array([1, 2, None], dtype=pd.Int64Dtype())\n\nIn [2]: arr\nOut[2]:\n<IntegerArray>\n[1, 2, <NA>]\nLength: 3, dtype: Int64\n```\n\nOr the string alias `\"Int64\"` (note the capital `\"I\"`) to differentiate from\nNumPy’s `'int64'` dtype:\n\n```\nIn [3]: pd.array([1, 2, np.nan], dtype=\"Int64\")\nOut[3]:\n<IntegerArray>\n[1, 2, <NA>]\nLength: 3, dtype: Int64\n```\n\nAll NA-like values are replaced with `pandas.NA`.\n\n```\nIn [4]: pd.array([1, 2, np.nan, None, pd.NA], dtype=\"Int64\")\nOut[4]:\n<IntegerArray>\n[1, 2, <NA>, <NA>, <NA>]\nLength: 5, dtype: Int64\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 1,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "9e759264b1343674a937707c8dc78037624585e25d26ca0d1ec993578fc5a83a",
+        "score": 0.48642441766654065
+      },
+      {
+        "id": "a2769458afeb74725f844e20",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Inserting missing data",
+        "text": "You can insert missing values by simply assigning to a `Series` or `DataFrame`.\nThe missing value sentinel used will be chosen based on the dtype.\n\n```\nIn [57]: ser = pd.Series([1., 2., 3.])\n\nIn [58]: ser.loc[0] = None\n\nIn [59]: ser\nOut[59]:\n0    NaN\n1    2.0\n2    3.0\ndtype: float64\n\nIn [60]: ser = pd.Series([pd.Timestamp(\"2021\"), pd.Timestamp(\"2021\")])\n\nIn [61]: ser.iloc[0] = np.nan\n\nIn [62]: ser\nOut[62]:\n0          NaT\n1   2021-01-01\ndtype: datetime64[ns]\n\nIn [63]: ser = pd.Series([True, False], dtype=\"boolean[pyarrow]\")\n\nIn [64]: ser.iloc[0] = None\n\nIn [65]: ser\nOut[65]:\n0     <NA>\n1    False\ndtype: bool[pyarrow]\n```\n\nFor `object` types, pandas will use the value given:\n\n```\nIn [66]: s = pd.Series([\"a\", \"b\", \"c\"], dtype=object)\n\nIn [67]: s.loc[0] = None\n\nIn [68]: s.loc[1] = np.nan\n\nIn [69]: s\nOut[69]:\n0    None\n1     NaN\n2       c\ndtype: object\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 7,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "abc223123ef59da1f05e46e1444ac0c544b7f4a88aef2df68d31630ca52b6830",
+        "score": 0.4733180274998593
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950331.0104692,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, usando `Int64` para armazenar inteiros e `pandas.NA` para valores ausentes, conforme descrito nos trechos citados."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to store integers and missing values in the same column?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 33,
+      "prompt_eval_count": 171,
+      "total_duration": 1909427100,
+      "load_duration": 6874600,
+      "prompt_eval_duration": 184285000,
+      "eval_duration": 1519332000
+    },
+    "retrieval_ms": 2081.8328999448568,
+    "context_chars": 2104,
+    "generation_ms": 9918.106800003443,
+    "usage": {
+      "eval_count": 153,
+      "prompt_eval_count": 1742,
+      "total_duration": 9915908400,
+      "load_duration": 5822100,
+      "prompt_eval_duration": 1765424000,
+      "eval_duration": 8119386000
+    },
+    "audit_usage": {
+      "eval_count": 69,
+      "prompt_eval_count": 2355,
+      "total_duration": 6368185800,
+      "load_duration": 7351600,
+      "prompt_eval_duration": 2362481000,
+      "eval_duration": 3870180000
+    },
+    "audit_ms": 6370.273599983193,
+    "total_ms": 18370.493899972644
+  }
+}

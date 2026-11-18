@@ -1,0 +1,28 @@
+[
+  {
+    "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+    "title": "FIXTURE — merge",
+    "version": "2.2.3",
+    "blocks": [
+      {
+        "section": "validate",
+        "anchor": "",
+        "kind": "p",
+        "text": "Synthetic fixture: merge validate many_to_one checks right keys uniqueness. Nulos podem casar."
+      }
+    ]
+  },
+  {
+    "url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+    "title": "FIXTURE — read_csv",
+    "version": "2.2.3",
+    "blocks": [
+      {
+        "section": "dtype",
+        "anchor": "",
+        "kind": "p",
+        "text": "Synthetic fixture: read_csv dtype string preserves identifiers; sep selects delimiter."
+      }
+    ]
+  }
+]

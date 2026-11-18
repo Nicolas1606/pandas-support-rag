@@ -1,0 +1,126 @@
+{
+  "case_id": "case-007-1",
+  "family": "family-007",
+  "question": "Como informar que o arquivo CSV está em latin-1?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Encoding deve corresponder ao arquivo, não adivinhar."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "6752d7325dc04545a84878b478f7d385",
+    "action": "handoff",
+    "message": "A resposta não passou pela verificação das citações. Consulte as fontes ou encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "d96b373b94cfa51a17429946",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Dialect",
+        "text": "The `dialect` keyword gives greater flexibility in specifying the file format.\nBy default it uses the Excel dialect but you can specify either the dialect name\nor a `csv.Dialect` instance.\n\nSuppose you had data with unenclosed quotes:\n\n```\nIn [173]: data = \"label1,label2,label3\\n\" 'index1,\"a,c,e\\n' \"index2,b,d,f\"\n\nIn [174]: print(data)\nlabel1,label2,label3\nindex1,\"a,c,e\nindex2,b,d,f\n```\n\nBy default, `read_csv` uses the Excel dialect and treats the double quote as\nthe quote character, which causes it to fail when it finds a newline before it\nfinds the closing double quote.\n\nWe can get around this using `dialect`:\n\n```\nIn [175]: import csv\n\nIn [176]: dia = csv.excel()\n\nIn [177]: dia.quoting = csv.QUOTE_NONE\n\nIn [178]: pd.read_csv(StringIO(data), dialect=dia)\nOut[178]:\n       label1 label2 label3\nindex1     \"a      c      e\nindex2      b      d      f\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 36,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "da4865b6bea4d53a6420d4d95f63e7f0e3c81d8c83ae03e9ad4c369b69882374",
+        "score": 0.46920364686771254
+      },
+      {
+        "id": "63f0ccaddc99bc8e8e849e3c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — decimal str (length 1), default ‘.’",
+        "text": "decimal str (length 1), default ‘.’\n\nCharacter to recognize as decimal point (e.g., use ‘,’ for European data).",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 36,
+        "part": 0,
+        "content_sha256": "a387f6d0dbf0fd6d6ff589052ed7af7b4364344ff82adcd58fda499d98489133",
+        "score": 0.46648850995356267
+      },
+      {
+        "id": "e0da132ec0009bbc00b71069",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — dialect str or csv.Dialect, optional",
+        "text": "dialect str or csv.Dialect, optional\n\nIf provided, this parameter will override values (default or not) for the\nfollowing parameters: `delimiter`, `doublequote`, `escapechar`,\n`skipinitialspace`, `quotechar`, and `quoting`. If it is necessary to\noverride values, a `ParserWarning` will be issued. See `csv.Dialect`\ndocumentation for more details.\n\non_bad_lines{‘error’, ‘warn’, ‘skip’} or Callable, default ‘error’\n\nSpecifies what to do upon encountering a bad line (a line with too many fields).\nAllowed values are :\n\n- `'error'`, raise an Exception when a bad line is encountered.\n\n- `'warn'`, raise a warning when a bad line is encountered and skip that line.\n\n- `'skip'`, skip bad lines without raising or warning when they are encountered.\n\nAdded in version 1.3.0.\n\nAdded in version 1.4.0:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 44,
+        "part": 0,
+        "content_sha256": "729be041bd851bf5fccd5d1dfd7e10d6ebd8b4178a0f54bb51f28d8f785c831f",
+        "score": 0.46644573875449574
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949333.3932903,
+    "audit": null,
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to indicate that the CSV file is in latin-1?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 34,
+      "prompt_eval_count": 163,
+      "total_duration": 672718400,
+      "load_duration": 6105400,
+      "prompt_eval_duration": 44562000,
+      "eval_duration": 461734000
+    },
+    "retrieval_ms": 835.0172999780625,
+    "context_chars": 1769,
+    "generation_ms": 2863.092700019479,
+    "usage": {
+      "eval_count": 162,
+      "prompt_eval_count": 1617,
+      "total_duration": 2860793500,
+      "load_duration": 6263300,
+      "prompt_eval_duration": 591389000,
+      "eval_duration": 2238555000
+    },
+    "validation_issue": "Trecho citado obrigatório",
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "To indicate that the CSV file is in latin-1 encoding, use the `encoding` parameter in `pd.read_csv()` with the value 'latin-1'.",
+          "evidence_ids": [
+            "d96b373b94cfa51a17429946"
+          ],
+          "evidence_quotes": []
+        },
+        {
+          "text": "The `encoding` parameter specifies the encoding of the CSV file, and 'latin-1' is a valid encoding for this purpose.",
+          "evidence_ids": [
+            "d96b373b94cfa51a17429946"
+          ],
+          "evidence_quotes": []
+        }
+      ]
+    },
+    "total_ms": 3698.240800003987
+  }
+}

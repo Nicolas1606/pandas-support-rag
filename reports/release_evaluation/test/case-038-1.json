@@ -1,0 +1,122 @@
+{
+  "case_id": "case-038-1",
+  "family": "family-038",
+  "question": "Qual encoding devo usar?",
+  "topic": "io",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir origem/encoding conhecido; não inferir com certeza."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "60092ec66d8f4987a814294df4607a8f",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para ler arquivos, use a codificação 'utf-8' como padrão, conforme indicado na documentação do pandas. O parâmetro `encoding` em `pandas.read_table` e `pandas.read_json` tem como valor padrão 'utf-8'.",
+        "evidence_ids": [
+          "d6192fcfaf1a1d0bc4ec8b49",
+          "d06323157c8d4981cfe7b07d"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "d6192fcfaf1a1d0bc4ec8b49",
+            "quote": "encoding str, optional, default ‘utf-8’\n\nEncoding to use for UTF when reading/writing (ex. `'utf-8'`). [List of Python\\\\\nstandard encodings](https://docs.python.org/3/library/codecs.html#standard-encodings) ."
+          },
+          {
+            "source_id": "d06323157c8d4981cfe7b07d",
+            "quote": "encoding str, default is ‘utf-8’\n\nThe encoding to use to decode py3 bytes."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "d6192fcfaf1a1d0bc4ec8b49",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_table.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_table.html",
+        "title": "pandas.read_table",
+        "section": "pandas.read_table — encoding str, optional, default ‘utf-8’",
+        "text": "encoding str, optional, default ‘utf-8’\n\nEncoding to use for UTF when reading/writing (ex. `'utf-8'`). [List of Python\\\\\nstandard encodings](https://docs.python.org/3/library/codecs.html#standard-encodings) .",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 42,
+        "part": 0,
+        "content_sha256": "f1ca85f0f9fd12c2bbcf5182d9507d9ba053e65db9a15214377583217628d34b",
+        "score": 0.5391321725644561
+      },
+      {
+        "id": "d06323157c8d4981cfe7b07d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_json.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_json.html",
+        "title": "pandas.read_json",
+        "section": "pandas.read_json — encoding str, default is ‘utf-8’",
+        "text": "encoding str, default is ‘utf-8’\n\nThe encoding to use to decode py3 bytes.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 9,
+        "part": 0,
+        "content_sha256": "37b1c292a54d391e14a50a0a59e6937f1ce2700945acd8b170f8ccacb1b55581",
+        "score": 0.48168573192510217
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951081.4844725,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação do pandas, indicando que 'utf-8' é o padrão para os parâmetros `encoding` em `pandas.read_table` e `pandas.read_json`, conforme evidenciado nos trechos citados."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "What encoding should I use?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 27,
+      "prompt_eval_count": 204,
+      "total_duration": 1578732700,
+      "load_duration": 5990900,
+      "prompt_eval_duration": 179757000,
+      "eval_duration": 1227337000
+    },
+    "retrieval_ms": 1763.6738999863155,
+    "context_chars": 282,
+    "generation_ms": 6171.090100018773,
+    "usage": {
+      "eval_count": 114,
+      "prompt_eval_count": 814,
+      "total_duration": 6168636500,
+      "load_duration": 6542400,
+      "prompt_eval_duration": 801323000,
+      "eval_duration": 5332853000
+    },
+    "audit_usage": {
+      "eval_count": 81,
+      "prompt_eval_count": 1069,
+      "total_duration": 5116231900,
+      "load_duration": 8571700,
+      "prompt_eval_duration": 1114884000,
+      "eval_duration": 3923290000
+    },
+    "audit_ms": 5118.504200014286,
+    "total_ms": 13054.100200009998
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "case_id": "case-044-1",
+  "family": "family-044",
+  "question": "Qual tipo de join eu uso?",
+  "topic": "join",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir quais registros devem ser preservados."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "50620a3bf2cb4445a607569b05926ab3",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para realizar um join, você pode usar os tipos `left`, `right`, `outer`, `inner` ou `cross`, que correspondem aos joins SQL `LEFT OUTER JOIN`, `RIGHT OUTER JOIN`, `FULL OUTER JOIN`, `INNER JOIN` e `CROSS JOIN`, respectivamente. O tipo de join padrão para `DataFrame.join` é `left`, mas você pode especificar outros tipos usando o parâmetro `how`.",
+        "evidence_ids": [
+          "83c80b75e43297661dcf42b3",
+          "486a98cd35d1d59c1019fab5"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "83c80b75e43297661dcf42b3",
+            "quote": "| Merge method | SQL Join Name | Description |\n| --- | --- | --- |\n| `left` | `LEFT OUTER JOIN` | Use keys from left frame only |\n| `right` | `RIGHT OUTER JOIN` | Use keys from right frame only |\n| `outer` | `FULL OUTER JOIN` | Use union of keys from both frames |\n| `inner` | `INNER JOIN` | Use intersection of keys from both frames |\n| `cross` | `CROSS JOIN` | Create the cartesian product of rows of both frames |\n\n```\nIn [48]: left = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K0\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K1\", \"K0\", \"K1\"],\n   ....:       \"A\": [\"A0\", \"A1\", \"A2\", \"A3\"],\n   ....:       \"B\": [\"B0\", \"B1\", \"B2\", \"B3\"],\n   ....:    }\n   ....: )\n   ....:"
+          },
+          {
+            "source_id": "486a98cd35d1d59c1019fab5",
+            "quote": "In [99]: right = pd.DataFrame(\n   ....:     {\"C\": [\"C0\", \"C1\", \"C2\", \"C3\"], \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"]}, index=index\n   ....: )\n   ....:\n\nIn [100]: result = left.join(right, on=[\"key1\", \"key2\"])\n\nIn [101]: result\nOut[101]:\n    A   B key1 key2    C    D\n0  A0  B0   K0   K0   C0   D0\n1  A1  B1   K0   K1  NaN  NaN\n2  A2  B2   K1   K0   C1   D1\n3  A3  B3   K2   K1   C3   D3\n```\n\n```\n\n```\n\n!../_images/merging_join_multikeys.png\n\nThe default for `DataFrame.join` is to perform a left join\nwhich uses only the keys found in the\ncalling `DataFrame`. Other join types can be specified with `how`.\n\n```\nIn [102]: result = left.join(right, on=[\"key1\", \"key2\"], how=\"inner\")\n\nIn [103]: result\nOut[103]:\n    A   B key1 key2   C   D\n0  A0  B0   K0   K0  C0  D0\n2  A2  B2   K1   K0  C1  D1\n3  A3  B3   K2   K1  C3  D3\n```\n\n```\n\n```\n\n!../_images/merging_join_multikeys_inner.png"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "83c80b75e43297661dcf42b3",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "| Merge method | SQL Join Name | Description |\n| --- | --- | --- |\n| `left` | `LEFT OUTER JOIN` | Use keys from left frame only |\n| `right` | `RIGHT OUTER JOIN` | Use keys from right frame only |\n| `outer` | `FULL OUTER JOIN` | Use union of keys from both frames |\n| `inner` | `INNER JOIN` | Use intersection of keys from both frames |\n| `cross` | `CROSS JOIN` | Create the cartesian product of rows of both frames |\n\n```\nIn [48]: left = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K0\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K1\", \"K0\", \"K1\"],\n   ....:       \"A\": [\"A0\", \"A1\", \"A2\", \"A3\"],\n   ....:       \"B\": [\"B0\", \"B1\", \"B2\", \"B3\"],\n   ....:    }\n   ....: )\n   ....:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 2,
+        "content_sha256": "60ba05ffe73754de455b9e8f2817ff01f92de3111f3a1b3ba004537e37f61510",
+        "score": 0.5963160487584788
+      },
+      {
+        "id": "486a98cd35d1d59c1019fab5",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "`DataFrame.join()`",
+        "text": "In [99]: right = pd.DataFrame(\n   ....:     {\"C\": [\"C0\", \"C1\", \"C2\", \"C3\"], \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"]}, index=index\n   ....: )\n   ....:\n\nIn [100]: result = left.join(right, on=[\"key1\", \"key2\"])\n\nIn [101]: result\nOut[101]:\n    A   B key1 key2    C    D\n0  A0  B0   K0   K0   C0   D0\n1  A1  B1   K0   K1  NaN  NaN\n2  A2  B2   K1   K0   C1   D1\n3  A3  B3   K2   K1   C3   D3\n```\n\n```\n\n```\n\n!../_images/merging_join_multikeys.png\n\nThe default for `DataFrame.join` is to perform a left join\nwhich uses only the keys found in the\ncalling `DataFrame`. Other join types can be specified with `how`.\n\n```\nIn [102]: result = left.join(right, on=[\"key1\", \"key2\"], how=\"inner\")\n\nIn [103]: result\nOut[103]:\n    A   B key1 key2   C   D\n0  A0  B0   K0   K0  C0  D0\n2  A2  B2   K1   K0  C1  D1\n3  A3  B3   K2   K1  C3  D3\n```\n\n```\n\n```\n\n!../_images/merging_join_multikeys_inner.png",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 12,
+        "unit": 0,
+        "part": 3,
+        "content_sha256": "545ca9abdcf01adcaf9ca54e04182913df12b147b5b7ff9962511114456ce174",
+        "score": 0.5816538064037057
+      },
+      {
+        "id": "77477f95a36ec9f88691187f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.join.html",
+        "title": "pandas.DataFrame.join",
+        "section": "pandas.DataFrame.join — validate str, optional",
+        "text": "validate str, optional\n\nIf specified, checks if join is of specified type.\n\n- “one_to_one” or “1:1”: check if join keys are unique in both left\nand right datasets.\n\n- “one_to_many” or “1:m”: check if join keys are unique in left dataset.\n\n- “many_to_one” or “m:1”: check if join keys are unique in right dataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nAdded in version 1.5.0.\n\nReturns:DataFrame",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 5,
+        "part": 0,
+        "content_sha256": "1038fec005e1233d7c0ae8eb9bd38eb004f9f24fa8072092fe4fcd0813a4528d",
+        "score": 0.5746259049175964
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951166.6501505,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação fornecida, explicando os tipos de join disponíveis e como especificar o tipo desejado usando o parâmetro `how` para `DataFrame.join`, sem omitir detalhes críticos."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "What type of join do I use?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 29,
+      "prompt_eval_count": 205,
+      "total_duration": 1911169800,
+      "load_duration": 6983300,
+      "prompt_eval_duration": 197937000,
+      "eval_duration": 1485537000
+    },
+    "retrieval_ms": 2084.543799981475,
+    "context_chars": 1982,
+    "generation_ms": 10137.265800032765,
+    "usage": {
+      "eval_count": 152,
+      "prompt_eval_count": 1759,
+      "total_duration": 10135826700,
+      "load_duration": 9057400,
+      "prompt_eval_duration": 1660842000,
+      "eval_duration": 8430498000
+    },
+    "audit_usage": {
+      "eval_count": 76,
+      "prompt_eval_count": 2645,
+      "total_duration": 7167052000,
+      "load_duration": 8746300,
+      "prompt_eval_duration": 2594231000,
+      "eval_duration": 4419687000
+    },
+    "audit_ms": 7168.922399985604,
+    "total_ms": 19391.900199989323
+  }
+}

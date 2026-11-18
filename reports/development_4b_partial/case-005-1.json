@@ -1,0 +1,149 @@
+{
+  "case_id": "case-005-1",
+  "family": "family-005",
+  "question": "Como tratar o texto SEM_DADO como ausente no CSV?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Configurar tokens ausentes e explicar defaults."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "1c56e2286d9d481f9b7a9865ff8c0ac4",
+    "action": "handoff",
+    "message": "Não foi possível confirmar uma orientação segura para este caso. Confira as fontes e encaminhe para revisão.",
+    "claims": [],
+    "sources": [
+      {
+        "id": "dd001095aa51add5a044a89c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — delim_whitespace bool, default False",
+        "text": "delim_whitespace bool, default False\n\nSpecifies whether or not whitespace (e.g. `' '` or `'\\t'`) will be\nused as the `sep` delimiter. Equivalent to setting `sep='\\s+'`. If this option\nis set to `True`, nothing should be passed in for the `delimiter`\nparameter.\n\nDeprecated since version 2.2.0: Use `sep=\"\\s+\"` instead.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 45,
+        "part": 0,
+        "content_sha256": "d0e8fdc97f43b105c48a7aaa63415ce13ec650167fcd8b80f8b0d920a5874e01",
+        "score": 0.4788616242111945
+      },
+      {
+        "id": "57cebee071a209c4c2da6706",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — na_filter bool, default True",
+        "text": "na_filter bool, default True\n\nDetect missing value markers (empty strings and the value of `na_values`). In\ndata without any `NA` values, passing `na_filter=False` can improve the\nperformance of reading a large file.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 21,
+        "part": 0,
+        "content_sha256": "c0cca542bc9aa33c3a70fe27266aafbfecf27c8dce9a2d9cf8b6deb6efe15668",
+        "score": 0.47680663034123316
+      },
+      {
+        "id": "1b6987985e2e168dfd60896f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Automatically “sniffing” the delimiter \\",
+        "text": "\\\n`read_csv` is capable of inferring delimited (not necessarily\\\ncomma-separated) files, as pandas uses the `csv.Sniffer`\\\nclass of the csv module. For this, you have to specify `sep=None`.\\\n\\\n```\\\nIn [221]: df = pd.DataFrame(np.random.randn(10, 4))\\\n\\\nIn [222]: df.to_csv(\"tmp2.csv\", sep=\":\", index=False)\\\n\\\nIn [223]: pd.read_csv(\"tmp2.csv\", sep=None, engine=\"python\")\\\nOut[223]:\\\n          0         1         2         3\\\n0  0.469112 -0.282863 -1.509059 -1.135632\\\n1  1.212112 -0.173215  0.119209 -1.044236\\\n2 -0.861849 -2.104569 -0.494929  1.071804\\\n3  0.721555 -0.706771 -1.039575  0.271860\\\n4 -0.424972  0.567020  0.276232 -1.087401\\\n5 -0.673690  0.113648 -1.478427  0.524988\\\n6  0.404705  0.577046 -1.715002 -1.039268\\\n7 -0.370647 -1.157892 -1.344312  0.844885\\\n8  1.075770 -0.109050  1.643563 -1.469388\\\n9  0.357021 -0.674600 -1.776904 -0.968914\\\n```\\\n\\\nCopy to clipboard\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 45,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "885548fad47073ee04b8ab09cb8a10cd5597bdfabc018189662332c004d5883c",
+        "score": 0.47562788965805
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949313.655448,
+    "audit": {
+      "supported": false,
+      "answers_question": false,
+      "portuguese": false,
+      "reason": "O texto SEM_DADO não é mencionado na documentação"
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to treat the text SEM_DADO as absent in the CSV?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 35,
+      "prompt_eval_count": 164,
+      "total_duration": 741277300,
+      "load_duration": 6801500,
+      "prompt_eval_duration": 44571000,
+      "eval_duration": 513182000
+    },
+    "retrieval_ms": 921.8489999766462,
+    "context_chars": 1417,
+    "generation_ms": 6192.53999995999,
+    "usage": {
+      "eval_count": 349,
+      "prompt_eval_count": 1786,
+      "total_duration": 6189994300,
+      "load_duration": 6942200,
+      "prompt_eval_duration": 703863000,
+      "eval_duration": 5451799000
+    },
+    "audit_usage": {
+      "eval_count": 43,
+      "prompt_eval_count": 1943,
+      "total_duration": 1609812000,
+      "load_duration": 7563500,
+      "prompt_eval_duration": 770423000,
+      "eval_duration": 682188000
+    },
+    "audit_ms": 1612.1951999957673,
+    "withheld_draft": {
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "To treat the text SEM_DADO as absent in the CSV, set `na_values` to include 'SEM_DADO' in the `pandas.read_csv` call.",
+          "evidence_ids": [
+            "57cebee071a209c4c2da6706"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "57cebee071a209c4c2da6706",
+              "quote": "na_filter bool, default True\n\nDetect missing value markers (empty strings and the value of `na_values`). In\ndata without any `NA` values, passing `na_filter=False` can improve the performance of reading a large file."
+            }
+          ]
+        },
+        {
+          "text": "The `na_values` parameter in `pandas.read_csv` specifies which strings to interpret as missing values.",
+          "evidence_ids": [
+            "57cebee071a209c4c2da6706"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "57cebee071a209c4c2da6706",
+              "quote": "na_filter bool, default True\n\nDetect missing value markers (empty strings and the value of `na_values`). In\ndata without any `NA` values, passing `na_filter=False` can improve the performance of reading a large file."
+            }
+          ]
+        }
+      ]
+    },
+    "total_ms": 8726.743699982762
+  }
+}

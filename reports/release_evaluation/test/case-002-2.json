@@ -1,0 +1,101 @@
+{
+  "case_id": "case-002-2",
+  "family": "family-002",
+  "question": "O delimitador do meu CSV é ;. Que parâmetro usar?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Usar sep coerente com arquivo."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "c2e947f4c7604729ae40a2ab24af18b1",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para ler um arquivo CSV com delimitador ';', você deve usar o parâmetro `sep` com o valor `';'`. Esse parâmetro especifica o caractere de delimitador para o arquivo CSV.",
+        "evidence_ids": [
+          "1a17b872587a45f1f3a87ab4"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "1a17b872587a45f1f3a87ab4",
+            "quote": "delimiter str, optional\n\nAlias for `sep`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "1a17b872587a45f1f3a87ab4",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — delimiter str, optional",
+        "text": "delimiter str, optional\n\nAlias for `sep`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 4,
+        "part": 0,
+        "content_sha256": "7fcbd2ee7c4ce459aa45bd366d7c1006a7e0e109b747d8fb23f5dce4857bc285",
+        "score": 0.533352760878839
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950533.4420624,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta corretamente identifica o parâmetro `sep` como a forma de especificar o delimitador ';' em arquivos CSV, conforme documentado."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "My CSV delimiter is ;. Which parameter to use?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 214,
+      "total_duration": 1716284900,
+      "load_duration": 7324000,
+      "prompt_eval_duration": 184131000,
+      "eval_duration": 1424164000
+    },
+    "retrieval_ms": 1904.548199963756,
+    "context_chars": 41,
+    "generation_ms": 4142.690699954983,
+    "usage": {
+      "eval_count": 81,
+      "prompt_eval_count": 484,
+      "total_duration": 4140443400,
+      "load_duration": 7720700,
+      "prompt_eval_duration": 496096000,
+      "eval_duration": 3615037000
+    },
+    "audit_usage": {
+      "eval_count": 58,
+      "prompt_eval_count": 604,
+      "total_duration": 2808473400,
+      "load_duration": 5928700,
+      "prompt_eval_duration": 46070000,
+      "eval_duration": 2690735000
+    },
+    "audit_ms": 2810.723299975507,
+    "total_ms": 8858.104899991304
+  }
+}

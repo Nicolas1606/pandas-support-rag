@@ -1,0 +1,133 @@
+{
+  "case_id": "case-004-1",
+  "family": "family-004",
+  "question": "Como carregar somente duas colunas de um CSV?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Selecionar colunas com usecols."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "3c2c510d26384942b00de533cabd21a4",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para carregar apenas duas colunas de um CSV, você pode usar o parâmetro `usecols` com os nomes ou índices das colunas desejadas. Por exemplo: `pd.read_csv('arquivo.csv', usecols=['coluna1', 'coluna2'])` ou `pd.read_csv('arquivo.csv', usecols=[0, 1])`.",
+        "evidence_ids": [
+          "c5b738466cc8a7c41086d193"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "c5b738466cc8a7c41086d193",
+            "quote": "The `usecols` argument allows you to select any subset of the columns in a\nfile, either using the column names, position numbers or a callable:\n\n```\nIn [61]: data = \"a,b,c,d\\n1,2,3,foo\\n4,5,6,bar\\n7,8,9,baz\"\n\nIn [62]: pd.read_csv(StringIO(data))\nOut[62]:\n   a  b  c    d\n0  1  2  3  foo\n1  4  5  6  bar\n2  7  8  9  baz\n\nIn [63]: pd.read_csv(StringIO(data), usecols=[\"b\", \"d\"])\nOut[63]:\n   b    d\n0  2  foo\n1  5  bar\n2  8  baz\n\nIn [64]: pd.read_csv(StringIO(data), usecols=[0, 2, 3])\nOut[64]:\n   a  c    d\n0  1  3  foo\n1  4  6  bar\n2  7  9  baz\n\nIn [65]: pd.read_csv(StringIO(data), usecols=lambda x: x.upper() in [\"A\", \"C\"])\nOut[65]:\n   a  c\n0  1  3\n1  4  6\n2  7  9\n```\n\nThe `usecols` argument can also be used to specify which columns not to\nuse in the final result:"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "5ef19c60772759e85e9514ef",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Handling “bad” lines — The callable function will handle only a line with too many fields.",
+        "text": "The callable function will handle only a line with too many fields.\nBad lines caused by other errors will be silently skipped.\n\n```\nIn [167]: bad_lines_func = lambda line: print(line)\n\nIn [168]: data = 'name,type\\nname a,a is of type a\\nname b,\"b\\\" is of type b\"'\n\nIn [169]: data\nOut[169]: 'name,type\\nname a,a is of type a\\nname b,\"b\" is of type b\"'\n\nIn [170]: pd.read_csv(StringIO(data), on_bad_lines=bad_lines_func, engine=\"python\")\nOut[170]:\n     name            type\n0  name a  a is of type a\n```\n\nThe line was not processed in this case, as a “bad line” here is caused by an escape character.\n\nYou can also use the `usecols` parameter to eliminate extraneous column\ndata that appear in some lines but not others:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 35,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "4693a1e2c7082cf8c649a56bd647b20696dc7ab36f4f94583480ef5274856b42",
+        "score": 0.47843424492292147
+      },
+      {
+        "id": "92ed56e7ae59d285036ef0b1",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Handling “bad” lines — The callable function will handle only a line with too many fields.",
+        "text": "The callable function will handle only a line with too many fields.\nExemplo com exceção; pilha interna omitida.\nValueError: Usecols do not match columns, columns expected but not found: [0, 1, 2]\n\nIn case you want to keep all data including the lines with too many fields, you can\nspecify a sufficient number of `names`. This ensures that lines with not enough\nfields are filled with `NaN`.\n\n```\nIn [172]: pd.read_csv(StringIO(data), names=['a', 'b', 'c', 'd'])\nOut[172]:\n        a                b   c   d\n0    name             type NaN NaN\n1  name a   a is of type a NaN NaN\n2  name b  b is of type b\" NaN NaN\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 35,
+        "unit": 1,
+        "part": 1,
+        "content_sha256": "55ffdb5bce5cef90a19c97f56baaba13bc9d9ec9def8ac78c7e192325bfa02ad",
+        "score": 0.4756562111726073
+      },
+      {
+        "id": "c5b738466cc8a7c41086d193",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Filtering columns (`usecols`)",
+        "text": "The `usecols` argument allows you to select any subset of the columns in a\nfile, either using the column names, position numbers or a callable:\n\n```\nIn [61]: data = \"a,b,c,d\\n1,2,3,foo\\n4,5,6,bar\\n7,8,9,baz\"\n\nIn [62]: pd.read_csv(StringIO(data))\nOut[62]:\n   a  b  c    d\n0  1  2  3  foo\n1  4  5  6  bar\n2  7  8  9  baz\n\nIn [63]: pd.read_csv(StringIO(data), usecols=[\"b\", \"d\"])\nOut[63]:\n   b    d\n0  2  foo\n1  5  bar\n2  8  baz\n\nIn [64]: pd.read_csv(StringIO(data), usecols=[0, 2, 3])\nOut[64]:\n   a  c    d\n0  1  3  foo\n1  4  6  bar\n2  7  9  baz\n\nIn [65]: pd.read_csv(StringIO(data), usecols=lambda x: x.upper() in [\"A\", \"C\"])\nOut[65]:\n   a  c\n0  1  3\n1  4  6\n2  7  9\n```\n\nThe `usecols` argument can also be used to specify which columns not to\nuse in the final result:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 15,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "3afa8b3f2b1e3dc90ddd7e0ce4ecffe02365091ef85c5cdeff5009ab8eb5c52f",
+        "score": 0.47541963923731434
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950542.3057284,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação fornecida, que explica como usar o parâmetro `usecols` para carregar apenas duas colunas de um CSV, usando nomes ou índices das colunas."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to load only two columns from a CSV?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 210,
+      "total_duration": 1610086800,
+      "load_duration": 6333700,
+      "prompt_eval_duration": 176307000,
+      "eval_duration": 1382220000
+    },
+    "retrieval_ms": 1787.4031999963336,
+    "context_chars": 2100,
+    "generation_ms": 6510.444500017911,
+    "usage": {
+      "eval_count": 119,
+      "prompt_eval_count": 1751,
+      "total_duration": 6508283400,
+      "load_duration": 5773000,
+      "prompt_eval_duration": 60176000,
+      "eval_duration": 6362725000
+    },
+    "audit_usage": {
+      "eval_count": 73,
+      "prompt_eval_count": 2262,
+      "total_duration": 4828041300,
+      "load_duration": 5286600,
+      "prompt_eval_duration": 550858000,
+      "eval_duration": 4106555999
+    },
+    "audit_ms": 4829.837299999781,
+    "total_ms": 13128.104600007646
+  }
+}

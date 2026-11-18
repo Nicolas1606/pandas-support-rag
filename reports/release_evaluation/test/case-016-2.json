@@ -1,0 +1,122 @@
+{
+  "case_id": "case-016-2",
+  "family": "family-016",
+  "question": "Como usar to_datetime para datas no formato dia/mês/ano?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Formato explícito ajuda parsing; distinguir dia e mês."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "7dc3dc68551b4ed29a577d551807bb8a",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para usar `to_datetime` com datas no formato dia/mês/ano, você pode especificar o parâmetro `format` como `\"%d/%m/%Y\"`. O parâmetro `format` define o padrão de formatação da data, onde `%d` representa o dia, `%m` o mês e `%Y` o ano em 4 dígitos. Exemplo: `pd.to_datetime('31/12/2023', format='%d/%m/%Y')`.",
+        "evidence_ids": [
+          "ed995d8be025066a3206ff4f",
+          "077fa1eb21ce7de8b0d548af"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "ed995d8be025066a3206ff4f",
+            "quote": "The object to convert to a datetime. If a `DataFrame` is provided, the\nmethod expects minimally the following columns: `\"year\"`,\n`\"month\"`, `\"day\"`. The column “year”\nmust be specified in 4-digit format.\n\nerrors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If `'raise'`, then invalid parsing will raise an exception.\n\n- If `'coerce'`, then invalid parsing will be set as `NaT`.\n\n- If `'ignore'`, then invalid parsing will return the input."
+          },
+          {
+            "source_id": "077fa1eb21ce7de8b0d548af",
+            "quote": "format str, default None\n\nThe strftime to parse time, e.g. `\"%d/%m/%Y\"`. See\nstrftime documentation for more information on choices, though\nnote that `\"%f\"` will parse all the way up to nanoseconds.\nYou can also pass:\n\n- “ISO8601”, to parse any ISO8601\ntime string (not necessarily in exactly the same format);\n\n- “mixed”, to infer the format for each element individually. This is risky,\nand you should probably use it along with dayfirst.\n\nNote\n\nIf a `DataFrame` is passed, then format has no effect."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "ed995d8be025066a3206ff4f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — The object to convert to a datetime. If a `DataFrame` is provided, the",
+        "text": "The object to convert to a datetime. If a `DataFrame` is provided, the\nmethod expects minimally the following columns: `\"year\"`,\n`\"month\"`, `\"day\"`. The column “year”\nmust be specified in 4-digit format.\n\nerrors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If `'raise'`, then invalid parsing will raise an exception.\n\n- If `'coerce'`, then invalid parsing will be set as `NaT`.\n\n- If `'ignore'`, then invalid parsing will return the input.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 1,
+        "part": 0,
+        "content_sha256": "7c947c8800581dbb6be72e37241c2e1d2c1a2629e6fb2268eac837bc7d753515",
+        "score": 0.5609797500726951
+      },
+      {
+        "id": "077fa1eb21ce7de8b0d548af",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_datetime.html",
+        "title": "pandas.to_datetime",
+        "section": "pandas.to_datetime — format str, default None",
+        "text": "format str, default None\n\nThe strftime to parse time, e.g. `\"%d/%m/%Y\"`. See\nstrftime documentation for more information on choices, though\nnote that `\"%f\"` will parse all the way up to nanoseconds.\nYou can also pass:\n\n- “ISO8601”, to parse any ISO8601\ntime string (not necessarily in exactly the same format);\n\n- “mixed”, to infer the format for each element individually. This is risky,\nand you should probably use it along with dayfirst.\n\nNote\n\nIf a `DataFrame` is passed, then format has no effect.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 5,
+        "part": 0,
+        "content_sha256": "1d137fd6db4cc301b1e7348fd74db70fffc3ab3ffad40f19fa5e45293cfd5d43",
+        "score": 0.5249665099643817
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950742.9808252,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, mencionando o uso do parâmetro `format` com o padrão `%d/%m/%Y` para datas no formato dia/mês/ano, e também explica que o ano deve estar em 4 dígitos, conforme especificado nos trechos citados."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to use to_datetime for dates in the day/month/year format?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 35,
+      "prompt_eval_count": 212,
+      "total_duration": 1904858400,
+      "load_duration": 8401200,
+      "prompt_eval_duration": 197678000,
+      "eval_duration": 1623920000
+    },
+    "retrieval_ms": 2077.9759000288323,
+    "context_chars": 945,
+    "generation_ms": 8893.835499999113,
+    "usage": {
+      "eval_count": 166,
+      "prompt_eval_count": 1004,
+      "total_duration": 8892193700,
+      "load_duration": 5409000,
+      "prompt_eval_duration": 861900000,
+      "eval_duration": 7978250000
+    },
+    "audit_usage": {
+      "eval_count": 94,
+      "prompt_eval_count": 1500,
+      "total_duration": 6316667900,
+      "load_duration": 5271700,
+      "prompt_eval_duration": 1481767000,
+      "eval_duration": 4744292000
+    },
+    "audit_ms": 6318.694400019012,
+    "total_ms": 17290.752300003078
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "case_id": "case-037-1",
+  "family": "family-037",
+  "question": "Meu arquivo não abre. Como corrigir?",
+  "topic": "io",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir formato, erro e exemplo mínimo."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "d7703c82ab004d7992c83189b0eabbd6",
+    "action": "handoff",
+    "message": "O arquivo não está abrindo. Como corrigir?",
+    "claims": [],
+    "sources": [],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950376.987356,
+    "audit": null,
+    "interpretation": {
+      "scope": "outside",
+      "english_question": "My file does not open. How to fix?",
+      "message": "O arquivo não está abrindo. Como corrigir?"
+    },
+    "planning_usage": {
+      "eval_count": 44,
+      "prompt_eval_count": 167,
+      "total_duration": 2280302900,
+      "load_duration": 8873400,
+      "prompt_eval_duration": 189763000,
+      "eval_duration": 1943769000
+    },
+    "total_ms": 2282.8951999545097
+  }
+}

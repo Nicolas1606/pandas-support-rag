@@ -1,0 +1,121 @@
+{
+  "answer_mode": "controlled",
+  "isolated_data_directory": true,
+  "steps": [
+    {
+      "endpoint": "/health",
+      "status": 200,
+      "body": "{\"status\": \"alive\"}"
+    },
+    {
+      "endpoint": "/ready",
+      "status": 200,
+      "body": "{\"retrieval\": true, \"generation\": false, \"answer_mode\": \"controlled\", \"semantic\": true, \"default_method\": \"bm25\", \"corpus_id\": \"81396567c3f64252\"}"
+    },
+    {
+      "endpoint": "/",
+      "status": 200,
+      "body": "UI HTML loaded"
+    },
+    {
+      "question": "Como validar um merge muitos para um usando validate?",
+      "expected": "answer",
+      "passed": true,
+      "seconds": 0.007767800008878112,
+      "output": {
+        "request_id": "72dd5a0c10ab47518409873c0c70fded",
+        "action": "answer",
+        "message": "",
+        "claims": [
+          {
+            "text": "Use `validate=\"many_to_one\"` (ou `\"m:1\"`). As chaves do lado direito precisam ser únicas. A esquerda pode ter duplicatas.",
+            "evidence_ids": [
+              "3a4cee70a1603446de850c88"
+            ],
+            "evidence_quotes": [
+              {
+                "source_id": "3a4cee70a1603446de850c88",
+                "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+              }
+            ]
+          }
+        ],
+        "sources": [
+          {
+            "id": "3a4cee70a1603446de850c88",
+            "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+            "title": "pandas.merge",
+            "section": "pandas.merge — validate str, optional",
+            "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+            "kind": "markdown",
+            "version": "2.2.3",
+            "continued": false,
+            "block_id": 0,
+            "unit": 12,
+            "part": 0,
+            "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+          }
+        ],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1795005222.7789044,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "d6aec4f339cb31070f23c9ea6a68f44d91fb9d7301eb586e315e2714e6429ac3",
+        "contract_id": "merge_m1",
+        "decision_reason": "unique_contract_and_evidence",
+        "total_ms": 1.7899000085890293
+      }
+    },
+    {
+      "question": "Como configurar um cluster Spark?",
+      "expected": "handoff",
+      "passed": true,
+      "seconds": 0.026932100008707494,
+      "output": {
+        "request_id": "90ae0f45acb3433894aec42d2d9abda7",
+        "action": "handoff",
+        "message": "Encaminhe a solicitação. A base cobre apenas operações documentadas de pandas.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1795005222.8077464,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "d6aec4f339cb31070f23c9ea6a68f44d91fb9d7301eb586e315e2714e6429ac3",
+        "decision_reason": "outside_scope",
+        "total_ms": 0.07920002099126577
+      }
+    },
+    {
+      "question": "Meu merge duplicou linhas. Como resolver?",
+      "expected": "clarify",
+      "passed": true,
+      "seconds": 0.01615829998627305,
+      "output": {
+        "request_id": "e2f23bf32bf2472ca9a7d7dcf37deadb",
+        "action": "clarify",
+        "message": "Informe a operação, um exemplo mínimo e o resultado esperado. Inclua o significado dos campos quando a decisão envolver tipos ou ausentes.",
+        "claims": [],
+        "sources": [],
+        "corpus_id": "81396567c3f64252",
+        "method": "contract_evidence",
+        "model": null,
+        "version": "2.2.3",
+        "time": 1795005222.8235078,
+        "audit": null,
+        "answer_mode": "controlled",
+        "catalog_sha256": "d6aec4f339cb31070f23c9ea6a68f44d91fb9d7301eb586e315e2714e6429ac3",
+        "decision_reason": "missing_context",
+        "total_ms": 0.0651999725960195
+      }
+    }
+  ],
+  "passed": true
+}

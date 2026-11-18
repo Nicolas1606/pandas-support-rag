@@ -1,0 +1,122 @@
+{
+  "case_id": "case-012-2",
+  "family": "family-012",
+  "question": "Tenho uma coluna data ISO. Como usar parse_dates?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Configurar parse_dates; não prometer todo texto válido."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "17522c1e46bc4e31960730c8f24a7d68",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para usar `parse_dates` com uma coluna de data no formato ISO, você pode passar `parse_dates=True` ou especificar a coluna como uma lista ou dicionário. Por exemplo, se a coluna for chamada 'data', use `parse_dates=['data']`. O parâmetro `parse_dates` aceita um booleano, lista de inteiros/nomes, lista de listas ou dicionário, conforme descrito na documentação.",
+        "evidence_ids": [
+          "a22752b6939e64799d1c7327",
+          "15d7e9b139ead178873d2925"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "a22752b6939e64799d1c7327",
+            "quote": "parse_dates bool, list-like, or dict, default False\n\nThe behavior is as follows:\n\n- `bool`. If True -> try parsing the index.\n\n- `list` of int or names. e.g. If [1, 2, 3] -> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of lists. e.g. If [[1, 3]] -> combine columns 1 and 3 and parse as\na single date column.\n\n- `dict`, e.g. {‘foo’ : [1, 3]} -> parse columns 1, 3 as date and call\nresult ‘foo’\n\nIf a column or index contains an unparsable date, the entire column or\nindex will be returned unaltered as an object data type. If you don\\`t want to\nparse some cells as date just change their type in Excel to “Text”.\nFor non-standard datetime parsing, use `pd.to_datetime` after `pd.read_excel`.\n\nNote: A fast-path exists for iso8601-formatted dates.\n\ndate_parser function, optional"
+          },
+          {
+            "source_id": "15d7e9b139ead178873d2925",
+            "quote": "parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False\n\nThe behavior is as follows:\n\n- `bool`. If `True` -\\> try parsing the index. Note: Automatically set to\n`True` if `date_format` or `date_parser` arguments have been passed.\n\n- `list` of `int` or names. e.g. If `[1, 2, 3]` -\\> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of `list`. e.g. If `[[1, 3]]` -\\> combine columns 1 and 3 and parse\nas a single date column. Values are joined with a space before parsing.\n\n- `dict`, e.g. `{'foo' : [1, 3]}` -\\> parse columns 1, 3 as date and call\nresult ‘foo’. Values are joined with a space before parsing.\n\nIf a column or index cannot be represented as an array of `datetime`,\nsay because of an unparsable value or a mixture of timezones, the column"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "a22752b6939e64799d1c7327",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "title": "pandas.read_excel",
+        "section": "pandas.read_excel — parse_dates bool, list-like, or dict, default False",
+        "text": "parse_dates bool, list-like, or dict, default False\n\nThe behavior is as follows:\n\n- `bool`. If True -> try parsing the index.\n\n- `list` of int or names. e.g. If [1, 2, 3] -> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of lists. e.g. If [[1, 3]] -> combine columns 1 and 3 and parse as\na single date column.\n\n- `dict`, e.g. {‘foo’ : [1, 3]} -> parse columns 1, 3 as date and call\nresult ‘foo’\n\nIf a column or index contains an unparsable date, the entire column or\nindex will be returned unaltered as an object data type. If you don\\`t want to\nparse some cells as date just change their type in Excel to “Text”.\nFor non-standard datetime parsing, use `pd.to_datetime` after `pd.read_excel`.\n\nNote: A fast-path exists for iso8601-formatted dates.\n\ndate_parser function, optional",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 16,
+        "part": 0,
+        "content_sha256": "3e6fdf17007b86962a52e7386e6744eec2c762e56adda59bc6f39058ff25841c",
+        "score": 0.5697596683179229
+      },
+      {
+        "id": "15d7e9b139ead178873d2925",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_table.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_table.html",
+        "title": "pandas.read_table",
+        "section": "pandas.read_table — parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False",
+        "text": "parse_dates bool, list of Hashable, list of lists or dict of {Hashablelist}, default False\n\nThe behavior is as follows:\n\n- `bool`. If `True` -\\> try parsing the index. Note: Automatically set to\n`True` if `date_format` or `date_parser` arguments have been passed.\n\n- `list` of `int` or names. e.g. If `[1, 2, 3]` -\\> try parsing columns 1, 2, 3\neach as a separate date column.\n\n- `list` of `list`. e.g. If `[[1, 3]]` -\\> combine columns 1 and 3 and parse\nas a single date column. Values are joined with a space before parsing.\n\n- `dict`, e.g. `{'foo' : [1, 3]}` -\\> parse columns 1, 3 as date and call\nresult ‘foo’. Values are joined with a space before parsing.\n\nIf a column or index cannot be represented as an array of `datetime`,\nsay because of an unparsable value or a mixture of timezones, the column",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 24,
+        "part": 0,
+        "content_sha256": "02d2e9a799bfe9c1f707b96860eb6f71586e57af60395b12ae7fe57f9034ad63",
+        "score": 0.5579699913202306
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950684.8670177,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta aborda corretamente o uso de `parse_dates` com uma coluna de data no formato ISO, mencionando as opções de booleano, lista ou dicionário, conforme descrito na documentação."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "I have an ISO date column. How to use parse_dates?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 34,
+      "prompt_eval_count": 211,
+      "total_duration": 1822919000,
+      "load_duration": 6370000,
+      "prompt_eval_duration": 164081000,
+      "eval_duration": 1525165000
+    },
+    "retrieval_ms": 1984.9985999753699,
+    "context_chars": 1608,
+    "generation_ms": 9065.547999984119,
+    "usage": {
+      "eval_count": 157,
+      "prompt_eval_count": 1266,
+      "total_duration": 9063237600,
+      "load_duration": 6893600,
+      "prompt_eval_duration": 1251411000,
+      "eval_duration": 7778858000
+    },
+    "audit_usage": {
+      "eval_count": 71,
+      "prompt_eval_count": 1997,
+      "total_duration": 5918847100,
+      "load_duration": 5770500,
+      "prompt_eval_duration": 2022471000,
+      "eval_duration": 3774251000
+    },
+    "audit_ms": 5920.766800001729,
+    "total_ms": 16971.67910001008
+  }
+}

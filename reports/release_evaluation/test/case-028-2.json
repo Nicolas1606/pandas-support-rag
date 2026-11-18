@@ -1,0 +1,133 @@
+{
+  "case_id": "case-028-2",
+  "family": "family-028",
+  "question": "Posso usar cliente_id de um lado e id do outro no merge?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "left_on e right_on indicam chaves com nomes distintos."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "302e1d7948984a6a88694ad9b8cd5c15",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Sim, você pode usar `client_id` de um lado e `id` do outro em uma operação de `merge`, desde que os valores correspondam nas colunas especificadas. Por exemplo, você pode usar `left_on='client_id'` e `right_on='id'` para realizar a junção, conforme mostrado no exemplo com `df1.merge(df2, left_on='lkey', right_on='rkey')`.",
+        "evidence_ids": [
+          "58c7bde69a79fbef255a39a4"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "58c7bde69a79fbef255a39a4",
+            "quote": "Examples\n\n```\n>>> df1 = pd.DataFrame({'lkey': ['foo', 'bar', 'baz', 'foo'],\n...                     'value': [1, 2, 3, 5]})\n>>> df2 = pd.DataFrame({'rkey': ['foo', 'bar', 'baz', 'foo'],\n...                     'value': [5, 6, 7, 8]})\n>>> df1\n    lkey value\n0   foo      1\n1   bar      2\n2   baz      3\n3   foo      5\n>>> df2\n    rkey value\n0   foo      5\n1   bar      6\n2   baz      7\n3   foo      8\n```\n\nMerge df1 and df2 on the lkey and rkey columns. The value columns have\nthe default suffixes, _x and _y, appended.\n\n```\n>>> df1.merge(df2, left_on='lkey', right_on='rkey')\n  lkey  value_x rkey  value_y\n0  foo        1  foo        5\n1  foo        1  foo        8\n2  bar        2  bar        6\n3  baz        3  baz        7\n4  foo        5  foo        5\n5  foo        5  foo        8\n```\n\nMerge DataFrames df1 and df2 with specified left and right suffixes\nappended to any overlapping columns."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "bb70110789a559a4a7d55457",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "In [49]: right = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K1\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K0\", \"K0\", \"K0\"],\n   ....:       \"C\": [\"C0\", \"C1\", \"C2\", \"C3\"],\n   ....:       \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"],\n   ....:    }\n   ....: )\n   ....:\n\nIn [50]: result = pd.merge(left, right, how=\"left\", on=[\"key1\", \"key2\"])\n\nIn [51]: result\nOut[51]:\n  key1 key2   A   B    C    D\n0   K0   K0  A0  B0   C0   D0\n1   K0   K1  A1  B1  NaN  NaN\n2   K1   K0  A2  B2   C1   D1\n3   K1   K0  A2  B2   C2   D2\n4   K2   K1  A3  B3  NaN  NaN\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key_left.png\n\n```\nIn [52]: result = pd.merge(left, right, how=\"right\", on=[\"key1\", \"key2\"])\n\nIn [53]: result\nOut[53]:\n  key1 key2    A    B   C   D\n0   K0   K0   A0   B0  C0  D0\n1   K1   K0   A2   B2  C1  D1\n2   K1   K0   A2   B2  C2  D2\n3   K2   K0  NaN  NaN  C3  D3\n```\n\n```\n\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 3,
+        "content_sha256": "a9d7e924a51b487dbd64b852075431b1405b589c7f424f7c0483f5ec077587f8",
+        "score": 0.42182365592547194
+      },
+      {
+        "id": "58c7bde69a79fbef255a39a4",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+        "title": "pandas.merge",
+        "section": "pandas.merge — Examples",
+        "text": "Examples\n\n```\n>>> df1 = pd.DataFrame({'lkey': ['foo', 'bar', 'baz', 'foo'],\n...                     'value': [1, 2, 3, 5]})\n>>> df2 = pd.DataFrame({'rkey': ['foo', 'bar', 'baz', 'foo'],\n...                     'value': [5, 6, 7, 8]})\n>>> df1\n    lkey value\n0   foo      1\n1   bar      2\n2   baz      3\n3   foo      5\n>>> df2\n    rkey value\n0   foo      5\n1   bar      6\n2   baz      7\n3   foo      8\n```\n\nMerge df1 and df2 on the lkey and rkey columns. The value columns have\nthe default suffixes, _x and _y, appended.\n\n```\n>>> df1.merge(df2, left_on='lkey', right_on='rkey')\n  lkey  value_x rkey  value_y\n0  foo        1  foo        5\n1  foo        1  foo        8\n2  bar        2  bar        6\n3  baz        3  baz        7\n4  foo        5  foo        5\n5  foo        5  foo        8\n```\n\nMerge DataFrames df1 and df2 with specified left and right suffixes\nappended to any overlapping columns.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 15,
+        "part": 0,
+        "content_sha256": "4a799eaa65b8185b4bbde16ad84a8ecb5809e8db56ecda70b5887b7476fa09d2",
+        "score": 0.4115702637635374
+      },
+      {
+        "id": "2c6240763538dabbe6bb2741",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge key uniqueness",
+        "text": "The `validate` argument checks whether the uniqueness of merge keys.\nKey uniqueness is checked before merge operations and can protect against memory overflows\nand unexpected key duplication.\n\n\nExemplo com exceção; pilha interna omitida.\nMergeError: Merge keys are not unique in right dataset; not a one-to-one merge\n\nIf the user is aware of the duplicates in the right `DataFrame` but wants to\nensure there are no duplicates in the left `DataFrame`, one can use the\n`validate='one_to_many'` argument instead, which will not raise an exception.\n\n```\nIn [72]: pd.merge(left, right, on=\"B\", how=\"outer\", validate=\"one_to_many\")\nOut[72]:\n   A_x  B  A_y\n0    1  1  NaN\n1    2  2  4.0\n2    2  2  5.0\n3    2  2  6.0\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 9,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "4391cd215b87d2fe3df3dafa77096624d5862fc19aca42090896eacd61dd78fd",
+        "score": 0.4104687417658926
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950919.0251667,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada no exemplo fornecido no documento, que mostra como usar `left_on` e `right_on` com nomes diferentes de colunas em uma operação de `merge`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Can I use client_id from one side and id from the other in the merge?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 38,
+      "prompt_eval_count": 213,
+      "total_duration": 2524447300,
+      "load_duration": 7321000,
+      "prompt_eval_duration": 183362000,
+      "eval_duration": 1973812000
+    },
+    "retrieval_ms": 2770.15279995976,
+    "context_chars": 2482,
+    "generation_ms": 9610.96770002041,
+    "usage": {
+      "eval_count": 125,
+      "prompt_eval_count": 1988,
+      "total_duration": 9608778400,
+      "load_duration": 7912400,
+      "prompt_eval_duration": 2250072000,
+      "eval_duration": 7286842000
+    },
+    "audit_usage": {
+      "eval_count": 69,
+      "prompt_eval_count": 2480,
+      "total_duration": 6854130600,
+      "load_duration": 7856400,
+      "prompt_eval_duration": 2597346000,
+      "eval_duration": 4067109000
+    },
+    "audit_ms": 6856.276100035757,
+    "total_ms": 19237.922200001776
+  }
+}

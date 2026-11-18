@@ -1,0 +1,117 @@
+{
+  "case_id": "case-010-1",
+  "family": "family-010",
+  "question": "Meu CSV não tem cabeçalho. Como fornecer os nomes?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Diferenciar header=None de names."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "d1389362e228491a9df37e097501e3d3",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para fornecer nomes para as colunas de um CSV que não possui cabeçalho, use o parâmetro `names` com uma lista de nomes desejados e defina `header=None`. Exemplo: `pd.read_csv('arquivo.csv', names=['col1', 'col2'], header=None)`.",
+        "evidence_ids": [
+          "3a8f2ef462411108374236ce"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "3a8f2ef462411108374236ce",
+            "quote": "names array-like, default None\n\nList of column names to use. If file contains no header row,\nthen you should explicitly pass header=None."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "37aaa8742b3506720b4ce0e9",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — header int, Sequence of int, ‘infer’ or None, default ‘infer’",
+        "text": "header int, Sequence of int, ‘infer’ or None, default ‘infer’\n\nRow number(s) containing column labels and marking the start of the\ndata (zero-indexed). Default behavior is to infer the column names: if no `names`\nare passed the behavior is identical to `header=0` and column\nnames are inferred from the first line of the file, if column\nnames are passed explicitly to `names` then the behavior is identical to\n`header=None`. Explicitly pass `header=0` to be able to\nreplace existing names. The header can be a list of integers that\nspecify row locations for a `MultiIndex` on the columns\ne.g. `[0, 1, 3]`. Intervening rows that are not specified will be\nskipped (e.g. 2 in this example is skipped). Note that this\nparameter ignores commented lines and empty lines if\n`skip_blank_lines=True`, so `header=0` denotes the first line of",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 5,
+        "part": 0,
+        "content_sha256": "056915331b4d66df2a8c04b2afcb9281b482314bec65badfeab160e215a4d036",
+        "score": 0.5881649418994152
+      },
+      {
+        "id": "3a8f2ef462411108374236ce",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_excel.html",
+        "title": "pandas.read_excel",
+        "section": "pandas.read_excel — names array-like, default None",
+        "text": "names array-like, default None\n\nList of column names to use. If file contains no header row,\nthen you should explicitly pass header=None.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 4,
+        "part": 0,
+        "content_sha256": "e79e5496fe3326e680765867c240178e95b319dedba724211dcd8aa9542c88cd",
+        "score": 0.5403845213855921
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950641.9598696,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação fornecida, indicando que para um CSV sem cabeçalho, é necessário usar o parâmetro `names` com os nomes desejados e definir `header=None`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "My CSV does not have a header. How to provide the names?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 35,
+      "prompt_eval_count": 215,
+      "total_duration": 1819149900,
+      "load_duration": 5275900,
+      "prompt_eval_duration": 175408000,
+      "eval_duration": 1568117000
+    },
+    "retrieval_ms": 2008.934199984651,
+    "context_chars": 968,
+    "generation_ms": 5733.869500050787,
+    "usage": {
+      "eval_count": 102,
+      "prompt_eval_count": 978,
+      "total_duration": 5732047200,
+      "load_duration": 5424700,
+      "prompt_eval_duration": 822814000,
+      "eval_duration": 4857957000
+    },
+    "audit_usage": {
+      "eval_count": 76,
+      "prompt_eval_count": 1137,
+      "total_duration": 4977458100,
+      "load_duration": 6811100,
+      "prompt_eval_duration": 1202907000,
+      "eval_duration": 3705170000
+    },
+    "audit_ms": 4979.363999969792,
+    "total_ms": 12722.339099971578
+  }
+}

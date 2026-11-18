@@ -1,0 +1,138 @@
+{
+  "case_id": "case-024-2",
+  "family": "family-024",
+  "question": "infer_objects e conversão explícita de strings são a mesma coisa?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Inferência leve em object não equivale a parsing arbitrário."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "43a7e165eb8746179aa0df33d9d137b2",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Não, `infer_objects` e a conversão explícita de strings não são a mesma coisa. `infer_objects` tenta inferir melhor os tipos de dados (dtypes) para colunas de objeto, aplicando regras de inferência semelhantes às usadas durante a construção de Series/DataFrame, mas não realiza conversão explícita de strings. Já a conversão explícita de strings é feita por funções como `to_numeric`, `to_datetime` e `to_timedelta`, que convertem objetos para tipos específicos.",
+        "evidence_ids": [
+          "d09e7b00d417aaef012ae19c",
+          "516c5be71629da3dbdf2ea30"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "d09e7b00d417aaef012ae19c",
+            "quote": "DataFrame.infer_objects( _copy=None_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6831-L6890)\n\nAttempt to infer better dtypes for object columns.\n\nAttempts soft conversion of object-dtyped\ncolumns, leaving non-object and unconvertible\ncolumns unchanged. The inference rules are the\nsame as during normal Series/DataFrame construction.\n\nParameters:copy bool, default True\n\nWhether to make a copy for non-object or non-inferable columns"
+          },
+          {
+            "source_id": "516c5be71629da3dbdf2ea30",
+            "quote": "Because the data was transposed the original inference stored all columns as object, which\n`infer_objects` will correct.\n\n> ```\n> In [387]: df.infer_objects().dtypes\n> Out[387]:\n> 0             int64\n> 1            object\n> 2    datetime64[ns]\n> dtype: object\n> ```\n>\n> Copy to clipboard\n\nThe following functions are available for one dimensional object arrays or scalars to perform\nhard conversion of objects to a specified type:\n\n- `to_numeric()` (conversion to numeric dtypes)\n\n```\nIn [388]: m = [\"1.1\", 2, 3]\n\nIn [389]: pd.to_numeric(m)\nOut[389]: array([1.1, 2. , 3. ])\n```\n\n- `to_datetime()` (conversion to datetime objects)\n\n```\nIn [390]: import datetime\n\nIn [391]: m = [\"2016-07-09\", datetime.datetime(2016, 3, 2)]\n\nIn [392]: pd.to_datetime(m)\nOut[392]: DatetimeIndex(['2016-07-09', '2016-03-02'], dtype='datetime64[ns]', freq=None)\n```\n\n- `to_timedelta()` (conversion to timedelta objects)"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "d09e7b00d417aaef012ae19c",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.infer_objects.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.infer_objects.html",
+        "title": "pandas.DataFrame.infer_objects",
+        "section": "pandas.DataFrame.infer_objects",
+        "text": "DataFrame.infer_objects( _copy=None_) [[source]](https://github.com/pandas-dev/pandas/blob/v2.2.3/pandas/core/generic.py#L6831-L6890)\n\nAttempt to infer better dtypes for object columns.\n\nAttempts soft conversion of object-dtyped\ncolumns, leaving non-object and unconvertible\ncolumns unchanged. The inference rules are the\nsame as during normal Series/DataFrame construction.\n\nParameters:copy bool, default True\n\nWhether to make a copy for non-object or non-inferable columns",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "bded320fbf617872e421f05c63b0928b023ac3ba6b3fc8f726e509be049ee43b",
+        "score": 0.5421931714908137
+      },
+      {
+        "id": "516c5be71629da3dbdf2ea30",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "object conversion",
+        "text": "Because the data was transposed the original inference stored all columns as object, which\n`infer_objects` will correct.\n\n> ```\n> In [387]: df.infer_objects().dtypes\n> Out[387]:\n> 0             int64\n> 1            object\n> 2    datetime64[ns]\n> dtype: object\n> ```\n>\n> Copy to clipboard\n\nThe following functions are available for one dimensional object arrays or scalars to perform\nhard conversion of objects to a specified type:\n\n- `to_numeric()` (conversion to numeric dtypes)\n\n```\nIn [388]: m = [\"1.1\", 2, 3]\n\nIn [389]: pd.to_numeric(m)\nOut[389]: array([1.1, 2. , 3. ])\n```\n\n- `to_datetime()` (conversion to datetime objects)\n\n```\nIn [390]: import datetime\n\nIn [391]: m = [\"2016-07-09\", datetime.datetime(2016, 3, 2)]\n\nIn [392]: pd.to_datetime(m)\nOut[392]: DatetimeIndex(['2016-07-09', '2016-03-02'], dtype='datetime64[ns]', freq=None)\n```\n\n- `to_timedelta()` (conversion to timedelta objects)",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 67,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "9bb0c397b6f6635d005597736d6227d148c6b8ef7761fb439c573028dd5afb2c",
+        "score": 0.5400948265716013
+      },
+      {
+        "id": "a4a33847c83e240620bf9894",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.convert_dtypes.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.convert_dtypes.html",
+        "title": "pandas.DataFrame.convert_dtypes",
+        "section": "pandas.DataFrame.convert_dtypes — For object-dtyped columns, if `infer_objects` is `True`, use the inference",
+        "text": "For object-dtyped columns, if `infer_objects` is `True`, use the inference\nrules as during normal Series/DataFrame construction. Then, if possible,\nconvert to `StringDtype`, `BooleanDtype` or an appropriate integer\nor floating extension type, otherwise leave as `object`.\n\nIf the dtype is integer, convert to an appropriate integer extension type.\n\nIf the dtype is numeric, and consists of all integers, convert to an\nappropriate integer extension type. Otherwise, convert to an\nappropriate floating extension type.\n\nIn the future, as new dtypes are added that support `pd.NA`, the results\nof this method will change to support those new dtypes.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 10,
+        "part": 0,
+        "content_sha256": "5426eff15d31a5ac29c2e5bd3171e7904bd490dc1697f7b276c0dd42f69df715",
+        "score": 0.5204226538585172
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950862.9383907,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada em evidências fornecidas, diferenciando claramente `infer_objects` da conversão explícita de strings, com exemplos e referências adequadas."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Are infer_objects and explicit string conversion the same thing?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 213,
+      "total_duration": 1722536100,
+      "load_duration": 7316100,
+      "prompt_eval_duration": 181762000,
+      "eval_duration": 1464842000
+    },
+    "retrieval_ms": 1901.8837999901734,
+    "context_chars": 2016,
+    "generation_ms": 10863.047699967865,
+    "usage": {
+      "eval_count": 174,
+      "prompt_eval_count": 1587,
+      "total_duration": 10860642400,
+      "load_duration": 6887900,
+      "prompt_eval_duration": 1712496000,
+      "eval_duration": 9086803000
+    },
+    "audit_usage": {
+      "eval_count": 67,
+      "prompt_eval_count": 2275,
+      "total_duration": 6137305100,
+      "load_duration": 8532600,
+      "prompt_eval_duration": 2281012000,
+      "eval_duration": 3701861000
+    },
+    "audit_ms": 6139.449399954174,
+    "total_ms": 18904.82409996912
+  }
+}

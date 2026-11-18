@@ -1,0 +1,133 @@
+{
+  "case_id": "case-020-1",
+  "family": "family-020",
+  "question": "Como converter apenas uma coluna com astype?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Mapping coluna->tipo permite conversão seletiva."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "235ddb6b21ff47978aa1e302738a1e21",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para converter apenas uma coluna usando `astype()`, você pode passar um dicionário especificando o nome da coluna e o tipo desejado. Por exemplo: `df[[\"coluna\"]].astype({\"coluna\": np.dtype})`.",
+        "evidence_ids": [
+          "06db0000b434b1f8321690ae"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "06db0000b434b1f8321690ae",
+            "quote": "In [369]: df3.astype(\"float32\").dtypes\nOut[369]:\nA    float32\nB    float32\nC    float32\ndtype: object\n```\n\nCopy to clipboard\n\nConvert a subset of columns to a specified type using [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\").\n\n```\nIn [370]: dft = pd.DataFrame({\"a\": [1, 2, 3], \"b\": [4, 5, 6], \"c\": [7, 8, 9]})\n\nIn [371]: dft[[\"a\", \"b\"]] = dft[[\"a\", \"b\"]].astype(np.uint8)\n\nIn [372]: dft\nOut[372]:\na  b  c\n0  1  4  7\n1  2  5  8\n2  3  6  9\n\nIn [373]: dft.dtypes\nOut[373]:\na    uint8\nb    uint8\nc    int64\ndtype: object\n```\n\nCopy to clipboard\n\nConvert certain columns to a specific dtype by passing a dict to [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\")."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "836e2e242322daaa704d0cc3",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "astype",
+        "text": "You can use the `astype()` method to explicitly convert dtypes from one to another. These will by default return a copy,\neven if the dtype was unchanged (pass `copy=False` to change this behavior). In addition, they will raise an\nexception if the astype operation is invalid.\n\nUpcasting is always according to the NumPy rules. If two different dtypes are involved in an operation,\nthen the more _general_ one will be used as the result of the operation.\n\n```\nIn [367]: df3\nOut[367]:\n          A         B      C\n0  1.047606  0.256090   26.0\n1  3.497968  1.426469   86.0\n2 -0.150862 -0.416203   46.0\n3  0.724370  1.139976  212.0\n4 -1.203098 -1.193477   26.0\n5  1.346426  0.096706    7.0\n6 -0.052599 -1.956850  184.0\n7 -0.756495 -0.714337  206.0\n\nIn [368]: df3.dtypes\nOut[368]:\nA    float32\nB    float64\nC    float64\ndtype: object",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 65,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "87e015d4099a5f82074657782f0efaf3d186965524d99456187f3f360efe77cb",
+        "score": 0.5539270224630289
+      },
+      {
+        "id": "06db0000b434b1f8321690ae",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "conversion of dtypes",
+        "text": "In [369]: df3.astype(\"float32\").dtypes\nOut[369]:\nA    float32\nB    float32\nC    float32\ndtype: object\n```\n\nCopy to clipboard\n\nConvert a subset of columns to a specified type using [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\").\n\n```\nIn [370]: dft = pd.DataFrame({\"a\": [1, 2, 3], \"b\": [4, 5, 6], \"c\": [7, 8, 9]})\n\nIn [371]: dft[[\"a\", \"b\"]] = dft[[\"a\", \"b\"]].astype(np.uint8)\n\nIn [372]: dft\nOut[372]:\na  b  c\n0  1  4  7\n1  2  5  8\n2  3  6  9\n\nIn [373]: dft.dtypes\nOut[373]:\na    uint8\nb    uint8\nc    int64\ndtype: object\n```\n\nCopy to clipboard\n\nConvert certain columns to a specific dtype by passing a dict to [`astype()`](https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.DataFrame.astype.html#pandas.DataFrame.astype \"pandas.DataFrame.astype\").",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 66,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "45b38848058eed9d466bbff6231c1d60d887c974e9bdd1942a671a68b4004e4d",
+        "score": 0.5393483484053802
+      },
+      {
+        "id": "cfde624c135036dc495bfb4f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "324c42462b0ebf21f227483653ca69dd72a786afcd52ff626312044c7ba746e0",
+        "score": 0.5224892293473616
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950786.7811756,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, mostrando como converter uma única coluna usando `astype()` com um dicionário."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to convert only one column with astype?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 208,
+      "total_duration": 1636502000,
+      "load_duration": 6873800,
+      "prompt_eval_duration": 166989000,
+      "eval_duration": 1367313000
+    },
+    "retrieval_ms": 1827.3844000068493,
+    "context_chars": 2547,
+    "generation_ms": 7192.9467000300065,
+    "usage": {
+      "eval_count": 92,
+      "prompt_eval_count": 2069,
+      "total_duration": 7188807500,
+      "load_duration": 6270800,
+      "prompt_eval_duration": 2167282000,
+      "eval_duration": 4979348000
+    },
+    "audit_usage": {
+      "eval_count": 54,
+      "prompt_eval_count": 2541,
+      "total_duration": 5879717500,
+      "load_duration": 7437900,
+      "prompt_eval_duration": 2511961000,
+      "eval_duration": 3203756000
+    },
+    "audit_ms": 5881.025500013493,
+    "total_ms": 14901.596000010613
+  }
+}

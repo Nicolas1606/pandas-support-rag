@@ -1,0 +1,133 @@
+{
+  "case_id": "case-002-1",
+  "family": "family-002",
+  "question": "Como ler CSV separado por ponto e vírgula?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Usar sep coerente com arquivo."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 0.5
+  },
+  "output": {
+    "request_id": "916ac260529b47b3885e8d8047c9d7df",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para ler um CSV separado por ponto e vírgula, use o parâmetro `sep=';'` na função `read_csv`. Se o separador não for conhecido, defina `sep=None` e utilize o motor Python para detecção automática.",
+        "evidence_ids": [
+          "60e5ff74cb11f8fbd46d8c71"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "60e5ff74cb11f8fbd46d8c71",
+            "quote": "sep str, default ‘,’\n\nCharacter or regex pattern to treat as the delimiter. If `sep=None`, the\nC engine cannot automatically detect\nthe separator, but the Python parsing engine can, meaning the latter will\nbe used and automatically detect the separator from only the first valid\nrow of the file by Python’s builtin sniffer tool, `csv.Sniffer`.\nIn addition, separators longer than 1 character and different from\n`'\\s+'` will be interpreted as regular expressions and will also force\nthe use of the Python parsing engine. Note that regex delimiters are prone\nto ignoring quoted data. Regex example: `'\\r\\t'`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "1b6987985e2e168dfd60896f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Automatically “sniffing” the delimiter \\",
+        "text": "\\\n`read_csv` is capable of inferring delimited (not necessarily\\\ncomma-separated) files, as pandas uses the `csv.Sniffer`\\\nclass of the csv module. For this, you have to specify `sep=None`.\\\n\\\n```\\\nIn [221]: df = pd.DataFrame(np.random.randn(10, 4))\\\n\\\nIn [222]: df.to_csv(\"tmp2.csv\", sep=\":\", index=False)\\\n\\\nIn [223]: pd.read_csv(\"tmp2.csv\", sep=None, engine=\"python\")\\\nOut[223]:\\\n          0         1         2         3\\\n0  0.469112 -0.282863 -1.509059 -1.135632\\\n1  1.212112 -0.173215  0.119209 -1.044236\\\n2 -0.861849 -2.104569 -0.494929  1.071804\\\n3  0.721555 -0.706771 -1.039575  0.271860\\\n4 -0.424972  0.567020  0.276232 -1.087401\\\n5 -0.673690  0.113648 -1.478427  0.524988\\\n6  0.404705  0.577046 -1.715002 -1.039268\\\n7 -0.370647 -1.157892 -1.344312  0.844885\\\n8  1.075770 -0.109050  1.643563 -1.469388\\\n9  0.357021 -0.674600 -1.776904 -0.968914\\\n```\\\n\\\nCopy to clipboard\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 45,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "885548fad47073ee04b8ab09cb8a10cd5597bdfabc018189662332c004d5883c",
+        "score": 0.5543984401846938
+      },
+      {
+        "id": "60e5ff74cb11f8fbd46d8c71",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — sep str, default ‘,’",
+        "text": "sep str, default ‘,’\n\nCharacter or regex pattern to treat as the delimiter. If `sep=None`, the\nC engine cannot automatically detect\nthe separator, but the Python parsing engine can, meaning the latter will\nbe used and automatically detect the separator from only the first valid\nrow of the file by Python’s builtin sniffer tool, `csv.Sniffer`.\nIn addition, separators longer than 1 character and different from\n`'\\s+'` will be interpreted as regular expressions and will also force\nthe use of the Python parsing engine. Note that regex delimiters are prone\nto ignoring quoted data. Regex example: `'\\r\\t'`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 3,
+        "part": 0,
+        "content_sha256": "caf6639f0ab2c4a838a74bcd83f0960b54df3e652cbbd09959cb9adb05604f34",
+        "score": 0.5542729906530549
+      },
+      {
+        "id": "1a17b872587a45f1f3a87ab4",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — delimiter str, optional",
+        "text": "delimiter str, optional\n\nAlias for `sep`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 0,
+        "unit": 4,
+        "part": 0,
+        "content_sha256": "7fcbd2ee7c4ce459aa45bd366d7c1006a7e0e109b747d8fb23f5dce4857bc285",
+        "score": 0.5288712398235351
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950522.2410805,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada na documentação, indicando o uso do parâmetro `sep=';'` para separadores específicos e a detecção automática com `sep=None` e o motor Python."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to read CSV separated by semicolon?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 30,
+      "prompt_eval_count": 210,
+      "total_duration": 1642032800,
+      "load_duration": 8560000,
+      "prompt_eval_duration": 182251000,
+      "eval_duration": 1344133000
+    },
+    "retrieval_ms": 2155.1484999945387,
+    "context_chars": 1530,
+    "generation_ms": 4737.63190000318,
+    "usage": {
+      "eval_count": 88,
+      "prompt_eval_count": 1680,
+      "total_duration": 4724377500,
+      "load_duration": 5243800,
+      "prompt_eval_duration": 58563000,
+      "eval_duration": 4585298000
+    },
+    "audit_usage": {
+      "eval_count": 71,
+      "prompt_eval_count": 1935,
+      "total_duration": 4298966400,
+      "load_duration": 9120500,
+      "prompt_eval_duration": 63805000,
+      "eval_duration": 4021633000
+    },
+    "audit_ms": 4301.015999983065,
+    "total_ms": 11195.04219997907
+  }
+}

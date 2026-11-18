@@ -1,0 +1,66 @@
+{
+  "emitted_answers": 49,
+  "reviewed_answers": 49,
+  "approved_answers": 24,
+  "approved_fraction_reviewed": 0.4897959183673469,
+  "wilson_95": [
+    0.3557488315940086,
+    0.6253266846659078
+  ],
+  "correct_resolution_lower_bound": 0.6,
+  "review_incomplete": false,
+  "citation_precision": null,
+  "citation_coverage": null,
+  "error_categories": {
+    "citation_partial": 3,
+    "identifier_changed": 2,
+    "opposite_behavior": 4,
+    "wrong_parameter_option": 1,
+    "invalid_example": 1,
+    "wrong_api": 1,
+    "missing_precondition": 1,
+    "unnecessary_handoff": 1,
+    "does_not_answer": 2,
+    "missing_clarification": 5,
+    "unsafe_imputation": 1,
+    "unsupported_generalization": 1,
+    "handoff_message_weak": 9,
+    "irrelevant_answer": 2,
+    "scope_not_enforced": 1
+  },
+  "action_confusion": [
+    {
+      "expected": "answer",
+      "observed": "answer",
+      "count": 39
+    },
+    {
+      "expected": "answer",
+      "observed": "handoff",
+      "count": 1
+    },
+    {
+      "expected": "clarify",
+      "observed": "answer",
+      "count": 7
+    },
+    {
+      "expected": "clarify",
+      "observed": "clarify",
+      "count": 1
+    },
+    {
+      "expected": "handoff",
+      "observed": "handoff",
+      "count": 9
+    },
+    {
+      "expected": "handoff",
+      "observed": "answer",
+      "count": 3
+    }
+  ],
+  "warning": "Wilson descritivo: paráfrases da mesma família são dependentes; não interpretar como cobertura garantida.",
+  "reviewer": "OpenAI assistant; technical review, not independent human validation",
+  "independent_human_review": false
+}

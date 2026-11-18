@@ -1,0 +1,11 @@
+{
+  "setup_exit": 0,
+  "rebuild_exit": 0,
+  "rebuild_corpus_id": "81396567c3f64252",
+  "unit_and_integration_tests": 73,
+  "tests_exit": 0,
+  "package_check_exit": 0,
+  "optional_fastapi_included": true,
+  "source_directory": "clean distribution; data prepared from bundled assets",
+  "note": "Validation executed after copying the final publication files."
+}

@@ -1,0 +1,144 @@
+{
+  "case_id": "case-003-2",
+  "family": "family-003",
+  "question": "Os valores usam 12,50 e o separador é ponto e vírgula. Como ler?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Definir decimal; thousands quando aplicável."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "4fdfbd54f20646f38f9d23ad428e9632",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para ler valores com separador de milhar (ex: 12,50) usando pandas 2.2.3, defina `thousands=','` no método `pd.read_csv`.",
+        "evidence_ids": [
+          "6441654e91eda1b47a20cf20"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "6441654e91eda1b47a20cf20",
+            "quote": "In [153]: df = pd.read_csv(\"tmp.csv\", sep=\"|\", thousands=\",\")"
+          }
+        ]
+      },
+      {
+        "text": "Se os valores forem escritos com separador de milhar (ex: 12,50), use `thousands=','` para converter para inteiros corretamente.",
+        "evidence_ids": [
+          "3d7f979431c3d2053312085b"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "3d7f979431c3d2053312085b",
+            "quote": "For large numbers that have been written with a thousands separator, you can set the `thousands` keyword to a string of length 1 so that integers will be parsed correctly:"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "6441654e91eda1b47a20cf20",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Thousand separators",
+        "text": "```\nIn [153]: df = pd.read_csv(\"tmp.csv\", sep=\"|\", thousands=\",\")\n\nIn [154]: df\nOut[154]:\n         ID    level category\n0  Patient1   123000        x\n1  Patient2    23000        y\n2  Patient3  1234018        z\n\nIn [155]: df.level.dtype\nOut[155]: dtype('int64')\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 31,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "16b151864038d1206c3c2d863b2bdcb4c181f5128d3b21a837e28a622ef764f9",
+        "score": 0.4472467630348826
+      },
+      {
+        "id": "3d7f979431c3d2053312085b",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Thousand separators",
+        "text": "For large numbers that have been written with a thousands separator, you can\nset the `thousands` keyword to a string of length 1 so that integers will be parsed\ncorrectly:\n\nBy default, numbers with a thousands separator will be parsed as strings:\n\n```\nIn [148]: data = (\n   .....:     \"ID|level|category\\n\"\n   .....:     \"Patient1|123,000|x\\n\"\n   .....:     \"Patient2|23,000|y\\n\"\n   .....:     \"Patient3|1,234,018|z\"\n   .....: )\n   .....:\n\nIn [149]: with open(\"tmp.csv\", \"w\") as fh:\n   .....:     fh.write(data)\n   .....:\n\nIn [150]: df = pd.read_csv(\"tmp.csv\", sep=\"|\")\n\nIn [151]: df\nOut[151]:\n         ID      level category\n0  Patient1    123,000        x\n1  Patient2     23,000        y\n2  Patient3  1,234,018        z\n\nIn [152]: df.level.dtype\nOut[152]: dtype('O')\n```\n\nThe `thousands` keyword allows integers to be parsed correctly:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 31,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "efba52b64444bcde005e18e710aedea6f2753c4fed2b0f8c6364b6d34c28c568",
+        "score": 0.42903694793347297
+      },
+      {
+        "id": "1b6987985e2e168dfd60896f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Automatically “sniffing” the delimiter \\",
+        "text": "\\\n`read_csv` is capable of inferring delimited (not necessarily\\\ncomma-separated) files, as pandas uses the `csv.Sniffer`\\\nclass of the csv module. For this, you have to specify `sep=None`.\\\n\\\n```\\\nIn [221]: df = pd.DataFrame(np.random.randn(10, 4))\\\n\\\nIn [222]: df.to_csv(\"tmp2.csv\", sep=\":\", index=False)\\\n\\\nIn [223]: pd.read_csv(\"tmp2.csv\", sep=None, engine=\"python\")\\\nOut[223]:\\\n          0         1         2         3\\\n0  0.469112 -0.282863 -1.509059 -1.135632\\\n1  1.212112 -0.173215  0.119209 -1.044236\\\n2 -0.861849 -2.104569 -0.494929  1.071804\\\n3  0.721555 -0.706771 -1.039575  0.271860\\\n4 -0.424972  0.567020  0.276232 -1.087401\\\n5 -0.673690  0.113648 -1.478427  0.524988\\\n6  0.404705  0.577046 -1.715002 -1.039268\\\n7 -0.370647 -1.157892 -1.344312  0.844885\\\n8  1.075770 -0.109050  1.643563 -1.469388\\\n9  0.357021 -0.674600 -1.776904 -0.968914\\\n```\\\n\\\nCopy to clipboard\\\n\\",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 45,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "885548fad47073ee04b8ab09cb8a10cd5597bdfabc018189662332c004d5883c",
+        "score": 0.41702770869010014
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:4b",
+    "prompt_sha256": "ad36b0c8b956d77cf24ea45d7978eafe80462fce0b8e96d106acac33cc007876",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794949305.439013,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "Todas as afirmações estão alinhadas com a documentação do pandas 2.2.3 para separadores de milhar (ex: 12,50)."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Values use 12,50 and the separator is semicolon. How to read?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 40,
+      "prompt_eval_count": 174,
+      "total_duration": 611053300,
+      "load_duration": 4823300,
+      "prompt_eval_duration": 40404000,
+      "eval_duration": 509069000
+    },
+    "retrieval_ms": 781.2548000365496,
+    "context_chars": 1984,
+    "generation_ms": 5374.001200019848,
+    "usage": {
+      "eval_count": 348,
+      "prompt_eval_count": 2091,
+      "total_duration": 5360605700,
+      "load_duration": 4983900,
+      "prompt_eval_duration": 647066000,
+      "eval_duration": 4663798000
+    },
+    "audit_usage": {
+      "eval_count": 69,
+      "prompt_eval_count": 2246,
+      "total_duration": 1927760800,
+      "load_duration": 6969400,
+      "prompt_eval_duration": 818411000,
+      "eval_duration": 938014000
+    },
+    "audit_ms": 1930.3312000120059,
+    "total_ms": 8085.806000046432
+  }
+}

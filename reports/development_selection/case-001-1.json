@@ -1,0 +1,132 @@
+{
+  "case_id": "case-001-1",
+  "family": "family-001",
+  "question": "Como preservar zeros à esquerda em IDs ao usar read_csv?",
+  "topic": "io",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Ler identificador como texto; explicitar política de ausentes."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "341f4231460f4ba0a6642e5388a14137",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para preservar zeros à esquerda em IDs ao usar `read_csv`, é necessário garantir que a coluna seja lida como string. Isso pode ser feito especificando o parâmetro `dtype` com o tipo `str` para a coluna relevante. Por exemplo: `pd.read_csv('arquivo.csv', dtype={'ID': 'str'})`.",
+        "evidence_ids": [
+          "3d7f979431c3d2053312085b"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "3d7f979431c3d2053312085b",
+            "quote": "For large numbers that have been written with a thousands separator, you can\nset the `thousands` keyword to a string of length 1 so that integers will be parsed\ncorrectly:\n\nBy default, numbers with a thousands separator will be parsed as strings:\n\n```\nIn [148]: data = (\n   .....:     \"ID|level|category\\n\"\n   .....:     \"Patient1|123,000|x\\n\"\n   .....:     \"Patient2|23,000|y\\n\"\n   .....:     \"Patient3|1,234,018|z\"\n   .....: )\n   .....:\n\nIn [149]: with open(\"tmp.csv\", \"w\") as fh:\n   .....:     fh.write(data)\n   .....:\n\nIn [150]: df = pd.read_csv(\"tmp.csv\", sep=\"|\")\n\nIn [151]: df\nOut[151]:\n         ID      level category\n0  Patient1    123,000        x\n1  Patient2     23,000        y\n2  Patient3  1,234,018        z\n\nIn [152]: df.level.dtype\nOut[152]: dtype('O')\n```\n\nThe `thousands` keyword allows integers to be parsed correctly:"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "37aaa8742b3506720b4ce0e9",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — header int, Sequence of int, ‘infer’ or None, default ‘infer’",
+        "text": "header int, Sequence of int, ‘infer’ or None, default ‘infer’\n\nRow number(s) containing column labels and marking the start of the\ndata (zero-indexed). Default behavior is to infer the column names: if no `names`\nare passed the behavior is identical to `header=0` and column\nnames are inferred from the first line of the file, if column\nnames are passed explicitly to `names` then the behavior is identical to\n`header=None`. Explicitly pass `header=0` to be able to\nreplace existing names. The header can be a list of integers that\nspecify row locations for a `MultiIndex` on the columns\ne.g. `[0, 1, 3]`. Intervening rows that are not specified will be\nskipped (e.g. 2 in this example is skipped). Note that this\nparameter ignores commented lines and empty lines if\n`skip_blank_lines=True`, so `header=0` denotes the first line of",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 5,
+        "part": 0,
+        "content_sha256": "056915331b4d66df2a8c04b2afcb9281b482314bec65badfeab160e215a4d036",
+        "score": 0.5015161232092312
+      },
+      {
+        "id": "bd1f6b4ce362ea693fd983de",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+        "title": "pandas.read_csv",
+        "section": "pandas.read_csv — header int, Sequence of int, ‘infer’ or None, default ‘infer’",
+        "text": "header int, Sequence of int, ‘infer’ or None, default ‘infer’\ndata rather than the first line of the file.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 5,
+        "part": 1,
+        "content_sha256": "24cdad0a71c209d766ddf92328a1ad097822ee1c7ec7cb765e22f11106d5cf74",
+        "score": 0.5005161243053657
+      },
+      {
+        "id": "3d7f979431c3d2053312085b",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Thousand separators",
+        "text": "For large numbers that have been written with a thousands separator, you can\nset the `thousands` keyword to a string of length 1 so that integers will be parsed\ncorrectly:\n\nBy default, numbers with a thousands separator will be parsed as strings:\n\n```\nIn [148]: data = (\n   .....:     \"ID|level|category\\n\"\n   .....:     \"Patient1|123,000|x\\n\"\n   .....:     \"Patient2|23,000|y\\n\"\n   .....:     \"Patient3|1,234,018|z\"\n   .....: )\n   .....:\n\nIn [149]: with open(\"tmp.csv\", \"w\") as fh:\n   .....:     fh.write(data)\n   .....:\n\nIn [150]: df = pd.read_csv(\"tmp.csv\", sep=\"|\")\n\nIn [151]: df\nOut[151]:\n         ID      level category\n0  Patient1    123,000        x\n1  Patient2     23,000        y\n2  Patient3  1,234,018        z\n\nIn [152]: df.level.dtype\nOut[152]: dtype('O')\n```\n\nThe `thousands` keyword allows integers to be parsed correctly:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 31,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "efba52b64444bcde005e18e710aedea6f2753c4fed2b0f8c6364b6d34c28c568",
+        "score": 0.49684496960823493
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950256.6864645,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada em evidência que mostra que especificar `dtype={'ID': 'str'}` preserva zeros à esquerda em IDs ao usar `read_csv`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to preserve leading zeros in IDs when using read_csv?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 33,
+      "prompt_eval_count": 172,
+      "total_duration": 1703857900,
+      "load_duration": 5779000,
+      "prompt_eval_duration": 181049000,
+      "eval_duration": 1457727000
+    },
+    "retrieval_ms": 1857.3052000137977,
+    "context_chars": 1774,
+    "generation_ms": 7299.712800013367,
+    "usage": {
+      "eval_count": 115,
+      "prompt_eval_count": 1541,
+      "total_duration": 7297589000,
+      "load_duration": 5264600,
+      "prompt_eval_duration": 1368046000,
+      "eval_duration": 5867143000
+    },
+    "audit_usage": {
+      "eval_count": 65,
+      "prompt_eval_count": 2007,
+      "total_duration": 5629272500,
+      "load_duration": 7044200,
+      "prompt_eval_duration": 2069094999,
+      "eval_duration": 3464090000
+    },
+    "audit_ms": 5631.193799956236,
+    "total_ms": 14788.945699983742
+  }
+}

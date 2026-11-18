@@ -1,0 +1,106 @@
+{
+  "pandas": "2.2.3",
+  "synthetic": true,
+  "human_timing_measured": false,
+  "original_orders": 3,
+  "joined_orders": 3,
+  "literal_na_preserved": true,
+  "missing_marker_parsed": true,
+  "duplicate_customer_rejected": true,
+  "outputs": [
+    {
+      "request_id": "ac755ef6c62c4177b81b2f424ccbd0b2",
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "Use `keep_default_na=False` e deixe o código literal NA fora de `na_values`. Se precisar reconhecer outros marcadores de ausência, inclua apenas esses marcadores em `na_values`.",
+          "evidence_ids": [
+            "bdfa06a6451958f78934c8f4"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "bdfa06a6451958f78934c8f4",
+              "quote": "keep_default_na bool, default True\n\nWhether or not to include the default `NaN` values when parsing the data.\nDepending on whether `na_values` is passed in, the behavior is as follows:\n\n- If `keep_default_na` is `True`, and `na_values` are specified, `na_values`\nis appended to the default `NaN` values used for parsing.\n\n- If `keep_default_na` is `True`, and `na_values` are not specified, only\nthe default `NaN` values are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are specified, only\nthe `NaN` values specified `na_values` are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as `NaN`.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored."
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "bdfa06a6451958f78934c8f4",
+          "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+          "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.read_csv.html",
+          "title": "pandas.read_csv",
+          "section": "pandas.read_csv — keep_default_na bool, default True",
+          "text": "keep_default_na bool, default True\n\nWhether or not to include the default `NaN` values when parsing the data.\nDepending on whether `na_values` is passed in, the behavior is as follows:\n\n- If `keep_default_na` is `True`, and `na_values` are specified, `na_values`\nis appended to the default `NaN` values used for parsing.\n\n- If `keep_default_na` is `True`, and `na_values` are not specified, only\nthe default `NaN` values are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are specified, only\nthe `NaN` values specified `na_values` are used for parsing.\n\n- If `keep_default_na` is `False`, and `na_values` are not specified, no\nstrings will be parsed as `NaN`.\n\nNote that if `na_filter` is passed in as `False`, the `keep_default_na` and\n`na_values` parameters will be ignored.",
+          "kind": "markdown",
+          "version": "2.2.3",
+          "continued": false,
+          "block_id": 0,
+          "unit": 20,
+          "part": 0,
+          "content_sha256": "58e83dd132771b492181e0aa48938d65e5b9b8adf288c57e341584453d0c4a35"
+        }
+      ],
+      "corpus_id": "81396567c3f64252",
+      "method": "contract_evidence",
+      "model": null,
+      "version": "2.2.3",
+      "time": 1794973997.7308311,
+      "audit": null,
+      "answer_mode": "controlled",
+      "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+      "contract_id": "csv_na_text",
+      "decision_reason": "unique_contract_and_evidence",
+      "total_ms": 0.8435590000317461
+    },
+    {
+      "request_id": "64a6729954a34ea2a087d9929547b7f4",
+      "action": "answer",
+      "message": "",
+      "claims": [
+        {
+          "text": "Use `validate=\"many_to_one\"` (ou `\"m:1\"`). As chaves do lado direito precisam ser únicas. A esquerda pode ter duplicatas.",
+          "evidence_ids": [
+            "3a4cee70a1603446de850c88"
+          ],
+          "evidence_quotes": [
+            {
+              "source_id": "3a4cee70a1603446de850c88",
+              "quote": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "id": "3a4cee70a1603446de850c88",
+          "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+          "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.merge.html",
+          "title": "pandas.merge",
+          "section": "pandas.merge — validate str, optional",
+          "text": "validate str, optional\n\nIf specified, checks if merge is of specified type.\n\n- “one_to_one” or “1:1”: check if merge keys are unique in both\nleft and right datasets.\n\n- “one_to_many” or “1:m”: check if merge keys are unique in left\ndataset.\n\n- “many_to_one” or “m:1”: check if merge keys are unique in right\ndataset.\n\n- “many_to_many” or “m:m”: allowed, but does not result in checks.\n\nReturns:DataFrame",
+          "kind": "markdown",
+          "version": "2.2.3",
+          "continued": false,
+          "block_id": 0,
+          "unit": 12,
+          "part": 0,
+          "content_sha256": "a36b6a11b814bd4ccfd7c787866f72969d06ea6c01357cd751ad58c967cea821"
+        }
+      ],
+      "corpus_id": "81396567c3f64252",
+      "method": "contract_evidence",
+      "model": null,
+      "version": "2.2.3",
+      "time": 1794973997.7363987,
+      "audit": null,
+      "answer_mode": "controlled",
+      "catalog_sha256": "bd97ee0aa7d4cbb42bd2da3f1785489a8b06c5697a04e8eb094c79db0d3f3572",
+      "contract_id": "merge_m1",
+      "decision_reason": "unique_contract_and_evidence",
+      "total_ms": 0.5043330000376045
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "case_id": "case-032-2",
+  "family": "family-032",
+  "question": "Merge com NaN nas duas chaves segue o comportamento usual de SQL?",
+  "topic": "join",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Chaves nulas podem casar entre si, diferente do SQL usual."
+  ],
+  "retrieval": {
+    "hit_at_k": false,
+    "evidence_recall": 0.0,
+    "sufficient": false,
+    "mrr": 0
+  },
+  "output": {
+    "request_id": "ddb03663ad6541ed99e322d9d9e0eb5e",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "A fusão com NaN em ambas as chaves segue o comportamento usual do SQL, onde as combinações de chaves que não aparecem em nenhuma das tabelas resultam em valores `NA`. Isso é explicado no parâmetro `how` do método `merge()`, que define qual tipo de junção é realizada, com equivalência SQL correspondente.",
+        "evidence_ids": [
+          "76d831f249eb6376bee21dc7",
+          "bb70110789a559a4a7d55457"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "76d831f249eb6376bee21dc7",
+            "quote": "In [45]: right = pd.DataFrame(\n   ....:     {\n   ....:         \"key\": [\"K0\", \"K1\", \"K2\", \"K3\"],\n   ....:         \"C\": [\"C0\", \"C1\", \"C2\", \"C3\"],\n   ....:         \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"],\n   ....:     }\n   ....: )\n   ....:\n\nIn [46]: result = pd.merge(left, right, on=\"key\")\n\nIn [47]: result\nOut[47]:\n  key   A   B   C   D\n0  K0  A0  B0  C0  D0\n1  K1  A1  B1  C1  D1\n2  K2  A2  B2  C2  D2\n3  K3  A3  B3  C3  D3\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key.png\n\nThe `how` argument to `merge()` specifies which keys are\nincluded in the resulting table. If a key combination does not appear in\neither the left or right tables, the values in the joined table will be\n`NA`. Here is a summary of the `how` options and their SQL equivalent names:"
+          },
+          {
+            "source_id": "bb70110789a559a4a7d55457",
+            "quote": "In [49]: right = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K1\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K0\", \"K0\", \"K0\"],\n   ....:       \"C\": [\"C0\", \"C1\", \"C2\", \"C3\"],\n   ....:       \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"],\n   ....:    }\n   ....: )\n   ....:\n\nIn [50]: result = pd.merge(left, right, how=\"left\", on=[\"key1\", \"key2\"])\n\nIn [51]: result\nOut[51]:\n  key1 key2   A   B    C    D\n0   K0   K0  A0  B0   C0   D0\n1   K0   K1  A1  B1  NaN  NaN\n2   K1   K0  A2  B2   C1   D1\n3   K1   K0  A2  B2   C2   D2\n4   K2   K1  A3  B3  NaN  NaN\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key_left.png\n\n```\nIn [52]: result = pd.merge(left, right, how=\"right\", on=[\"key1\", \"key2\"])\n\nIn [53]: result\nOut[53]:\n  key1 key2    A    B   C   D\n0   K0   K0   A0   B0  C0  D0\n1   K1   K0   A2   B2  C1  D1\n2   K1   K0   A2   B2  C2  D2\n3   K2   K0  NaN  NaN  C3  D3\n```\n\n```\n\n```"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "76d831f249eb6376bee21dc7",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "In [45]: right = pd.DataFrame(\n   ....:     {\n   ....:         \"key\": [\"K0\", \"K1\", \"K2\", \"K3\"],\n   ....:         \"C\": [\"C0\", \"C1\", \"C2\", \"C3\"],\n   ....:         \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"],\n   ....:     }\n   ....: )\n   ....:\n\nIn [46]: result = pd.merge(left, right, on=\"key\")\n\nIn [47]: result\nOut[47]:\n  key   A   B   C   D\n0  K0  A0  B0  C0  D0\n1  K1  A1  B1  C1  D1\n2  K2  A2  B2  C2  D2\n3  K3  A3  B3  C3  D3\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key.png\n\nThe `how` argument to `merge()` specifies which keys are\nincluded in the resulting table. If a key combination does not appear in\neither the left or right tables, the values in the joined table will be\n`NA`. Here is a summary of the `how` options and their SQL equivalent names:",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "08bb04bfea34d27e7750adfd73ad3b2072839aa628c3268a2458b15f209d038d",
+        "score": 0.5759919108845467
+      },
+      {
+        "id": "bb70110789a559a4a7d55457",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "Merge types",
+        "text": "In [49]: right = pd.DataFrame(\n   ....:    {\n   ....:       \"key1\": [\"K0\", \"K1\", \"K1\", \"K2\"],\n   ....:       \"key2\": [\"K0\", \"K0\", \"K0\", \"K0\"],\n   ....:       \"C\": [\"C0\", \"C1\", \"C2\", \"C3\"],\n   ....:       \"D\": [\"D0\", \"D1\", \"D2\", \"D3\"],\n   ....:    }\n   ....: )\n   ....:\n\nIn [50]: result = pd.merge(left, right, how=\"left\", on=[\"key1\", \"key2\"])\n\nIn [51]: result\nOut[51]:\n  key1 key2   A   B    C    D\n0   K0   K0  A0  B0   C0   D0\n1   K0   K1  A1  B1  NaN  NaN\n2   K1   K0  A2  B2   C1   D1\n3   K1   K0  A2  B2   C2   D2\n4   K2   K1  A3  B3  NaN  NaN\n```\n\n```\n\n```\n\n!../_images/merging_merge_on_key_left.png\n\n```\nIn [52]: result = pd.merge(left, right, how=\"right\", on=[\"key1\", \"key2\"])\n\nIn [53]: result\nOut[53]:\n  key1 key2    A    B   C   D\n0   K0   K0   A0   B0  C0  D0\n1   K1   K0   A2   B2  C1  D1\n2   K1   K0   A2   B2  C2  D2\n3   K2   K0  NaN  NaN  C3  D3\n```\n\n```\n\n```",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 8,
+        "unit": 0,
+        "part": 3,
+        "content_sha256": "a9d7e924a51b487dbd64b852075431b1405b589c7f424f7c0483f5ec077587f8",
+        "score": 0.5505793247137931
+      },
+      {
+        "id": "7a102854acf69ca05b2ebb8d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/merging.html",
+        "title": "Merge, join, concatenate and compare",
+        "section": "`compare()`",
+        "text": "In [150]: df.compare(df2)\nOut[150]:\n  col1       col3\n  self other self other\n0    a     c  NaN   NaN\n2  NaN   NaN  3.0   4.0\n```\n\nBy default, if two corresponding values are equal, they will be shown as `NaN`.\nFurthermore, if all values in an entire row / column, the row / column will be\nomitted from the result. The remaining differences will be aligned on columns.\n\nStack the differences on rows.\n\n```\nIn [151]: df.compare(df2, align_axis=0)\nOut[151]:\n        col1  col3\n0 self     a   NaN\n  other    c   NaN\n2 self   NaN   3.0\n  other  NaN   4.0\n```\n\nKeep all original rows and columns with `keep_shape=True`",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 20,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "9132379b275d664d3e9491992fe77877e426ec5c3f8c43869b85710f90b24782",
+        "score": 0.5449351520952032
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794950989.784538,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A fusão com NaN em ambas as chaves segue o comportamento usual do SQL, onde as combinações de chaves que não aparecem em nenhuma das tabelas resultam em valores `NA`. Isso é explicado no parâmetro `how` do método `merge()`, que define qual tipo de junção é realizada, com equivalência SQL correspondente."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Merge with NaN in both keys follows the usual behavior of SQL?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 34,
+      "prompt_eval_count": 213,
+      "total_duration": 1869921700,
+      "load_duration": 7490800,
+      "prompt_eval_duration": 183531000,
+      "eval_duration": 1497731000
+    },
+    "retrieval_ms": 2052.680100023281,
+    "context_chars": 2232,
+    "generation_ms": 9431.898200011346,
+    "usage": {
+      "eval_count": 137,
+      "prompt_eval_count": 1959,
+      "total_duration": 9429385900,
+      "load_duration": 8754900,
+      "prompt_eval_duration": 1818887000,
+      "eval_duration": 7570140000
+    },
+    "audit_usage": {
+      "eval_count": 105,
+      "prompt_eval_count": 2944,
+      "total_duration": 9240662000,
+      "load_duration": 8470100,
+      "prompt_eval_duration": 2740422000,
+      "eval_duration": 6315673000
+    },
+    "audit_ms": 9243.022899958305,
+    "total_ms": 20727.8965000296
+  }
+}

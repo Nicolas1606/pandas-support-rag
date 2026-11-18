@@ -1,0 +1,138 @@
+{
+  "case_id": "case-042-2",
+  "family": "family-042",
+  "question": "É correto transformar NA em 0?",
+  "topic": "types",
+  "expected_action": "clarify",
+  "reference_facts": [
+    "Pedir significado de ausência e uso; não impor regra."
+  ],
+  "retrieval": {
+    "hit_at_k": null,
+    "evidence_recall": null,
+    "sufficient": null,
+    "mrr": null
+  },
+  "output": {
+    "request_id": "b3cd9a48897046fdb2627d2aef24877b",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Não é correto transformar `NA` em 0, pois `NA` representa um valor ausente e não pode ser convertido diretamente em um valor numérico como 0 sem uma operação específica de preenchimento. Para evitar ambiguidades, é recomendado preencher os valores ausentes antes de realizar operações que exigem valores numéricos, como usar `fillna()` para substituir `NA` por 0 ou outro valor adequado.",
+        "evidence_ids": [
+          "b39132fc3c0f220ec6a8dd3a",
+          "5429766abdb298d5394e9f1d"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "b39132fc3c0f220ec6a8dd3a",
+            "quote": "Since the actual value of an NA is unknown, it is ambiguous to convert NA\nto a boolean value.\n\n\nExemplo com exceção; pilha interna omitida.\nTypeError: boolean value of NA is ambiguous\n\nThis also means that `NA` cannot be used in a context where it is\nevaluated to a boolean, such as `if condition: ...` where `condition` can\npotentially be `NA`. In such cases, `isna()` can be used to check\nfor `NA` or `condition` being `NA` can be avoided, for example by\nfilling missing values beforehand.\n\nA similar situation occurs when using `Series` or `DataFrame` objects in `if`\nstatements, see Using if/truth statements with pandas."
+          },
+          {
+            "source_id": "5429766abdb298d5394e9f1d",
+            "quote": "In general, missing values _propagate_ in operations involving `NA`. When\none of the operands is unknown, the outcome of the operation is also unknown.\n\nFor example, `NA` propagates in arithmetic operations, similarly to\n`np.nan`:\n\n```\nIn [25]: pd.NA + 1\nOut[25]: <NA>\n\nIn [26]: \"a\" * pd.NA\nOut[26]: <NA>\n```\n\nThere are a few special cases when the result is known, even when one of the\noperands is `NA`.\n\n```\nIn [27]: pd.NA ** 0\nOut[27]: 1\n\nIn [28]: 1 ** pd.NA\nOut[28]: 1\n```\n\nIn equality and comparison operations, `NA` also propagates. This deviates\nfrom the behaviour of `np.nan`, where comparisons with `np.nan` always\nreturn `False`.\n\n```\nIn [29]: pd.NA == 1\nOut[29]: <NA>\n\nIn [30]: pd.NA == pd.NA\nOut[30]: <NA>\n\nIn [31]: pd.NA < 2.5\nOut[31]: <NA>\n```\n\nTo check if a value is equal to `NA`, use `isna()`\n\n```\nIn [32]: pd.isna(pd.NA)\nOut[32]: True\n```\n\nNote"
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "b39132fc3c0f220ec6a8dd3a",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "`NA` in a boolean context",
+        "text": "Since the actual value of an NA is unknown, it is ambiguous to convert NA\nto a boolean value.\n\n\nExemplo com exceção; pilha interna omitida.\nTypeError: boolean value of NA is ambiguous\n\nThis also means that `NA` cannot be used in a context where it is\nevaluated to a boolean, such as `if condition: ...` where `condition` can\npotentially be `NA`. In such cases, `isna()` can be used to check\nfor `NA` or `condition` being `NA` can be avoided, for example by\nfilling missing values beforehand.\n\nA similar situation occurs when using `Series` or `DataFrame` objects in `if`\nstatements, see Using if/truth statements with pandas.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 4,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "c0700ef238bd835208f0d68711aa856101d6a2a4f84e032ad65443d1a491f31c",
+        "score": 0.5395288179607032
+      },
+      {
+        "id": "0330a6f97d3d1ee93979b60f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "`NA` semantics",
+        "text": "Warning\n\nExperimental: the behaviour of ``NA``` can still change without warning.\n\nStarting from pandas 1.0, an experimental `NA` value (singleton) is\navailable to represent scalar missing values. The goal of `NA` is provide a\n“missing” indicator that can be used consistently across data types\n(instead of `np.nan`, `None` or `pd.NaT` depending on the data type).\n\nFor example, when having missing values in a `Series` with the nullable integer\ndtype, it will use `NA`:\n\n```\nIn [21]: s = pd.Series([1, 2, None], dtype=\"Int64\")\n\nIn [22]: s\nOut[22]:\n0       1\n1       2\n2    <NA>\ndtype: Int64\n\nIn [23]: s[2]\nOut[23]: <NA>\n\nIn [24]: s[2] is pd.NA\nOut[24]: True\n```\n\nCurrently, pandas does not yet use those data types using `NA` by default\na `DataFrame` or `Series`, so you need to specify\nthe dtype explicitly. An easy way to convert to those dtypes is explained in the\nconversion section.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": false,
+        "block_id": 1,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "81f38237bef5cfc7b435b625035d26d509c77d4cac2047dee819763a5d629669",
+        "score": 0.5328203743987896
+      },
+      {
+        "id": "5429766abdb298d5394e9f1d",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/missing_data.html",
+        "title": "fill all consecutive outside values in both directions",
+        "section": "Propagation in arithmetic and comparison operations",
+        "text": "In general, missing values _propagate_ in operations involving `NA`. When\none of the operands is unknown, the outcome of the operation is also unknown.\n\nFor example, `NA` propagates in arithmetic operations, similarly to\n`np.nan`:\n\n```\nIn [25]: pd.NA + 1\nOut[25]: <NA>\n\nIn [26]: \"a\" * pd.NA\nOut[26]: <NA>\n```\n\nThere are a few special cases when the result is known, even when one of the\noperands is `NA`.\n\n```\nIn [27]: pd.NA ** 0\nOut[27]: 1\n\nIn [28]: 1 ** pd.NA\nOut[28]: 1\n```\n\nIn equality and comparison operations, `NA` also propagates. This deviates\nfrom the behaviour of `np.nan`, where comparisons with `np.nan` always\nreturn `False`.\n\n```\nIn [29]: pd.NA == 1\nOut[29]: <NA>\n\nIn [30]: pd.NA == pd.NA\nOut[30]: <NA>\n\nIn [31]: pd.NA < 2.5\nOut[31]: <NA>\n```\n\nTo check if a value is equal to `NA`, use `isna()`\n\n```\nIn [32]: pd.isna(pd.NA)\nOut[32]: True\n```\n\nNote",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 2,
+        "unit": 0,
+        "part": 0,
+        "content_sha256": "9387ca5cea86895e34428d4377c318f366657fb6445d06e1b0ce1585648b78ad",
+        "score": 0.5271766797250688
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951145.3275037,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está alinhada com a documentação, afirmando que transformar `NA` em 0 não é correto, pois `NA` representa um valor ausente e não pode ser convertido diretamente em um valor numérico sem preenchimento adequado. A recomendação de usar `fillna()` para substituir `NA` por 0 é consistente com as diretrizes da documentação."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Is it correct to transform NA into 0?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 31,
+      "prompt_eval_count": 208,
+      "total_duration": 1797915700,
+      "load_duration": 8499800,
+      "prompt_eval_duration": 179694000,
+      "eval_duration": 1410589000
+    },
+    "retrieval_ms": 1984.2528000008315,
+    "context_chars": 2375,
+    "generation_ms": 10235.799900023267,
+    "usage": {
+      "eval_count": 159,
+      "prompt_eval_count": 1758,
+      "total_duration": 10222733800,
+      "load_duration": 8356300,
+      "prompt_eval_duration": 1671970000,
+      "eval_duration": 8498504999
+    },
+    "audit_usage": {
+      "eval_count": 112,
+      "prompt_eval_count": 2482,
+      "total_duration": 9095008000,
+      "load_duration": 10143400,
+      "prompt_eval_duration": 2265340000,
+      "eval_duration": 6660861000
+    },
+    "audit_ms": 9096.996799984481,
+    "total_ms": 21317.705399997067
+  }
+}

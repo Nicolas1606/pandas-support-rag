@@ -1,0 +1,137 @@
+{
+  "case_id": "case-013-1",
+  "family": "family-013",
+  "question": "Como converter texto numérico e transformar inválidos em NaN?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "errors=coerce transforma conversões inválidas em ausentes."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "7dcb3ffbf4e14e82ace59e1bcd87fff2",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "Para converter texto para numérico e transformar os inválidos em NaN, use a função `pandas.to_numeric()` com o parâmetro `errors='coerce'`, que converte os valores válidos em números e os inválidos em `NaN`. Exemplo: `pd.to_numeric(df['col'], errors='coerce')`.",
+        "evidence_ids": [
+          "0ab6aee5bf7e35fa61f7c127",
+          "cfde624c135036dc495bfb4f"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "0ab6aee5bf7e35fa61f7c127",
+            "quote": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead."
+          },
+          {
+            "source_id": "cfde624c135036dc495bfb4f",
+            "quote": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "0ab6aee5bf7e35fa61f7c127",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric",
+        "text": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3",
+        "score": 0.5631063647183238
+      },
+      {
+        "id": "ad45446998855521a3e7e468",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "Ultimately, how you deal with reading in columns containing mixed dtypes\ndepends on your specific needs. In the case above, if you wanted to `NaN` out\nthe data anomalies, then `to_numeric()` is probably your best option.\nHowever, if you wanted for all the data to be coerced, no matter the type, then\nusing the `converters` argument of `read_csv()` would certainly be\nworth trying.\n\nNote\n\nIn some cases, reading in abnormal data with columns containing mixed dtypes\nwill result in an inconsistent dataset. If you rely on pandas to infer the\ndtypes of your columns, the parsing engine will go and infer the dtypes for\ndifferent chunks of the data, rather than the whole dataset at once. Consequently,\nyou can end up with column(s) with mixed dtypes. For example,\n\n```\nIn [25]: col_1 = list(range(500000)) + [\"a\", \"b\"] + list(range(500000))\n\nIn [26]: df = pd.DataFrame({\"col_1\": col_1})",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 2,
+        "content_sha256": "62d4646b1377e5fc4626f65810d1695f33d751bf4502f4adcd5e99bd351d4839",
+        "score": 0.5559876533086291
+      },
+      {
+        "id": "cfde624c135036dc495bfb4f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "324c42462b0ebf21f227483653ca69dd72a786afcd52ff626312044c7ba746e0",
+        "score": 0.5488464994445802
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "version": "2.2.3",
+    "time": 1794950299.7244468,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada em evidências fornecidas, explicando como usar `pandas.to_numeric()` com `errors='coerce'` para converter texto para numérico e transformar os inválidos em `NaN`."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "How to convert text to numeric and transform invalid ones into NaN?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 34,
+      "prompt_eval_count": 171,
+      "total_duration": 1841410600,
+      "load_duration": 6586500,
+      "prompt_eval_duration": 170990000,
+      "eval_duration": 1519314000
+    },
+    "retrieval_ms": 2031.271799991373,
+    "context_chars": 2041,
+    "generation_ms": 8673.393799981568,
+    "usage": {
+      "eval_count": 131,
+      "prompt_eval_count": 1658,
+      "total_duration": 8671323300,
+      "load_duration": 6835000,
+      "prompt_eval_duration": 1747208000,
+      "eval_duration": 6891704000
+    },
+    "audit_usage": {
+      "eval_count": 76,
+      "prompt_eval_count": 2306,
+      "total_duration": 6923259000,
+      "load_duration": 5856800,
+      "prompt_eval_duration": 2385731000,
+      "eval_duration": 4421695000
+    },
+    "audit_ms": 6925.112499971874,
+    "total_ms": 17630.051699990872
+  }
+}

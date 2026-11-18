@@ -1,0 +1,138 @@
+{
+  "case_id": "case-054-1",
+  "family": "family-054",
+  "question": "errors=coerce transforma texto inválido em zero?",
+  "topic": "types",
+  "expected_action": "answer",
+  "reference_facts": [
+    "Corrigir: coerce gera ausência, não zero."
+  ],
+  "retrieval": {
+    "hit_at_k": true,
+    "evidence_recall": 1.0,
+    "sufficient": true,
+    "mrr": 1.0
+  },
+  "output": {
+    "request_id": "bb64c39a132e4c6099d10b6db5d1c138",
+    "action": "answer",
+    "message": "",
+    "claims": [
+      {
+        "text": "O parâmetro `errors=coerce` transforma valores inválidos em `NaN`, não em zero. Quando usado com `pandas.to_numeric`, ele converte elementos válidos para números e os inválidos para `np.nan`.",
+        "evidence_ids": [
+          "0ab6aee5bf7e35fa61f7c127",
+          "cfde624c135036dc495bfb4f"
+        ],
+        "evidence_quotes": [
+          {
+            "source_id": "0ab6aee5bf7e35fa61f7c127",
+            "quote": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead."
+          },
+          {
+            "source_id": "cfde624c135036dc495bfb4f",
+            "quote": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`."
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "0ab6aee5bf7e35fa61f7c127",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/reference/api/pandas.to_numeric.html",
+        "title": "pandas.to_numeric",
+        "section": "pandas.to_numeric",
+        "text": "errors{‘ignore’, ‘raise’, ‘coerce’}, default ‘raise’\n\n- If ‘raise’, then invalid parsing will raise an exception.\n\n- If ‘coerce’, then invalid parsing will be set as NaN.\n\n- If ‘ignore’, then invalid parsing will return the input.\n\nChanged in version 2.2.\n\n“ignore” is deprecated. Catch exceptions explicitly instead.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 0,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "aac25bfd410afab88ff656efdd4e42d13d89077970f11142fbb806702401f1c3",
+        "score": 0.506827602950236
+      },
+      {
+        "id": "b960d46f497cf08b965b2239",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/basics.html",
+        "title": "conversion of dtypes",
+        "section": "object conversion",
+        "text": "```\nIn [393]: m = [\"5us\", pd.Timedelta(\"1day\")]\n\nIn [394]: pd.to_timedelta(m)\nOut[394]: TimedeltaIndex(['0 days 00:00:00.000005', '1 days 00:00:00'], dtype='timedelta64[ns]', freq=None)\n```\n\nTo force a conversion, we can pass in an `errors` argument, which specifies how pandas should deal with elements\nthat cannot be converted to desired dtype or object. By default, `errors='raise'`, meaning that any errors encountered\nwill be raised during the conversion process. However, if `errors='coerce'`, these errors will be ignored and pandas\nwill convert problematic elements to `pd.NaT` (for datetime and timedelta) or `np.nan` (for numeric). This might be\nuseful if you are reading in data which is mostly of the desired dtype (e.g. numeric, datetime), but occasionally has\nnon-conforming elements intermixed that you want to represent as missing:\n\n```\nIn [395]: import datetime",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 67,
+        "unit": 0,
+        "part": 2,
+        "content_sha256": "255045d541b39a2560571e3ab758987e69c57809881acf719d8df7c81fd72e5e",
+        "score": 0.4513245309476914
+      },
+      {
+        "id": "cfde624c135036dc495bfb4f",
+        "document_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "source_url": "https://pandas.pydata.org/pandas-docs/version/2.2.3/user_guide/io.html",
+        "title": "or absolute, starting with a slash:\\",
+        "section": "Specifying column data types",
+        "text": "For instance, you can use the `converters` argument\nof `read_csv()`:\n\n```\nIn [17]: data = \"col_1\\n1\\n2\\n'A'\\n4.22\"\n\nIn [18]: df = pd.read_csv(StringIO(data), converters={\"col_1\": str})\n\nIn [19]: df\nOut[19]:\n  col_1\n0     1\n1     2\n2   'A'\n3  4.22\n\nIn [20]: df[\"col_1\"].apply(type).value_counts()\nOut[20]:\ncol_1\n<class 'str'>    4\nName: count, dtype: int64\n```\n\nOr you can use the `to_numeric()` function to coerce the\ndtypes after reading in the data,\n\n```\nIn [21]: df2 = pd.read_csv(StringIO(data))\n\nIn [22]: df2[\"col_1\"] = pd.to_numeric(df2[\"col_1\"], errors=\"coerce\")\n\nIn [23]: df2\nOut[23]:\n   col_1\n0   1.00\n1   2.00\n2    NaN\n3   4.22\n\nIn [24]: df2[\"col_1\"].apply(type).value_counts()\nOut[24]:\ncol_1\n<class 'float'>    4\nName: count, dtype: int64\n```\n\nwhich will convert all valid parsing to floats, leaving the invalid parsing\nas `NaN`.",
+        "kind": "markdown",
+        "version": "2.2.3",
+        "continued": true,
+        "block_id": 11,
+        "unit": 0,
+        "part": 1,
+        "content_sha256": "324c42462b0ebf21f227483653ca69dd72a786afcd52ff626312044c7ba746e0",
+        "score": 0.403909662982224
+      }
+    ],
+    "corpus_id": "81396567c3f64252",
+    "method": "dense",
+    "model": "qwen3:8b",
+    "prompt_sha256": "6d64518ffbe1932895694f26f3189e37a8230fb7a980c32464b93a7e6e98056b",
+    "verifier_sha256": "17ff30081a1b9ba688dbaabe0a868cc6c6d57c1da532e7506d16bb53723bf563",
+    "planner_sha256": "d73f926772195b6ef77c5afc475da5111174015eedf0750551e20b9ecda262b5",
+    "version": "2.2.3",
+    "time": 1794951605.423439,
+    "audit": {
+      "supported": true,
+      "answers_question": true,
+      "portuguese": true,
+      "reason": "A resposta está correta e baseada em evidências que indicam que `errors=coerce` converte valores inválidos em `NaN`, não em zero."
+    },
+    "interpretation": {
+      "scope": "inside",
+      "english_question": "Does errors=coerce transform invalid text into zero?",
+      "message": ""
+    },
+    "planning_usage": {
+      "eval_count": 32,
+      "prompt_eval_count": 210,
+      "total_duration": 1937153900,
+      "load_duration": 10788000,
+      "prompt_eval_duration": 218453000,
+      "eval_duration": 1510164000
+    },
+    "retrieval_ms": 2141.855200054124,
+    "context_chars": 2035,
+    "generation_ms": 7674.631199974101,
+    "usage": {
+      "eval_count": 105,
+      "prompt_eval_count": 1663,
+      "total_duration": 7667945200,
+      "load_duration": 7168700,
+      "prompt_eval_duration": 1844749000,
+      "eval_duration": 5777165000
+    },
+    "audit_usage": {
+      "eval_count": 59,
+      "prompt_eval_count": 2289,
+      "total_duration": 6062180300,
+      "load_duration": 7933000,
+      "prompt_eval_duration": 2454155000,
+      "eval_duration": 3349475000
+    },
+    "audit_ms": 6064.591600035783,
+    "total_ms": 15881.454900023527
+  }
+}
